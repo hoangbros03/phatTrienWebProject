@@ -1,0 +1,16 @@
+.wrapper{
+    position: fixed;
+    height: var(--default-layout-header-height);
+    background-color: bisque;
+    width: 100%;
+    top: 0;
+    left: 0;
+    align-items: center;
+}
+.inner{
+    height: 100%;
+    margin: auto;
+    display: flex;
+    max-width: 1150px;
+    justify-content: space-between;
+}
