@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const trungTamDangKiem = new Schema({
-    name: String,
+    name: {
+        type: String,
+        required: true
+    },
     user: {
         type:String,
         required:true
