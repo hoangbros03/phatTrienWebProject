@@ -39,7 +39,7 @@ table {
 	border-spacing: 0;
 }
 :root {
-    --primary: #fe2c55;
+    --primary: #6C75B7;
 
     //default layout
     --font-family: 'ProximaNova', sans-serif;
@@ -97,7 +97,6 @@ body {
     color: var(--text-color);
 }
 a[href] {
-    color: var(--text-color);
     text-decoration: none;
 }
 button,input,[tabindex]{

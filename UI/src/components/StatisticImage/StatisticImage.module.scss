@@ -1,0 +1,40 @@
+.wrapper{
+    width: 20%;
+    height: 80%;
+    background-color: #fff;
+    border-radius:8px ;
+    display: flex;}
+.image{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    p{
+        color: #5763B3;
+        background-color:  #DDE0FA;
+        display: block;
+        padding: 8px;
+        border-radius: 8px;
+        
+    }
+}
+.content{
+    justify-content: center;
+    align-self: center;
+}
+.title{
+    font-size: 12px;
+}
+
+.growth{
+    color: #5763B3;
+    p{
+     
+        font-size: 30px;}
+}
+.footer{
+    color: #5763B3;
+    p{
+     
+        font-size: 12px;}
+}

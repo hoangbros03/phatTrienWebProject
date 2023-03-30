@@ -1,6 +1,6 @@
 .wrapper{
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - var(--default-layout-header-height));
     margin-top: var(--default-layout-header-height);
     display: flex;
 }
@@ -10,6 +10,11 @@
    
 }
 .sliderbar{
-    width: 325px;
-    background-color: #b3dbbf;
+    width: 390px;
+    
+}
+.main{
+    flex-grow: 1;
+    background-color: #EFF3F9;
+    border-radius: 4px;
 }
