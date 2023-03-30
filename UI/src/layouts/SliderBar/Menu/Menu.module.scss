@@ -1,0 +1,30 @@
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    border-radius: 4px;
+    color: var(--text-color);
+    transition: background-color ease-in-out 200ms;
+
+    &:hover {
+        background-color: rgba(67, 68, 75, 0.03);
+    }
+}
+
+.title {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 25px;
+    margin-left: 30px;
+}
+
+.icon {
+    display: flex;
+    padding-right:2px ;
+}

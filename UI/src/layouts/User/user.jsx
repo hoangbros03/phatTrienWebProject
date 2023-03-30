@@ -15,7 +15,7 @@ function User() {
     <div className={cx('wrapper')}>
         <div className={cx('inner')}>
         <div className={(cx('logo'))}>Logo</div>
-        <Button text large onClick={test}>{user}</Button>
+        <Button text large primary onClick={test}>{user}</Button>
         </div>
     </div>
     <Outlet/>

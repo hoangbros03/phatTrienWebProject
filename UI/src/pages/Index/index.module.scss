@@ -1,0 +1,65 @@
+.wrapper {
+    background-color: #fff;
+}
+.navbar {
+    height: var(--default-layout-header-height);
+    display: flex;
+    justify-content: center;
+}
+.center {
+    display: flex;
+    justify-content: space-around;
+    height: 38px;
+    margin: auto;
+    width: 100%;
+}
+.logo {
+    width: 100px;
+    background-color: aquamarine;
+}
+
+.container {
+    display: flex;
+}
+.slider {
+    background-color: #eff3f9;
+    flex-grow: 1;
+    position: relative;
+}
+.content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    top: 25%;
+    left: 25%;
+    
+    width: 100%;
+    height: 50%;
+    h1 {
+        color: #6c75b7;
+    }
+    p { padding-top: 20px;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 36px;
+    }
+    div{
+        display: flex;
+    }
+}
+
+
+.main {
+    flex-grow: 1;
+    height: calc(100vh - var(--default-layout-header-height));
+    background-image: url('../../assets/images/Vector.png');
+    background-color: #eff3f9;
+    background-repeat: no-repeat;
+    display: flex;
+}
+.image {
+    display: block;
+    margin: auto;
+    margin-left: 40%;
+}

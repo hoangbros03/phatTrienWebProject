@@ -1,3 +1,4 @@
+import GlobalStyles from './components/GlobalStyles';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import Layout from './layouts/Layout';
 import User from './layouts/User/user';
@@ -14,6 +15,7 @@ import Lookup from './pages/Ttdk/lookup/lookup';
 import NewRegistry from './pages/Ttdk/newRegistry/newRegistry';
 import StatisticTTDK from './pages/Ttdk/statistic/statisticTTDK';
 import Ttdk from './pages/Ttdk/ttdk';
+import IndexCDK from './pages/Cucdangkiem/Index/indexCDK';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -22,9 +24,9 @@ const router = createBrowserRouter(
             <Route path="about" element={<About />} />
             <Route path="login" element={<Login />} />
             <Route path="cucdangkiem" element={<User />}>
-                {/* Use user like a navbar */}
+                {/* Use user like a navbar display logo and username  */}
                 <Route path=":user" element={<Cucdangkiem />}>
-                    <Route index element={<Index />} />
+                    <Route index element={<IndexCDK />} />
                     <Route path="changeInformation" element={<ChangeInformation />} />
                     <Route path="registerCenter" element={<RegisterCenter />} />
                     <Route path="upload" element={<Upload />} />
@@ -32,7 +34,7 @@ const router = createBrowserRouter(
                 </Route>
             </Route>
             <Route path="trungTamDangKiem" element={<User />}>
-                {/* Use user like a navbar */}
+                {/* Use user like a navbar display logo and username */}
                 <Route path=":user" element={<Ttdk />}>
                     <Route index element={<Index />} />
                     <Route path="newRegistry" element={<NewRegistry />} />
@@ -46,7 +48,9 @@ const router = createBrowserRouter(
 );
 
 function App() {
-    return <RouterProvider router={router} />;
+    return <GlobalStyles>
+    <RouterProvider router={router} />
+    </GlobalStyles>;
 }
 
 export default App;
