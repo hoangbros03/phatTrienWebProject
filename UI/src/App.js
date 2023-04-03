@@ -16,6 +16,7 @@ import NewRegistry from './pages/Ttdk/newRegistry/newRegistry';
 import StatisticTTDK from './pages/Ttdk/statistic/statisticTTDK';
 import Ttdk from './pages/Ttdk/ttdk';
 import IndexCDK from './pages/Cucdangkiem/Index/indexCDK';
+import Indexttdk from './pages/Ttdk/Index/indexttdk';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -36,7 +37,7 @@ const router = createBrowserRouter(
             <Route path="trungTamDangKiem" element={<User />}>
                 {/* Use user like a navbar display logo and username */}
                 <Route path=":user" element={<Ttdk />}>
-                    <Route index element={<Index />} />
+                    <Route index element={<Indexttdk />} />
                     <Route path="newRegistry" element={<NewRegistry />} />
                     <Route path="lookup" element={<Lookup />} />
                     <Route path="statistic" element={<StatisticTTDK />} />

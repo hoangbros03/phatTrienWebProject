@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const trungTamDangKiem = require('../models/TrungTamDangKiem');
+const TrungTamDangKiem = require('../models/TrungTamDangKiem');
 const registrationInformation = new Schema({
     licensePlate: {
         type: String,
@@ -12,6 +14,10 @@ const registrationInformation = new Schema({
     dateOfExpiry: {
         type: Date,
         required: true
+    },
+    trungTamDangKiem:{
+        type: TrungTamDangKiem,
+        required:true
     }
 });
 module.exports = mongoose.model("RegistrationInformation", registrationInformation);

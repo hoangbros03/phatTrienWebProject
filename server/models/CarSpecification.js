@@ -9,6 +9,10 @@ const carSpecification = new Schema({
         type:String,
         required: true
     },
+    type:{
+        type:String,
+        required:true
+    },
     producer: String,
     numberOfSeats: Number,
     width: Number,

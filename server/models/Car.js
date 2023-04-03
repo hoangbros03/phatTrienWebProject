@@ -27,6 +27,10 @@ const car = new Schema({
     registrationInformation:{
         type: regisInfor,
         required: true
+    },
+    carSpecification:{
+        type:carSpecs,
+        required:true
     }
 
 

@@ -12,6 +12,12 @@ const paperOfRecognition = new Schema({
   dateOfIssue: {
     type: Date,
     required: true
-  } 
+  },
+  //made so ez to track and query
+  //TODO: automatically set the value when POST
+  quarter: {
+    type: Number,
+    required: true
+  }
 });
 module.exports = mongoose.model("PaperOfRecognition", paperOfRecognition);
