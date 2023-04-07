@@ -1,59 +1,58 @@
 import { Outlet } from "react-router-dom";
 import styles from "./newRegistry.module.scss";
 import classNames from 'classnames/bind';
+import React, { useState } from 'react';
 const cx = classNames.bind(styles);
 function NewRegistry() {
+    
+    
+    const [ttdk,setTtdk]=useState({name:"",username:"",password:"",checkpassword:"",email:"",phone:"",brief:""})
+    const [status
+        ,setStatus
+    ]=useState({status:"unsent"})
+
+    const handleChange =(e)=>{
+        const {name,value}=e.target
+        setTtdk({...ttdk,[name]:value})
+    }
+
+    const handleSubmit= (e)=>{
+        e.preventDefault()
+
+        console.log(ttdk);
+        
+    } 
+    const renderForm=()=>{
+        console.log(status.status=="unsent")
+        if(status.status=="unsent") return (<div className={cx('container')}>
+           
+        </div>);
+        else return null;
+    }
+    
+    const renderSucess=()=>{
+        if(status.status=="sucess") return (<div className={cx('container',"sucess",'respone')}>
+            <div className={cx('title')}>Thành Công</div>
+            <div className={cx('content')}>{`Đã Đăng kí thành công Trung tâm đăng kiểm ${ttdk.name}`}</div>
+        </div>);
+        else return null;
+
+    }
+    const renderFailure=()=>{
+        if(status.status=="failure") return (<div className={cx('container',"failure",'respone')}>
+            <div className={cx('title')}>Có lỗi đã xảy ra</div>
+            <div className={cx('content')}>{`Đã không thể Đăng kí thành công Trung tâm đăng kiểm ${ttdk.name}`}</div>
+        </div>);
+        else return null;
+
+    }
     return (
-        <div className={cx('container')}>
-            <form action="" className={cx('form')}>
-                <div className={cx('column', 'one')}>
-                    <div className={cx('field', 'username')}>
-                        <label for="Username_">Username</label>
-                        <input
-                            className={cx('input')}
-                            type="text"
-                            name="Username"
-                            id="Username_"
-                            placeholder="type your name in english only"
-                            required
-                        />
-                    </div>
-                    <div className={cx('field', 'password')}>
-                        <label for="Password_">password</label>
-                        <input
-                            className={cx('input')}
-                            type="password"
-                            name="password"
-                            id="Password_"
-                            placeholder="type a complex password"
-                            required
-                        />
-                    </div>
-                    <div className={cx('field', 'email')}>
-                        <label for="Email_">email</label>
-                        <input
-                            className={cx('input')}
-                            type="email"
-                            name="email"
-                            id="Email_"
-                            placeholder="type a valid email"
-                            required
-                        />
-                    </div>
-                </div>
-                <div className={cx('column', 'two')}>
-                    <div className={cx('field', 'phone')}>
-                        <label for="Phone_">phone</label>
-                        <input className={cx('input')} type="tel" name="phone" id="Phone_" />
-                    </div>
-                    <div className={cx('field', 'Brief')}>
-                        <label for="Brief_">brief</label>
-                        <textarea classNames={cx('textarea')}></textarea>
-                    </div>
-                </div>
-                <input type="submit" value="register" className={cx('register','input')} />
-            </form>
+        <div className={cx('wrapper')}>
+            {renderForm()}
+            {renderSucess()}
+            {renderFailure()}
         </div>
+        
     );
 }
 

@@ -11,24 +11,29 @@ import StatisticCDK from './pages/Cucdangkiem/Statistic/statisticCDK';
 import Upload from './pages/Cucdangkiem/upload/upload';
 import Index from './pages/Index';
 import Login from './pages/login/login';
-import Lookup from './pages/Ttdk/lookup/lookup';
 import NewRegistry from './pages/Ttdk/newRegistry/newRegistry';
 import StatisticTTDK from './pages/Ttdk/statistic/statisticTTDK';
 import Ttdk from './pages/Ttdk/ttdk';
 import IndexCDK from './pages/Cucdangkiem/Index/indexCDK';
-
+import indexttdk from './pages/Ttdk/Index/indexttdk';
+import SearchCar from './layouts/searchCar/searchCar';
+import Indexttdk from './pages/Ttdk/Index/indexttdk';
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<Layout />}>
             <Route index element={<Index />} />
             <Route path="about" element={<About />} />
             <Route path="login" element={<Login />} />
-            <Route path="cucdangkiem" element={<User />}>
+            <Route path="cucdangkiem" element={
+           
+            <User />
+            }>
                 {/* Use user like a navbar display logo and username  */}
                 <Route path=":user" element={<Cucdangkiem />}>
                     <Route index element={<IndexCDK />} />
                     <Route path="changeInformation" element={<ChangeInformation />} />
                     <Route path="registerCenter" element={<RegisterCenter />} />
+                    <Route path="searchcar" element={<SearchCar />} />
                     <Route path="upload" element={<Upload />} />
                     <Route path="statistic" element={<StatisticCDK />} />
                 </Route>
@@ -36,9 +41,9 @@ const router = createBrowserRouter(
             <Route path="trungTamDangKiem" element={<User />}>
                 {/* Use user like a navbar display logo and username */}
                 <Route path=":user" element={<Ttdk />}>
-                    <Route index element={<Index />} />
+                    <Route index element={<Indexttdk />} />
                     <Route path="newRegistry" element={<NewRegistry />} />
-                    <Route path="lookup" element={<Lookup />} />
+                    <Route path="lookup" element={<SearchCar />} />
                     <Route path="statistic" element={<StatisticTTDK />} />
                 </Route>
             </Route>

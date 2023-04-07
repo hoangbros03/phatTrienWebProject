@@ -1,11 +1,12 @@
 import classNames from 'classnames/bind';
-import styles from './Button.module.scss';
+import styles from './ButtonSearch.module.scss';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
-function Button({
+function ButtonSearch({
     to,
     href,
     primary = false,
@@ -19,9 +20,13 @@ function Button({
     bar = false,
     children,
     className,
+    data=[],
     onClick,
+    type_,
     ...passProps
 }) {
+    const [display,setDisplay]=useState(false)
+    const [value,setValue]=useState(children)
     let Comp = 'button';
     const _props = { onClick,...passProps };
 
@@ -49,17 +54,29 @@ function Button({
         large,
         active,
     });
+    const handleClickdisplay=()=>{
+        setDisplay(!display)
+    }
+   
+    const handleClick=(e)=>{
+        setDisplay(!display)
+        setValue(e.target.innerText)
+        onClick(e,type_)
 
-  
+        //onClick(e.target.innerText)
+    }
     return (
-        <Comp className={classes} {..._props} >
-            <span className={cx('title')}>{children}</span>
-
-          
+        <Comp className={classes} {..._props} onClick={handleClickdisplay}>
+            <span className={cx('title')}>{value}</span>
+            {display&&<div className={cx('data')}>
+            {data.length>0 && data.map((datas,index)=>{
+                return <p key={index} onClick={handleClick} >{datas}</p>
+            })}
+            </div>}
         </Comp>
     );
 }
-Button.propTypes = {
+ButtonSearch.propTypes = {
     to: PropTypes.string,
     href: PropTypes.string,
     primary: PropTypes.bool,
@@ -73,4 +90,4 @@ Button.propTypes = {
     className: PropTypes.string,
 };
 
-export default Button;
+export default ButtonSearch;

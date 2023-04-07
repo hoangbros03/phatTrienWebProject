@@ -89,15 +89,10 @@
     opacity: 0.6;
   }
   
-  input[type="text"],
-  input[type="password"] {
+
+  .inputtag {
     font-family: 'Montserrat', sans-serif;
     color: #fff;
-  }
-  
-  
-  
-  .inputtag {
     display: inline-block;
     padding-top: 20px;
     font-size: 14px;
