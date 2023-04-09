@@ -1,5 +1,5 @@
-const CucDangKiem = require('../models/CucDangKiem');
-const TrungTamDangKiem = require('../models/TrungTamDangKiem');
+const {CucDangKiem, CucDangKiemSchema} = require('../models/CucDangKiem');
+const {TrungTamDangKiem, TrungTamDangKiemSchema} = require('../models/TrungTamDangKiem');
 const logger = require('../logger/logger');
 
 const handleLogout = async(req,res) =>{

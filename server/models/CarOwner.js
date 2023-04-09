@@ -16,4 +16,4 @@ const carOwner = new Schema({
     ID: String
 
 });
-module.exports = mongoose.model("CarOwner", carOwner);
+module.exports ={"model": mongoose.model("CarOwner", carOwner), "schema": carOwner};

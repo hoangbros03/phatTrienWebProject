@@ -1,5 +1,5 @@
-const TrungTamDangKiem = require('../models/TrungTamDangKiem');
-const CucDangKiem = require('../models/CucDangKiem');
+const {TrungTamDangKiem, TrungTamDangKiemSchema} = require('../models/TrungTamDangKiem');
+const {CucDangKiem, CucDangKiemSchema} = require('../models/CucDangKiem');
 const jwt = require('jsonwebtoken');
 const logger = require('../logger/logger');
 const { loggers } = require('winston');

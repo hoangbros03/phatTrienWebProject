@@ -19,4 +19,6 @@ const carSpecification = new Schema({
     height: Number,
     power: Number
 });
-module.exports = mongoose.model("CarSpecification", carSpecification);
+module.exports ={
+    "model": mongoose.model("CarSpecification", carSpecification),
+    "schema": carSpecification};

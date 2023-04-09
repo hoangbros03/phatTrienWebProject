@@ -20,4 +20,4 @@ const trungTamDangKiem = new Schema({
     forgotPassword: Boolean,
     refreshToken : String
 });
-module.exports = mongoose.model('TrungTamDangKiem', trungTamDangKiem);
+module.exports = {"model":mongoose.model('TrungTamDangKiem', trungTamDangKiem),"schema":trungTamDangKiem};

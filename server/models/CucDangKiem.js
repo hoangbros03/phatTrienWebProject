@@ -14,4 +14,4 @@ const cucDangKiem = new Schema({
 
 
 })
-module.exports = mongoose.model('CucDangKiem', cucDangKiem);
+module.exports = {"model":mongoose.model('CucDangKiem', cucDangKiem),"schema": cucDangKiem};

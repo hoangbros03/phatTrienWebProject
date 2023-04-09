@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const trungTamDangKiem = require('../models/TrungTamDangKiem');
-const TrungTamDangKiem = require('../models/TrungTamDangKiem');
+
+const {TrungTamDangKiemModel, TrungTamDangKiem} = require('../models/TrungTamDangKiem');
 const registrationInformation = new Schema({
     licensePlate: {
         type: String,
@@ -15,9 +15,11 @@ const registrationInformation = new Schema({
         type: Date,
         required: true
     },
-    trungTamDangKiem:{
-        type: TrungTamDangKiem,
+    trungTamDangKiem:{  
+        type: Schema.Types.ObjectId,
         required:true
     }
+
 });
-module.exports = mongoose.model("RegistrationInformation", registrationInformation);
+module.exports = {"model": mongoose.model("RegistrationInformation", registrationInformation),
+"schema": registrationInformation};

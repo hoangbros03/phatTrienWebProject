@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const carOwner = require('./CarOwner');
-const carSpecs = require('./CarSpecification');
-const paperOfReg = require('./PaperOfRecognition');
-const regisInfor = require('./RegistrationInformation');
+const {carownermodel, carOwner }= require('./CarOwner');
+const {carspecmodel, carSpecs }= require('./CarSpecification');
+const {paperrecogmodel, paperOfReg} = require('./PaperOfRecognition');
+const {reginfomodel, regisInfor} = require('./RegistrationInformation');
 
 const car = new Schema({
     paperOfRecognition: {
-        type: paperOfReg,
+        type: mongoose.SchemaTypes.ObjectId,
         required: true
     },
     licensePlate: {
@@ -21,16 +21,24 @@ const car = new Schema({
     producer: String,
     version: String,
     carOwner:{
-        type: carOwner,
+        type: Schema.Types.ObjectId,
         required: true
     },
     registrationInformation:{
-        type: regisInfor,
+        type: Schema.Types.ObjectId,
         required: true
     },
     carSpecification:{
-        type:carSpecs,
+        type:Schema.Types.ObjectId,
         required:true
+    },
+    engineNo:{
+        type: Schema.Types.ObjectId,
+        required: true
+    },
+    classisNo:{
+        type: Schema.Types.ObjectId,
+        required: true
     }
 
 

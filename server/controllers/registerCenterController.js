@@ -1,6 +1,7 @@
-const TrungTamDangKiem = require('../models/TrungTamDangKiem');
+const {TrungTamDangKiem, TrungTamDangKiemSchema} = require('../models/TrungTamDangKiem');
 const bcrypt = require('bcrypt');
 const logger = require('../logger/logger');
+const region = require('../models/Region');
 
 const createNewCenter = async(req,res)=>{
     const body =  req.body;
@@ -12,6 +13,11 @@ const createNewCenter = async(req,res)=>{
     //check duplicate
     const duplicate = await TrungTamDangKiem.findOne({name: body['name'], regionName: body['regionName']}).exec();
     if(duplicate) return res.sendStatus(409); //mean conflict
+    //check regionName exist
+    if(!region.findOne({regionName: body.regionName})){
+        logger.info("regionName doesn't contain in the list, please check the spelling");
+        return res.sendStatus(409);
+    }
 
     try{
         const encodedPwd = await bcrypt.hash(body['encodedPassword'],10);
