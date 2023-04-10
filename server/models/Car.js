@@ -8,6 +8,7 @@ const {reginfomodel, regisInfor} = require('./RegistrationInformation');
 const car = new Schema({
     paperOfRecognition: {
         type: mongoose.SchemaTypes.ObjectId,
+        ref: "PaperOfRecognition",
         required: true
     },
     licensePlate: {
@@ -22,25 +23,29 @@ const car = new Schema({
     version: String,
     carOwner:{
         type: Schema.Types.ObjectId,
+        ref : "CarOwner",
         required: true
     },
     registrationInformation:{
         type: Schema.Types.ObjectId,
+        ref: "RegistrationInformation",
         required: true
     },
     carSpecification:{
         type:Schema.Types.ObjectId,
+        ref: "CarSpecification",
         required:true
     },
     engineNo:{
-        type: Schema.Types.ObjectId,
+        type: String,
         required: true
     },
     classisNo:{
-        type: Schema.Types.ObjectId,
+        type: String,
         required: true
     }
 
 
 });
-module.exports = mongoose.model("Car",car);
+module.exports = {"model": mongoose.model("Car",car),
+"schema": car}

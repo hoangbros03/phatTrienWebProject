@@ -10,7 +10,7 @@ const paperOfRecognition = new Schema({
     required: true
   } ,
   dateOfIssue: {
-    type: Schema.Types.Date,
+    type: Date,
     required: true
   },
   //made so ez to track and query

@@ -17,6 +17,7 @@ const registrationInformation = new Schema({
     },
     trungTamDangKiem:{  
         type: Schema.Types.ObjectId,
+        ref: "TrungTamDangKiem",
         required:true
     }
 

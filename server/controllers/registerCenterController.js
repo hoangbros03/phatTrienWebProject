@@ -14,10 +14,14 @@ const createNewCenter = async(req,res)=>{
     const duplicate = await TrungTamDangKiem.findOne({name: body['name'], regionName: body['regionName']}).exec();
     if(duplicate) return res.sendStatus(409); //mean conflict
     //check regionName exist
-    if(!region.findOne({regionName: body.regionName})){
-        logger.info("regionName doesn't contain in the list, please check the spelling");
-        return res.sendStatus(409);
+    //TODO: Re-enable it
+    if(false){
+        if(!region.findOne({regionName: body.regionName})){
+            logger.info("regionName doesn't contain in the list, please check the spelling");
+            return res.sendStatus(409);
+        }
     }
+    
 
     try{
         const encodedPwd = await bcrypt.hash(body['encodedPassword'],10);

@@ -6,11 +6,15 @@ const verifyRoles = require('../../middleware/verifyRoles');
 
 
 //TODO: Add verify roles add other API, currently just for testing purpose.
-router.route('/')
+router.route('/:user/')
     .get(carsController.searchCar)
     .post(carsController.createCar);
 
-router.route('/carList')
+router.route('/:user/carList')
     .get(carsController.getCarsList);
+
+router.route('/:user/carSpec')
+    .get(carsController.getCarsList)
+    .post(carsController.createCarSpecification);
 
 module.exports = router;
