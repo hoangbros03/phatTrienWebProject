@@ -25,9 +25,9 @@ justify-content: center;}
     flex-wrap: wrap;
     justify-content: center;
     overflow-y: scroll;
+    align-content: flex-start;
 }
 .footer{
-    
     width: 100%;
     min-height: 48px;
     height: 25%;

@@ -99,6 +99,10 @@ const [object, setObject] = useState({
                     <CarItem></CarItem>
                     <CarItem></CarItem>
                     <CarItem></CarItem>
+                    <CarItem></CarItem>
+                    <CarItem></CarItem>
+                    <CarItem></CarItem>
+                    <CarItem></CarItem>
                 </div>
                 <div className={cx('footer')}>
                     <StatisticImage province="HN" growth={15} addcar={240}></StatisticImage>

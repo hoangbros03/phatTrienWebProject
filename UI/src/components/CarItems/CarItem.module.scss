@@ -1,7 +1,64 @@
-.wrapper{
+.wrapperItem{
     margin-top: 10px;
     width: 90%;
     height: 40px;
     background-color: #fff;
     border-radius: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 0.5fr 1fr;
+}
+.wrapperDetail {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../assets/images/BackgroundSearch.png');
+    background-size: 60% 60%;
+    background-color: #eff3f9;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top:0;
+    left: 0;
+    position: fixed;
+    overflow: visible;
+}
+//form
+.container {
+
+    //căn giữa
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 90%;
+    width: 90%;
+    background-color: #fff;
+    border-radius: 16px;
+    color: #5964ae;
+}
+.icon_close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+.title_info{
+    padding-top:3% ;
+    text-align: center;
+    font-size: 3rem;
+   
+}
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    }
+.info{
+    padding-top: 2%;
+    display: grid ;
+    grid-template-columns: 1fr 1fr;
+    width: 40%;
+}
+.info > p{
+    color: #000;
 }

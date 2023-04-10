@@ -25,6 +25,7 @@
         flex-wrap: wrap;
         justify-content: center;
         overflow-y: scroll;
+        align-content: flex-start;
     }
     .footer{
         
@@ -34,4 +35,13 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+        height: auto;
+
     }
+    @media only screen and (max-width: 920px) {
+        .footer {
+          display: none;
+        }
+        .content{
+        height: 90%;}
+      }

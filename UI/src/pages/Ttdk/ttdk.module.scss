@@ -9,7 +9,7 @@
    
 }
 .sliderbar{
-    width: 390px;
+    width: 20%;
     
 }
 .main{
@@ -17,3 +17,12 @@
     background-color: #EFF3F9;
     border-radius: 4px;
 }
+
+//reponsive
+@media only screen and (max-width: 920px) {
+    /* For mobile phones: */
+    .sliderbar{
+        display: none;
+    }
+    
+  }

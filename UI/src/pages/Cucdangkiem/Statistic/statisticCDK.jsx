@@ -6,6 +6,7 @@ import classNames from 'classnames/bind';
 import BarStatistic from '~/components/BarStatistic/BarStatistic';
 import CarItem from '~/components/CarItems/CarItem';
 import StatisticImage from '~/components/StatisticImage/statisticimage';
+import NavCar from '~/components/NavCar/NavCar';
 import { useEffect, useState } from 'react';
 import Button from '~/components/Button';
 import ButtonSearch from '~/components/ButtonSearch';
@@ -65,6 +66,11 @@ function StatisticCDK() {
 
         console.log(object);
     };
+    const test={owner:"Test",
+    licensePlate:"Test",
+    dateOfIssue:"Test",
+    regionName:"Test",
+    tddk:"Test",}
     return (
         <div className={cx('wrapper')}>
             <div className={cx('container')}>
@@ -105,12 +111,21 @@ function StatisticCDK() {
                     </BarStatistic>
                 </div>
                 <div className={cx('content')}>
-                    <CarItem></CarItem>
-                    <CarItem></CarItem>
+                    {/* bị lỗi chỗ này cmt đi thì k bị nữa  */}
+                    <NavCar></NavCar>
+                    <CarItem car={test}></CarItem>
+                    <CarItem car={test}></CarItem>
                     
-                    <CarItem></CarItem>
-                    <CarItem></CarItem>
-                    <CarItem></CarItem>
+                    
+                    <CarItem car={test}></CarItem>
+                    
+                    <CarItem car={test}></CarItem>
+                    
+                    <CarItem car={test}></CarItem>
+                    
+                    <CarItem car={test}></CarItem>
+                    
+                    
                 </div>
                 <div className={cx('footer')}>
                     <StatisticImage province="HN" growth={15} addcar={240}></StatisticImage>
