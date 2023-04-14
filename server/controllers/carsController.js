@@ -17,14 +17,18 @@ CAR LIST PART
 
 //This is used so if 'all', we can query regardless of the value of key(s)
 const correct = (i)=>{
-    if(i!="all") return i;
+    if(i!="all") return new RegExp(i.toString());
     return /./;
 }
 //correctMonth, since the Month in js is bullshit
 const correctMonth = (i) =>{
+   
     i = Number(i);
-    if(isNaN(i))return /./;
-    return i-1;
+    if(isNaN(i)){
+        logger.info("Parameter given is not a number");
+        return null;}
+    return (i).toString();
+    
     
 }
 
@@ -47,37 +51,44 @@ const checkNoRequireInformation = (info, type) =>{
 //month, province, quarter, ttdk, type, year, incoming carType
 
 //get car based on condition
+//TODO: Remove result with "dummy" as ttdk name
 const getCarsList = async(req,res)=>{
     if(!enoughInformationToGetList(req)){return res.status(400).json({"message":"Please give back-end enough information"});}
     let cars;
     if(req.body.type=='registered'){
-        cars=await Cars.find({
-            regionName: correct(req.body.province),
-            $expr : {$and :[
-                {$eq:[{$month: '$paperOfRecognition.dateOfIssue'}, correctMonth(req.body.month)]},
-                {$eq:['$paperOfRecognition.quarter',correct(req.body.quarter)]},
-                {$eq:['$registrationInformation.trungTamDangKiem.name',correct(req.body.ttdk)]},
-                {$eq:[{$year: '$paperOfRecognition.dateOfIssue'},correct(req.body.year)]},
-                {$eq:['$carSpecification.type',correct(req.body.carType)]}
-            ]
-        }
-        }).populate({
-            path: 'paperOfRecognition',
-            select: 'dateOfIssue'
-        }).populate({
-            path: 'carOwner',
-            select: 'organization name address ID'
-        }).populate({
-            path:'registrationInformation',
-            select: 'dateOfIssue dateOfExpiry',
-            populate:{
-                path: 'trungTamDangKiem',
-                select: 'name'
-            }
-        }).populate({
-            path: 'carSpecification',
+        cars = await registrationInformation.find({
+            $expr: {$and:[{
+                $regexMatch: {
+                  input: { $toString: "$quarter" },
+                  regex: correct(req.body.quarter)
+                }},{
+                    $regexMatch: {
+                        input: { $toString: {$month: "$dateOfIssue"} },
+                        regex: correct(req.body.month)
+                      }
+                },{
+                    $regexMatch: {
+                        input: { $toString: {$year: "$dateOfIssue"} },
+                        regex: correct(req.body.year)
+                      }
+                },{
+                    $regexMatch:{
+                        input: "$regionName",
+                        regex: correct(req.body.province)
+                    }
+                },{
+                    $regexMatch:{
+                        input: "$trungTamDangKiemName",
+                        regex: correct(req.body.ttdk)
+                    }
+                },{
+                    $regexMatch:{
+                        input: "$carType",
+                        regex: correct(req.body.carType)
+                    }
+                }]}
         }).exec();
-
+        
     }else if(req.body.type==='nearExpire'){
         //in less than or equal to 3 month
 
@@ -101,7 +112,7 @@ const getCarsList = async(req,res)=>{
             select: 'organization name address ID'
         }).populate({
             path:'registrationInformation',
-            select: 'dateOfIssue dateOfExpiry',
+            select: 'dateOfIssue dateOfExpiry quarter',
             populate:{
                 path: 'trungTamDangKiem',
                 select: 'name'
@@ -119,11 +130,12 @@ const getCarsList = async(req,res)=>{
 
     //return part
     if(req.body.type=='registered' || req.body.type=="nearExpire"){
-        if(!cars){
+        if(cars.length == 0){
             res.json({"message":"No car found."});
             return res.status(204);
         }
-        res.json(cars);
+        // console.log(cars[0].paperOfRecognition.dateOfIssue.$month);
+        return res.json(cars);
     }else{
         //TODO: What to return in predict 
     }
@@ -172,18 +184,20 @@ const searchCar = async(req,res)=>{
         select: 'organization name address ID'
     }).populate({
         path:'registrationInformation',
-        select: 'dateOfIssue dateOfExpiry',
+        select: 'dateOfIssue dateOfExpiry quarter',
         populate:{
             path: 'trungTamDangKiem',
-            select: 'name'
+            select: 'name regionName'
         }
     }).populate({
         path: 'carSpecification',
     }).exec();
+    //TODO: Get registration informations in history
+
     //return
-    if(!car){
+    if(car.length==0){
         logger.info("No car match the search");
-        return res.sendStatus(200);
+        return res.status(200).json({"status":"No car match"});
     }
     return res.json(car);
 }
@@ -264,13 +278,13 @@ const createCar = async(req,res)=>{
     }
     //check region
     //TODO: Re-enable it when working
-    if(false){
-        const checkRegion = await Region.findOne({regionName: req.body.regionName, regionNumber: regionNumber}).exec();
-        if(!checkRegion){
-            logger.info("region number and name don't match. Please try again");
-            return res.sendStatus(400);
-        }
+
+    const checkRegion = await Region.findOne({regionName: req.body.regionName, regionNumber: regionNumber}).exec();
+    if(!checkRegion){
+        logger.info("region number and name don't match. Please try again");
+        return res.sendStatus(400);
     }
+   
     
     //6. carName
     if(typeof req.body.carName !="string"){
@@ -365,7 +379,7 @@ const createCar = async(req,res)=>{
     //Everything is good, Now create paperOfRecognition! (good practice: Check everything before work with db)
     let aDate = new Date(req.body.dateOfIssue);
     //get quarter
-    let qua = aDate.getMonth()%3 +1;
+    let qua = aDate.getMonth()/3 +1;
     //create new documnent
     newPaper = new paperOfRecognition({
         name: req.body.ownerName,
@@ -387,12 +401,18 @@ const createCar = async(req,res)=>{
     //create dummy TTDK registration
     let eDate = new Date();
     eDate.setTime(aDate.getTime()+24*3600*1000); //1 day 
+    let dkQua = Math.floor(aDate.getMonth()/3)+1;
     //TODO: Fix bug Date
     newDummyDK = new registrationInformation({
         licensePlate: req.body.licensePlate,
         dateOfIssue: aDate,
         dateOfExpiry: eDate,
-        trungTamDangKiem: dummyTTDK._id
+        quarter: dkQua,
+        trungTamDangKiem: dummyTTDK._id,
+        ownerName: req.body.ownerName,
+        carType: req.body.carType,
+        trungTamDangKiemName: "dummy",
+        regionName: req.body.regionName
     });
     await newDummyDK.save().then((doc)=>{
         logger.info("Add temp registry successfully");
@@ -476,14 +496,11 @@ const createCarSpecification = async(req,res)=>{
     );
 };
 
-
-//TODO: Add chung nhan dang kiem moi
-
-//TODO: Update car owner
-//update car 
+//TODO: Upload car from json (remember old pattern license plate)
 
 
-//delete car
+
+//TODO: Delete car
 
 module.exports = {
     getCarsList,

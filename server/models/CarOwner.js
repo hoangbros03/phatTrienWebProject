@@ -13,7 +13,11 @@ const carOwner = new Schema({
         type: String,
         required: true
     },address : String,
-    ID: String
+    ID: {
+        type: String,
+        minLength: 9,
+        maxLength: 12
+    }
 
 });
 module.exports ={"model": mongoose.model("CarOwner", carOwner), "schema": carOwner};

@@ -42,6 +42,8 @@ app.use(cookieParser());
 //TODO: Create verifyJWT
 
 //TODO: Create API 
+app.use('/cucDangKiem',require('./routes/api/cucDangKiem'));
+
 app.use('/trungTamDangKiem', require('./routes/api/trungTamDangKiem'));
 
 

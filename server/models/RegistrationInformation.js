@@ -15,10 +15,31 @@ const registrationInformation = new Schema({
         type: Date,
         required: true
     },
+    quarter:{
+        type: Number,
+        requried: true
+    },
+
     trungTamDangKiem:{  
         type: Schema.Types.ObjectId,
         ref: "TrungTamDangKiem",
         required:true
+    },
+    ownerName:{
+        type: String,
+        required:true
+    },
+    carType:{
+        type: String,
+        required: true
+    },
+    trungTamDangKiemName:{
+        type: String,
+        required:true
+    },
+    regionName:{
+        type: String,
+        required: true
     }
 
 });
