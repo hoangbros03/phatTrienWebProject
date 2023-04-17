@@ -145,22 +145,23 @@ const getCarsList = async(req,res)=>{
 
 //search car
 const searchCar = async(req,res)=>{
+    
     //check search length
     if(!req?.body?.searchValue){
         logger.info("Not found searchValue");
-        res.sendStatus(400);
+        return res.sendStatus(400);
     }else if(req.body.searchValue.length<=3){
         logger.info("Too short to find!");
-        res.sendStatus(400);
+        return res.sendStatus(400);
        
     }else if(req.body.searchValue.length>10){
         logger.info("Too long to find!");
-        res.sendStatus(400);
+        return res.sendStatus(400);
     }
     //process the search
     let value;
-    if(req.body.searchValue.length == 10) value= req.body.searchValue;
-    else if(req.body.searchValue.length<10){
+    if(req.body.searchValue.length == 10){ value= req.body.searchValue;
+    }else if(req.body.searchValue.length<10){
         //create regex
         let pattern ="";
         pattern+='[a-zA-Z0-9.-]*';
@@ -195,11 +196,13 @@ const searchCar = async(req,res)=>{
     //TODO: Get registration informations in history
 
     //return
-    if(car.length==0){
+    if(!car){
         logger.info("No car match the search");
         return res.status(200).json({"status":"No car match"});
     }
-    return res.json(car);
+    
+    res.json({"status": car});
+    return res.sendStatus(200);
 }
 
 //create car
@@ -242,7 +245,7 @@ const createCar = async(req,res)=>{
         return res.sendStatus(400);
     }
     //3. licensePlate
-    if(typeof req.body.licensePlate !="string" ||!req.body.licensePlate.match(/\d{2}[A-Z]-\d{3}.\d{2}/)){
+    if(typeof req.body.licensePlate !="string" ||(!req.body.licensePlate.match(/\d{2}[A-Z]-\d{3}.\d{2}/)&&!req.body.licensePlate.match(/\d{2}[A-Z]-\d{4}/))){
         logger.info("the licensePlate is either not a string or not a proper syntax. Please check again");
         return res.sendStatus(400);
     }
@@ -277,7 +280,7 @@ const createCar = async(req,res)=>{
         return res.sendStatus(400);
     }
     //check region
-    //TODO: Re-enable it when working
+    //Re-enable it when working
 
     const checkRegion = await Region.findOne({regionName: req.body.regionName, regionNumber: regionNumber}).exec();
     if(!checkRegion){
@@ -329,8 +332,19 @@ const createCar = async(req,res)=>{
     carOwn = await carOwner.findOne({organization: req.body.organization, name: req.body.ownerName, regionName: req.body.regionName}).exec();
     if(!carOwn){
         let address = "", ID= "";
-        if(req.body.address) address = req.body.adress;
-        if(req.body.ID) ID = req.body.ID;
+        if(req?.body?.address) address = req.body.adress;
+        if(req?.body?.ID) ID = req.body.ID;
+        //Check if ID is valid, allow for update later
+        if(ID!=""){
+            if(!req.body.ID.length==9 && !req.body.ID.length==12){
+                logger.info("ID length invalid, please update later!");
+                ID = "";
+            }
+            if(isNaN(Number.parseInt(req.body.ID))){
+                logger.info("ID not a set of numbers, please update later!");
+                ID="";
+            }
+        }
         carOwn = new carOwner({
             organization: req.body.organization,
             name: req.body.ownerName,
@@ -402,7 +416,7 @@ const createCar = async(req,res)=>{
     let eDate = new Date();
     eDate.setTime(aDate.getTime()+24*3600*1000); //1 day 
     let dkQua = Math.floor(aDate.getMonth()/3)+1;
-    //TODO: Fix bug Date
+    //Fixed bug Date
     newDummyDK = new registrationInformation({
         licensePlate: req.body.licensePlate,
         dateOfIssue: aDate,
@@ -490,13 +504,11 @@ const createCarSpecification = async(req,res)=>{
     }).catch((err)=>{
             logger.info("Something wrong when creating newCarSpec: "+err);
             return res.sendStatus(400);
-        }
-        
-        
+        }       
     );
 };
 
-//TODO: Upload car from json (remember old pattern license plate)
+//TODO: Upload cars from json (remember old pattern license plate)
 
 
 

@@ -56,13 +56,20 @@ const createNewCenter = async(req,res)=>{
 //for upload list of centers
 const uploadCenters = async(req,res)=>{
     const arr = req.body;
+    try{
     arr.forEach(e=>{
         createNewCenter({'body':e},{
             "status": "",
             "json": {},
             "sendStatus": ""
+        }).catch((err)=>{
+            return res.sendStatus(409);
         });
     });
+    }catch(err){
+        logger.info("Error when importing array of centers: "+err);
+        return res.sendStatus(400);
+    }
 }
 
 //Must verify role before requesting

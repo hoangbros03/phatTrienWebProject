@@ -191,3 +191,45 @@
 {"component":"user-service","level":"info","message":"Some err when get the quarter","timestamp":"14-04-2023 14:30:27"}
 {"component":"user-service","level":"info","message":"Err: ValidationError: ownerName: Path `ownerName` is required.","timestamp":"14-04-2023 14:31:47"}
 {"component":"user-service","level":"info","message":"Successfully create new registration information the license plate: 14A-123.46","timestamp":"14-04-2023 14:32:50"}
+{"component":"user-service","level":"info","message":"New center created: {\n  name: 'Trung tâm đăng kiểm xe cơ giới 2801V',\n  user: 'admin2801V',\n  encodedPassword: '$2b$10$YuIwF1RgKy3lvByroBCm0.rYIgYw0DPV8TJDmPEg11f378r7SvuRO',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"643949456d100ee362d8c3bf\"),\n  __v: 0\n}","timestamp":"14-04-2023 19:38:29"}
+{"component":"user-service","level":"info","message":"New center created: {\n  name: 'Trung tâm đăng kiểm xe cơ giới 2701V',\n  user: 'admin2701V',\n  encodedPassword: '$2b$10$y5KN924R0WLB5w6p0StL6uyxMWLP37RPAKtNJE8kFcYKKHgeinfPq',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"643949f97af9b085740df017\"),\n  __v: 0\n}","timestamp":"14-04-2023 19:41:29"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"14-04-2023 19:54:43"}
+{"component":"user-service","level":"info","message":"Error when searching car","timestamp":"14-04-2023 19:54:43"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"14-04-2023 19:55:03"}
+{"component":"user-service","level":"info","message":"Error when searching car","timestamp":"14-04-2023 19:55:03"}
+{"component":"user-service","level":"info","message":"Error when searching car","timestamp":"14-04-2023 19:56:11"}
+{"component":"user-service","level":"info","message":"Error when searching car","timestamp":"14-04-2023 19:58:39"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: Cannot read property 'length' of null","timestamp":"14-04-2023 19:59:22"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: Cannot read property 'length' of null","timestamp":"14-04-2023 20:02:21"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: Cannot read property 'length' of null","timestamp":"14-04-2023 20:02:38"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: Cannot read property 'length' of null","timestamp":"14-04-2023 21:29:54"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: Cannot read property 'length' of null","timestamp":"14-04-2023 21:30:24"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: Cannot read property 'length' of null","timestamp":"14-04-2023 21:34:15"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: Cannot read property 'length' of null","timestamp":"14-04-2023 21:35:31"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: Cannot read property 'length' of null","timestamp":"14-04-2023 21:35:51"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: Cannot read property 'length' of null","timestamp":"14-04-2023 21:36:04"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: Cannot read property 'length' of null","timestamp":"14-04-2023 21:38:31"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: Cannot read property 'length' of null","timestamp":"14-04-2023 21:41:34"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: Cannot read property 'length' of null","timestamp":"14-04-2023 21:42:56"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: Cannot read property 'length' of null","timestamp":"14-04-2023 21:44:43"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: Cannot read property 'length' of null","timestamp":"14-04-2023 21:45:12"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"14-04-2023 21:46:28"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"14-04-2023 21:46:51"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: res.status is not a function","timestamp":"14-04-2023 21:46:51"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: res.json is not a function","timestamp":"14-04-2023 21:50:52"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: res.json is not a function","timestamp":"14-04-2023 22:08:33"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: res.status is not a function","timestamp":"14-04-2023 22:09:24"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: res.status is not a function","timestamp":"14-04-2023 22:10:06"}
+{"component":"user-service","level":"info","message":"Error when searching car: TypeError: res.status is not a function","timestamp":"14-04-2023 22:11:20"}
+{"component":"user-service","level":"error","message":"SyntaxError: Unexpected token } in JSON at position 136","timestamp":"15-04-2023 22:22:33"}
+{"component":"user-service","level":"info","message":"Organization is either missing or wrong input. Try again","timestamp":"15-04-2023 22:23:09"}
+{"component":"user-service","level":"info","message":"Organization is either missing or wrong input. Try again","timestamp":"15-04-2023 22:23:16"}
+{"component":"user-service","level":"info","message":"Name is not valid!","timestamp":"15-04-2023 22:23:25"}
+{"component":"user-service","level":"info","message":"New license plate isn't provided","timestamp":"15-04-2023 22:23:30"}
+{"component":"user-service","level":"info","message":"New license plate isn't provided","timestamp":"15-04-2023 22:23:46"}
+{"component":"user-service","level":"info","message":"New license plate isn't provided","timestamp":"15-04-2023 22:23:59"}
+{"component":"user-service","level":"info","message":"Region name not found in db!","timestamp":"15-04-2023 22:25:27"}
+{"component":"user-service","level":"info","message":"New license plate isn't provided","timestamp":"15-04-2023 22:25:45"}
+{"component":"user-service","level":"info","message":"New license plate isn't provided","timestamp":"15-04-2023 22:25:49"}
+{"component":"user-service","level":"info","message":"New license plate isn't provided","timestamp":"15-04-2023 22:26:19"}
+{"component":"user-service","level":"info","message":"New license plate isn't provided","timestamp":"15-04-2023 22:26:41"}

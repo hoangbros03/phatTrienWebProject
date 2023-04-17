@@ -5,7 +5,7 @@ const centerController= require('../../controllers/centerController');
 const ROLES_LIST = require('../../config/roles_list');
 const verifyRoles = require('../../middleware/verifyRoles');
 const {'model': carSpecification, schema: carSpecSchema}= require('../../models/CarSpecification');
-
+const humanRelevantController = require('../../controllers/humanRelevantController');
 
 //TODO: Add verify roles add other API, currently just for testing purpose.
 router.route('/:user/')
@@ -33,5 +33,8 @@ router.route('/:user/carSpec')
 router.route('/:user/newRegistry')
     .post(centerController.addRegistry);
 
+//TODO: Handle when :licensePlate have character "."
+router.route('/:user/car/:licensePlate/update')
+    .patch(humanRelevantController.updateInformation);
 
 module.exports = router;
