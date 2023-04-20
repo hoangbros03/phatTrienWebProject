@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import styles from "./statistic.module.scss";
 import classNames from 'classnames/bind';
 import BarStatistic from '~/components/BarStatistic/BarStatistic';
-import CarItem from '~/components/CarItems/CarItem';
+
 import StatisticImage from '~/components/StatisticImage/statisticimage';
 import { useEffect, useState } from 'react';
 import Button from '~/components/Button';
@@ -93,16 +93,7 @@ const [object, setObject] = useState({
                     </BarStatistic>
                 </div>
                 <div className={cx('content')}>
-                    <CarItem></CarItem>
-                    <CarItem></CarItem>
                     
-                    <CarItem></CarItem>
-                    <CarItem></CarItem>
-                    <CarItem></CarItem>
-                    <CarItem></CarItem>
-                    <CarItem></CarItem>
-                    <CarItem></CarItem>
-                    <CarItem></CarItem>
                 </div>
                 <div className={cx('footer')}>
                     <StatisticImage province="HN" growth={15} addcar={240}></StatisticImage>

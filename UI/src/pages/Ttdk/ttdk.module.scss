@@ -19,10 +19,10 @@
 }
 
 //reponsive
-@media only screen and (max-width: 920px) {
+@media only screen and (max-width: 1000px) {
     /* For mobile phones: */
     .sliderbar{
-        display: none;
+        width: fit-content;
     }
     
   }

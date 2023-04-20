@@ -54,8 +54,6 @@ function Button({
     return (
         <Comp className={classes} {..._props} >
             <span className={cx('title')}>{children}</span>
-
-          
         </Comp>
     );
 }

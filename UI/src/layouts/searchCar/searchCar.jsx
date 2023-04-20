@@ -3,25 +3,28 @@ import styles from './searchCar.module.scss';
 import classNames from 'classnames/bind';
 import { SearchIcon, Close } from '~/components/Icons';
 import { useState } from 'react';
+import CarDetail from '../../components/CarDetail/Cardetail';
 
 const cx = classNames.bind(styles);
 function SearchCar() {
-    const [licensePlate, setLicensePlate] = useState('');
+    //search
+    const [licensePlate, setlicensePlate] = useState('');
     const [message, setMessage] = useState('');
+    const [carInfor,setCarInfor] = useState(null)
+    const [displayDetail, setDisplayDetail] = useState(false);
 
-    const [popup, setPopup] = useState(false);
-    const handleInput = (e) => {
-        setLicensePlate(e.target.value);
+
+    const handleInput = (event) => {
+        setlicensePlate(event.target.value);
     };
-    const GetAPI = () => {
-        console.log(licensePlate);
-        if (licensePlate.length != 10) setMessage('Vui lòng nhập đúng định dạng');
-        // setPopup(true)
-    };
-    const handleClose = () => {
-        setLicensePlate('');
-        setPopup(false);
-    };
+    const GetAPI=()=>{
+        //get data from backend
+        if(licensePlate==="123") setDisplayDetail(true)
+        if(carInfor==null)
+        {setMessage('Vui lòng nhập lại biển số xe')}
+        else setDisplayDetail(true)
+    }
+
     const renderSearchBar = () => {
         return (
             <div className={cx('wrapper')}>
@@ -41,55 +44,12 @@ function SearchCar() {
             </div>
         );
     };
-    const renderInforCar = () => {
-        return (
-            <div className={cx('wrapper')}>
-                <div className={cx('container')}>
-                    <div className={cx('icon_close')} onClick={handleClose}>
-                        <Close width={'2.4rem'} height={'2.4rem'} />
-                    </div>
-                    <div className={cx('title_info')}>{`Thông tin phương tiện ${licensePlate}`}</div>
-                    <div className={cx('content')}>
-                        <div className={cx('info')}>
-                            Mã số asđăng kí<p>Mã sốg kí1</p>
-                        </div>
-                        <div className={cx('info')}>
-                            Mã sng kí<p>Mã số đăng kí1</p>
-                        </div>
-                        <div className={cx('info')}>
-                            Mã sốasd đăng kí<p>Mã ăng1</p>
-                        </div>
-                        <div className={cx('info')}>
-                            Msadfng kí<p>Mã số đăng kí1</p>
-                        </div>
-                        <div className={cx('info')}>
-                            Mã số đăng kí<p>Mã số đăng kí1</p>
-                        </div>
-                        <div className={cx('info')}>
-                            Mã số fdsađăng kí<p>Mã ng kí1</p>
-                        </div>
-                        <div className={cx('info')}>
-                            Mã số asdđăng kí<p>Mã sống kí1</p>
-                        </div>
-                        <div className={cx('info')}>
-                            Mã số đănfasdfg kí<p>Mã skí1</p>
-                        </div>
-                        <div className={cx('info')}>
-                            Mã số đăasdng kí<p>Mã s kí1</p>
-                        </div>
-                        <div className={cx('info')}>
-                            Mã số đăasdng kí<p>Mã s kí1</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    };
+
+    
 
     return (
         <>
-            {popup === true ? renderInforCar() : renderSearchBar()}
-
+            {displayDetail? <CarDetail carInfor={carInfor} setDisplayDetail={setDisplayDetail}/> : renderSearchBar()}
             <Outlet />
         </>
     );

@@ -5,9 +5,13 @@ import styles from './login.module.scss';
 import classNames from 'classnames/bind';
 import { useNavigate } from 'react-router-dom';
 
-
+import { useDispatch, useSelector } from 'react-redux';
+import { requestLogin } from '../../auth/Auth';
+import store from '../../redux/store';
 const cx = classNames.bind(styles);
 function Login() {
+    const user=useSelector((state)=>state.auth);
+    const dispatch = useDispatch();
     const [login, setLogin] = useState({ user: '', password: '' });
     const [respone, setReponse] = useState({ user: '', status: false, type: '', message: '' });
     const navigate = useNavigate();
@@ -55,11 +59,17 @@ function Login() {
     };
     //theo cuar ban hieu :))
     const tmpLogin=async ()=>{
-        const res = await searchServices.post("/account",{...login,user:login.user}).then(res=>{
-            console.log(res)
-            return res})
-        // if(res.status=="Fail") setReponse({ ...respone, message: res.detail})
-        // else navigate(`../${res.type}/${res.user}`)
+        await dispatch(requestLogin({login}))
+        let user=store.getState().auth;
+        if(user.user!=null){
+            navigate(`../${user.role}/${user.user}`)
+        }
+        // const res = await searchServices.post("/account",{...login,user:login.user}).then(res=>{
+        //     console.log(res)
+        //     return res})
+
+        // // if(res.status=="Fail") setReponse({ ...respone, message: res.detail})
+        // // else navigate(`../${res.type}/${res.user}`)
     }
     const GetListUser = async () => {
         const res = await searchServices.get(`/account`);

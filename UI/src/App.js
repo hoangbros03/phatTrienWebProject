@@ -18,16 +18,23 @@ import IndexCDK from './pages/Cucdangkiem/Index/indexCDK';
 import indexttdk from './pages/Ttdk/Index/indexttdk';
 import SearchCar from './layouts/searchCar/searchCar';
 import Indexttdk from './pages/Ttdk/Index/indexttdk';
+
+
+//redux
+import { setupServer } from './fakeAPI';
+
+
+if (process.env.NODE_ENV === 'development') {
+    setupServer();
+  }
+
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<Layout />}>
             <Route index element={<Index />} />
             <Route path="about" element={<About />} />
             <Route path="login" element={<Login />} />
-            <Route path="cucdangkiem" element={
-           
-            <User />
-            }>
+            <Route path="cucdangkiem" element={<User />}>
                 {/* Use user like a navbar display logo and username  */}
                 <Route path=":user" element={<Cucdangkiem />}>
                     <Route index element={<IndexCDK />} />

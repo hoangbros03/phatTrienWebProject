@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 function IndexCDK() {
     return (<div className={cx('wrapper')}>
-
+        <p>Chào mừng Bạn đã đăng nhập thành công</p>
     
     <Outlet/>
     </div>
