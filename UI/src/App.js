@@ -11,12 +11,26 @@ import StatisticCDK from './pages/Cucdangkiem/Statistic/statisticCDK';
 import Upload from './pages/Cucdangkiem/upload/upload';
 import Index from './pages/Index';
 import Login from './pages/login/login';
-import Lookup from './pages/Ttdk/lookup/lookup';
 import NewRegistry from './pages/Ttdk/newRegistry/newRegistry';
 import StatisticTTDK from './pages/Ttdk/statistic/statisticTTDK';
 import Ttdk from './pages/Ttdk/ttdk';
 import IndexCDK from './pages/Cucdangkiem/Index/indexCDK';
+<<<<<<< HEAD
 import Indexttdk from './pages/Ttdk/Index/indexttdk';
+=======
+import indexttdk from './pages/Ttdk/Index/indexttdk';
+import SearchCar from './layouts/searchCar/searchCar';
+import Indexttdk from './pages/Ttdk/Index/indexttdk';
+
+
+//redux
+import { setupServer } from './fakeAPI';
+
+
+if (process.env.NODE_ENV === 'development') {
+    setupServer();
+  }
+>>>>>>> 9e948ddea3b97fbb7ec3773f783a585a8e060e79
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -30,6 +44,7 @@ const router = createBrowserRouter(
                     <Route index element={<IndexCDK />} />
                     <Route path="changeInformation" element={<ChangeInformation />} />
                     <Route path="registerCenter" element={<RegisterCenter />} />
+                    <Route path="searchcar" element={<SearchCar />} />
                     <Route path="upload" element={<Upload />} />
                     <Route path="statistic" element={<StatisticCDK />} />
                 </Route>
@@ -39,7 +54,7 @@ const router = createBrowserRouter(
                 <Route path=":user" element={<Ttdk />}>
                     <Route index element={<Indexttdk />} />
                     <Route path="newRegistry" element={<NewRegistry />} />
-                    <Route path="lookup" element={<Lookup />} />
+                    <Route path="lookup" element={<SearchCar />} />
                     <Route path="statistic" element={<StatisticTTDK />} />
                 </Route>
             </Route>

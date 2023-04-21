@@ -1,0 +1,45 @@
+.wrapper {
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/images/BackgroundSearch.png');
+    background-size: 60% 60%;
+    background-color: #eff3f9;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.title {
+    padding-top: 3%;
+    font-size: 4rem;
+    color: #5964ae;
+}
+.searchBtn {
+    background-color: #fff;
+    border-radius: 16px;
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 7%;
+    width: 60%;
+}
+.message{
+    font-size: 3rem;
+    color: red;
+    margin-top: 3%;
+    
+}
+.content {
+    flex-grow: 1;
+    border-radius: 16px;
+    font-size: 2rem;
+    color: #5964ae;
+}
+.icon {
+    cursor: pointer;
+}
+
+

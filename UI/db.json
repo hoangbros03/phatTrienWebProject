@@ -1,11 +1,29 @@
 {
-  "car": [
-    { "id": 1, "Vehicle registration certificate": "A", "date": "2022",
-    "province":"bac ninh",
-    "car company":"vin",
-    "purpose":"use",
-    "owner":"hung"
-   }
+  "province": [
+    {
+      "province": "Băc Ninh",
+      "ttdk": [
+        { "ttdk": "ttdk1" },
+        { "ttdk": "ttdk2" },
+        { "ttdk": "ttdk3" },
+        { "ttdk": "ttdk4" }
+      ]
+    },
+    {
+      "province": "Hà Nội",
+      "ttdk": [
+        { "ttdk": "ttdk1" },
+        { "ttdk": "ttdk2" }
+      ]
+    },
+    {
+      "province": "Cà Mau",
+      "ttdk": [
+        { "ttdk": "ttdk1" },
+        { "ttdk": "ttdk2" },
+        { "ttdk": "ttdk3" }
+      ]
+    }
   ],
   "comments": [
     { "id": 1, "body": "some comment", "postId": 1 }

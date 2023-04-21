@@ -1,6 +1,8 @@
 import { Outlet, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import BtnBar from "../../components/BtnBar";
+import { MenuItem } from '~/layouts/SliderBar/Menu';
+import { HomeIcon, SearchIcon } from '~/components/Icons';
 
 import styles from "./ttdk.module.scss";
 import classNames from 'classnames/bind';
@@ -13,21 +15,20 @@ function Ttdk() {
     }
     return (
         <div className={cx('wrapper')}>
-            <div className={cx('sliderbar')} style={{ paddingTop: 16 }}>
-                <BtnBar large onClick={backtohomepage}>
-                    Trở Về Trang Chủ
-                </BtnBar>
-                <BtnBar large to="newRegistry">
-                    Đăng kiểm Ô tô
-                </BtnBar>
-                <BtnBar large to="lookup">
-                    Tra cứu Thông Tin xe
-                </BtnBar>
-                <BtnBar large to="statistic">
-                    Xem Thống Kê Xe
-                </BtnBar>
+            <div className={cx('sliderbar')} >
+                <MenuItem icon={<HomeIcon />} to={`../${user}`} title="Trở Về Trang Chủ"></MenuItem>
+                <MenuItem icon={<HomeIcon />}  to="newRegistry" title="Đăng kiểm Ô tô">
+                   
+                </MenuItem>
+                <MenuItem  icon={<HomeIcon />} to="lookup" title ="Tra cứu Thông Tin xe">
+                 
+                </MenuItem>
+                <MenuItem icon={<HomeIcon />}  to="statistic" title="Xem Thống Kê Xe">
+                    
+                </MenuItem>
             </div>
-            <Outlet />
+            <div className={cx("main")}><Outlet /></div>
+            
         </div>
     );
 }

@@ -1,16 +1,28 @@
 .wrapper{
     width: 100%;
-    height: 2000px;
+    height: calc(100vh - var(--default-layout-header-height));
     margin-top: var(--default-layout-header-height);
     display: flex;
 }
 .wrapper{
-    display: flex;
     width: 100%;
    
 }
 .sliderbar{
-    width: 325px;
-    height: 1000px;
-    background-color: #b3dbbf;
+    width: 20%;
+    
 }
+.main{
+    flex-grow: 1;
+    background-color: #EFF3F9;
+    border-radius: 4px;
+}
+
+//reponsive
+@media only screen and (max-width: 1000px) {
+    /* For mobile phones: */
+    .sliderbar{
+        width: fit-content;
+    }
+    
+  }

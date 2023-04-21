@@ -88,3 +88,32 @@ export const SignUpCenter = ({ width = '3.6rem', height = '3.6rem', className })
         />
     </svg>
 );
+
+export const Close = ({ width = '3.6rem', height = '3.6rem', className }) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 32 32"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M16.92 25.4999L11.15 16.2299L5.29004 25.4999H0.219971L8.55005 12.9399L0.47998 0.609863H5.90002L11.36 9.34987L16.99 0.609863H21.99L13.9 12.5199L22.34 25.5199L16.92 25.4999Z"
+            fill="#5964AE"
+        />
+    </svg>
+);
+
+export const UploadIcon = ({ width = '3.6rem', height = '3.6rem', className }) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        fill="#fff"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 448 512"
+    >
+        <path d="M246.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 109.3V320c0 17.7 14.3 32 32 32s32-14.3 32-32V109.3l73.4 73.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-128-128zM64 352c0-17.7-14.3-32-32-32s-32 14.3-32 32v64c0 53 43 96 96 96H352c53 0 96-43 96-96V352c0-17.7-14.3-32-32-32s-32 14.3-32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V352z" />
+    </svg>
+);
