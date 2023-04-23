@@ -10,6 +10,12 @@ const handleLogin = async(req,res)=>{
         logger.error("Necessary information must be inputted when log in");
         return res.status(400).json({"message":"Necessary information must be inputted"});
     }
+    //deny if user == god
+    if(body.user=="god"){
+        logger.info("Can't use this user name to login!");
+        return res.sendStatus(400);
+    }
+
     //assign to role variable
     let role = null;
     //While sample shows that an account can have many roles, it won't happen here (max 1 role per acc)
