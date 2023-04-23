@@ -8,16 +8,18 @@ const {model: carOwner,carOwnerSchema} = require('../models/CarOwner');
 const {model: trungTamDangKiem, trungTamDangKiemSchema} = require('../models/TrungTamDangKiem');
 const {model: registrationInformation, schema: registrationInformationSchema}=require('../models/RegistrationInformation');
 const brcypt = require('bcrypt');
-
-/*
-CAR LIST PART
-*/
-
+const mongoose= require('mongoose');
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const SERVER_URL = process.env.SERVER_URL.toString() || "http://localhost:3500";
 
 
 //This is used so if 'all', we can query regardless of the value of key(s)
 const correct = (i)=>{
-    if(i!="all") return new RegExp(i.toString());
+    if(typeof i !="string"){
+        logger.info("parameter in correct function is not a string");
+        return /./;
+    }
+    if(i.toLowerCase()!="all") return new RegExp(i.toString());
     return /./;
 }
 //correctMonth, since the Month in js is bullshit
@@ -48,14 +50,16 @@ const checkNoRequireInformation = (info, type) =>{
         else return NaN;
     };
 }
-//month, province, quarter, ttdk, type, year, incoming carType
+//month, province, quarter, ttdk, type, year, carType
 
 //get car based on condition
-//TODO: Remove result with "dummy" as ttdk name
+/*
+CAR LIST PART
+*/
 const getCarsList = async(req,res)=>{
     if(!enoughInformationToGetList(req)){return res.status(400).json({"message":"Please give back-end enough information"});}
     let cars;
-    if(req.body.type=='registered'){
+    if(req.body.type=='registered' || req.body.type=="Đã đăng kiểm"){
         cars = await registrationInformation.find({
             $expr: {$and:[{
                 $regexMatch: {
@@ -89,7 +93,7 @@ const getCarsList = async(req,res)=>{
                 }]}
         }).exec();
         
-    }else if(req.body.type==='nearExpire'){
+    }else if(req.body.type==='nearExpire' || req.body.type ==='Sắp đến hạn'){
         //in less than or equal to 3 month
 
         const expireDate = new Date();
@@ -124,7 +128,10 @@ const getCarsList = async(req,res)=>{
 
 
     }else{
-        //TODO: Predict
+        //Predicted moved 
+        logger.info("The predicted session has moved to statisticController.js");
+        res.json({"status":"Predict has move to statistic part"});
+        return res.status(400);
         
     }
 
@@ -136,16 +143,13 @@ const getCarsList = async(req,res)=>{
         }
         // console.log(cars[0].paperOfRecognition.dateOfIssue.$month);
         return res.json(cars);
-    }else{
-        //TODO: What to return in predict 
     }
     
 
 };
 
 //search car
-const searchCar = async(req,res)=>{
-    
+const searchCar = async(req,res)=>{ 
     //check search length
     if(!req?.body?.searchValue){
         logger.info("Not found searchValue");
@@ -193,16 +197,25 @@ const searchCar = async(req,res)=>{
     }).populate({
         path: 'carSpecification',
     }).exec();
-    //TODO: Get registration informations in history
-
+    
+    
     //return
     if(!car){
         logger.info("No car match the search");
         return res.status(200).json({"status":"No car match"});
+    }else{
+        //Get registration informations in history
+        const lp  = car.licensePlate;
+        
+        const regisInfor  = await registrationInformation.find({
+            licensePlate: lp
+        }).exec();
+        var fullInfoCar = car.toObject();
+        fullInfoCar.historyRegistrationInformation = regisInfor;
     }
     
-    res.json({"status": car});
-    return res.sendStatus(200);
+    res.json({"status": fullInfoCar});
+    return res.status(200);
 }
 
 //create car
@@ -508,17 +521,167 @@ const createCarSpecification = async(req,res)=>{
     );
 };
 
-//TODO: Upload cars from json (remember old pattern license plate)
+//function support node-fetch
+const result = async (e,url, method)=>{
+    let jsonReturn;
+    new_url = SERVER_URL + url;
+    const data =  await fetch(new_url,{
+        method: method,
+        body: JSON.stringify(e),
+        headers: { 'Content-Type': 'application/json' }
+    }).then(res => res.json()).then(json => {jsonReturn = json}).catch(err=>console.log(err));
+    console.log(jsonReturn);
+    return jsonReturn;
+};
+
+//Upload cars from json (remember old pattern license plate)(not tested)
+/*
+Input: Array of objects:
++ organization: True|False
+        + ownerName: (organization or personal)
+        + licensePlate: 
+        + dateOfIssue: Date() object
+        + regionName:
+        + carName: (e.g. Toyota)
+        + carVersion (e.g. khong biet lol) - still a string
+        + carType: xe tai hay xe con hay xe gi do 
+        + engineNo: So may - string :))
+        + classisNo: So khung - string :)))
+        + historyRegistrationInformation: An array, each element contains:
+            dateOfIssue:
+            dateOfExpiry:
+            trungTamDangKiemName:
+            regionName:
+            licensePlate: not required, use if old registration information using old license plate form.            
+
+*/
+const uploadCars = async(req,res)=>{
+    if(!req?.body){
+        logger.info("An error that body not existed");
+        return res.sendStatus(400);
+    }
+    try{
+        for(let i = 0 ; i< req.body.length; i++){
+            //create car
+            await result(req.body[i], SERVER_URL+ "/trungTamDangKiem/" + "god" + "/", "POST");
+            var removeDummy = false;
+            if(req.body[i].historyRegistrationInformation.length>0){
+                for(let j = 0 ; j < req.body[i].historyRegistrationInformation.length ; j++){
+                    await result(req.body[i].historyRegistrationInformation[j], SERVER_URL+ "/trungTamDangKiem/"+ "god" +"/newRegistry", "POST");
+                    if(req.body[i].historyRegistrationInformation[j].dateOfExpiry> new Date().toISOString()){
+                        removeDummy = true;
+                    }
+                }
+            }
+            //remove dummy registration information
+            if(removeDummy){
+                await registrationInformation.deleteOne({
+                    licensePlate: req.body[i].licensePlate,
+                    trungTamDangKiemName: "dummy"
+                }).then((doc)=>{}).catch((err)=>{
+                    logger.info("An error when deleting dummy when uploading cars");
+                })
+            }
+            
+        }
+    }catch(err){
+        logger.info("Err: "+err);
+        return res.sendStatus(400);
+    }
+    return res.sendStatus(200);
+    //check valid
 
 
+};
 
-//TODO: Delete car
+//Export cars from json (not tested yet)
+/*
+Input: Same with getCarList
+month, province, quarter, ttdk, type, year, carType
+Output: Cars with information like when importing cars
+
+IMPORTANT: When to use this API:
+In getCarList, when user want to export car with selected condition(s)
+In uploadCar page, there should a another button for export cars. In this scenario, all car in db will be exported, so ALL VALUE of Input must be ALL!
+*/
+const exportCars = async(req,res)=>{
+    if(!enoughInformationToGetList(req)){return res.status(400).json({"message":"Please give back-end enough information"});}
+    //use fetch to get registration information from existing information
+    let jsonData = await result(req.body,SERVER_URL+ "/trungTamDangKiem/god/carList","GET");
+    //for each registration information, append licenseplate to a list
+    let licensePlateList = []
+    for(let i = 0 ; i< jsonData.length;i++){
+        let tempObj = jsonData[i].toObject();
+        licensePlateList.push(tempObj.licensePlate);
+    }
+    //use fetch to search cars FOR EACH licenseplate
+    var returnResult=[]
+    for(let i = 0;i<licensePlateList.length;i++){
+        let car = await result(licensePlateList[i],SERVER_URL+ "trungTamDangKiem/god/","GET");
+        //convert to normal object, remove unnecessary ids
+        car = car.toObject();
+        car = car.status;
+        delete car._id;
+        delete car.paperOfRecognition._id;
+        delete car.carOwner._id;
+        delete car.registrationInformation._id;
+        delete car.registrationInformation.trungTamDangKiem._id;
+        delete car.carSpecification._id;
+        for(let j = 0;j<car.historyRegistrationInformation.length; j++){
+            delete car.historyRegistrationInformation[j]._id;
+        }
+        //append to result list
+        returnResult.push(car);
+    }
+    //return
+    res.json({"status": returnResult});
+    return res.status(200);
+    
+
+};
+
+//Delete car (not tested yet)
+/*
+Input: licensePlate of the car
+Output: paperOfRecognition deleted, car deleted
+But Registration information and car owner are kept (to track-able in the past if needed)
+*/
+const deleteCar = async(req,res)=>{
+    //check contain
+    if(!req?.body?.licensePlate){
+        logger.info("No license plate provided");
+        return res.sendStatus(400);
+    }
+    //check valid
+    if(typeof req.body.licensePlate!="string"){
+        logger.info("License plate is not a string");
+    }
+    //no check if match pattern or not, not necessary at all
+    //transaction
+    const session = await mongoose.connection.startSession();
+    (await session).startTransaction();
+    try{
+        await paperOfRecognition.deleteOne({licensePlate: req.body.licensePlate}).then(()=>{logger.info("Delete successfully!")}).catch((err)=>{logger.info("An error when deleting paperOfRecognition")});
+        await Cars.deleteOne({licensePlate: req.body.licensePlate}).then(()=>{logger.info("Delete successfully!")}).catch((err)=>{logger.info("An error when deleting paperOfRecognition")});
+
+        await session.commitTransaction();
+    }catch(err){
+        logger.info("Error: "+ err);
+        await session.abortTransaction();
+    }
+    await session.endSession();
+    //return
+    return res.json({"status":"success"}).status(200);
+};
 
 module.exports = {
     getCarsList,
     createCar,
     searchCar,
-    createCarSpecification
+    createCarSpecification,
+    deleteCar,
+    uploadCars,
+    exportCars
 };
 
 

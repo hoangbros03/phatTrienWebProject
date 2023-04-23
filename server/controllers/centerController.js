@@ -4,13 +4,21 @@ const bcrypt = require('bcrypt');
 const logger = require('../logger/logger');
 const {"model":region,"schema": regionSchema} = require('../models/Region');
 const {"model": RegistrationInformation, RegistrationInformationSchema} = require("../models/RegistrationInformation");
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const SERVER_URL = process.env.SERVER_URL.toString() || "http://localhost:3500";
 
 const createNewCenter = async(req,res)=>{
     const body =  req.body;
+    console.log(body);
     //check required field
     if(!body['user'] || !body['encodedPassword'] || !body['regionName'] ||!body['name']){
-        res.status(400).json({'message': 'user, pass, name, and region are required'});
+        return res.status(400).json({'message': 'user, pass, name, and region are required'});
     };
+    //user can't be "god", since it is used to bypass
+    if(body.user=="god"){
+        logger.info("Sorry, but this user name is prohibited");
+        return res.sendStatus(400);
+    }
 
     //check duplicate
     const duplicate = await TrungTamDangKiem.findOne({
@@ -52,24 +60,43 @@ const createNewCenter = async(req,res)=>{
 
 
 };
+//function to handle fetch API when uploading
+// const result = async (e,url)=>{
+    
+//     new_url = SERVER_URL + url;
+//     return await fetch(new_url,{
+//         method: 'POST',
+//         body: JSON.stringify(e),
+//         headers: { 'Content-Type': 'application/json' }
+//     }).then(res => res.json()).then(json => console.log(json)).catch(err=>console.log(err));
+    
+//     const data = await response.json();
+    
+// };
+const result = async (e,url, method)=>{
+    let jsonReturn;
+    new_url = SERVER_URL + url;
+    const data =  await fetch(new_url,{
+        method: method,
+        body: JSON.stringify(e),
+        headers: { 'Content-Type': 'application/json' }
+    }).then(res => res.json()).then(json => {jsonReturn = json}).catch(err=>console.log(err));
+    console.log(jsonReturn);
+    return jsonReturn;
+};
 
 //for upload list of centers
-const uploadCenters = async(req,res)=>{
+const uploadCenters = async(req,res)=>{ 
     const arr = req.body;
-    try{
-    arr.forEach(e=>{
-        createNewCenter({'body':e},{
-            "status": "",
-            "json": {},
-            "sendStatus": ""
-        }).catch((err)=>{
-            return res.sendStatus(409);
-        });
-    });
-    }catch(err){
-        logger.info("Error when importing array of centers: "+err);
-        return res.sendStatus(400);
+    
+    for(let e = 0; e<arr.length;e++){
+        
+        await result(arr[e],"/cucDangKiem/"+ "god"+"/center","POST");
+        
     }
+    return res.sendStatus(200);
+  
+    
 }
 
 //Must verify role before requesting
