@@ -9,7 +9,7 @@ const humanRelevantController = require('../../controllers/humanRelevantControll
 
 //TODO: Add verify roles add other API, currently just for testing purpose.
 router.route('/:user/')
-    .get(carsController.searchCar)
+    .post(carsController.searchCar)
     .post(carsController.createCar);
 
 router.route('/:user/carList')

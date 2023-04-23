@@ -35,6 +35,7 @@ const correctMonth = (i) =>{
 }
 
 const enoughInformationToGetList = (r)=>{
+    console.log(r?.body);
     if(!r?.body?.province || !r?.body?.month || !r?.body?.quarter || !r?.body?.ttdk || !r?.body?.type || !r?.body?.year || !r?.body?.carType){
         logger.info('Not enough information for querying!');
         return false;

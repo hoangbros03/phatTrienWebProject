@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import * as searchServices from '~/services/searchService';
+import * as searchServices from '../../services/searchService';
 import { Link } from 'react-router-dom';
 import styles from './login.module.scss';
 import classNames from 'classnames/bind';

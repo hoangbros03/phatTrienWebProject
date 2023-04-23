@@ -10,18 +10,42 @@ function SearchCar() {
     //search
     const [licensePlate, setlicensePlate] = useState('');
     const [message, setMessage] = useState('');
-    const [carInfor,setCarInfor] = useState(null)
+    const [carInfor, setCarInfor] = useState(null);
     const [displayDetail, setDisplayDetail] = useState(false);
-
 
     const handleInput = (event) => {
         setlicensePlate(event.target.value);
     };
-    const GetAPI=()=>{
-        const car = API.post()
-        setDisplayDetail(true)
-    }
-
+    const GetAPI = async() => {
+        //get data from backend
+        if(licensePlate.length<=3)
+        setMessage("Vui Lòng Điền Thêm Thông Tin")
+        else {await fetch('http://localhost:3500/trungTamDangKiem/ww/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                searchValue: licensePlate,
+            }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if(data?.status =="No car match")
+                {
+                    setMessage("Biển số xe chưa đúng vui lòng nhập lại")
+                }
+                else{
+                    setCarInfor(data.status)
+                    setlicensePlate("")
+                    setDisplayDetail(true)
+                }
+            })
+            .catch((error) => console.error(error));
+        }
+        
+    };
+ 
     const renderSearchBar = () => {
         return (
             <div className={cx('wrapper')}>
@@ -42,11 +66,9 @@ function SearchCar() {
         );
     };
 
-    
-
     return (
         <>
-            {displayDetail? <CarDetail carInfor={carInfor} setDisplayDetail={setDisplayDetail}/> : renderSearchBar()}
+            {displayDetail ? <CarDetail carInfor={carInfor} setDisplayDetail={setDisplayDetail} setCarInfor={setCarInfor}/> : renderSearchBar()}
             <Outlet />
         </>
     );

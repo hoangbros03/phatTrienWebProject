@@ -2,8 +2,9 @@ import { Outlet } from "react-router-dom";
 import styles from "./statistic.module.scss";
 import classNames from 'classnames/bind';
 import BarStatistic from '~/components/BarStatistic/BarStatistic';
+import Pagination from '../../../components/Pagination/Pagination';
 
-import StatisticImage from '~/components/StatisticImage/statisticimage';
+import CarDetail from '../../../components/CarDetail/Cardetail';
 import { useEffect, useState } from 'react';
 import Button from '~/components/Button';
 import ButtonSearch from '~/components/ButtonSearch';
@@ -57,10 +58,45 @@ const [object, setObject] = useState({
         }
         //console.log(object);
     };
-    const HandleSearch = () => {
-
-        console.log(object);
+    const HandleSearch = async() => {
+        console.log(object)
+        await fetch('http://localhost:3500/trungTamDangKiem/ratdd/carList', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              object
+            })
+          })
+          .then(response => response.json())
+          .then(data => console.log(data))
+          .catch(error => console.error(error));
+        
+        
     };
+
+    //test pagination
+    const [ListCar,setListCar]= useState([])
+    const [carInfor,setCarInfor]=useState(null);
+    const [displayDetail, setDisplayDetail] = useState(false);
+    const handleDisplayDetail = async() => {
+        setDisplayDetail(true);
+        //gui requset lay detail
+        setCarInfor(ListCar[0])
+    };
+    
+    //pagination
+    const [carData, setcarData] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage, setPostsPerPage] = useState(10);
+    const lastPostIndex = currentPage * postsPerPage;
+    const firstPostIndex = lastPostIndex - postsPerPage;
+    useEffect(() => {
+        setcarData(ListCar);
+    }, []);
+    const currentPosts = carData.slice(firstPostIndex, lastPostIndex);
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('container')}>
@@ -93,13 +129,29 @@ const [object, setObject] = useState({
                     </BarStatistic>
                 </div>
                 <div className={cx('content')}>
-                    
-                </div>
-                <div className={cx('footer')}>
-                    <StatisticImage province="HN" growth={15} addcar={240}></StatisticImage>
-                    <StatisticImage province="HN" growth={15} addcar={240}></StatisticImage>
-                    <StatisticImage province="HN" growth={15} addcar={240}></StatisticImage>
-                    <StatisticImage province="HN" growth={15} addcar={240}></StatisticImage>
+                    <aside className={cx('aside')}>
+                        <div className={cx('header')}>
+                            <p>Biển số</p>
+                            <p>Chủ sở Hữu</p>
+                        </div>
+                        {currentPosts.map((car, index) => {
+                            return (
+                                <div key={index} className={cx('cardisplay')} onClick={handleDisplayDetail}>
+                                    <p>{car.licensePlate}</p>
+                                    <p>{car.owner}</p>
+                                </div>
+                            );
+                        })}
+                        {ListCar.length>10?<Pagination
+                            totalPosts={carData.length}
+                            postsPerPage={postsPerPage}
+                            setCurrentPage={setCurrentPage}
+                            currentPage={currentPage}
+                        />:null}
+                    </aside>
+                    <div className={cx('detail')}>
+                        {displayDetail ? <CarDetail carInfor={carInfor}  setDisplayDetail={setDisplayDetail}/> : null}
+                    </div>
                 </div>
             </div>
             <Outlet />

@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import { useState } from "react";
 import { SearchIcon, Close } from '~/components/Icons';
 const cx = classNames.bind(styles);
-function CarDetail({carInfor,setDisplayDetail}) {
+function CarDetail({carInfor,setDisplayDetail,setCarInfor}) {
 
     // display detail
     
@@ -21,32 +21,36 @@ function CarDetail({carInfor,setDisplayDetail}) {
     };
     const handleisEditable = () => {
         if (isEditable == false) {
-            //send request
+            setisEditable(!isEditable);
         }
-        setisEditable(!isEditable);
-        
+        else {
+            //send request
+            setDisplayDetail(false);
+        }
     };
 
     const handleChange = (event) => {
-        setCarSend({
-            ...carSend,
-            [event.target.getAttribute('data')]: event.target.innerText,
-        });
-    };
-    const handleCheck = (e) => {
-        // setCarInfor({
-        //     ...carInfor,
-        //     carOwner:{
-        //         ...carInfor.carOwner,
-        //         organization:!e.target.checked
-        //     }
-        // })
-        setCarSend({
-            ...carSend,
-            organization: carInfor?.carOwner?.organization,
-        });
-    };
+        const { name, value } = event.target;
 
+        if (name === "ownerName") {
+          setCarInfor({
+            ...carInfor,
+            carOwner: {
+              ...carInfor.carOwner,
+              name: value,
+            },
+          });
+        }
+        else  setCarInfor({
+            ...carInfor,
+              [name]: value,
+          });
+        console.log(carInfor)
+        setCarSend({
+            ...carSend,
+            [name]: value,
+        });
+    };
     return (
             <div className={cx('wrapper')}>
                 <div className={cx('container')}>
@@ -61,8 +65,8 @@ function CarDetail({carInfor,setDisplayDetail}) {
                                 disabled={!isEditable}
                                 className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
                                 onInput={handleChange}
-                                data="licensePlate"
-                                placeholder={`${carInfor?.licensePlate}`}
+                                name="licensePlate"
+                                value={`${carInfor?.licensePlate}`}
                             />
                         </div>
                         <div className={cx('info')}>
@@ -70,8 +74,9 @@ function CarDetail({carInfor,setDisplayDetail}) {
                             <input
                                 disabled={!isEditable}
                                 className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
-                                data="ownerName"
-                                placeholder={`${carInfor?.carOwner?.name}`}
+                                name="ownerName"
+                                onInput={handleChange}
+                                value={`${carInfor?.carOwner?.name}`}
                             />
                         </div>
                         <div className={cx('info')}>
@@ -79,32 +84,33 @@ function CarDetail({carInfor,setDisplayDetail}) {
                             <input
                                 disabled={!isEditable}
                                 className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
-                                data="regionName"
-                                placeholder={`${carInfor?.regionName}`}
+                                name="regionName"
+                                onInput={handleChange}
+                                value={`${carInfor?.regionName}`}
                             />
                         </div>
                         <div className={cx('info')}>
                             Hãng xe
-                            <input className={cx('input')} disabled={true} placeholder={`${carInfor?.type}`} />
+                            <input className={cx('input')} disabled={true} value={`${carInfor?.type ? "Mec":"Xe cỏ"}`} />
                         </div>
                         <div className={cx('info')}>
                             Dòng xe
                             <input
                                 className={cx('input')}
                                 disabled={true}
-                                placeholder={`${carInfor?.carOwner?.name}`}
+                                value={`${carInfor?.carSpecification?.type}`}
                             />
                         </div>
                         <div className={cx('info')}>
                             Phiên bản
-                            <input className={cx('input')} disabled={true} placeholder={`${carInfor?.version}`} />
+                            <input className={cx('input')} disabled={true} value={`${carInfor?.version}`} />
                         </div>
                         <div className={cx('info')}>
                             Ngày đăng kí
                             <input
                                 className={cx('input')}
                                 disabled={true}
-                                placeholder={`${carInfor?.registrationInformation?.dateOfIssue}`}
+                                value={`${carInfor?.registrationInformation?.dateOfIssue}`}
                             />
                         </div>
                         <div className={cx('info')}>
@@ -112,17 +118,16 @@ function CarDetail({carInfor,setDisplayDetail}) {
                             <input
                                 className={cx('input')}
                                 disabled={true}
-                                placeholder={`${carInfor?.registrationInformation?.dateOfExpiry}`}
+                                value={`${carInfor?.registrationInformation?.dateOfExpiry}`}
                             />
                         </div>
                         <div className={cx('info')}>
                             Xe công vụ
-                            <input
+                            <input  
                                 disable={isEditable}
-                                className={cx(`${isEditable === true ? 'edit' : ''} input `)}
-                                type="checkbox"
-                                checked={carInfor?.carOwner?.organization == true ? true : false}
-                                onChange={handleCheck}
+                                className={cx(`${isEditable === true ? 'edit' : ''}`,'input')}
+                                value={carInfor?.carOwner?.organization == true ? "Có" : "Không"}
+                                onInput={handleChange}
                             />
                         </div>
                         <div className={cx('option')}>

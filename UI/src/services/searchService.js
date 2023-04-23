@@ -16,5 +16,3 @@ export const post = async (path, object={}) => {
     return respone.data;
 };
 export default httpRequest;
-
-

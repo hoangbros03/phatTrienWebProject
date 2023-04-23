@@ -2,6 +2,8 @@ import { Outlet } from 'react-router-dom';
 import styles from './statistic.module.scss';
 import classNames from 'classnames/bind';
 import BarStatistic from '~/components/BarStatistic/BarStatistic';
+
+
 import { useEffect, useState } from 'react';
 import Button from '~/components/Button';
 import ButtonSearch from '~/components/ButtonSearch';
@@ -22,7 +24,7 @@ function StatisticCDK() {
         ttdk: 'All',
     });
     //for search
-    const years = ['All'];
+    const years = ['all'];
     const currentYear = new Date().getFullYear();
     const quarter = ['All', 1, 2, 3, 4];
     const [month, setMonth] = useState(['All', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
@@ -119,16 +121,16 @@ function StatisticCDK() {
         if (type_ == 'quarter') {
             if (data.target.innerText == 'All') setMonth(['All', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
             if (data.target.innerText == '1') {
-                setMonth(['All', 1, 2, 3]);
+                setMonth(['all', 1, 2, 3]);
             }
             if (data.target.innerText == '2') {
-                setMonth(['All', 4, 5, 6]);
+                setMonth(['all', 4, 5, 6]);
             }
             if (data.target.innerText == '3') {
-                setMonth(['All', 7, 8, 9]);
+                setMonth(['all', 7, 8, 9]);
             }
             if (data.target.innerText == '4') {
-                setMonth(['All', 10, 11, 12]);
+                setMonth(['all', 10, 11, 12]);
             }
         }
         //console.log(object);
@@ -152,6 +154,8 @@ function StatisticCDK() {
         //gui requset lay detail
         const response = await ApicAll.post
     };
+    
+    
 
     return (
         <div className={cx('wrapper')}>
@@ -171,6 +175,7 @@ function StatisticCDK() {
                         <ButtonSearch bar data={years} type_="year" onClick={HandlerChange}>
                             Năm
                         </ButtonSearch>
+                        <ButtonSearch bar data={quarter} type_="quarter" onClick={HandlerChange}>
                         <ButtonSearch bar data={quarter} type_="quarter" onClick={HandlerChange}>
                             Quý
                         </ButtonSearch>
