@@ -1,25 +1,22 @@
 import { Outlet } from 'react-router-dom';
 import styles from './statistic.module.scss';
 import classNames from 'classnames/bind';
-
 import BarStatistic from '~/components/BarStatistic/BarStatistic';
-
-
 import { useEffect, useState } from 'react';
 import Button from '~/components/Button';
 import ButtonSearch from '~/components/ButtonSearch';
 import Pagination from '../../../components/Pagination/Pagination';
-
 import CarDetail from '../../../components/CarDetail/Cardetail';
+import * as ApicAll from '~/services/searchService';
 
 const cx = classNames.bind(styles);
 function StatisticCDK() {
     //object sent to backend
     const [object, setObject] = useState({
-        type: 'All',
-        typecar: 'All',
+        type: 'Đã đăng kiểm',
+        carType: 'All',
         year: 'All',
-        quater: 'All',
+        quarter: 'All',
         month: 'All',
         province: 'All',
         ttdk: 'All',
@@ -27,11 +24,76 @@ function StatisticCDK() {
     //for search
     const years = ['All'];
     const currentYear = new Date().getFullYear();
-    const quater = ['All', 1, 2, 3, 4];
+    const quarter = ['All', 1, 2, 3, 4];
     const [month, setMonth] = useState(['All', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
     const type = ['Đã đăng kiểm', 'Sắp đến hạn', 'Dự đoán'];
-    const typecar = ['All', 'Xe tải', 'Xe con'];
-    const province = ['All', 'Hà Nội', 'Bắc Ninh', 'Bắc Giang', 'Thái Nguyên'];
+    const carType = ['All', 'Xe tải', 'Xe con'];
+    const province = [
+        'all',
+        'Hà Nội',
+        'Hà Giang',
+        'Cao Bằng',
+        'Bắc Kạn',
+        'Tuyên Quang',
+        'Lào Cai',
+        'Điện Biên',
+        'Lai Châu',
+        'Sơn La',
+        'Yên Bái',
+        'Hòa Bình',
+        'Thái Nguyên',
+        'Lạng Sơn',
+        'Bắc Giang',
+        'Phú Thọ',
+        'Vĩnh Phúc',
+        'Bắc Ninh',
+        'Hải Dương',
+        'Hải Phòng',
+        'Quảng Ninh',
+        'Hưng Yên',
+        'Thái Bình',
+        'Hà Nam',
+        'Nam Định',
+        'Ninh Bình',
+        'Thanh Hóa',
+        'Nghệ An',
+        'Hà Tĩnh',
+        'Quảng Bình',
+        'Quảng Trị',
+        'Thừa Thiên Huế',
+        'Đà Nẵng',
+        'Quảng Nam',
+        'Quảng Ngãi',
+        'Bình Định',
+        'Phú Yên',
+        'Khánh Hòa',
+        'Ninh Thuận',
+        'Bình Thuận',
+        'Kon Tum',
+        'Gia Lai',
+        'Đắk Lắk',
+        'Đắk Nông',
+        'Lâm Đồng',
+        'Bình Phước',
+        'Tây Ninh',
+        'Bình Dương',
+        'Đồng Nai',
+        'Bà Rịa - Vũng Tàu',
+        'Hồ Chí Minh',
+        'Long An',
+        'Tiền Giang',
+        'Bến Tre',
+        'Trà Vinh',
+        'Vĩnh Long',
+        'Đồng Tháp',
+        'An Giang',
+        'Kiên Giang',
+        'Cần Thơ',
+        'Hậu Giang',
+        'Sóc Trăng',
+        'Bạc Liêu',
+        'Cà Mau'
+      ];
     const ttdk = ['All', 'TTDK1', 'TTDK2', 'TTDK3', 'TTDK4'];
     for (let year = currentYear; year >= currentYear - 50; year--) {
         if (years.length < 50) years.push(year);
@@ -39,40 +101,22 @@ function StatisticCDK() {
     // const handleClick=(event, index)=> {
     //     setActiveButton(index);
     //     setObject({ ...object, type: event.target.innerText });
-    // 
+    //
     //test pagination
-    const ListCar = [
-        { licensePlate: '99A-1234', owner: 'Nguyen Van Hung' },
-        { licensePlate: '99A-1234', owner: 'Nguyen Van Hung' },
-        { licensePlate: '99A-1234', owner: 'Nguyekkn Hung' },
-        { licensePlate: '99A-1234', owner: 'Nguyekkn Hung' },
-        { licensePlate: '99A-1234', owner: 'Nguyekkn Hung' },
-        { licensePlate: '99A-1234', owner: 'Nguyekkn Hung' },
-        { licensePlate: '99A-1234', owner: 'Nguyen Van Hung' },
-        { licensePlate: '99A-1234', owner: 'Ngukkkk Hung' },
-        { licensePlate: '99A-1234', owner: 'Ngukkkk Hung' },
-        { licensePlate: '99A-134', owner: 'Ngukkkk Hung' },
-        { licensePlate: '99A-1434', owner: 'Nguyen Van Hung' },
-    ];
 
-    
-    
     //pagination
-    const [carData, setcarData] = useState([]);
+    const [carData, setCarData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage, setPostsPerPage] = useState(1);
+    const [postsPerPage, setPostsPerPage] = useState(10);
     const lastPostIndex = currentPage * postsPerPage;
     const firstPostIndex = lastPostIndex - postsPerPage;
-    useEffect(() => {
-        setcarData(ListCar);
-    }, []);
     const currentPosts = carData.slice(firstPostIndex, lastPostIndex);
 
     const HandlerChange = (data, type_) => {
         setObject({ ...object, [type_]: data.target.innerText });
 
-        //check conditon for type quater
-        if (type_ == 'quater') {
+        //check conditon for type quarter
+        if (type_ == 'quarter') {
             if (data.target.innerText == 'All') setMonth(['All', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
             if (data.target.innerText == '1') {
                 setMonth(['All', 1, 2, 3]);
@@ -90,27 +134,31 @@ function StatisticCDK() {
         //console.log(object);
     };
     //send request to backend
-    const HandleSearch = () => {
-        console.log(object);
+    const HandleSearch = async () => {
+        console.log(carData);
+        const response = await ApicAll.post('/trungTamDangKiem/ratdd/carList', { ...object });
+        if (response.message === 'No car found.') {console.log(response)
+            setCarData([]);}
+        else {console.log(response);
+        setCarData([...response]);}
+       
+        
+        
     };
-    const [carInfor,setCarInfor]=useState(null);
+    const [carInfor, setCarInfor] = useState(null);
     const [displayDetail, setDisplayDetail] = useState(false);
-    const handleDisplayDetail = async() => {
-
+    const handleDisplayDetail = async () => {
         setDisplayDetail(true);
-
         //gui requset lay detail
-        setCarInfor(ListCar[0])
+        const response = await ApicAll.post
     };
-    
-    
 
     return (
         <div className={cx('wrapper')}>
             <div className={cx('container')}>
                 <div className={cx('navbar')}>
                     <BarStatistic>
-                        <ButtonSearch bar data={typecar} type_="typecar" onClick={HandlerChange}>
+                        <ButtonSearch bar data={carType} type_="carType" onClick={HandlerChange}>
                             Kiểu Xe
                         </ButtonSearch>
                     </BarStatistic>
@@ -123,7 +171,7 @@ function StatisticCDK() {
                         <ButtonSearch bar data={years} type_="year" onClick={HandlerChange}>
                             Năm
                         </ButtonSearch>
-                        <ButtonSearch bar data={quater} type_="quater" onClick={HandlerChange}>
+                        <ButtonSearch bar data={quarter} type_="quarter" onClick={HandlerChange}>
                             Quý
                         </ButtonSearch>
                         <ButtonSearch bar data={month} type_="month" onClick={HandlerChange}>
@@ -154,7 +202,7 @@ function StatisticCDK() {
                             return (
                                 <div key={index} className={cx('cardisplay')} onClick={handleDisplayDetail}>
                                     <p>{car.licensePlate}</p>
-                                    <p>{car.owner}</p>
+                                    <p>{car.ownerName}</p>
                                 </div>
                             );
                         })}
@@ -166,7 +214,9 @@ function StatisticCDK() {
                         />
                     </aside>
                     <div className={cx('detail')}>
-                        {displayDetail ? <CarDetail carInfor={carInfor}  setDisplayDetail={setDisplayDetail}/> : null}
+
+                        
+                        {displayDetail ? <CarDetail carInfor={carInfor} setDisplayDetail={setDisplayDetail} /> : null}
                     </div>
                 </div>
             </div>

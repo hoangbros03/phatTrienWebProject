@@ -130,13 +130,14 @@ const getCarsList = async(req,res)=>{
     }else{
         //Predicted moved 
         logger.info("The predicted session has moved to statisticController.js");
+       
         res.json({"status":"Predict has move to statistic part"});
         return res.status(400);
         
     }
 
     //return part
-    if(req.body.type=='registered' || req.body.type=="nearExpire"){
+    if(req.body.type=='registered' || req.body.type=="Đã đăng kiểm" || req.body.type=="nearExpire" || req.body.type ==='Sắp đến hạn'){
         if(cars.length == 0){
             res.json({"message":"No car found."});
             return res.status(204);
@@ -144,6 +145,7 @@ const getCarsList = async(req,res)=>{
         // console.log(cars[0].paperOfRecognition.dateOfIssue.$month);
         return res.json(cars);
     }
+    return res.json({"message":"Input not true"});
     
 
 };
@@ -240,6 +242,8 @@ const searchCar = async(req,res)=>{
 
 
 */
+
+
 const createCar = async(req,res)=>{
     //check if enough information
     if(!"organization" in req?.body || !req?.body?.ownerName || !req?.body?.licensePlate || !req?.body?.dateOfIssue || !req?.body?.regionName || !req?.body?.carName || !req?.body?.carVersion || !req?.body?.carType ||!req?.body?.engineNo || !req?.body?.classisNo){

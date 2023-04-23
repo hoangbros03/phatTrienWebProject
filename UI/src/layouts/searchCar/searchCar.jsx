@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import { SearchIcon, Close } from '~/components/Icons';
 import { useState } from 'react';
 import CarDetail from '../../components/CarDetail/Cardetail';
-
+import * as API from '~/services/searchService';
 const cx = classNames.bind(styles);
 function SearchCar() {
     //search
@@ -18,11 +18,8 @@ function SearchCar() {
         setlicensePlate(event.target.value);
     };
     const GetAPI=()=>{
-        //get data from backend
-        if(licensePlate==="123") setDisplayDetail(true)
-        if(carInfor==null)
-        {setMessage('Vui lòng nhập lại biển số xe')}
-        else setDisplayDetail(true)
+        const car = API.post()
+        setDisplayDetail(true)
     }
 
     const renderSearchBar = () => {

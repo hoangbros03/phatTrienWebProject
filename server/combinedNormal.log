@@ -332,3 +332,35 @@
 {"component":"user-service","level":"info","message":"New center created: {\n  name: 'Trung tâm đăffngfsd kiểm xe cơ giới 8601V',\n  user: 'admin8601V',\n  encodedPassword: '$2b$10$VzEZrCwHX9vlti/UDsnOHuNsaxSm6WB99R5erh8i98Q0MdJOVFsLG',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"6444e6500b540b4d4bd2bb52\"),\n  __v: 0\n}","timestamp":"23-04-2023 15:03:28"}
 {"component":"user-service","level":"info","message":"New center created: {\n  name: 'Trung tâm đăffngfsd kiểm xe cơ giới 8501V',\n  user: 'admin8501V',\n  encodedPassword: '$2b$10$8Aj7A3OJ.o/XkyprZ6CYb.4utbiPX/UX23CEO4KsmUuXR.6ErenGG',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"6444e672a9798f5279af7935\"),\n  __v: 0\n}","timestamp":"23-04-2023 15:04:02"}
 {"component":"user-service","level":"info","message":"New center created: {\n  name: 'Trung tâm đăffngfsd kiểm xe cơ giới 8401V',\n  user: 'admin8401V',\n  encodedPassword: '$2b$10$vCLAIF8utuRfKtDxV..Bj.MMUrmHBQDGQbyCG7nqOshe1WXk/SsVC',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"6444e6a75fd9c4813a0c03f5\"),\n  __v: 0\n}","timestamp":"23-04-2023 15:04:55"}
+{"component":"user-service","level":"info","message":"The predicted session has moved to statisticController.js","timestamp":"23-04-2023 21:22:19"}
+{"component":"user-service","level":"info","message":"The predicted session has moved to statisticController.js","timestamp":"23-04-2023 21:22:45"}
+{"component":"user-service","level":"info","message":"The predicted session has moved to statisticController.js","timestamp":"23-04-2023 21:34:44"}
+{"component":"user-service","level":"info","message":"The predicted session has moved to statisticController.js","timestamp":"23-04-2023 21:35:09"}
+{"component":"user-service","level":"info","message":"The predicted session has moved to statisticController.js","timestamp":"23-04-2023 21:35:51"}
+{"component":"user-service","level":"info","message":"The predicted session has moved to statisticController.js","timestamp":"23-04-2023 21:36:00"}
+{"component":"user-service","level":"info","message":"The predicted session has moved to statisticController.js","timestamp":"23-04-2023 21:37:41"}
+{"component":"user-service","level":"info","message":"The predicted session has moved to statisticController.js","timestamp":"23-04-2023 21:37:48"}
+{"component":"user-service","level":"info","message":"The predicted session has moved to statisticController.js","timestamp":"23-04-2023 21:53:47"}
+{"component":"user-service","level":"info","message":"The predicted session has moved to statisticController.js","timestamp":"23-04-2023 21:53:48"}
+{"component":"user-service","level":"info","message":"The predicted session has moved to statisticController.js","timestamp":"23-04-2023 21:54:32"}
+{"component":"user-service","level":"info","message":"The predicted session has moved to statisticController.js","timestamp":"23-04-2023 21:54:34"}
+{"component":"user-service","level":"error","message":"Error: Not allowed by CORS","timestamp":"23-04-2023 21:59:58"}
+{"component":"user-service","level":"info","message":"Not enough information for querying!","timestamp":"23-04-2023 22:00:27"}
+{"component":"user-service","level":"info","message":"Not enough information for querying!","timestamp":"23-04-2023 22:00:31"}
+{"component":"user-service","level":"info","message":"Not enough information for querying!","timestamp":"23-04-2023 22:00:41"}
+{"component":"user-service","level":"info","message":"The predicted session has moved to statisticController.js","timestamp":"23-04-2023 22:02:32"}
+{"component":"user-service","level":"info","message":"The predicted session has moved to statisticController.js","timestamp":"23-04-2023 22:04:31"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"23-04-2023 23:50:58"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"23-04-2023 23:54:40"}
+{"component":"user-service","level":"info","message":"dateOfIssue string is not valid to convert to Date object","timestamp":"23-04-2023 23:54:49"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"23-04-2023 23:54:54"}
+{"component":"user-service","level":"info","message":"Organization is either missing or wrong input. Try again","timestamp":"23-04-2023 23:55:06"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"23-04-2023 23:55:11"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"23-04-2023 23:56:38"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"23-04-2023 23:57:26"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"23-04-2023 23:58:44"}
+{"component":"user-service","level":"info","message":"dateOfIssue string is not valid to convert to Date object","timestamp":"24-04-2023 00:00:25"}
+{"component":"user-service","level":"info","message":"dateOfIssue string is not valid to convert to Date object","timestamp":"24-04-2023 00:01:55"}
+{"component":"user-service","level":"info","message":"dateOfIssue string is not valid to convert to Date object","timestamp":"24-04-2023 00:01:56"}
+{"component":"user-service","level":"info","message":"Organization is either missing or wrong input. Try again","timestamp":"24-04-2023 00:02:06"}
+{"component":"user-service","level":"info","message":"dateOfIssue string is not valid to convert to Date object","timestamp":"24-04-2023 00:02:57"}

@@ -15,22 +15,10 @@ import NewRegistry from './pages/Ttdk/newRegistry/newRegistry';
 import StatisticTTDK from './pages/Ttdk/statistic/statisticTTDK';
 import Ttdk from './pages/Ttdk/ttdk';
 import IndexCDK from './pages/Cucdangkiem/Index/indexCDK';
-<<<<<<< HEAD
-import Indexttdk from './pages/Ttdk/Index/indexttdk';
-=======
-import indexttdk from './pages/Ttdk/Index/indexttdk';
 import SearchCar from './layouts/searchCar/searchCar';
 import Indexttdk from './pages/Ttdk/Index/indexttdk';
 
 
-//redux
-import { setupServer } from './fakeAPI';
-
-
-if (process.env.NODE_ENV === 'development') {
-    setupServer();
-  }
->>>>>>> 9e948ddea3b97fbb7ec3773f783a585a8e060e79
 
 const router = createBrowserRouter(
     createRoutesFromElements(

@@ -13,7 +13,7 @@ router.route('/:user/')
     .post(carsController.createCar);
 
 router.route('/:user/carList')
-    .get(carsController.getCarsList);
+    .post(carsController.getCarsList);
 
 router.route('/:user/carSpec')
     .get(carsController.getCarsList)
