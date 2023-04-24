@@ -8,10 +8,10 @@ const {'model': carSpecification, schema: carSpecSchema}= require('../../models/
 const humanRelevantController = require('../../controllers/humanRelevantController');
 
 //TODO: Add verify roles add other API, currently just for testing purpose.
-router.route('/:user/')
-    .post(carsController.searchCar)
+router.route('/:user/createCar')
     .post(carsController.createCar);
-
+router.route('/:user/searchCar')
+    .post(carsController.searchCar)
 router.route('/:user/carList')
     .post(carsController.getCarsList);
 

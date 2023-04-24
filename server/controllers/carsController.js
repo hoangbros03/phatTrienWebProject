@@ -97,7 +97,7 @@ const getCarsList = async(req,res)=>{
     }else if(req.body.type==='nearExpire' || req.body.type ==='Sắp đến hạn'){
         //in less than or equal to 3 month
 
-        const expireDate = new Date();
+        var expireDate = new Date();
         expireDate = expireDate.setTime(expireDate.getTime()+(3 * 30 * 24 * 60 * 60 * 1000)); //3 month later
         cars = await Cars.find({
             regionName: correct(req.body.province),

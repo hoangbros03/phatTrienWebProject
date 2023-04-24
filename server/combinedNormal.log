@@ -233,3 +233,37 @@
 {"component":"user-service","level":"info","message":"New license plate isn't provided","timestamp":"15-04-2023 22:25:49"}
 {"component":"user-service","level":"info","message":"New license plate isn't provided","timestamp":"15-04-2023 22:26:19"}
 {"component":"user-service","level":"info","message":"New license plate isn't provided","timestamp":"15-04-2023 22:26:41"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"24-04-2023 09:59:28"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"24-04-2023 09:59:39"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"24-04-2023 10:00:19"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"24-04-2023 10:00:31"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"24-04-2023 10:02:56"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 10:05:48"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 10:10:28"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 10:11:12"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 10:11:23"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 10:11:37"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 10:13:24"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 10:15:11"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 10:34:46"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 10:35:10"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 10:43:42"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 10:44:13"}
+{"component":"user-service","level":"info","message":"dateOfIssue string is not valid to convert to Date object","timestamp":"24-04-2023 10:48:28"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 10:57:46"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 10:57:57"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 10:58:13"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 11:00:07"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 11:00:59"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 11:04:26"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 11:06:58"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 11:08:46"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 11:09:12"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 11:13:47"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 11:14:14"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 11:14:35"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 11:35:14"}
+{"component":"user-service","level":"info","message":"Not found searchValue","timestamp":"24-04-2023 11:37:09"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"24-04-2023 11:46:27"}
+{"component":"user-service","level":"info","message":"Organization is either missing or wrong input. Try again","timestamp":"24-04-2023 12:59:51"}
+{"component":"user-service","level":"info","message":"dateOfIssue string is not valid to convert to Date object","timestamp":"24-04-2023 13:00:11"}

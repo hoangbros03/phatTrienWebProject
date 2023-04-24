@@ -2,15 +2,13 @@ import { Outlet } from 'react-router-dom';
 import styles from './statistic.module.scss';
 import classNames from 'classnames/bind';
 import BarStatistic from '~/components/BarStatistic/BarStatistic';
-
-
 import { useEffect, useState } from 'react';
 import Button from '~/components/Button';
 import ButtonSearch from '~/components/ButtonSearch';
 import Pagination from '../../../components/Pagination/Pagination';
 import CarDetail from '../../../components/CarDetail/Cardetail';
-import * as ApicAll from '~/services/searchService';
-
+import * as API from '~/services/searchService';
+import { useParams } from "react-router-dom";
 const cx = classNames.bind(styles);
 function StatisticCDK() {
     //object sent to backend
@@ -23,6 +21,7 @@ function StatisticCDK() {
         province: 'All',
         ttdk: 'All',
     });
+    let { user } = useParams();
     //for search
     const years = ['all'];
     const currentYear = new Date().getFullYear();
@@ -100,12 +99,7 @@ function StatisticCDK() {
     for (let year = currentYear; year >= currentYear - 50; year--) {
         if (years.length < 50) years.push(year);
     }
-    // const handleClick=(event, index)=> {
-    //     setActiveButton(index);
-    //     setObject({ ...object, type: event.target.innerText });
-    //
-    //test pagination
-
+   
     //pagination
     const [carData, setCarData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -138,21 +132,22 @@ function StatisticCDK() {
     //send request to backend
     const HandleSearch = async () => {
         console.log(carData);
-        const response = await ApicAll.post('/trungTamDangKiem/ratdd/carList', { ...object });
+        const response = await API.post('/trungTamDangKiem/ratdd/carList', { 
+            ...object });
         if (response.message === 'No car found.') {console.log(response)
             setCarData([]);}
         else {console.log(response);
         setCarData([...response]);}
-       
-        
-        
     };
     const [carInfor, setCarInfor] = useState(null);
     const [displayDetail, setDisplayDetail] = useState(false);
-    const handleDisplayDetail = async () => {
+    const handleDisplayDetail = async (licensePlate) => {
+        const result = await API.searchCar('trungTamDangKiem/:user/searchCar',{user:user}, {searchValue:licensePlate})
+        console.log(result)
+        setCarInfor(result.status)
         setDisplayDetail(true);
         //gui requset lay detail
-        const response = await ApicAll.post
+        // const response = await ApicAll.post
     };
     
     
@@ -175,7 +170,7 @@ function StatisticCDK() {
                         <ButtonSearch bar data={years} type_="year" onClick={HandlerChange}>
                             Năm
                         </ButtonSearch>
-                        <ButtonSearch bar data={quarter} type_="quarter" onClick={HandlerChange}>
+
                         <ButtonSearch bar data={quarter} type_="quarter" onClick={HandlerChange}>
                             Quý
                         </ButtonSearch>
@@ -205,7 +200,7 @@ function StatisticCDK() {
                         </div>
                         {currentPosts.map((car, index) => {
                             return (
-                                <div key={index} className={cx('cardisplay')} onClick={handleDisplayDetail}>
+                                <div key={index} className={cx('cardisplay')} onClick={() => handleDisplayDetail(car.licensePlate)}>
                                     <p>{car.licensePlate}</p>
                                     <p>{car.ownerName}</p>
                                 </div>
@@ -219,9 +214,7 @@ function StatisticCDK() {
                         />
                     </aside>
                     <div className={cx('detail')}>
-
-                        
-                        {displayDetail ? <CarDetail carInfor={carInfor} setDisplayDetail={setDisplayDetail} /> : null}
+                        {displayDetail ? <CarDetail carInfor={carInfor} setDisplayDetail={setDisplayDetail} setCarInfor={setCarInfor}/> : null}
                     </div>
                 </div>
             </div>

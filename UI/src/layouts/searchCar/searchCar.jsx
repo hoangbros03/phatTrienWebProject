@@ -5,14 +5,17 @@ import { SearchIcon, Close } from '~/components/Icons';
 import { useState } from 'react';
 import CarDetail from '../../components/CarDetail/Cardetail';
 import * as API from '~/services/searchService';
+import { useParams } from "react-router-dom";
+
 const cx = classNames.bind(styles);
 function SearchCar() {
     //search
+    const { user } = useParams();
+    
     const [licensePlate, setlicensePlate] = useState('');
     const [message, setMessage] = useState('');
     const [carInfor, setCarInfor] = useState(null);
     const [displayDetail, setDisplayDetail] = useState(false);
-
     const handleInput = (event) => {
         setlicensePlate(event.target.value);
     };
@@ -20,29 +23,21 @@ function SearchCar() {
         //get data from backend
         if(licensePlate.length<=3)
         setMessage("Vui Lòng Điền Thêm Thông Tin")
-        else {await fetch('http://localhost:3500/trungTamDangKiem/ww/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                searchValue: licensePlate,
-            }),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                if(data?.status =="No car match")
+        else {
+            const result = await API.searchCar('trungTamDangKiem/:user/searchCar',{user:user}, {searchValue:licensePlate})
+            console.log(result)    
+            if(result?.status =="No car match")
                 {
                     setMessage("Biển số xe chưa đúng vui lòng nhập lại")
                 }
                 else{
-                    setCarInfor(data.status)
+                    setCarInfor(result.status)
                     setlicensePlate("")
                     setDisplayDetail(true)
                 }
-            })
-            .catch((error) => console.error(error));
-        }
+            }
+           
+    
         
     };
  

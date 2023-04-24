@@ -67,7 +67,7 @@ function ButtonSearch({
     }
     return (
         <Comp className={classes} {..._props} onClick={handleClickdisplay}>
-            <span className={cx('title')}>{value}</span>
+            <input className={cx('title')} value={value}></input>
             {display&&<div className={cx('data')}>
             {data.length>0 && data.map((datas,index)=>{
                 return <p key={index} onClick={handleClick} >{datas}</p>
