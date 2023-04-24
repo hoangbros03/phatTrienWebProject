@@ -475,9 +475,7 @@ const createCar = async(req,res)=>{
         logger.info("All information valid. Potential bug when creating car?");
         return res.sendStatus(400);
     });
-    
-    
-    res.json({"status":"success"}); 
+    return res.json({"status":"success"}).status(200); 
 };
 
 /*
@@ -606,23 +604,24 @@ month, province, quarter, ttdk, type, year, carType
 Output: Cars with information like when importing cars
 
 IMPORTANT: When to use this API:
-In getCarList, when user want to export car with selected condition(s)
 In uploadCar page, there should a another button for export cars. In this scenario, all car in db will be exported, so ALL VALUE of Input must be ALL!
 */
 const exportCars = async(req,res)=>{
     if(!enoughInformationToGetList(req)){return res.status(400).json({"message":"Please give back-end enough information"});}
     //use fetch to get registration information from existing information
-    let jsonData = await result(req.body,SERVER_URL+ "/trungTamDangKiem/god/carList","GET");
+    let jsonData = await result(req.body,SERVER_URL+ "/trungTamDangKiem/god/carList","POST");
     //for each registration information, append licenseplate to a list
     let licensePlateList = []
     for(let i = 0 ; i< jsonData.length;i++){
         let tempObj = jsonData[i].toObject();
         licensePlateList.push(tempObj.licensePlate);
     }
+    //filter to remove duplicate
+    licensePlateList = [...new Set(licensePlateList)];
     //use fetch to search cars FOR EACH licenseplate
     var returnResult=[]
     for(let i = 0;i<licensePlateList.length;i++){
-        let car = await result(licensePlateList[i],SERVER_URL+ "trungTamDangKiem/god/","GET");
+        let car = await result(licensePlateList[i],SERVER_URL+ "trungTamDangKiem/god/","POST");
         //convert to normal object, remove unnecessary ids
         car = car.toObject();
         car = car.status;

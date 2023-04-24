@@ -1,5 +1,5 @@
-const {CucDangKiem, CucDangKiemSchema} = require('../models/CucDangKiem');
-const {TrungTamDangKiem, TrungTamDangKiemSchema} = require('../models/TrungTamDangKiem');
+const {"model": CucDangKiem, CucDangKiemSchema} = require('../models/CucDangKiem');
+const {"model":TrungTamDangKiem, TrungTamDangKiemSchema} = require('../models/TrungTamDangKiem');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const ROLES_LIST = require('../config/roles_list');

@@ -1,4 +1,5 @@
 const {"model": TrungTamDangKiem, TrungTamDangKiemSchema} = require('../models/TrungTamDangKiem');
+const {"model": CucDangKiem, CucDangKiemSchema} = require('../models/CucDangKiem');
 const {"model": Cars, carsSchema} = require('../models/Car');
 const bcrypt = require('bcrypt');
 const logger = require('../logger/logger');
@@ -91,11 +92,9 @@ const uploadCenters = async(req,res)=>{
     
     for(let e = 0; e<arr.length;e++){
         
-        await result(arr[e],"/cucDangKiem/"+ "god"+"/center","POST");
-        
+        await result(arr[e],"/cucDangKiem/"+ "god"+"/center","POST");   
     }
     return res.sendStatus(200);
-  
     
 }
 
@@ -147,6 +146,7 @@ const addRegistry = async(req,res)=>{
         logger.info("Some req info must be string, but aren't");
         return res.sendStatus(200);
     }
+
     var dateOfIssue = Date.parse(req.body.dateOfIssue);
     var dateOfExpiry = Date.parse(req.body.dateOfExpiry);
     if(isNaN(dateOfExpiry)|| isNaN(dateOfIssue)||!
@@ -209,5 +209,18 @@ const getCenters = async(req,res)=>{
     return res.json(centers);
 }
 
+//internal: create default acc for cucDangKiem
+const initAdmin = async(req,res)=>{
+    const hash = await bcrypt.hash("123456",10);
+    const admin = new CucDangKiem({
+        user: "admin",
+        name: "Cuc Dang Kiem",
+        encodedPassword: hash,
+        refreshToken: ""
 
-module.exports = {createNewCenter, uploadCenters, changePasswordCenter, getCenters, addRegistry};
+    });
+    await admin.save();
+    return res.sendStatus(200);
+};
+
+module.exports = {createNewCenter, uploadCenters, changePasswordCenter, getCenters, addRegistry, initAdmin};
