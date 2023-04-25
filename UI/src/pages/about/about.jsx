@@ -21,7 +21,7 @@ function About() {
                     <br />
                     <section>
                         Trang web sử dụng framework <code style={{color: 'deepskyblue'}}>ReactJS</code> cho Front-end,
-                        <code style={{color: 'green'}}>NodeJS</code> cho Back-end và <code style={{color: 'darksalmon'}}>
+                        <code style={{color: 'green'}}> NodeJS</code> cho Back-end và <code style={{color: 'darksalmon'}}>
                         MongoDB</code> cho tầng cơ sở dữ liệu.
                     </section>
                     <br />

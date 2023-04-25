@@ -4,6 +4,7 @@ import Layout from './layouts/Layout';
 import User from './layouts/User/user';
 import Error from './pages/404/error';
 import About from './pages/about/about';
+import Contact from './pages/contact/contact'
 import ChangeInformation from './pages/Cucdangkiem/changeInformation/changeInformation';
 import Cucdangkiem from './pages/Cucdangkiem/cucdangkiem';
 import RegisterCenter from './pages/Cucdangkiem/registerCenter/registerCenter';
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
         <Route path="/" element={<Layout />}>
             <Route index element={<Index />} />
             <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />} />
             <Route path="login" element={<Login />} />
             <Route path="cucdangkiem" element={<User />}>
                 {/* Use user like a navbar display logo and username  */}
