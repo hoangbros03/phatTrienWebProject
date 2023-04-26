@@ -7,6 +7,7 @@ import Button from '~/components/Button';
 import ButtonSearch from '~/components/ButtonSearch';
 import Pagination from '../../../components/Pagination/Pagination';
 import CarDetail from '../../../components/CarDetail/Cardetail';
+import RegisterDetail from '~/components/RegisterDetail/RegisterDetail';
 import * as API from '~/services/searchService';
 import { useParams } from "react-router-dom";
 const cx = classNames.bind(styles);
@@ -25,10 +26,10 @@ function StatisticCDK() {
     //for search
     const years = ['all'];
     const currentYear = new Date().getFullYear();
-    const quarter = ['All', 1, 2, 3, 4];
-    const [month, setMonth] = useState(['All', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+    const quarter = ['All', '1', '2', '3', '4'];
+    const [month, setMonth] = useState(['All', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']);
     const type = ['Đã đăng kiểm', 'Sắp đến hạn', 'Dự đoán'];
-    const carType = ['All', 'Xe tải', 'Xe con'];
+    const carType = ['All', 'xe tải', 'xe con'];
     const province = [
         'all',
         'Hà Nội',
@@ -97,7 +98,7 @@ function StatisticCDK() {
       ];
     const ttdk = ['All', 'TTDK1', 'TTDK2', 'TTDK3', 'TTDK4'];
     for (let year = currentYear; year >= currentYear - 50; year--) {
-        if (years.length < 50) years.push(year);
+        if (years.length < 50) years.push(year.toString());
     }
    
     //pagination
@@ -109,28 +110,30 @@ function StatisticCDK() {
     const currentPosts = carData.slice(firstPostIndex, lastPostIndex);
 
     const HandlerChange = (data, type_) => {
-        setObject({ ...object, [type_]: data.target.innerText });
-
+        
+        setObject({ ...object, [type_]:data.target.innerText });
+        console.log(type_,data.target.innerText)
         //check conditon for type quarter
         if (type_ == 'quarter') {
-            if (data.target.innerText == 'All') setMonth(['All', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+            if (data.target.innerText == 'All') setMonth(['All', "1", '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']);
             if (data.target.innerText == '1') {
-                setMonth(['all', 1, 2, 3]);
+                setMonth(['All', "1", '2', '3']);
             }
             if (data.target.innerText == '2') {
-                setMonth(['all', 4, 5, 6]);
+                setMonth(['All', '4', '5', '6']);
             }
             if (data.target.innerText == '3') {
-                setMonth(['all', 7, 8, 9]);
+                setMonth(['All','7', '8', '9']);
             }
             if (data.target.innerText == '4') {
-                setMonth(['all', 10, 11, 12]);
+                setMonth(['All', '10', '11', '12']);
             }
         }
         //console.log(object);
     };
     //send request to backend
     const HandleSearch = async () => {
+        console.log(object)
         console.log(carData);
         const response = await API.post('/trungTamDangKiem/ratdd/carList', { 
             ...object });
@@ -141,10 +144,20 @@ function StatisticCDK() {
     };
     const [carInfor, setCarInfor] = useState(null);
     const [displayDetail, setDisplayDetail] = useState(false);
-    const handleDisplayDetail = async (licensePlate) => {
-        const result = await API.searchCar('trungTamDangKiem/:user/searchCar',{user:user}, {searchValue:licensePlate})
+    const handleDisplayDetail = async (licensePlate,_idregister) => {
+        let result = await API.searchCar('trungTamDangKiem/:user/searchCar',{user:user}, {searchValue:licensePlate})
+        console.log(result.status.historyRegistrationInformation)
+        //filter RegistrationInformation
+        let filterresult = result.status.historyRegistrationInformation.filter(RegistrationInformation => RegistrationInformation._id===_idregister) 
+        //delete historyRegistrationInformation in result
+        delete result.status.historyRegistrationInformation;
+        //add filter  historyRegistrationInformation in result
+        result.status.historyRegistrationInformation=filterresult
         console.log(result)
+        console.log(filterresult)
+        
         setCarInfor(result.status)
+
         setDisplayDetail(true);
         //gui requset lay detail
         // const response = await ApicAll.post
@@ -200,7 +213,7 @@ function StatisticCDK() {
                         </div>
                         {currentPosts.map((car, index) => {
                             return (
-                                <div key={index} className={cx('cardisplay')} onClick={() => handleDisplayDetail(car.licensePlate)}>
+                                <div key={index} className={cx('cardisplay')} onClick={() => handleDisplayDetail(car.licensePlate,car._id)}>
                                     <p>{car.licensePlate}</p>
                                     <p>{car.ownerName}</p>
                                 </div>
@@ -214,7 +227,7 @@ function StatisticCDK() {
                         />
                     </aside>
                     <div className={cx('detail')}>
-                        {displayDetail ? <CarDetail carInfor={carInfor} setDisplayDetail={setDisplayDetail} setCarInfor={setCarInfor}/> : null}
+                        {displayDetail ? <RegisterDetail carInfor={carInfor} setDisplayDetail={setDisplayDetail} setCarInfor={setCarInfor}/> : null}
                     </div>
                 </div>
             </div>

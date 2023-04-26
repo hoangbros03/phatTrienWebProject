@@ -4,7 +4,6 @@
     border-radius: 8px;
     left: 10px;
     max-height: 200px;
-    
     min-width: 30px;
     overflow-y: scroll;
     background-color: #fff;
@@ -26,12 +25,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 120px;
-    padding: 9px 16px;
-    border-radius: 16px;
-    font-size: 1.6rem;
     font-family: var(--font-family);
     cursor: pointer;
+    padding: 0px;
+    border-radius: 16px;
     background-color: var(--white);
     border: 1px solid transparent;
     user-select: none;
@@ -81,16 +78,6 @@
 
 
 .bar{
-    color: #fff;;
-    background-color:#5763B3 ;
-    min-width: 60px;
-    padding: 4px 16px;
-    max-height: var(--max-height-bar);
-    &:hover {
-        border-color: var(--white);
-        background-color:  #f6f6f8;
-        color:#5763B3 ;
-    }
     position: relative;
 }
 .active{
@@ -118,5 +105,22 @@
 .large {
     padding: 14px 16px;
     min-width: 140px;
+}
+.title{
+    padding: 8px 0px 8px 0px;
+    border-radius: 16px;
+    font-size: 1.6rem;
+    color:#5763B3 ;
+    background-color: var(--white);
+    border: 1px solid transparent;
+    width:80%;
+    max-height: var(--max-height-bar);
+    &:hover {
+        border-color: var(--white);
+        background-color:  #f6f6f8;
+        color:#5763B3 ;
+    }
+    
+    
 }
 

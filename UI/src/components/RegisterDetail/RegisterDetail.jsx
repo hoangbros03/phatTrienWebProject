@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
-import styles from "./Cardetail.module.scss";
+import styles from "./RegisterDetail.module.scss";
 import classNames from 'classnames/bind';
 import { useState } from "react";
 import { SearchIcon, Close } from '~/components/Icons';
 const cx = classNames.bind(styles);
-function CarDetail({carInfor,setDisplayDetail,setCarInfor}) {
+function RegisterDetail({carInfor,setDisplayDetail,setCarInfor}) {
 
     // display detail
     
@@ -45,6 +45,7 @@ function CarDetail({carInfor,setDisplayDetail,setCarInfor}) {
             ...carInfor,
               [name]: value,
           });
+        console.log(carInfor)
         setCarSend({
             ...carSend,
             [name]: value,
@@ -79,13 +80,23 @@ function CarDetail({carInfor,setDisplayDetail,setCarInfor}) {
                             />
                         </div>
                         <div className={cx('info')}>
-                            Tỉnh
+                            Nơi đăng kiểm
                             <input
                                 disabled={!isEditable}
                                 className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
                                 name="regionName"
                                 onInput={handleChange}
-                                value={`${carInfor?.regionName}`}
+                                value={`${carInfor?.historyRegistrationInformation[0].regionName}`}
+                            />
+                        </div>
+                        <div className={cx('info')}>
+                            Trung tâm đăng kiểm
+                            <input
+                                disabled={!isEditable}
+                                className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
+                                name="regionName"
+                                onInput={handleChange}
+                                value={`${carInfor?.historyRegistrationInformation[0].trungTamDangKiemName}`}
                             />
                         </div>
                         <div className={cx('info')}>
@@ -109,7 +120,7 @@ function CarDetail({carInfor,setDisplayDetail,setCarInfor}) {
                             <input
                                 className={cx('input')}
                                 disabled={true}
-                                value={`${carInfor?.registrationInformation?.dateOfIssue}`}
+                                value={`${carInfor?.historyRegistrationInformation[0]?.dateOfIssue}`}
                             />
                         </div>
                         <div className={cx('info')}>
@@ -117,7 +128,7 @@ function CarDetail({carInfor,setDisplayDetail,setCarInfor}) {
                             <input
                                 className={cx('input')}
                                 disabled={true}
-                                value={`${carInfor?.registrationInformation?.dateOfExpiry}`}
+                                value={`${carInfor?.historyRegistrationInformation[0]?.dateOfExpiry}`}
                             />
                         </div>
                         <div className={cx('info')}>
@@ -129,17 +140,7 @@ function CarDetail({carInfor,setDisplayDetail,setCarInfor}) {
                                 onInput={handleChange}
                             />
                         </div>
-                        <div className={cx('option')}>
-                            <div
-                                className={`${isEditable === true ? cx('active') : ''} ${cx('button')}`}
-                                onClick={handleisEditable}
-                            >
-                                {isEditable === true ? 'Cập nhật' : 'Sửa Thông Tin'}
-                            </div>
-                            <div className={cx('button')} onClick={handleDelele}>
-                                Xóa
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -147,4 +148,4 @@ function CarDetail({carInfor,setDisplayDetail,setCarInfor}) {
         );
 }
 
-export default CarDetail;
+export default RegisterDetail;

@@ -29,6 +29,7 @@ export const searchCar = async (searchPath, parameters = {}, object = {}) => {
   
 
 export const post = async (path, object={}) => {
+  console.log(object)
     const respone = await httpRequest.post(path, object)
     .catch(error => console.error(error));
     return respone.data;
