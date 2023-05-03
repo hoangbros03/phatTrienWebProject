@@ -272,3 +272,152 @@
 {"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"24-04-2023 14:51:20"}
 {"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"644634f8a73009b499493e1f\"),\n  licensePlate: '29A-123.47',\n  regionName: 'Hà Nội',\n  producer: 'Honda',\n  version: 'Sport',\n  carOwner: new ObjectId(\"644634f7a73009b499493e1b\"),\n  registrationInformation: new ObjectId(\"644634f8a73009b499493e21\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a34\"),\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"644634f8a73009b499493e23\"),\n  __v: 0\n}","timestamp":"24-04-2023 14:51:20"}
 {"component":"user-service","level":"info","message":"the licensePlate was registered, choose other number","timestamp":"24-04-2023 15:02:54"}
+{"component":"user-service","level":"info","message":"The predicted session has moved to statisticController.js","timestamp":"24-04-2023 16:55:32"}
+{"component":"user-service","level":"info","message":"Not enough information, please re-check.","timestamp":"24-04-2023 16:58:34"}
+{"component":"user-service","level":"info","message":"Not enough information, please re-check.","timestamp":"24-04-2023 16:58:37"}
+{"component":"user-service","level":"info","message":"Not enough information, please re-check.","timestamp":"24-04-2023 16:59:31"}
+{"component":"user-service","level":"error","message":"SyntaxError: Unexpected string in JSON at position 209","timestamp":"24-04-2023 17:00:33"}
+{"component":"user-service","level":"info","message":"Organization is either missing or wrong input. Try again","timestamp":"24-04-2023 17:02:54"}
+{"component":"user-service","level":"info","message":"Organization is either missing or wrong input. Try again","timestamp":"24-04-2023 17:03:26"}
+{"component":"user-service","level":"info","message":"ID must consist of either 9 or 12 numbers","timestamp":"24-04-2023 17:06:25"}
+{"component":"user-service","level":"info","message":"Create newCarOwner successfull","timestamp":"24-04-2023 17:06:30"}
+{"component":"user-service","level":"info","message":"Error: TypeError: Cannot read property '_id' of undefined","timestamp":"24-04-2023 17:06:30"}
+{"component":"user-service","level":"info","message":"Create newCarOwner successfull","timestamp":"24-04-2023 17:17:09"}
+{"component":"user-service","level":"info","message":"Error: TypeError: Cannot read property '_id' of undefined","timestamp":"24-04-2023 17:17:10"}
+{"component":"user-service","level":"info","message":"Create newCarOwner successfull","timestamp":"24-04-2023 17:17:36"}
+{"component":"user-service","level":"info","message":"Error: TypeError: Cannot read property '_id' of undefined","timestamp":"24-04-2023 17:17:36"}
+{"component":"user-service","level":"info","message":"Create newCarOwner successfull","timestamp":"24-04-2023 17:18:16"}
+{"component":"user-service","level":"info","message":"Error: TypeError: Cannot read property '_id' of undefined","timestamp":"24-04-2023 17:18:16"}
+{"component":"user-service","level":"info","message":"Create newCarOwner successfull","timestamp":"24-04-2023 17:18:43"}
+{"component":"user-service","level":"info","message":"Error: TypeError: Cannot read property '_id' of undefined","timestamp":"24-04-2023 17:18:43"}
+{"component":"user-service","level":"info","message":"Create newCarOwner successfull","timestamp":"24-04-2023 17:20:01"}
+{"component":"user-service","level":"info","message":"Error: TypeError: Cannot read property '_id' of undefined","timestamp":"24-04-2023 17:20:01"}
+{"component":"user-service","level":"info","message":"Create newCarOwner successfull","timestamp":"24-04-2023 17:20:08"}
+{"component":"user-service","level":"info","message":"Error: TypeError: Cannot read property '_id' of undefined","timestamp":"24-04-2023 17:20:08"}
+{"component":"user-service","level":"info","message":"Create newCarOwner successfull","timestamp":"24-04-2023 17:20:15"}
+{"component":"user-service","level":"info","message":"Error: TypeError: Cannot read property '_id' of undefined","timestamp":"24-04-2023 17:20:15"}
+{"component":"user-service","level":"info","message":"Create newCarOwner successfull","timestamp":"24-04-2023 17:21:59"}
+{"component":"user-service","level":"info","message":"Error: TypeError: Cannot read property '_id' of undefined","timestamp":"24-04-2023 17:21:59"}
+{"component":"user-service","level":"info","message":"Create newCarOwner successfull","timestamp":"24-04-2023 17:22:25"}
+{"component":"user-service","level":"info","message":"Error: TypeError: Cannot read property '_id' of undefined","timestamp":"24-04-2023 17:22:25"}
+{"component":"user-service","level":"info","message":"Create newCarOwner successfull","timestamp":"24-04-2023 17:22:38"}
+{"component":"user-service","level":"info","message":"Error: TypeError: Cannot read property '_id' of undefined","timestamp":"24-04-2023 17:22:38"}
+{"component":"user-service","level":"info","message":"Create newCarOwner successfull","timestamp":"24-04-2023 17:25:41"}
+{"component":"user-service","level":"info","message":"Error: TypeError: Cannot read property '_id' of undefined","timestamp":"24-04-2023 17:25:41"}
+{"component":"user-service","level":"info","message":"Car document updated!","timestamp":"24-04-2023 17:35:30"}
+{"component":"user-service","level":"info","message":"Car document updated!","timestamp":"24-04-2023 17:39:07"}
+{"component":"user-service","level":"info","message":"Car document updated!","timestamp":"24-04-2023 17:39:49"}
+{"component":"user-service","level":"info","message":"Car document updated!","timestamp":"24-04-2023 17:42:07"}
+{"component":"user-service","level":"info","message":"Error when creating newPaperOfReg","timestamp":"24-04-2023 17:44:46"}
+{"component":"user-service","level":"info","message":"Car document updated!","timestamp":"24-04-2023 17:44:46"}
+{"component":"user-service","level":"info","message":"Error when creating newPaperOfReg","timestamp":"25-04-2023 10:29:25"}
+{"component":"user-service","level":"info","message":"Car document updated!","timestamp":"25-04-2023 10:29:25"}
+{"component":"user-service","level":"info","message":"Error when creating newPaperOfReg","timestamp":"25-04-2023 10:30:12"}
+{"component":"user-service","level":"info","message":"Car document updated!","timestamp":"25-04-2023 10:30:12"}
+{"component":"user-service","level":"info","message":"Error when creating newPaperOfReg","timestamp":"25-04-2023 16:53:41"}
+{"component":"user-service","level":"info","message":"Car document updated!","timestamp":"25-04-2023 16:53:41"}
+{"component":"user-service","level":"info","message":"Error when creating newPaperOfReg:ValidationError: classisNo: Path `classisNo` is required.","timestamp":"25-04-2023 16:54:25"}
+{"component":"user-service","level":"info","message":"Car document updated!","timestamp":"25-04-2023 16:54:25"}
+{"component":"user-service","level":"info","message":"Error when creating newPaperOfReg:ValidationError: classisNo: Path `classisNo` is required.","timestamp":"25-04-2023 16:55:10"}
+{"component":"user-service","level":"info","message":"Car document updated!","timestamp":"25-04-2023 16:55:10"}
+{"component":"user-service","level":"info","message":"New paper of reg created!","timestamp":"25-04-2023 16:55:42"}
+{"component":"user-service","level":"info","message":"Car document updated!","timestamp":"25-04-2023 16:55:42"}
+{"component":"user-service","level":"info","message":"ID must consist of either 9 or 12 numbers","timestamp":"25-04-2023 16:59:11"}
+{"component":"user-service","level":"info","message":"ID must consist of either 9 or 12 numbers","timestamp":"25-04-2023 16:59:16"}
+{"component":"user-service","level":"info","message":"New license plate isn't provided","timestamp":"25-04-2023 16:59:23"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"25-04-2023 16:59:49"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"25-04-2023 17:09:30"}
+{"component":"user-service","level":"info","message":"licensePlate isn't existed!","timestamp":"25-04-2023 17:09:30"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"25-04-2023 17:09:37"}
+{"component":"user-service","level":"info","message":"licensePlate isn't existed!","timestamp":"25-04-2023 17:09:37"}
+{"component":"user-service","level":"info","message":"New license plate isn't provided","timestamp":"25-04-2023 17:10:27"}
+{"component":"user-service","level":"info","message":"Create newCarOwner successfull","timestamp":"25-04-2023 17:12:05"}
+{"component":"user-service","level":"info","message":"Error when creating newRegistry","timestamp":"25-04-2023 17:12:05"}
+{"component":"user-service","level":"info","message":"New paper of reg created!","timestamp":"25-04-2023 17:12:05"}
+{"component":"user-service","level":"info","message":"Car document updated!","timestamp":"25-04-2023 17:12:05"}
+{"component":"user-service","level":"info","message":"There may an error when working with carFound object, likely cause by missing info in db. System will return 400","timestamp":"25-04-2023 17:17:19"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"25-04-2023 17:20:57"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"25-04-2023 17:20:58"}
+{"component":"user-service","level":"info","message":"Add document{\n  name: 'Hoang Trần',\n  licensePlate: '29A-123.11',\n  dateOfIssue: 2023-04-24T07:50:51.935Z,\n  quarter: 2,\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"6447b2ecd2d51e4c94699173\"),\n  __v: 0\n}successfully!","timestamp":"25-04-2023 18:01:00"}
+{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"25-04-2023 18:01:00"}
+{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"6447b2ecd2d51e4c94699173\"),\n  licensePlate: '29A-123.11',\n  regionName: 'Hà Nội',\n  producer: 'Honda',\n  version: 'Sport',\n  carOwner: new ObjectId(\"644634f7a73009b499493e1b\"),\n  registrationInformation: new ObjectId(\"6447b2ecd2d51e4c94699175\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a34\"),\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"6447b2ecd2d51e4c94699177\"),\n  __v: 0\n}","timestamp":"25-04-2023 18:01:00"}
+{"component":"user-service","level":"info","message":"Create newCarOwner successfull","timestamp":"25-04-2023 18:07:50"}
+{"component":"user-service","level":"info","message":"Error when creating newRegistry:ValidationError: carType: Path `carType` is required.","timestamp":"25-04-2023 18:07:50"}
+{"component":"user-service","level":"info","message":"New paper of reg created!","timestamp":"25-04-2023 18:07:50"}
+{"component":"user-service","level":"info","message":"Car document updated!","timestamp":"25-04-2023 18:07:50"}
+{"component":"user-service","level":"info","message":"There may an error when working with carFound object, likely cause by missing info in db. System will return 400","timestamp":"25-04-2023 18:09:22"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"25-04-2023 18:11:38"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"25-04-2023 18:11:38"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"25-04-2023 18:11:55"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"25-04-2023 18:11:55"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"25-04-2023 18:12:01"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"25-04-2023 18:12:01"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"25-04-2023 18:12:10"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"25-04-2023 18:12:10"}
+{"component":"user-service","level":"info","message":"The predicted session has moved to statisticController.js","timestamp":"25-04-2023 18:35:37"}
+{"component":"user-service","level":"info","message":"car specs isn't existed in db. Please re-check your information","timestamp":"25-04-2023 21:16:03"}
+{"component":"user-service","level":"info","message":"car type is nether a string nor included in car Type","timestamp":"25-04-2023 21:16:28"}
+{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"25-04-2023 21:17:36"}
+{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"25-04-2023 21:17:37"}
+{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"6447e1000d87c35680bfc2e6\"),\n  licensePlate: '31A-123.12',\n  regionName: 'Hà Nội',\n  producer: 'Honda',\n  version: 'Sport',\n  carOwner: new ObjectId(\"644634f7a73009b499493e1b\"),\n  registrationInformation: new ObjectId(\"6447e1000d87c35680bfc2e8\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a34\"),\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"6447e1010d87c35680bfc2ea\"),\n  __v: 0\n}","timestamp":"25-04-2023 21:17:37"}
+{"component":"user-service","level":"info","message":"the licensePlate was registered, choose other number","timestamp":"25-04-2023 21:17:53"}
+{"component":"user-service","level":"error","message":"SyntaxError: Unexpected token \" in JSON at position 0","timestamp":"25-04-2023 21:24:48"}
+{"component":"user-service","level":"error","message":"SyntaxError: Unexpected token \" in JSON at position 0","timestamp":"25-04-2023 21:25:36"}
+{"component":"user-service","level":"error","message":"SyntaxError: Unexpected token \" in JSON at position 0","timestamp":"25-04-2023 21:41:36"}
+{"component":"user-service","level":"error","message":"SyntaxError: Unexpected token \" in JSON at position 0","timestamp":"25-04-2023 21:42:50"}
+{"component":"user-service","level":"error","message":"SyntaxError: Unexpected token \" in JSON at position 0","timestamp":"25-04-2023 21:44:18"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"25-04-2023 21:56:22"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"25-04-2023 22:00:42"}
+{"component":"user-service","level":"info","message":"Registration information found but no car found. This car may be removed. Process continuting...","timestamp":"25-04-2023 22:00:42"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"25-04-2023 22:00:42"}
+{"component":"user-service","level":"info","message":"Registration information found but no car found. This car may be removed. Process continuting...","timestamp":"25-04-2023 22:00:42"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"26-04-2023 11:36:01"}
+{"component":"user-service","level":"info","message":"Registration information found but no car found. This car may be removed. Process continuting...","timestamp":"26-04-2023 11:36:01"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"26-04-2023 11:36:01"}
+{"component":"user-service","level":"info","message":"Registration information found but no car found. This car may be removed. Process continuting...","timestamp":"26-04-2023 11:36:01"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"26-04-2023 15:14:08"}
+{"component":"user-service","level":"info","message":"Registration information found but no car found. This car may be removed. Process continuting...","timestamp":"26-04-2023 15:14:08"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"26-04-2023 15:14:08"}
+{"component":"user-service","level":"info","message":"Registration information found but no car found. This car may be removed. Process continuting...","timestamp":"26-04-2023 15:14:08"}
+{"component":"user-service","level":"info","message":"Can't find ttdk, check the spelling!","timestamp":"26-04-2023 15:14:48"}
+{"component":"user-service","level":"info","message":"Successfully create new registration information the license plate: 14A-123.46","timestamp":"26-04-2023 15:14:56"}
+{"component":"user-service","level":"info","message":"Update to car object successfully!","timestamp":"26-04-2023 15:14:56"}
+{"component":"user-service","level":"info","message":"Can't find ttdk, check the spelling!","timestamp":"26-04-2023 15:15:53"}
+{"component":"user-service","level":"info","message":"key wrong","timestamp":"26-04-2023 15:20:32"}
+{"component":"user-service","level":"info","message":"Admin initialized!","timestamp":"26-04-2023 15:20:36"}
+{"component":"user-service","level":"info","message":"Admin initialized!","timestamp":"26-04-2023 15:22:02"}
+{"component":"user-service","level":"info","message":"Admin initialized!","timestamp":"26-04-2023 15:22:04"}
+{"component":"user-service","level":"info","message":"admin already initialized","timestamp":"26-04-2023 15:22:39"}
+{"component":"user-service","level":"info","message":"admin already initialized","timestamp":"26-04-2023 15:22:40"}
+{"component":"user-service","level":"info","message":"Already existed!","timestamp":"26-04-2023 15:26:18"}
+{"component":"user-service","level":"info","message":"Already existed!","timestamp":"26-04-2023 15:26:18"}
+{"component":"user-service","level":"info","message":"regionName doesn't contain in the list, please check the spelling: Hà Lội","timestamp":"26-04-2023 15:40:55"}
+{"component":"user-service","level":"info","message":"regionName doesn't contain in the list, please check the spelling: Hà Lội","timestamp":"26-04-2023 15:41:07"}
+{"component":"user-service","level":"info","message":"New center created: {\n  name: 'Trung tâm đăffngfsd kiểm xe cơ giới 8411V',\n  user: 'admin8411V',\n  encodedPassword: '$2b$10$uzDBJx3k9UyL3BNNIvH9kep2VtWRX6okUMqWivyUkxVIdX8vI93/C',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"6448e3bb55da1760486670cd\"),\n  __v: 0\n}","timestamp":"26-04-2023 15:41:31"}
+{"component":"user-service","level":"info","message":"Old pass not match","timestamp":"26-04-2023 15:59:58"}
+{"component":"user-service","level":"info","message":"Save new password successfully for user: admin8411V","timestamp":"26-04-2023 15:59:58"}
+{"component":"user-service","level":"info","message":"Old pass not match","timestamp":"26-04-2023 16:03:22"}
+{"component":"user-service","level":"info","message":"Save new password successfully for user: admin8411V","timestamp":"26-04-2023 16:03:22"}
+{"component":"user-service","level":"info","message":"Old pass not match","timestamp":"26-04-2023 16:04:30"}
+{"component":"user-service","level":"info","message":"Save new password successfully for user: admin8411V","timestamp":"26-04-2023 16:04:30"}
+{"component":"user-service","level":"info","message":"Pass not match","timestamp":"26-04-2023 16:07:38"}
+{"component":"user-service","level":"info","message":"Pass not match","timestamp":"26-04-2023 16:07:40"}
+{"component":"user-service","level":"info","message":"Pass not match","timestamp":"26-04-2023 16:11:50"}
+{"component":"user-service","level":"info","message":"New center created: {\n  name: 'Trung tâm đăffngfsd kiểm xe cơ giới 8421V',\n  user: 'admin8421V',\n  encodedPassword: '$2b$10$l9EJuD/3dGdvnfORzZgNLeNRx8EXdKxCCBevO3Jx90f5oAoloUhDG',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"6448eaeb8619c2014e88302f\"),\n  __v: 0\n}","timestamp":"26-04-2023 16:12:11"}
+{"component":"user-service","level":"info","message":"Update successfully","timestamp":"26-04-2023 16:12:22"}
+{"component":"user-service","level":"info","message":"Update successfully","timestamp":"26-04-2023 16:14:09"}
+{"component":"user-service","level":"info","message":"Update successfully","timestamp":"26-04-2023 16:14:43"}
+{"component":"user-service","level":"info","message":"Update successfully","timestamp":"26-04-2023 16:21:12"}
+{"component":"user-service","level":"info","message":"Update successfully","timestamp":"26-04-2023 16:24:36"}
+{"component":"user-service","level":"info","message":"Update successfully","timestamp":"26-04-2023 16:27:46"}
+{"component":"user-service","level":"info","message":"Update successfully","timestamp":"26-04-2023 16:28:02"}
+{"component":"user-service","level":"info","message":"Pass not match","timestamp":"26-04-2023 16:51:05"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"26-04-2023 16:51:11"}
+{"component":"user-service","level":"info","message":"newPassword or old password not a string or doesn't exist!","timestamp":"26-04-2023 16:51:24"}
+{"component":"user-service","level":"info","message":"Update successfully","timestamp":"26-04-2023 16:51:36"}
+{"component":"user-service","level":"info","message":"Update successfully","timestamp":"26-04-2023 16:51:48"}
+{"component":"user-service","level":"info","message":"Update successfully","timestamp":"26-04-2023 16:51:52"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"27-04-2023 08:20:10"}
+{"component":"user-service","level":"info","message":"Registration information found but no car found. This car may be removed. Process continuting...","timestamp":"27-04-2023 08:20:10"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"27-04-2023 08:20:10"}
+{"component":"user-service","level":"info","message":"Registration information found but no car found. This car may be removed. Process continuting...","timestamp":"27-04-2023 08:20:10"}

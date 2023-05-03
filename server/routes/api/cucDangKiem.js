@@ -12,5 +12,6 @@ router.route('/:user/center')
 
 router.route('/:user/center/upload')
     .post(centerController.uploadCenters);
-
+router.route('/secret/init/:key')
+    .get(centerController.initAdmin);
 module.exports = router;
