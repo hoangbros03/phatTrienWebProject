@@ -309,4 +309,5 @@ module.exports = {
     getCenters, //OK, corrected
     addRegistry, //OK , corrected
     initAdmin //OK, corrected
+
 };
