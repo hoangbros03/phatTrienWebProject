@@ -55,11 +55,18 @@ const checkNoRequireInformation = (info, type) =>{
         else return NaN;
     };
 }
-//month, province, quarter, ttdk, type, year, carType
 
-//get car based on condition
 /*
-CAR LIST PART
+getCarList:
+Input: 
+    month: a number or "all"
+    quarter: a number or "all"
+    year: year or "all"
+    province: a string (it's actually regionName), case-insensitive but must be grammatically correct or "all"
+    ttdk: name of ttdk or "all"
+    type: Da dang kiem || sap het han || registered || nearExpire (case-insensitive, both English and Vietnamese are ok)
+    carType: type of car ,case-insensitive but must be grammatically correct or "all"
+Output: List of car or {"message": "car not found"} if not found
 */
 const getCarsList = async(req,res)=>{
     if(!enoughInformationToGetList(req)){return res.status(400).json({"message":"Please give back-end enough information"});}
@@ -179,7 +186,11 @@ const getCarsList = async(req,res)=>{
     return res.json({"message":"Input not true"});
 };
 
-//search car
+/*
+SearchCar:
+Input: searchValue (length >=4 and <=10), can remove . or -, case-insensitive
+Output: a car that match or {"status":"No car match"}
+*/
 const searchCar = async(req,res)=>{ 
     //check search length
     if(!req?.body?.searchValue){
@@ -199,6 +210,8 @@ const searchCar = async(req,res)=>{
         logger.info("Too long to find!");
         return res.sendStatus(400);
     }
+    //correctness
+    req.body.searchValue = req.body.searchValue.toUpperCase();
     //process the search
     let value;
     if(req.body.searchValue.length == 10){ value= req.body.searchValue;
@@ -263,22 +276,20 @@ const searchCar = async(req,res)=>{
 
 //create car
 /*
-    WARNING: Because the creation of car has not yet existed,
-    there are show vital recommendations:
-    - Car creation DOESN'T MEAN it registered
+    - WARNING: Car creation DOESN'T MEAN it registered
     - Required fields: 
         + organization: True|False
         + ownerName: (organization or personal)
         + licensePlate: 
         + dateOfIssue: Date() object
         + regionName:
-        + carName: (e.g. Toyota)
-        + carVersion (e.g. khong biet lol) - still a string
+        + carName: a string
+        + carVersion a string
         + carType: xe tai hay xe con hay xe gi do 
-        + engineNo: So may - string :))
-        + classisNo: So khung - string :)))
+        + engineNo: So may - string 
+        + classisNo: So khung - string 
     
-    - registrationInformation (thong tin dang kiem) will be set to a dummy object. This vehicle will always showed in "nearExpire" type when searching for car list
+    - registrationInformation (thong tin dang kiem) will be set to a dummy trung tam dang kiem. It will be expire after 1 day only
 
 
 
@@ -557,6 +568,7 @@ Car specs creation:
         - Width: Number
         - Height: Number
         - Power: Number
+    Except type, all other field won't be corrected (meaning case-sensitive)
 */
 const createCarSpecification = async(req,res)=>{
     //check enough information
@@ -600,7 +612,7 @@ const createCarSpecification = async(req,res)=>{
 
 //Upload cars from json (remember old pattern license plate)
 /*
-Input: JSON:
+Input: a JSON like this (please read carefully cuz I won't explain):
 
   "status": [
     {
@@ -942,7 +954,7 @@ const exportCars = async(req,res)=>{
 
 //Delete car 
 /*
-Input: licensePlate of the car
+Input: licensePlate of the car, case-insensitive but must be grammatically corrected.
 Output: paperOfRecognition deleted, car deleted
 But Registration information and car owner are kept (to track-able in the past if needed)
 */

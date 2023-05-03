@@ -12,6 +12,7 @@ const vitalFunc = require('../config/vitalFunction');
 
 //Let user update his/her information (address, ID,...) (TESTED  half, need to continue)
 /*
+updateInformation
 Input: 
 ownerName: String, contain at least 2 words (will check via regex)
 organization : Bool

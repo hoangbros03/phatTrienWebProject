@@ -9,11 +9,14 @@ const vitalFunc = require('../config/vitalFunction');
 const SECRET_KEY_INIT = process.env.SECRET_KEY_INIT || "0";
 
 /*
+createNewCenter
 Input:
 user: username, a string
 password: password not encoded, a string
 regionName: regionName, case-insensitive but must be grammartically corrected
 name: Name of ttdk 
+Output: {'success': `New center ${body['name']} created!`,
+    "username": body['user']}
 */
 const createNewCenter = async(req,res)=>{
     const body =  req.body;
@@ -72,9 +75,19 @@ const createNewCenter = async(req,res)=>{
 
 
 
-//for upload list of centers
+/*
+uploadCenters: Upload a list of centers
+Input: {"centers": [//a list of centers]}
+Output: Info about how many center uploaded
+NOTE: It is use internal only.
+*/
 const uploadCenters = async(req,res)=>{ 
-    const arr = req.body;
+    if(!req?.body?.centers){
+        logger.info("Can't find centers");
+        return res.sendStatus(400);
+    }
+    var uploaded = 0;
+    const arr = req.body.centers;
     for(let e = 0; e<arr.length;e++){
         const found = await TrungTamDangKiem.findOne({name:arr[e].name});
         if(found){
@@ -82,23 +95,29 @@ const uploadCenters = async(req,res)=>{
             continue;
         }
         try{
-            await vitalFunc.result(arr[e],"/cucDangKiem/"+ "god"+"/center","POST");
+            let [jsonReturn, statusCode] = await vitalFunc.result(arr[e],"/cucDangKiem/"+ "god"+"/center","POST",false,true);
+            if(statusCode=="200"){
+                uploaded +=1;
+            }
         }catch(err){
             logger.info("Error when uploading center " + arr[e] + " : " + err);
             continue;
         }   
     }
+    res.json({"total": arr.length,
+                "uploaded": uploaded});
     return res.sendStatus(200);
 }
 
 //Must verify role before requesting
 /*
+changePasswordCenter
 input:
 user: string, required
 oldPassword: string, required
 newPassword: string, required
-bypass: bool, default dont need, set to TRUE to change regradless of oldPassword
-no correctness needed
+bypass: bool, default dont need, set to TRUE to change regradless of oldPassword 
+NOTE: It is execute only after verify role in complete version.
 */
 const changePasswordCenter = async(req,res)=>{
     if(typeof req.body.user != "string"){
@@ -144,6 +163,7 @@ const changePasswordCenter = async(req,res)=>{
 
 //Add registration information
 /*
+addRegistry
 Information needed:
     licensePlate: String, 
     dateOfIssue: ISODate
@@ -232,8 +252,10 @@ const addRegistry = async(req,res)=>{
         return res.sendStatus(400);
     });
 }
-
-//Throw all ttdk in specified regionName (Not tested yet)
+/*
+getCenters: Throw all ttdk in specified regionName (Not tested yet)
+input: regionName, case-insensitive, grammatically corrected
+*/
 const getCenters = async(req,res)=>{
     if(!req.body.regionName){
         logger.info("No region specified");
@@ -247,6 +269,10 @@ const getCenters = async(req,res)=>{
 }
 
 //internal: create default acc for cucDangKiem
+/*
+initAdmin: Internal API to create defauly acc
+Run by go to specified URL with params
+*/
 const initAdmin = async(req,res)=>{
     if(!req?.params?.key){
         logger.info("key not found");
