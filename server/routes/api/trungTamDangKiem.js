@@ -18,8 +18,10 @@ router.route('/:user/deleteCar')
     .delete(carsController.deleteCar);
 router.route('/:user/carSpec')
     .post(carsController.createCarSpecification);
-router.route('/:user/databaseManagement')
+router.route('/:user/databaseManagement/export')
     .post(carsController.exportCars);
+router.route('/:user/databaseManagement/import')
+    .post(carsController.uploadDB);
 router.route('/:user/getCenters')
     .post(centerController.getCenters);
 router.route('/:user/changeInformation')
