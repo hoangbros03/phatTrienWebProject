@@ -14,7 +14,6 @@ const paperOfRecognition = new Schema({
     required: true
   },
   //made so ez to track and query
-  //TODO: automatically set the value when POST
   quarter: {
     type: Number,
     required: true

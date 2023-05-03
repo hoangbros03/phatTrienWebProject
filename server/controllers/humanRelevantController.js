@@ -7,9 +7,12 @@ const {"model":TrungTamDangKiem, trungTamDangKiemSchema}= require("../models/Tru
 const {"model": Car, carSchema} = require("../models/Car");
 const carsController = require("../controllers/carsController");
 const mongoose = require("mongoose");
+const vitalFunc = require('../config/vitalFunction');
 
-//Let user update his/her information (address, ID,...) (not tested)
+
+//Let user update his/her information (address, ID,...) (TESTED  half, need to continue)
 /*
+updateInformation
 Input: 
 ownerName: String, contain at least 2 words (will check via regex)
 organization : Bool
@@ -22,12 +25,12 @@ Bypass: Boolean, default is false, use to change licensePlate regardless of cond
 */
 
 const updateInformation = async(req, res)=>{
+    //check if existed
     if(!req?.body?.address || !req?.body?.ID || !req?.body?.regionName|| !req?.body?.licensePlate || !req?.body?.ownerName){
         logger.info("Not enough information, please re-check.");
         return res.sendStatus(400);
     }
-    if(req.body.organization!=true && req.body.organization !=false||
-        req.body.byPass !=true && req.body.byPass !=false){
+    if((req.body.organization!=true && req.body.organization !=false)||(req.body.byPass !=true && req.body.byPass !=false)){
         logger.info("Organization is either missing or wrong input. Try again");
         return res.sendStatus(400);
     }
@@ -39,6 +42,11 @@ const updateInformation = async(req, res)=>{
         logger.info("ID must include number only");
         return res.sendStatus(400);
     }
+    //correctness region name and owner name cuz client is too noob 
+    req.body.regionName = vitalFunc.toTitleCase(req.body.regionName.toLowerCase());
+    req.body.ownerName = vitalFunc.toTitleCase(req.body.ownerName.toLowerCase());
+    req.body.licensePlate = req.body.licensePlate.toUpperCase();
+
     //check region name
     if(! await Region.findOne({regionName: req.body.regionName}).exec()){
         logger.info("Region name not found in db!");
@@ -49,28 +57,17 @@ const updateInformation = async(req, res)=>{
         logger.info("Name is not valid!");
         return res.sendStatus(400);
     }
-//     const    
 
-    //search from car
-    var dummyObj = {"body":{
-        "searchValue": req.body.licensePlate
-    }};
-   
-    var dummyRes ={
-        "sendStatus":(i)=>{console.log(i)},
-        "status":(i)=>{console.log(i)},
-        "json":(result)=>{dummyRes.result = result},
-        "result": {}
-    };
-    try{
-    await carsController.searchCar(dummyObj, dummyRes).catch((err)=>{console.log(err)});
-    }catch(err){
-        console.log(err);
+    var carFound = await vitalFunc.result({"searchValue": req.body.licensePlate},"/trungTamDangKiem/god/searchCar", "POST");
+    if(carFound.status =="No car match"){ //mean failure
+        logger.info("licensePlate isn't existed!");
         return res.sendStatus(400);
+    }else{
+        carFound = carFound.status;
     }
-    const carFound = dummyRes.result.status;
+    
     var newLicensePlate = false;
-    console.log(carFound);
+
     //check region name is the same or not, and change if needed
     if(carFound.regionName != req.body.regionName || req.body.byPass){
         //check valid new licensePlate
@@ -99,16 +96,36 @@ const updateInformation = async(req, res)=>{
             return res.sendStatus(400);
         }
     }
-
+    var forceStop = false;
     //check the registration Information. Create new if needed
     var newRegistrationInformation = false;
     let currentDate = new Date();
-    if(carFound.registrationInformation.trungTamDangKiemName == "dummy"|| newLicensePlate || carFound.registrationInformation.dateOfExpiry < currentDate.toISOString()){
-        newRegistrationInformation=true;
-        if(req.body.bypass){
-            newRegistrationInformation=false;
+    try{
+        if(carFound.registrationInformation.trungTamDangKiemName == "dummy"|| newLicensePlate || carFound.registrationInformation.dateOfExpiry < currentDate.toISOString()){
+            newRegistrationInformation=true;
+            if(req.body.bypass){
+                newRegistrationInformation=false;
+            }
         }
+    }catch(err){
+        logger.info("There may an error when working with carFound object, likely cause by missing info in db. System will return 400");
+        forceStop=true;
+        return res.sendStatus(400);
     }
+    if(forceStop)return;
+
+    //check if new car owner should be created
+    //old car owner won't be removed, because it will make the system work if there are 2 people same name less infor
+    var newCarOwnerCreation = false;
+    var newCarOwner = await CarOwner.findOne({
+        name: req.body.ownerName,
+        organization: req.body.organization,
+        regionName: req.body.regionName,
+        address: req.body.address,
+        ID: req.body.ID
+    }).exec();
+    if(!newCarOwner)newCarOwnerCreation =true;
+
     //minor function to decide which licensePlate should be used and can be reused
     function licensePlate(oldLi, newLi, status){
         return status? newLi: oldLi;
@@ -120,23 +137,33 @@ const updateInformation = async(req, res)=>{
     await session.startTransaction();
     try{
         //new carOwner
-        const newCarOwner = new CarOwner({
-            organization: req.body.organization,
-            name: req.body.ownerName,
-            regionName: req.body.regionName,
-            address: req.body.address,
-            ID: req.body.ID
+        if(newCarOwnerCreation){
+            newCarOwner = new CarOwner({
+                organization: req.body.organization,
+                name: req.body.ownerName,
+                regionName: req.body.regionName,
+                address: req.body.address,
+                ID: req.body.ID
+            });
+            await newCarOwner.save().then(()=>{logger.info("Create newCarOwner successfull")}).catch((err)=>{logger.info("Error when creating newCarOwner");
+            
+        return res.sendStatus(400);
+       
         });
-        await newCarOwner.save().then(()=>{logger.info("Create newCarOwner successfull")}).catch((err)=>{logger.info("Error when creating newCarOwner")});
+        }
+        var qua = Math.floor(new Date().getMonth()/3)+1;
         //new registrationInformation (DUMMY FIRST!)
         if(newRegistrationInformation){
             var expD = new Date();
             expD.setTime(new Date().getTime() + 24*3600*1000);
-            var qua = Math.floor(new Date().getMonth()/3)+1;
-            let dummyTTDK = TrungTamDangKiem.findOne({name:"dummy"});
+            
+            let dummyTTDK = await TrungTamDangKiem.findOne({name:"dummy"}).exec();
+            
             if(!dummyTTDK){
+                
                 throw "ko co ttdk dummy";
             }
+            console.log(carFound.registrationInformation);
             var newRegistryInfo = new RegistrationInformation({
                 licensePlate: licensePlate(req.body.licensePlate,req.body.licensePlateNew,newLicensePlate),
                 dateOfIssue: new Date().toISOString(),
@@ -148,9 +175,15 @@ const updateInformation = async(req, res)=>{
                 trungTamDangKiemName: "dummy",
                 regionName: dummyTTDK.regionName
             });
-            await newRegistryInfo.save().then(()=>{logger.info("New registry created!")}).catch((err)=>{logger.info("Error when creating newRegistry")});
+            await newRegistryInfo.save().then(()=>{logger.info("New registry created!")}).catch((err)=>{logger.info("Error when creating newRegistry:"+err)});
 
         }
+
+        //delete old paperOfrecognition
+        await PaperOfRecognition.deleteOne({licensePlate: licensePlate(req.body.licensePlate,req.body.licensePlateNew,newLicensePlate)}).then().catch((err)=>{
+            logger.info("Something wrong when delete old paper of reg");
+        });
+
         //new paperOfRecognition
         const newPaperOfReg = new PaperOfRecognition({
             name: req.body.ownerName,
@@ -158,10 +191,19 @@ const updateInformation = async(req, res)=>{
             dateOfIssue: new Date().toISOString(),
             quarter: qua,
             engineNo: carFound.engineNo,
-            classisNo: carFound.clasissNo
+            classisNo: carFound.classisNo
         });
-        await newPaperOfReg.save().then(()=>{logger.info("New paper of reg created!")}).catch((err)=>{"Error when creating newPaperOfReg"});
-        //change in car schema
+        
+        await newPaperOfReg.save().then((doc)=>{logger.info("New paper of reg created!")}).catch((err)=>{logger.info("Error when creating newPaperOfReg:"+err)});
+
+        //check condition before change car schema, to ensure that _id will always found
+        //other fields were ok
+        if(!newRegistrationInformation){
+            newRegistryInfo = carFound.registrationInformation;
+        }
+        console.log(newPaperOfReg._id);
+
+        //change in car schema       
         await Car.updateOne({licensePlate: req.body.licensePlate},{
             paperOfRecognition: newPaperOfReg._id,
             licensePlate: licensePlate(req.body.licensePlate,req.body.licensePlateNew,newLicensePlate),
@@ -173,12 +215,14 @@ const updateInformation = async(req, res)=>{
     }catch(err){
         logger.info("Error: "+err);
         await session.abortTransaction();
-        
+        return res.sendStatus(400);
     }
     //end the session
     await session.endSession();
     return res.status(200).json({"status":"ok"});
     
 }
+
+
 
 module.exports = {updateInformation};

@@ -15,7 +15,6 @@ const carOwner = new Schema({
     },address : String,
     ID: {
         type: String,
-        minLength: 9,
         maxLength: 12
     }
 

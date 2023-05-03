@@ -14,21 +14,18 @@ router.route('/:user/searchCar')
     .post(carsController.searchCar)
 router.route('/:user/carList')
     .post(carsController.getCarsList);
-
+router.route('/:user/deleteCar')
+    .delete(carsController.deleteCar);
 router.route('/:user/carSpec')
-    .get(carsController.getCarsList)
-    .post(carsController.createCarSpecification)
-    .patch(async (req,res)=>{
-        await carSpecification.updateMany({type: "Truck"}, {type:"xe tải"}).then((e)=>{console.log("Chos hungf")});
-        // specs.forEach(e=>{
-        //     if(e.type=="Car"){
-        //         e.type="xe con"
-        //     }else if(e.type=="Truck"){
-        //         e.type="xe tải";
-        //     }
-        // });
-        // await specs.save().then((e)=>{console.log("success")});
-    });
+    .post(carsController.createCarSpecification);
+router.route('/:user/databaseManagement/export')
+    .post(carsController.exportCars);
+router.route('/:user/databaseManagement/import')
+    .post(carsController.uploadDB);
+router.route('/:user/getCenters')
+    .post(centerController.getCenters);
+router.route('/:user/changeInformation')
+    .patch(centerController.changePasswordCenter);
 
 router.route('/:user/newRegistry')
     .post(centerController.addRegistry);

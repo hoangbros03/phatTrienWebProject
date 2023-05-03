@@ -1,0 +1,31 @@
+{
+  "folders": [
+    {
+      "path": "../repos clone/node-express-course"
+    },
+    {
+      "path": "../itest"
+    },
+    {
+      "path": "../Record-các-workshop-và course/Mang may tinh/Thuc hanh/socket"
+    },
+    {
+      "path": "../fullstackExample"
+    },
+    {
+      "path": "."
+    },
+    {
+      "path": "../mongo_async_crud"
+    },
+    {
+      "path": "../itest/baiTapCode"
+    },
+    {
+      "path": "../../New download destination/routing"
+    }
+  ],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "itest"
+  }
+}
