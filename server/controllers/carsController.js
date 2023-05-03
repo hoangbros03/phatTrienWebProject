@@ -12,6 +12,10 @@ const mongoose= require('mongoose');
 const vitalFunc = require('../config/vitalFunction');
 const { error } = require('winston');
 const CarSpecification = require('../models/CarSpecification');
+const TrungTamDangKiem = require('../models/TrungTamDangKiem');
+const DEFAULT_PASSWORD_TTDK_CREATION = process.env.DEFAULT_PASSWORD_TTDK_CREATION || "123456";
+const RandExp = require('randexp');
+const RegistrationInformation = require('../models/RegistrationInformation');
 
 //This is used so if 'all', we can query regardless of the value of key(s)
 const correct = (i,keyword = "all")=>{
@@ -594,7 +598,7 @@ const createCarSpecification = async(req,res)=>{
 };
 
 
-//Upload cars from json (remember old pattern license plate)(not tested)
+//Upload cars from json (remember old pattern license plate)
 /*
 Input: JSON:
 
@@ -666,6 +670,7 @@ const uploadDB = async(req,res)=>{
         return res.sendStatus(400);
     }
     var carUploadedCount =0;
+    var missRegistryRegistration = 0;
     for(let i = 0 ; i< req.body.status.length; i++){
         var forceCountinue = false;
         //make variable shorter
@@ -740,35 +745,128 @@ const uploadDB = async(req,res)=>{
             logger.info("car doesn't created for some reason. Continuting...");
             continue;
         }
+        
+        //remove dummy when create car
+        await registrationInformation.deleteOne({
+            dateOfIssue: currentCar.paperOfRecognition.dateOfIssue,
+            licensePlate: currentCar.licensePlate,
+            trungTamDangKiemName: "dummy",
+            regionName: "dummy province"   
+        }).exec();
+
         //check if history Reg Infor is an array
         if(!Array.isArray(currentCar.historyRegistrationInformation)){
             logger.info("historyRegistrationInformation is not an array! continuting...");
             continue;
         }
+        var ID_to_add;
+        var dateOfIssue_to_add = new Date("01/01/1970").toISOString();
         //loop through history information
         for(let j = 0; j < currentCar.historyRegistrationInformation.length; j++){
+            //check required field inside
+            if(!currentCar.historyRegistrationInformation[j].regionName || 
+                !currentCar.historyRegistrationInformation[j].licensePlate ||
+                !currentCar.historyRegistrationInformation[j].dateOfIssue||
+                !currentCar.historyRegistrationInformation[j].dateOfExpiry||
+                !currentCar.historyRegistrationInformation[j].ownerName||
+                !currentCar.historyRegistrationInformation[j].carType||
+                !currentCar.historyRegistrationInformation[j].trungTamDangKiemName){
+                    logger.info("Info inside history reg info missing. Continuting...");
+                    missRegistryRegistration+=1;
+                    continue;
+                }
+            //check valid
+            if(typeof currentCar.historyRegistrationInformation[j].regionName !="string" ||
+            typeof currentCar.historyRegistrationInformation[j].licensePlate !="string"||
+            typeof currentCar.historyRegistrationInformation[j].dateOfIssue !="string"||
+            typeof currentCar.historyRegistrationInformation[j].dateOfExpiry !="string"||
+            typeof currentCar.historyRegistrationInformation[j].ownerName !="string"||
+            typeof currentCar.historyRegistrationInformation[j].carType !="string"||
+            typeof currentCar.historyRegistrationInformation[j].trungTamDangKiemName !="string"){
+                logger.info("Info inside history reg info not a string. Continuting...");
+                missRegistryRegistration+=1;
+                continue;
+            }
             //check exist ttdk, create new one if need
+            let TTDKexisted = await TrungTamDangKiem.findOne({regionName: currentCar.historyRegistrationInformation[j].regionName,
+                name: currentCar.historyRegistrationInformation[j].trungTamDangKiemName
+            }).await();
+           
+            if(!TTDKexisted){
+                logger.info("Not found TTDK in this DB. Creating (using default password)...");
+                let username = currentCar.historyRegistrationInformation[j].trungTamDangKiemName.match(/\d{4}[A-Z]{1}/g);
+                if(username==null){
+                    username = "admin"+ new RandExp(/\d{4}[A-Z]{1}/).gen();
+                }else{
+                    username = "admin"+username;
+                }
+                const [TTDKCreation, TTDKCreationStatusCode] = await vitalFunc.result({
+                    "user": username,
+                    "password": DEFAULT_PASSWORD_TTDK_CREATION,
+                    "regionName": currentCar.historyRegistrationInformation[j].regionName,
+                    "name": currentCar.historyRegistrationInformation[j].trungTamDangKiemName
+                },"/cucDangKiem/god/center","POST",true,true);
+                if(TTDKCreationStatusCode=="200"){
+                    logger.info("TTDK created successfully with username: "+ TTDKCreation.username);
+                }else{
+                    logger.info("There is an error. Continuting...");
+                    continue;
+                }
+            }
             
             //add new history information, save id for further purpose with newest registry
-
+            let [registryJSON, registryStatusCode] = await vitalFunc.result({
+                "licensePlate": currentCar.historyRegistrationInformation[j].licensePlate,
+                "dateOfIssue": currentCar.historyRegistrationInformation[j].dateOfIssue,
+                "dateOfExpiry": currentCar.historyRegistrationInformation[j].dateOfExpiry,
+                "trungTamDangKiemName": currentCar.historyRegistrationInformation[j].trungTamDangKiemName,
+                "regionName": currentCar.historyRegistrationInformation[j].regionName
+            },"/trungTamDangKiem/god/newRegistry","POST",false,true);
+            if(registryStatusCode=="200"){
+                logger.info("Create registry number "+(j+1) +"successfully");
+                //update id of registry in car
+                if(currentCar.historyRegistrationInformation[j].dateOfIssue>dateOfIssue_to_add){
+                    dateOfIssue_to_add=currentCar.historyRegistrationInformation[j].dateOfIssue;
+                    //correctness
+                    currentCar.historyRegistrationInformation[j].regionName = vitalFunc.toTitleCase(currentCar.historyRegistrationInformation[j].regionName.toLowerCase());
+                    let regis= await registrationInformation.findOne({
+                        "licensePlate": currentCar.historyRegistrationInformation[j].licensePlate,
+                        "dateOfIssue": currentCar.historyRegistrationInformation[j].dateOfIssue,
+                        "dateOfExpiry": currentCar.historyRegistrationInformation[j].dateOfExpiry,
+                        "trungTamDangKiemName": currentCar.historyRegistrationInformation[j].trungTamDangKiemName,
+                        "regionName": currentCar.historyRegistrationInformation[j].regionName
+                    }).exec();
+                    if(!regis){
+                        logger.info("Can't find regisinfo after created...???");
+                        missRegistryRegistration+=1;
+                        continue;
+                    }else{
+                        ID_to_add = regis._id;
+                    }
+                    
+                }
+            }else{
+                logger.info("There is an error when creating registry number " + (j+1) + ".");
+                missRegistryRegistration+=1;
+            }
         }
-        
-
-        //update id of registry in car
-
-        //remove dummy when create car
         
         //update count
         carUploadedCount+=1;
     }
 
+    res.json({
+        "totalCar":res.body.status.length,
+        "carComplete": carUploadedCount,
+        "registryMiss": missRegistryRegistration
+    });
     return res.sendStatus(200);
-    //check valid
+   
 
 
 };
 
-//Export cars from json (not tested yet)
+//Export cars from json
 /*
 Input: Same with getCarList
 month, province, quarter, ttdk, type, year, carType
@@ -842,7 +940,7 @@ const exportCars = async(req,res)=>{
 
 };
 
-//Delete car (not tested yet)
+//Delete car 
 /*
 Input: licensePlate of the car
 Output: paperOfRecognition deleted, car deleted
@@ -889,7 +987,7 @@ module.exports = {
     searchCar,  //OK, corrected
     createCarSpecification,//OK corrected
     deleteCar,//OK, corrected
-    uploadDB,
+    uploadDB, //NOT TESTED YET
     exportCars //OK, corrected
 };
 

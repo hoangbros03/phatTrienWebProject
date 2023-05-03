@@ -8,13 +8,20 @@ const {"model": RegistrationInformation, RegistrationInformationSchema} = requir
 const vitalFunc = require('../config/vitalFunction');
 const SECRET_KEY_INIT = process.env.SECRET_KEY_INIT || "0";
 
+/*
+Input:
+user: username, a string
+password: password not encoded, a string
+regionName: regionName, case-insensitive but must be grammartically corrected
+name: Name of ttdk 
+*/
 const createNewCenter = async(req,res)=>{
     const body =  req.body;
     // console.log(body);
     //correctness
     req.body.regionName = vitalFunc.toTitleCase(req.body.regionName.toLowerCase());
     //check required field
-    if(!body['user'] || !body['encodedPassword'] || !body['regionName'] ||!body['name']){
+    if(!body['user'] || !body['password'] || !body['regionName'] ||!body['name']){
         return res.status(400).json({'message': 'user, pass, name, and region are required'});
     };
     //user can't be "god", since it is used to bypass
@@ -44,18 +51,19 @@ const createNewCenter = async(req,res)=>{
   
     
     try{
-        const encodedPwd = await bcrypt.hash(body['encodedPassword'],10);
+        const encodedPwd = await bcrypt.hash(body['password'],10);
         
         const result = await TrungTamDangKiem.create({
             "name": body['name'],
             "user": body['user'],
-            "encodedPassword": encodedPwd,
+            "password": encodedPwd,
             "regionName": body['regionName'],
             "forgotPassword": false,
             "refreshToken": ''
         });
         logger.info(`New center created: ${result}`);
-        res.status(201).json({'success': `New center ${body['name']} created!`});
+        res.status(201).json({'success': `New center ${body['name']} created!`,
+    "username": body['user']});
 
     }catch(err){
         res.status(400).json({'message': err});
