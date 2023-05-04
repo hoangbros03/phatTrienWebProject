@@ -9,6 +9,7 @@ import ChangeInformation from './pages/Cucdangkiem/changeInformation/changeInfor
 import Cucdangkiem from './pages/Cucdangkiem/cucdangkiem';
 import RegisterCenter from './pages/Cucdangkiem/registerCenter/registerCenter';
 import StatisticCDK from './pages/Cucdangkiem/Statistic/statisticCDK';
+import CarList from './pages/Cucdangkiem/Carlist/carlist';
 import Upload from './pages/Cucdangkiem/upload/upload';
 import Index from './pages/Index';
 import Login from './pages/login/login';
@@ -37,6 +38,7 @@ const router = createBrowserRouter(
                     <Route path="searchcar" element={<SearchCar />} />
                     <Route path="upload" element={<Upload />} />
                     <Route path="statistic" element={<StatisticCDK />} />
+                    <Route path="carlist" element={<CarList />} />
                 </Route>
             </Route>
             <Route path="trungTamDangKiem" element={<User />}>

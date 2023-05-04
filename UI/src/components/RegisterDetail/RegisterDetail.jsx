@@ -134,7 +134,7 @@ function RegisterDetail({carInfor,setDisplayDetail,setCarInfor}) {
                         <div className={cx('info')}>
                             Xe công vụ
                             <input  
-                                disable={isEditable}
+                                disabled={isEditable}
                                 className={cx(`${isEditable === true ? 'edit' : ''}`,'input')}
                                 value={carInfor?.carOwner?.organization == true ? "Có" : "Không"}
                                 onInput={handleChange}

@@ -17,13 +17,12 @@
     background-repeat: no-repeat;
     background-size: contain auto;
     background-position: center bottom;
-    
+    position: relative;
 }
 .respone{
     background-size: 60% 60%;
     background-repeat: no-repeat;
     background-position: center bottom;
-    
     display: flex;
     flex-direction: column;
     text-align: center;

@@ -56,3 +56,9 @@ li a {
 li a:hover {
     background-color: #ebedff;
 }
+@media only screen and (max-width: 500px) {
+    li a {
+        display: none;
+        
+    }
+  }

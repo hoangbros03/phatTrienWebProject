@@ -5,7 +5,8 @@ import classNames from 'classnames/bind';
 import Button from '~/components/Button';
 import { useDispatch, useSelector } from 'react-redux';
 
-
+import navLogo from "../../assets/images/navLogo.png";
+import Header from '../../components/HeaderBar/HeaderBar';
 const cx = classNames.bind(styles);
 
 function User() {
@@ -23,17 +24,23 @@ function User() {
         // return <Navigate to='../../login'  />;}
         
         
-        return (<div>
+        // return (<div>
+        //     <div className={cx('wrapper')}>
+        //         <div className={cx('inner')}>
+        //             <div className={cx('logo')}>Logo</div>
+        //             <Button text large primary onClick={test}>
+        //                 {user}
+        //             </Button>
+        //         </div>
+        //     </div>
+        //     <Outlet />
+        // </div>);
+        return (
             <div className={cx('wrapper')}>
-                <div className={cx('inner')}>
-                    <div className={cx('logo')}>Logo</div>
-                    <Button text large primary onClick={test}>
-                        {user}
-                    </Button>
-                </div>
-            </div>
+            <Header user={true}/>
             <Outlet />
-        </div>);
+            </div>
+        );
 
 }
 

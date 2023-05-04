@@ -21,6 +21,7 @@
 .container {
     display: flex;
     height: calc(100vh - var(--default-layout-header-height));
+    margin-top: var(--default-layout-header-height);
 }
 .slider {
     background-color: #eff3f9;

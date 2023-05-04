@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import styles from './statistic.module.scss';
+import styles from './carlist.module.scss';
 import classNames from 'classnames/bind';
 import BarStatistic from '~/components/BarStatistic/BarStatistic';
 import { useEffect, useState } from 'react';
@@ -11,7 +11,7 @@ import RegisterDetail from '~/components/RegisterDetail/RegisterDetail';
 import * as API from '~/services/searchService';
 import { useParams } from "react-router-dom";
 const cx = classNames.bind(styles);
-function StatisticCDK() {
+function CarList() {
     //object sent to backend
     const [object, setObject] = useState({
         type: 'Đã đăng kiểm',
@@ -236,4 +236,4 @@ function StatisticCDK() {
     );
 }
 
-export default StatisticCDK;
+export default CarList;

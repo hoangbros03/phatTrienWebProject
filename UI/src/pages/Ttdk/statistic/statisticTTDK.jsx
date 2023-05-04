@@ -37,8 +37,6 @@ const [object, setObject] = useState({
     const HandlerChange = (data, type_) => {
         setObject({ ...object, [type_]: data.target.innerText });
 
-
-
         //check conditon for type quater 
         if (type_ == "quater") {
             if (data.target.innerText == 'All') setMonth(['All', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);

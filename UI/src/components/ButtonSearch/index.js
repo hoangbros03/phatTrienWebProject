@@ -18,6 +18,7 @@ function ButtonSearch({
     active = false,
     large = false,
     bar = false,
+    input=false,
     children,
     className,
     data = [],
@@ -87,7 +88,8 @@ function ButtonSearch({
     // }
     return (
         <Comp className={classes}  {..._props} >
-            <input className={cx('title')} value={value} onClick={handleToggle} onChange={handleChange} onBlur={handleDisable} ></input>
+            
+            <input className={cx('title')} value={value} onClick={handleToggle} onChange={handleChange} onBlur={handleDisable} readOnly={!input}></input>
             {display && (
                 <div className={cx('data')}>
                     {filteredData.length > 0 &&

@@ -107,14 +107,13 @@
     min-width: 140px;
 }
 .title{
-    padding: 8px 0px 8px 0px;
+
     border-radius: 16px;
     font-size: 1.6rem;
     color:#5763B3 ;
     background-color: var(--white);
     border: 1px solid transparent;
     width:80%;
-    max-height: var(--max-height-bar);
     &:hover {
         border-color: var(--white);
         background-color:  #f6f6f8;
@@ -124,3 +123,12 @@
     
 }
 
+.p-tag{
+    border-radius: 16px;
+    font-size: 1.6rem;
+    color:#5763B3 ;
+    background-color: var(--white);
+    display: inline-flex;
+    border: 1px solid transparent;
+    width:80%;
+}
