@@ -288,7 +288,7 @@ const searchCar = async(req,res)=>{
         + carType: xe tai hay xe con hay xe gi do 
         + engineNo: So may - string 
         + classisNo: So khung - string 
-    
+        + trungTamDangKiemName: string
     - registrationInformation (thong tin dang kiem) will be set to a dummy trung tam dang kiem. It will be expire after 1 day only
 
 
@@ -322,7 +322,7 @@ const createCar = async(req,res)=>{
         return res.status(400).json({"status":"licensePlate is not a string"});
     }
     req.body.licensePlate = req.body.licensePlate.toUpperCase();
-    if((!req.body.licensePlate.match(/\d{2}[A-Z]-\d{3}.\d{2}/)&&!req.body.licensePlate.match(/\d{2}[A-Z]-\d{4}/))){
+    if((!req.body.licensePlate.match(/\d{2}[A-Z]-\d{3}.\d{2}$/)&&!req.body.licensePlate.match(/\d{2}[A-Z]-\d{4}$/))){
         logger.info("the licensePlate is not a proper syntax. Please check again");
         return res.status(400).json({"status":"the licensePlate is not a proper syntax. Please check again"});
     }
@@ -330,7 +330,8 @@ const createCar = async(req,res)=>{
     if(await Cars.findOne({licensePlate: req.body.licensePlate})){
         logger.info("the licensePlate was registered, choose other number");
         return res.status(400).json({"status":"the licensePlate was registered, choose other number"});
-    }
+    };
+    
     //get 2 first number and check if it is valid
     let regionNumber = Number(req.body.licensePlate.substring(0,2));
     if(isNaN(regionNumber)){ //actually can't happen
@@ -970,10 +971,21 @@ const deleteCar = async(req,res)=>{
         return res.status(400).json({"status":"License plate is not a string"});
     }
     req.body.licensePlate = req.body.licensePlate.toUpperCase();
-    if(!req.body.licensePlate.match(/\d{2}[A-Z]-\d{3}.\d{2}/)&&!req.body.licensePlate.match(/\d{2}[A-Z]-\d{4}/)){
+    if(!req.body.licensePlate.match(/\d{2}[A-Z]-\d{3}.\d{2}$/)&&!req.body.licensePlate.match(/\d{2}[A-Z]-\d{4}$/)){
         logger.info("licensePlate when deleting must be exactly the same. The information inputted isn't match the regex");
         return res.status(400).json({"status":"licensePlate when deleting must be exactly the same. The information inputted isn't match the regex"});
     }
+
+    //check car contain to delete
+    const alreadyExist = await Cars.findOne({
+        licensePlate: req.body.licensePlate
+    });
+    if(alreadyExist){
+        logger.info("Car already existed!");
+        return res.status(400).json({"status":"Car already existed!"});
+    }
+    
+
 
     //no check if match pattern or not, not necessary at all
     //transaction

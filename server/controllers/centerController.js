@@ -178,7 +178,7 @@ const addRegistry = async(req,res)=>{
         logger.info("Not enough information!");
         return res.status(400).json({"status":"Not enough information!"});
     }
-    if(typeof req.body.licensePlate != "string" || typeof req.body.trungTamDangKiemName != "string" ||typeof req.body.regionName != "string" ){
+    if(typeof req.body.licensePlate != "string" || typeof req.body.trungTamDangKiemName != "string" ){
         logger.info("Some req info must be string, but aren't");
         return res.status(400).json({"status":"Some req info must be string, but aren't"});
     }
@@ -207,9 +207,9 @@ const addRegistry = async(req,res)=>{
     if(!getCar){
         let err= "Can't find car with given license plate. Please note that the licensePlate must be correct";
         logger.info(err);
-        return res.status(400).json({"status":err});
+        return res.status(400).json({"status":"Can't find car with given license plate. Please note that the licensePlate must be correct"});
     }
-   
+    console.log(getCar);
     //do'
     const ttdk = await TrungTamDangKiem.findOne({name: req.body.trungTamDangKiemName}).exec();
     var regionOfTTDK = ttdk.regionName;
