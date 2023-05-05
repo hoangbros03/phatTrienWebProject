@@ -982,6 +982,8 @@ const deleteCar = async(req,res)=>{
     try{
         await paperOfRecognition.deleteOne({licensePlate: req.body.licensePlate}).then(()=>{logger.info("Delete successfully!")}).catch((err)=>{logger.info("An error when deleting paperOfRecognition:"+err)});
         await Cars.deleteOne({licensePlate: req.body.licensePlate}).then(()=>{logger.info("Delete successfully!")}).catch((err)=>{logger.info("An error when deleting paperOfRecognition:"+err)});
+        // delete all old registration information
+        await registrationInformation.deleteMany({licensePlate: req.body.licensePlate}).then(()=>{logger.info("Delete all registration information ok")}).catch((err)=>{logger.info("err: "+err);});
 
         await session.commitTransaction();
     }catch(err){

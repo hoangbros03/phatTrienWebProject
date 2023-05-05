@@ -169,12 +169,12 @@ Information needed:
     dateOfIssue: ISODate
     dateOfExpiry: ISODate
     trungTamDangKiemName: String
-    regionName: String
+
 
 */
 const addRegistry = async(req,res)=>{
     //check existed
-    if(!req?.body?.licensePlate || !req?.body?.dateOfIssue || !req?.body?.dateOfExpiry || !req?.body?.trungTamDangKiemName || !req?.body?.regionName){
+    if(!req?.body?.licensePlate || !req?.body?.dateOfIssue || !req?.body?.dateOfExpiry || !req?.body?.trungTamDangKiemName){
         logger.info("Not enough information!");
         return res.status(400).json({"status":"Not enough information!"});
     }
@@ -184,7 +184,7 @@ const addRegistry = async(req,res)=>{
     }
     //correctness
     req.body.licensePlate = req.body.licensePlate.toUpperCase();
-    req.body.regionName = vitalFunc.toTitleCase(req.body.regionName.toLowerCase());
+
     //ttdk name won't be corrected
 
     var dateOfIssue = Date.parse(req.body.dateOfIssue);
@@ -211,7 +211,8 @@ const addRegistry = async(req,res)=>{
     }
    
     //do'
-    const ttdk = await TrungTamDangKiem.findOne({regionName: req.body.regionName, name: req.body.trungTamDangKiemName}).exec();
+    const ttdk = await TrungTamDangKiem.findOne({name: req.body.trungTamDangKiemName}).exec();
+    var regionOfTTDK = ttdk.regionName;
     if(!ttdk){
         logger.info("Can't find ttdk, check the spelling!");
         return res.status(400).json({"status":"Can't find ttdk, check the spelling!"});
@@ -232,7 +233,7 @@ const addRegistry = async(req,res)=>{
         ownerName: getCar.carOwner.name,
         carType: getCar.carSpecification.type,
         trungTamDangKiemName: req.body.trungTamDangKiemName,
-        regionName: req.body.regionName
+        regionName: regionOfTTDK
     });
     await newRegistryInfo.save().then((doc)=>{
         logger.info("Successfully create new registration information the license plate: " + req.body.licensePlate);
@@ -307,7 +308,7 @@ module.exports = {
     uploadCenters, //OK, corrected
     changePasswordCenter, //OK, corrected
     getCenters, //OK, corrected
-    addRegistry, //OK , corrected
+    addRegistry, //NOT TESTED
     initAdmin //OK, corrected
 
 };

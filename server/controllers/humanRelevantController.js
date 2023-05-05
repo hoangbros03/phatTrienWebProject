@@ -65,7 +65,7 @@ const updateInformation = async(req, res)=>{
     }else{
         carFound = carFound.status;
     }
-    
+    var oldLicensePlate = carFound.status.licensePlate;
     var newLicensePlate = false;
 
     //check region name is the same or not, and change if needed
@@ -211,6 +211,11 @@ const updateInformation = async(req, res)=>{
             carOwner: newCarOwner._id,
             registrationInformation: newRegistryInfo._id
         }).then(()=>{logger.info("Car document updated!")}).catch((err)=>{logger.info("There is an error when updating car document")});
+
+        //update all registration infomation related
+        if(newLicensePlate){
+        await RegistrationInformation.updateMany({licensePlate: oldLicensePlate},{licensePlate: licensePlate(req.body.licensePlate,req.body.licensePlateNew,newLicensePlate)}).then(()=>{logger.info("update license plate regis info ok")}).catch((err)=>{logger.info("There is an error when updating regis info")});
+        }
         session.commitTransaction();
     }catch(err){
         logger.info("Error: "+err);
@@ -225,4 +230,4 @@ const updateInformation = async(req, res)=>{
 
 
 
-module.exports = {updateInformation};
+module.exports = {updateInformation}; //NOT TESTED
