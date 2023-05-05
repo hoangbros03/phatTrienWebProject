@@ -298,7 +298,7 @@ const searchCar = async(req,res)=>{
 
 const createCar = async(req,res)=>{
     //check if enough information
-    if(!"organization" in req?.body || !req?.body?.ownerName || !req?.body?.licensePlate || !req?.body?.dateOfIssue || !req?.body?.regionName || !req?.body?.carName || !req?.body?.carVersion || !req?.body?.carType ||!req?.body?.engineNo || !req?.body?.classisNo){
+    if(!"organization" in req?.body || !req?.body?.ownerName || !req?.body?.licensePlate || !req?.body?.dateOfIssue || !req?.body?.regionName || !req?.body?.carName || !req?.body?.carVersion || !req?.body?.carType ||!req?.body?.engineNo || !req?.body?.classisNo ||!req?.body?.trungTamDangKiemName){
         logger.info('Not enough information to create a car');
         return res.status(400).json({"status":"Not enough information to create a car"});
     }
@@ -393,12 +393,24 @@ const createCar = async(req,res)=>{
         logger.info("car engine or classis no is not a string");
         return res.status(400).json({"status":"car engine or classis no is not a string"});
     }
+    //10. TTDK name
+    if(typeof req.body.trungTamDangKiemName != "string"){
+        logger.info("Trung tam dang kiem name is not a string");
+        return res.status(400).json({"status":"Trung tam dang kiem name is not a string"});
+    }
+    // find ttdk
+    let ttdk_found = await trungTamDangKiem.findOne({name: req.body.trungTamDangKiemName}).exec();
+    if(!ttdk_found){
+        logger.info("Can't find ttdk in DB");
+        return res.status(400).json({"status":"Can't find ttdk in DB"});
+    }
 
     //declare high scope variable
     let newPaper;
     let carSpecification;
-    let dummyTTDK;
+ 
     let carOwn;
+    // Not dummy anymore, but keep the variable name
     let newDummyDK;
     //check if it existed in carSpec
     let carSpecCheck = await carSpecs.findOne({name: req.body.carName, version: req.body.carVersion, type: req.body.carType}).exec();
@@ -447,29 +459,7 @@ const createCar = async(req,res)=>{
             });
     };
     if(forceStop)return;
-    //3. registrationn Information (link with dummy ttdk)
-    dummyTTDK = await trungTamDangKiem.findOne({name: "dummy"}).exec();
-    if(!dummyTTDK){
-        logger.info("Can't find dummy TTDK, but system will create one...");
-        let encodedPwd = await brcypt.hash("123456",10);
-        dummyTTDK = new trungTamDangKiem({
-            name: "dummy",
-            user: "dummyUser",
-            encodedPassword: encodedPwd,
-            regionName: "dummy province",
-            forgotPassword: false,
-            refreshToken: ''
-        });
-        await dummyTTDK.save().then((doc)=>{
-            logger.info("Create dummy ttdk successful");
-        }).catch((err)=>{
-            logger.info("something wrong when creating dummy model");
-            forceStop = true;
-                return res.status(400).json({"status":"something wrong when creating dummy model"});
-        });
-       
-    };
-    if(forceStop)return;
+
     
     //4. car specification (must already have)
     carSpecification = await carSpecs.findOne({name: req.body.carName, version: req.body.carVersion, type: req.body.carType}).exec();
@@ -502,7 +492,7 @@ const createCar = async(req,res)=>{
     if(forceStop)return;
     //create dummy TTDK registration
     let eDate = new Date();
-    eDate.setTime(aDate.getTime()+24*3600*1000); //1 day 
+    eDate.setTime(aDate.getTime()+365*24*3600*1000); //1 day 
     let dkQua = Math.floor(aDate.getMonth()/3)+1;
     //Fixed bug Date
     newDummyDK = new registrationInformation({
@@ -510,11 +500,11 @@ const createCar = async(req,res)=>{
         dateOfIssue: aDate,
         dateOfExpiry: eDate,
         quarter: dkQua,
-        trungTamDangKiem: dummyTTDK._id,
+        trungTamDangKiem: ttdk_found._id,
         ownerName: req.body.ownerName,
         carType: req.body.carType,
-        trungTamDangKiemName: "dummy",
-        regionName: req.body.regionName
+        trungTamDangKiemName: ttdk_found.name,
+        regionName: ttdk_found.regionName
     });
     await newDummyDK.save().then((doc)=>{
         logger.info("Add temp registry successfully");
@@ -980,9 +970,9 @@ const deleteCar = async(req,res)=>{
     const alreadyExist = await Cars.findOne({
         licensePlate: req.body.licensePlate
     });
-    if(alreadyExist){
-        logger.info("Car already existed!");
-        return res.status(400).json({"status":"Car already existed!"});
+    if(!alreadyExist){
+        logger.info("Car already not existed!");
+        return res.status(400).json({"status":"Car already not existed!"});
     }
     
 
