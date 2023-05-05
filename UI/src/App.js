@@ -10,7 +10,6 @@ import Cucdangkiem from './pages/Cucdangkiem/cucdangkiem';
 import RegisterCenter from './pages/Cucdangkiem/registerCenter/registerCenter';
 import StatisticCDK from './pages/Cucdangkiem/Statistic/statisticCDK';
 import CarList from './pages/Cucdangkiem/Carlist/carlist';
-import Upload from './pages/Cucdangkiem/upload/upload';
 import Index from './pages/Index';
 import Login from './pages/login/login';
 import NewRegistry from './pages/Ttdk/newRegistry/newRegistry';
@@ -19,6 +18,7 @@ import Ttdk from './pages/Ttdk/ttdk';
 import IndexCDK from './pages/Cucdangkiem/Index/indexCDK';
 import SearchCar from './layouts/searchCar/searchCar';
 import Indexttdk from './pages/Ttdk/Index/indexttdk';
+import Upload_ from './pages/Cucdangkiem/upload/upload';
 
 
 
@@ -36,7 +36,7 @@ const router = createBrowserRouter(
                     <Route path="changeInformation" element={<ChangeInformation />} />
                     <Route path="registerCenter" element={<RegisterCenter />} />
                     <Route path="searchcar" element={<SearchCar />} />
-                    <Route path="upload" element={<Upload />} />
+                    <Route path="upload" element={<Upload_ />} />
                     <Route path="statistic" element={<StatisticCDK />} />
                     <Route path="carlist" element={<CarList />} />
                 </Route>

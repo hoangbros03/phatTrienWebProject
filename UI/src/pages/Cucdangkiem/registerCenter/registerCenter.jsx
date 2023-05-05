@@ -39,7 +39,6 @@ function RegisterCenter() {
     };
 
     const handleSubmit = (e) => {
-        console.log('KKK');
         const inputs = document.querySelectorAll('input[required]');
 
         let isValid = true;

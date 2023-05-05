@@ -32,6 +32,7 @@ function SearchCar() {
                 }
                 else{
                     setCarInfor(result.status)
+                    setMessage("")
                     setlicensePlate("")
                     setDisplayDetail(true)
                 }

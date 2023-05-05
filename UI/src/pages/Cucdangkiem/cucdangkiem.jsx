@@ -22,9 +22,9 @@ function Cucdangkiem() {
                 <MenuItem icon={<SignUpCenter />} to="registerCenter" title="Đăng kí Trung Tâm Đăng Kiểm"></MenuItem>
                 <MenuItem icon={<SignUpCenter />} to="changeInformation" title="Thay đổi Thông Tin"></MenuItem>
                 <MenuItem icon={<StatisticIcon />} to="statistic" title="Xem Thống Kê"></MenuItem>
-                <MenuItem icon={<SearchIcon />} to="searchcar" title=" Tra Cứu thông tin xe"></MenuItem>
-                <MenuItem icon={<SearchIcon />} to="carlist" title=" Danh sách xe"></MenuItem>
-                <MenuItem icon={<SearchIcon />} to="Upload" title=" Upload File"></MenuItem>
+                <MenuItem icon={<SearchIcon />} to="searchcar" title="Tra Cứu thông tin xe"></MenuItem>
+                <MenuItem icon={<SearchIcon />} to="carlist" title="Lịch sử đăng kiểm"></MenuItem>
+                <MenuItem icon={<SearchIcon />} to="Upload" title="Upload File"></MenuItem>
             </div>
             <div className={cx('main')}>
                 <Outlet />

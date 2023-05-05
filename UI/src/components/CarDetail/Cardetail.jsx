@@ -109,7 +109,9 @@ function CarDetail({carInfor,setDisplayDetail,setCarInfor}) {
                             <input
                                 className={cx('input')}
                                 disabled={true}
-                                value={`${carInfor?.registrationInformation?.dateOfIssue}`}
+                                value={`${carInfor?.registrationInformation?.dateOfIssue
+                                    ? new Date(carInfor.registrationInformation.dateOfIssue).toISOString().slice(0, 10)
+                                    : "Chưa rõ"}`}
                             />
                         </div>
                         <div className={cx('info')}>
@@ -117,7 +119,10 @@ function CarDetail({carInfor,setDisplayDetail,setCarInfor}) {
                             <input
                                 className={cx('input')}
                                 disabled={true}
-                                value={`${carInfor?.registrationInformation?.dateOfExpiry}`}
+                                value={`${carInfor?.registrationInformation?.dateOfExpiry
+                                    ? new Date(carInfor.registrationInformation.dateOfExpiry).toISOString().slice(0, 10)
+                                    : "Chưa rõ"}`}
+                               
                             />
                         </div>
                         <div className={cx('info')}>

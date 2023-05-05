@@ -57,7 +57,7 @@ function RegisterDetail({carInfor,setDisplayDetail,setCarInfor}) {
                     <div className={cx('icon_close')} onClick={handleClose}>
                         <Close width={'2.4rem'} height={'2.4rem'} />
                     </div>
-                    <div className={cx('title_info')}>{`Thông tin phương tiện ${carInfor?.licensePlate}`}</div>
+                    <div className={cx('title_info')}>{`Thông tin đăng kiểm xe ${carInfor?.licensePlate}`}</div>
                     <div className={cx('content')}>
                         <div className={cx('info')}>
                             Biển số xe

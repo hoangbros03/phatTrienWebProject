@@ -10,6 +10,7 @@ import CarDetail from '../../../components/CarDetail/Cardetail';
 import RegisterDetail from '~/components/RegisterDetail/RegisterDetail';
 import * as API from '~/services/searchService';
 import { useParams } from "react-router-dom";
+import { message } from 'antd';
 const cx = classNames.bind(styles);
 function CarList() {
     //object sent to backend
@@ -100,7 +101,8 @@ function CarList() {
     for (let year = currentYear; year >= currentYear - 50; year--) {
         if (years.length < 50) years.push(year.toString());
     }
-   
+    
+    
     //pagination
     const [carData, setCarData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -131,21 +133,36 @@ function CarList() {
         }
         //console.log(object);
     };
+
+    const [messageApi, contextHolder] = message.useMessage();
+    const infoChange= () => {
+        messageApi.info('Xe này đã bị thay đổi biển số');
+      };
+    const infoNocar= () => {
+        messageApi.info('Không có lịch sử đăng kiểm');
+      };
+
     //send request to backend
     const HandleSearch = async () => {
         console.log(object)
         console.log(carData);
         const response = await API.post('/trungTamDangKiem/ratdd/carList', { 
             ...object });
-        if (response.message === 'No car found.') {console.log(response)
+        if (response.message === 'No car found.') {console.log(response);
+            infoNocar();
             setCarData([]);}
         else {console.log(response);
+       
         setCarData([...response]);}
     };
     const [carInfor, setCarInfor] = useState(null);
     const [displayDetail, setDisplayDetail] = useState(false);
     const handleDisplayDetail = async (licensePlate,_idregister) => {
         let result = await API.searchCar('trungTamDangKiem/:user/searchCar',{user:user}, {searchValue:licensePlate})
+        console.log(result)
+        if(result.status=="No car match") {infoChange()
+        return}
+        else {
         console.log(result.status.historyRegistrationInformation)
         //filter RegistrationInformation
         let filterresult = result.status.historyRegistrationInformation.filter(RegistrationInformation => RegistrationInformation._id===_idregister) 
@@ -158,14 +175,16 @@ function CarList() {
         
         setCarInfor(result.status)
 
-        setDisplayDetail(true);
+        setDisplayDetail(true);}
         //gui requset lay detail
         // const response = await ApicAll.post
     };
     
     
 
-    return (
+    return (<>
+    {contextHolder}
+
         <div className={cx('wrapper')}>
             <div className={cx('container')}>
                 <div className={cx('navbar')}>
@@ -233,6 +252,7 @@ function CarList() {
             </div>
             <Outlet />
         </div>
+        </>
     );
 }
 
