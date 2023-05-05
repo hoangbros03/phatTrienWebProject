@@ -274,7 +274,7 @@ const searchCar = async(req,res)=>{
     return res.status(200);
 }
 
-//create car
+//create car (first time dk)
 /*
     - WARNING: Car creation DOESN'T MEAN it registered
     - Required fields: 
@@ -289,13 +289,11 @@ const searchCar = async(req,res)=>{
         + engineNo: So may - string 
         + classisNo: So khung - string 
         + trungTamDangKiemName: string
-    - registrationInformation (thong tin dang kiem) will be set to a dummy trung tam dang kiem. It will be expire after 1 day only
+        + expire (NOT REQUIRED): string. It is the month after date of issue. If not set, regis info will expired after 1 year. Can't be 0
 
 
 
 */
-
-
 const createCar = async(req,res)=>{
     //check if enough information
     if(!"organization" in req?.body || !req?.body?.ownerName || !req?.body?.licensePlate || !req?.body?.dateOfIssue || !req?.body?.regionName || !req?.body?.carName || !req?.body?.carVersion || !req?.body?.carType ||!req?.body?.engineNo || !req?.body?.classisNo ||!req?.body?.trungTamDangKiemName){
@@ -404,11 +402,25 @@ const createCar = async(req,res)=>{
         logger.info("Can't find ttdk in DB");
         return res.status(400).json({"status":"Can't find ttdk in DB"});
     }
-
+    // expire time
+    var expireAfter = 365*3600*1000;
+    //11. expire
+    if(req?.body?.expire){
+        if(isNaN(Number(req.body.expire))){
+            logger.info("expire provided, but not a number");
+            return res.status(400).json({"status":"expire provided, but not a number"});
+        }
+        req.body.expire = Number(req.body.expire);
+        if(req.body.expire === 0){
+            logger.info("Expire can't be 0");
+            return res.status(400).json({"status":"Expire can't be 0"});
+        }
+        expireAfter = req.body.expire * 30 * 3600 * 1000;
+    }
     //declare high scope variable
     let newPaper;
     let carSpecification;
- 
+    
     let carOwn;
     // Not dummy anymore, but keep the variable name
     let newDummyDK;
@@ -492,7 +504,7 @@ const createCar = async(req,res)=>{
     if(forceStop)return;
     //create dummy TTDK registration
     let eDate = new Date();
-    eDate.setTime(aDate.getTime()+365*24*3600*1000); //1 day 
+    eDate.setTime(aDate.getTime()+expireAfter); // Date of expire
     let dkQua = Math.floor(aDate.getMonth()/3)+1;
     //Fixed bug Date
     newDummyDK = new registrationInformation({
