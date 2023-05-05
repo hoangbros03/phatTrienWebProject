@@ -421,3 +421,5 @@
 {"component":"user-service","level":"info","message":"Registration information found but no car found. This car may be removed. Process continuting...","timestamp":"27-04-2023 08:20:10"}
 {"component":"user-service","level":"info","message":"No car match the search","timestamp":"27-04-2023 08:20:10"}
 {"component":"user-service","level":"info","message":"Registration information found but no car found. This car may be removed. Process continuting...","timestamp":"27-04-2023 08:20:10"}
+{"component":"user-service","level":"info","message":"Successfully create new registration information the license plate: 14A-123.46","timestamp":"05-05-2023 13:57:57"}
+{"component":"user-service","level":"info","message":"Update to car object successfully!","timestamp":"05-05-2023 13:57:58"}
