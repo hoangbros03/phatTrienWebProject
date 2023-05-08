@@ -303,12 +303,18 @@ const initAdmin = async(req,res)=>{
     return res.sendStatus(200);
 };
 
+
+const getListCenter =async(req,res)=>{
+    const result = await TrungTamDangKiem.find();
+    return res.status(200).json(JSON.stringify(result));
+}
+
 module.exports = {
     createNewCenter, //OK, corrected
     uploadCenters, //OK, corrected
     changePasswordCenter, //OK, corrected
     getCenters, //OK, corrected
     addRegistry, //NOT TESTED
-    initAdmin //OK, corrected
-
+    initAdmin, //OK, corrected
+    getListCenter
 };

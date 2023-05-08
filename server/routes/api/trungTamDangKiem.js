@@ -34,4 +34,9 @@ router.route('/:user/newRegistry')
 router.route('/:user/car/:licensePlate/update')
     .patch(humanRelevantController.updateInformation);
 
+//Get:Car specific;
+router.route('/:user/getSpecificCar')
+    .get(carsController.getSpecificCar);
+
+
 module.exports = router;

@@ -9,10 +9,14 @@ const verifyRoles = require('../../middleware/verifyRoles');
 //TODO: Add verify roles add other API, currently just for testing purpose.
 router.route('/:user/center')
     .post(centerController.createNewCenter);
+
 router.route('/:user/center/changePassword')
     .post(centerController.changePasswordCenter);
 router.route('/:user/center/upload')
     .post(centerController.uploadCenters);
 router.route('/secret/init/:key')
     .get(centerController.initAdmin);
+//hung code 
+router.route('/:user/center') 
+    .get(centerController.getListCenter);
 module.exports = router;

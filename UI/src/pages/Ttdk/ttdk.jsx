@@ -17,7 +17,10 @@ function Ttdk() {
         <div className={cx('wrapper')}>
             <div className={cx('sliderbar')} >
                 <MenuItem icon={<HomeIcon />} to={`../${user}`} title="Trở Về Trang Chủ"></MenuItem>
-                <MenuItem icon={<HomeIcon />}  to="newRegistry" title="Đăng kiểm Ô tô">
+                <MenuItem icon={<HomeIcon />}  to="newRegistry" title="Đăng kiểm">
+    
+                </MenuItem>
+                <MenuItem icon={<HomeIcon />}  to="newRegistrycar" title="Đăng Kí ">
                    
                 </MenuItem>
                 <MenuItem  icon={<HomeIcon />} to="lookup" title ="Tra cứu Thông Tin xe">

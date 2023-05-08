@@ -72,7 +72,6 @@ function ButtonSearch({
         setDisplay(false);
     };
     const handleToggle = (e) => {
-      
         setValue('');
         setDisplay(true);
     };
@@ -88,7 +87,6 @@ function ButtonSearch({
     // }
     return (
         <Comp className={classes}  {..._props} >
-            
             <input className={cx('title')} value={value} onClick={handleToggle} onChange={handleChange} onBlur={handleDisable} readOnly={!input}></input>
             {display && (
                 <div className={cx('data')}>

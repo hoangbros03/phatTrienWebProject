@@ -1,4 +1,3 @@
-import { Outlet } from "react-router-dom";
 import aboutGif from "../../assets/images/About.gif";
 import styles from "./about.module.scss";
 import Header from '../../components/HeaderBar/HeaderBar.jsx';

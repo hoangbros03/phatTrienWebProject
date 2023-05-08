@@ -530,3 +530,147 @@
 {"component":"user-service","level":"info","message":"Car already not existed!","timestamp":"05-05-2023 18:03:33"}
 {"component":"user-service","level":"info","message":"Admin initialized!","timestamp":"05-05-2023 18:03:38"}
 >>>>>>> master
+{"component":"user-service","level":"info","message":"Can't find centers","timestamp":"05-05-2023 18:07:22"}
+{"component":"user-service","level":"info","message":"Can't find centers","timestamp":"05-05-2023 18:07:32"}
+{"component":"user-service","level":"info","message":"Car already not existed!","timestamp":"05-05-2023 18:08:19"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"05-05-2023 18:08:53"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"05-05-2023 18:08:53"}
+{"component":"user-service","level":"info","message":"Delete all registration information ok","timestamp":"05-05-2023 18:08:53"}
+{"component":"user-service","level":"info","message":"name already existed","timestamp":"05-05-2023 18:11:06"}
+{"component":"user-service","level":"info","message":"name already existed","timestamp":"05-05-2023 18:11:12"}
+{"component":"user-service","level":"info","message":"New center created: {\n  name: 'Trung tâm đas',\n  user: 'admin2901VC',\n  password: '$2b$10$fGkczDRifm.H0QQz6Mbwd.7XfHdHqHsQaWjKfwBZCi0CXmUPdJMQC',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"6454e459d49b8694d1d4166a\"),\n  __v: 0\n}","timestamp":"05-05-2023 18:11:21"}
+{"component":"user-service","level":"info","message":"New center created: {\n  name: '1234',\n  user: 'asd',\n  password: '$2b$10$vTQiaue0mSN3/qaFzmtvNOQ3wp8nF5Ty27FQUl0/JIKcA8H1c0FAW',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"6455082018a06d349c57b851\"),\n  __v: 0\n}","timestamp":"05-05-2023 20:44:00"}
+{"component":"user-service","level":"info","message":"name already existed","timestamp":"05-05-2023 20:44:04"}
+{"component":"user-service","level":"info","message":"name already existed","timestamp":"05-05-2023 20:44:16"}
+{"component":"user-service","level":"info","message":"name already existed","timestamp":"05-05-2023 20:44:38"}
+{"component":"user-service","level":"info","message":"name already existed","timestamp":"05-05-2023 20:44:45"}
+{"component":"user-service","level":"info","message":"name already existed","timestamp":"05-05-2023 20:44:51"}
+{"component":"user-service","level":"info","message":"name already existed","timestamp":"05-05-2023 21:05:36"}
+{"component":"user-service","level":"info","message":"New center created: {\n  name: 'Trung tâm ABCABC',\n  user: 'NN',\n  password: '$2b$10$yka9/oxAWVM/MpZIT1mxjO4wE.t4RSGpm4OSJa499a7kWwEzGWL9q',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"64550d7ce58976913927c64f\"),\n  __v: 0\n}","timestamp":"05-05-2023 21:06:52"}
+{"component":"user-service","level":"info","message":"name already existed","timestamp":"05-05-2023 21:19:31"}
+{"component":"user-service","level":"info","message":"name already existed","timestamp":"05-05-2023 21:19:44"}
+{"component":"user-service","level":"info","message":"New center created: {\n  name: 'Trung tâm ABCaABC',\n  user: 'NN2',\n  password: '$2b$10$qNOBqHCDQMqRAacLZoXjLuPsDrpQUYhzaeuh0BefBhzLpSNRQCl1m',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"64551086fe39fb545c0db971\"),\n  __v: 0\n}","timestamp":"05-05-2023 21:19:51"}
+{"component":"user-service","level":"info","message":"name already existed","timestamp":"05-05-2023 21:19:53"}
+{"component":"user-service","level":"info","message":"name already existed","timestamp":"05-05-2023 21:19:57"}
+{"component":"user-service","level":"info","message":"New center created: {\n  name: 'Trung tâm ABCa244ABC',\n  user: 'NN52',\n  password: '$2b$10$EuR0Wv6xyIBEGQfmS2yRZ.wTwhgspQIaoB.FSaV.JkGlaifx6Xyoy',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"64551091fe39fb545c0db977\"),\n  __v: 0\n}","timestamp":"05-05-2023 21:20:01"}
+{"component":"user-service","level":"info","message":"New center created: {\n  name: 'asdawe',\n  user: 'asdasd',\n  password: '$2b$10$gUQNpOwGfO6mURaJty8hsugrCL/MWOPfqbfPKGsmVaImdmuZmgT8u',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"645511b7fe39fb545c0db97b\"),\n  __v: 0\n}","timestamp":"05-05-2023 21:24:55"}
+{"component":"user-service","level":"info","message":"name already existed","timestamp":"05-05-2023 21:27:15"}
+{"component":"user-service","level":"info","message":"name already existed","timestamp":"05-05-2023 21:27:35"}
+{"component":"user-service","level":"info","message":"name already existed","timestamp":"05-05-2023 21:27:46"}
+{"component":"user-service","level":"info","message":"New center created: {\n  name: 'Asadasdsf kkk',\n  user: 'asdasd12',\n  password: '$2b$10$Jpsr4Q7MBqv/1WSdAxSU8.6XUROtuMV3cECt1AxRi1B0SIjIFvHkq',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"6455126afe39fb545c0db982\"),\n  __v: 0\n}","timestamp":"05-05-2023 21:27:54"}
+{"component":"user-service","level":"info","message":"regionName doesn't contain in the list, please check the spelling: Hà Nội ","timestamp":"05-05-2023 21:30:13"}
+{"component":"user-service","level":"info","message":"New center created: {\n  name: 'Trung Tâm ABC',\n  user: 'asdf2',\n  password: '$2b$10$dOnV4nHSuSvh3LRJFYEh9eqpvlBYJd3MPXaeWWEUBHUXx.s8xwT0S',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"64551304fe39fb545c0db989\"),\n  __v: 0\n}","timestamp":"05-05-2023 21:30:28"}
+{"component":"user-service","level":"info","message":"Can't find centers","timestamp":"05-05-2023 21:46:23"}
+{"component":"user-service","level":"info","message":"New center created: {\n  name: 'Trung tâm đas',\n  user: 'admin2901VC',\n  password: '$2b$10$PDn2bU6jeZOpVBg3xMs9YOU9hHUo3tFBIrzw29MCk6UsmITN0at2q',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"645516c34cd420de27679a26\"),\n  __v: 0\n}","timestamp":"05-05-2023 21:46:27"}
+{"component":"user-service","level":"info","message":"New center created: {\n  name: 'Trung tâm ABasdCa244ABC',\n  user: 'NN5asd2',\n  password: '$2b$10$tUKH7DYZf/Z1qT4g4Zvi4OwzSukNGy4o/AzVDxaLT4teWFgKhfp8G',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"645517904cd420de27679a2b\"),\n  __v: 0\n}","timestamp":"05-05-2023 21:49:52"}
+{"component":"user-service","level":"info","message":"New center created: {\n  name: 'Trung Tâm abc',\n  user: 'user1',\n  password: '$2b$10$NL6t4yuN2b69Q.o5/mlmruQ/xebv2Cljojybqoi9Q4TGY9.UOugFC',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"64553259118a86a6deea6c7b\"),\n  __v: 0\n}","timestamp":"05-05-2023 23:44:09"}
+{"component":"user-service","level":"info","message":"regionName doesn't contain in the list, please check the spelling: 234sf","timestamp":"05-05-2023 23:44:35"}
+{"component":"user-service","level":"info","message":"regionName doesn't contain in the list, please check the spelling: 234sf","timestamp":"05-05-2023 23:45:28"}
+{"component":"user-service","level":"info","message":"name already existed","timestamp":"05-05-2023 23:45:57"}
+{"component":"user-service","level":"info","message":"regionName doesn't contain in the list, please check the spelling: Hfsdfhfsdfà Nội","timestamp":"05-05-2023 23:46:03"}
+{"component":"user-service","level":"info","message":"regionName doesn't contain in the list, please check the spelling: Hf1hf1fsdnội","timestamp":"05-05-2023 23:46:27"}
+{"component":"user-service","level":"info","message":"regionName doesn't contain in the list, please check the spelling: 234sf","timestamp":"05-05-2023 23:46:43"}
+{"component":"user-service","level":"info","message":"regionName doesn't contain in the list, please check the spelling: 234sf","timestamp":"05-05-2023 23:49:57"}
+{"component":"user-service","level":"info","message":"regionName doesn't contain in the list, please check the spelling: 234sf","timestamp":"05-05-2023 23:50:11"}
+{"component":"user-service","level":"info","message":"regionName doesn't contain in the list, please check the spelling: 234sf","timestamp":"05-05-2023 23:50:38"}
+{"component":"user-service","level":"info","message":"Can't find ttdk in DB","timestamp":"06-05-2023 07:28:01"}
+{"component":"user-service","level":"info","message":"name already existed","timestamp":"06-05-2023 07:28:57"}
+{"component":"user-service","level":"info","message":"New center created: {\n  name: 'Trung Tâm AB',\n  user: 'user01',\n  password: '$2b$10$SSzbEj6ng3My6RqEHqbXv.sf87YBYlIDAig8Jw4mwyWrjrduHZnou',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"64559f8ce65915347cecf7e4\"),\n  __v: 0\n}","timestamp":"06-05-2023 07:30:04"}
+{"component":"user-service","level":"info","message":"This car has already recognized","timestamp":"06-05-2023 07:35:10"}
+{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"06-05-2023 07:41:58"}
+{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"06-05-2023 07:41:58"}
+{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"6455a255e65915347cecf7fa\"),\n  licensePlate: '31A-123.12',\n  regionName: 'Hà Nội',\n  producer: 'Honda',\n  version: 'Sport',\n  carOwner: new ObjectId(\"6454e1f1e950f956d7e2cc4d\"),\n  registrationInformation: new ObjectId(\"6455a256e65915347cecf7fc\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a34\"),\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"6455a256e65915347cecf7fe\"),\n  __v: 0\n}","timestamp":"06-05-2023 07:41:58"}
+{"component":"user-service","level":"info","message":"Create successful car owner for: {\n  organization: true,\n  name: 'Hoang K',\n  regionName: 'Hà Nội',\n  address: '',\n  ID: '12347989',\n  _id: new ObjectId(\"6455a29ae65915347cecf808\"),\n  __v: 0\n}","timestamp":"06-05-2023 07:43:06"}
+{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"06-05-2023 07:43:06"}
+{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"06-05-2023 07:43:06"}
+{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"6455a29ae65915347cecf80b\"),\n  licensePlate: '29A-127.12',\n  regionName: 'Hà Nội',\n  producer: 'Honda',\n  version: 'Sport',\n  carOwner: new ObjectId(\"6455a29ae65915347cecf808\"),\n  registrationInformation: new ObjectId(\"6455a29ae65915347cecf80d\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a34\"),\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"6455a29ae65915347cecf80f\"),\n  __v: 0\n}","timestamp":"06-05-2023 07:43:06"}
+{"component":"user-service","level":"info","message":"Create successful car owner for: {\n  organization: true,\n  name: 'Xe Xeee',\n  regionName: 'Hà Nội',\n  address: '',\n  ID: '12347989',\n  _id: new ObjectId(\"6455cd87f796d1057891e367\"),\n  __v: 0\n}","timestamp":"06-05-2023 10:46:15"}
+{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"06-05-2023 10:46:16"}
+{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"06-05-2023 10:46:16"}
+{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"6455cd87f796d1057891e36a\"),\n  licensePlate: '29A-442.22',\n  regionName: 'Hà Nội',\n  producer: 'Honda',\n  version: 'Sport',\n  carOwner: new ObjectId(\"6455cd87f796d1057891e367\"),\n  registrationInformation: new ObjectId(\"6455cd88f796d1057891e36c\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a34\"),\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"6455cd88f796d1057891e36e\"),\n  __v: 0\n}","timestamp":"06-05-2023 10:46:16"}
+{"component":"user-service","level":"info","message":"ownerName must be a string and have a proper length (full name) and space between first name and last name!","timestamp":"06-05-2023 10:56:09"}
+{"component":"user-service","level":"info","message":"ownerName must be a string and have a proper length (full name) and space between first name and last name!","timestamp":"06-05-2023 10:58:34"}
+{"component":"user-service","level":"info","message":"ownerName must be a string and have a proper length (full name) and space between first name and last name!","timestamp":"06-05-2023 11:00:23"}
+{"component":"user-service","level":"info","message":"ownerName must be a string and have a proper length (full name) and space between first name and last name!","timestamp":"06-05-2023 11:02:09"}
+{"component":"user-service","level":"info","message":"the licensePlate was registered, choose other number","timestamp":"06-05-2023 11:02:37"}
+{"component":"user-service","level":"info","message":"Create successful car owner for: {\n  organization: true,\n  name: 'Nguyen Hoang Am',\n  regionName: 'Hà Nội',\n  address: '',\n  ID: '12347989',\n  _id: new ObjectId(\"6455d16f713c61d07f010910\"),\n  __v: 0\n}","timestamp":"06-05-2023 11:02:55"}
+{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"06-05-2023 11:02:55"}
+{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"06-05-2023 11:02:55"}
+{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"6455d16f713c61d07f010913\"),\n  licensePlate: '29C-442.22',\n  regionName: 'Hà Nội',\n  producer: 'Honda',\n  version: 'Sport',\n  carOwner: new ObjectId(\"6455d16f713c61d07f010910\"),\n  registrationInformation: new ObjectId(\"6455d16f713c61d07f010915\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a34\"),\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"6455d16f713c61d07f010917\"),\n  __v: 0\n}","timestamp":"06-05-2023 11:02:55"}
+{"component":"user-service","level":"info","message":"Create successful car owner for: {\n  organization: true,\n  name: 'Nguyen Hoàng Am',\n  regionName: 'Hà Nội',\n  address: '',\n  ID: '12347989',\n  _id: new ObjectId(\"6455d18a713c61d07f01091f\"),\n  __v: 0\n}","timestamp":"06-05-2023 11:03:22"}
+{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"06-05-2023 11:03:22"}
+{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"06-05-2023 11:03:22"}
+{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"6455d18a713c61d07f010922\"),\n  licensePlate: '29D-442.22',\n  regionName: 'Hà Nội',\n  producer: 'Honda',\n  version: 'Sport',\n  carOwner: new ObjectId(\"6455d18a713c61d07f01091f\"),\n  registrationInformation: new ObjectId(\"6455d18a713c61d07f010924\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a34\"),\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"6455d18a713c61d07f010926\"),\n  __v: 0\n}","timestamp":"06-05-2023 11:03:22"}
+{"component":"user-service","level":"info","message":"Create successful car owner for: {\n  organization: true,\n  name: 'Nguyen Hoàng Văn',\n  regionName: 'Hà Nội',\n  address: '',\n  ID: '12347989',\n  _id: new ObjectId(\"6455d19a713c61d07f01092e\"),\n  __v: 0\n}","timestamp":"06-05-2023 11:03:38"}
+{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"06-05-2023 11:03:38"}
+{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"06-05-2023 11:03:38"}
+{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"6455d19a713c61d07f010931\"),\n  licensePlate: '29D-432.22',\n  regionName: 'Hà Nội',\n  producer: 'Honda',\n  version: 'Sport',\n  carOwner: new ObjectId(\"6455d19a713c61d07f01092e\"),\n  registrationInformation: new ObjectId(\"6455d19a713c61d07f010933\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a34\"),\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"6455d19a713c61d07f010935\"),\n  __v: 0\n}","timestamp":"06-05-2023 11:03:38"}
+{"component":"user-service","level":"info","message":"ownerName must be a string and have a proper length (full name) and space between first name and last name!","timestamp":"06-05-2023 11:04:12"}
+{"component":"user-service","level":"info","message":"ownerName must be a string and have a proper length (full name) and space between first name and last name!","timestamp":"06-05-2023 11:06:38"}
+{"component":"user-service","level":"info","message":"ownerName must be a string and have a proper length (full name) and space between first name and last name!","timestamp":"06-05-2023 11:23:49"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"06-05-2023 16:08:58"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"06-05-2023 16:08:59"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"06-05-2023 16:08:59"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"06-05-2023 16:09:00"}
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"06-05-2023 16:10:16"}
+{"component":"user-service","level":"info","message":"Create successful car owner for: {\n  organization: true,\n  name: 'Nguyễn Văn Hùng',\n  regionName: 'Hà Nội',\n  address: '',\n  ID: '12347989',\n  _id: new ObjectId(\"6456198850f549e7f7f369c8\"),\n  __v: 0\n}","timestamp":"06-05-2023 16:10:32"}
+{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"06-05-2023 16:10:33"}
+{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"06-05-2023 16:10:33"}
+{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"6456198850f549e7f7f369cb\"),\n  licensePlate: '29D-334.22',\n  regionName: 'Hà Nội',\n  producer: 'Honda',\n  version: 'Sport',\n  carOwner: new ObjectId(\"6456198850f549e7f7f369c8\"),\n  registrationInformation: new ObjectId(\"6456198950f549e7f7f369cd\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a34\"),\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"6456198950f549e7f7f369cf\"),\n  __v: 0\n}","timestamp":"06-05-2023 16:10:33"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"06-05-2023 16:11:51"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"06-05-2023 16:11:52"}
+{"component":"user-service","level":"info","message":"Delete all registration information ok","timestamp":"06-05-2023 16:11:52"}
+{"component":"user-service","level":"info","message":"the licensePlate is not a proper syntax. Please check again","timestamp":"06-05-2023 16:19:17"}
+{"component":"user-service","level":"info","message":"the licensePlate is not a proper syntax. Please check again","timestamp":"06-05-2023 16:20:41"}
+{"component":"user-service","level":"info","message":"region number and name don't match. Please try again","timestamp":"06-05-2023 16:20:45"}
+{"component":"user-service","level":"info","message":"Create successful car owner for: {\n  organization: true,\n  name: 'Nguyễn Văn Hùng',\n  regionName: 'Bắc Ninh',\n  address: '',\n  ID: '12347989',\n  _id: new ObjectId(\"64561c0b50f549e7f7f369e1\"),\n  __v: 0\n}","timestamp":"06-05-2023 16:21:15"}
+{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"06-05-2023 16:21:15"}
+{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"06-05-2023 16:21:15"}
+{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"64561c0b50f549e7f7f369e4\"),\n  licensePlate: '99A-123.45',\n  regionName: 'Bắc Ninh',\n  producer: 'Honda',\n  version: 'Sport',\n  carOwner: new ObjectId(\"64561c0b50f549e7f7f369e1\"),\n  registrationInformation: new ObjectId(\"64561c0b50f549e7f7f369e6\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a34\"),\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"64561c0b50f549e7f7f369e8\"),\n  __v: 0\n}","timestamp":"06-05-2023 16:21:16"}
+{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"06-05-2023 16:21:28"}
+{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"06-05-2023 16:21:28"}
+{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"64561c1850f549e7f7f369f1\"),\n  licensePlate: '99A-123456',\n  regionName: 'Bắc Ninh',\n  producer: 'Honda',\n  version: 'Sport',\n  carOwner: new ObjectId(\"64561c0b50f549e7f7f369e1\"),\n  registrationInformation: new ObjectId(\"64561c1850f549e7f7f369f3\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a34\"),\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"64561c1850f549e7f7f369f5\"),\n  __v: 0\n}","timestamp":"06-05-2023 16:21:28"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"06-05-2023 16:21:41"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"06-05-2023 16:21:41"}
+{"component":"user-service","level":"info","message":"Delete all registration information ok","timestamp":"06-05-2023 16:21:41"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"06-05-2023 16:21:46"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"06-05-2023 16:21:46"}
+{"component":"user-service","level":"info","message":"Delete all registration information ok","timestamp":"06-05-2023 16:21:46"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"06-05-2023 16:45:39"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"06-05-2023 16:46:42"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"06-05-2023 16:48:31"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"06-05-2023 16:49:35"}
+{"component":"user-service","level":"info","message":"car type is nether a string nor included in car Type","timestamp":"06-05-2023 16:49:58"}
+{"component":"user-service","level":"info","message":"car type is nether a string nor included in car Type","timestamp":"06-05-2023 16:51:28"}
+{"component":"user-service","level":"info","message":"car type is nether a string nor included in car Type","timestamp":"06-05-2023 17:00:09"}
+{"component":"user-service","level":"info","message":"car type is nether a string nor included in car Type","timestamp":"06-05-2023 17:01:06"}
+{"component":"user-service","level":"info","message":"car specs isn't existed in db. Please re-check your information","timestamp":"06-05-2023 17:01:22"}
+{"component":"user-service","level":"info","message":"car type is nether a string nor included in car Type","timestamp":"06-05-2023 17:01:37"}
+{"component":"user-service","level":"info","message":"car type is nether a string nor included in car Type","timestamp":"06-05-2023 17:01:50"}
+{"component":"user-service","level":"info","message":"car specs isn't existed in db. Please re-check your information","timestamp":"06-05-2023 17:02:21"}
+{"component":"user-service","level":"info","message":"car specs isn't existed in db. Please re-check your information","timestamp":"08-05-2023 13:46:20"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"08-05-2023 13:46:51"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"08-05-2023 13:47:32"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"08-05-2023 13:47:45"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"08-05-2023 13:48:06"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"08-05-2023 13:49:16"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"08-05-2023 13:50:07"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"08-05-2023 13:51:08"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"08-05-2023 13:51:28"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"08-05-2023 13:51:38"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"08-05-2023 13:52:24"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"08-05-2023 13:53:07"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"08-05-2023 13:53:10"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"08-05-2023 14:03:19"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"08-05-2023 14:05:04"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"08-05-2023 14:22:39"}
+{"component":"user-service","level":"info","message":"Create successful car owner for: {\n  organization: true,\n  name: 'Nguyễn Văn Hùng ',\n  regionName: 'Bắc Ninh',\n  address: '',\n  ID: '012345678',\n  _id: new ObjectId(\"6458a4d267d9fbd231d2fa9d\"),\n  __v: 0\n}","timestamp":"08-05-2023 14:29:22"}
+{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"08-05-2023 14:29:22"}
+{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"08-05-2023 14:29:22"}
+{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"6458a4d267d9fbd231d2faa0\"),\n  licensePlate: '99A-1234',\n  regionName: 'Bắc Ninh',\n  producer: 'Honda',\n  version: 'Touring',\n  carOwner: new ObjectId(\"6458a4d267d9fbd231d2fa9d\"),\n  registrationInformation: new ObjectId(\"6458a4d267d9fbd231d2faa2\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a35\"),\n  engineNo: '123',\n  classisNo: '123123',\n  _id: new ObjectId(\"6458a4d267d9fbd231d2faa4\"),\n  __v: 0\n}","timestamp":"08-05-2023 14:29:22"}
+{"component":"user-service","level":"info","message":"the licensePlate was registered, choose other number","timestamp":"08-05-2023 14:29:31"}
+{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"08-05-2023 14:29:36"}
+{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"08-05-2023 14:29:36"}
+{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"6458a4e067d9fbd231d2faae\"),\n  licensePlate: '99A-123.45',\n  regionName: 'Bắc Ninh',\n  producer: 'Honda',\n  version: 'Touring',\n  carOwner: new ObjectId(\"6458a4d267d9fbd231d2fa9d\"),\n  registrationInformation: new ObjectId(\"6458a4e067d9fbd231d2fab0\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a35\"),\n  engineNo: '123',\n  classisNo: '123123',\n  _id: new ObjectId(\"6458a4e067d9fbd231d2fab2\"),\n  __v: 0\n}","timestamp":"08-05-2023 14:29:37"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"08-05-2023 14:47:49"}
+{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"08-05-2023 14:53:50"}
