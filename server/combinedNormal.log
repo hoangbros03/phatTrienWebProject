@@ -674,3 +674,20 @@
 {"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"6458a4e067d9fbd231d2faae\"),\n  licensePlate: '99A-123.45',\n  regionName: 'Bắc Ninh',\n  producer: 'Honda',\n  version: 'Touring',\n  carOwner: new ObjectId(\"6458a4d267d9fbd231d2fa9d\"),\n  registrationInformation: new ObjectId(\"6458a4e067d9fbd231d2fab0\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a35\"),\n  engineNo: '123',\n  classisNo: '123123',\n  _id: new ObjectId(\"6458a4e067d9fbd231d2fab2\"),\n  __v: 0\n}","timestamp":"08-05-2023 14:29:37"}
 {"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"08-05-2023 14:47:49"}
 {"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"08-05-2023 14:53:50"}
+{"component":"user-service","level":"info","message":"Can't find car with given license plate. Please note that the licensePlate must be correct","timestamp":"08-05-2023 15:34:08"}
+{"component":"user-service","level":"info","message":"Successfully create new registration information the license plate: 99A-1234","timestamp":"08-05-2023 15:34:48"}
+{"component":"user-service","level":"info","message":"Update to car object successfully!","timestamp":"08-05-2023 15:34:48"}
+{"component":"user-service","level":"error","message":"SyntaxError: Unexpected token } in JSON at position 163","timestamp":"08-05-2023 15:35:42"}
+{"component":"user-service","level":"info","message":"Successfully create new registration information the license plate: 99A-1234","timestamp":"08-05-2023 15:35:45"}
+{"component":"user-service","level":"info","message":"Update to car object successfully!","timestamp":"08-05-2023 15:35:45"}
+{"component":"user-service","level":"info","message":"Successfully create new registration information the license plate: 99A-1234","timestamp":"08-05-2023 15:38:24"}
+{"component":"user-service","level":"info","message":"Update to car object successfully!","timestamp":"08-05-2023 15:38:24"}
+{"component":"user-service","level":"info","message":"Successfully create new registration information the license plate: 99A-1234","timestamp":"08-05-2023 15:39:32"}
+{"component":"user-service","level":"info","message":"Update to car object successfully!","timestamp":"08-05-2023 15:39:32"}
+{"component":"user-service","level":"info","message":"Can't find car with given license plate. Please note that the licensePlate must be correct","timestamp":"08-05-2023 15:39:39"}
+{"component":"user-service","level":"info","message":"Can't find car with given license plate. Please note that the licensePlate must be correct","timestamp":"08-05-2023 15:39:43"}
+{"component":"user-service","level":"info","message":"Can't find car with given license plate. Please note that the licensePlate must be correct","timestamp":"08-05-2023 15:39:48"}
+{"component":"user-service","level":"info","message":"Can't find car with given license plate. Please note that the licensePlate must be correct","timestamp":"08-05-2023 15:40:51"}
+{"component":"user-service","level":"info","message":"Successfully create new registration information the license plate: 99A-1234","timestamp":"08-05-2023 15:41:22"}
+{"component":"user-service","level":"info","message":"Update to car object successfully!","timestamp":"08-05-2023 15:41:22"}
+{"component":"user-service","level":"info","message":"Can't find car with given license plate. Please note that the licensePlate must be correct","timestamp":"08-05-2023 15:41:26"}

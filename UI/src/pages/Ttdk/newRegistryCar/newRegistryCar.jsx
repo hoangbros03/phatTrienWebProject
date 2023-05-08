@@ -245,16 +245,13 @@ function NewRegistryCar() {
         }
     };
     const handleSubmit = async (e) => {
-        console.log(carRegister);
-       
-
-        // const response = await API.post_user("trungTamDangKiem/:user/createCar",{user:user},{...carRegister})
-        // if(response.status=="success") setStatus({...status,status:"success"})
-        // else {setStatus({...status,status:"failure"});
-        // console.log(response)
-        // console.log(response.status)
-        //     setMessageFail(response.status)
-        //         }
+        const response = await API.post_user("trungTamDangKiem/:user/createCar",{user:user},{...carRegister})
+        if(response.status=="success") setStatus({...status,status:"success"})
+        else {setStatus({...status,status:"failure"});
+        console.log(response)
+        console.log(response.status)
+            setMessageFail(response.status)
+                }
     };
     const renderForm = () => {
         if (status.status == 'unsent')

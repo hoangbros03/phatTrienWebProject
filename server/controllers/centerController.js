@@ -176,11 +176,11 @@ const addRegistry = async(req,res)=>{
     //check existed
     if(!req?.body?.licensePlate || !req?.body?.dateOfIssue || !req?.body?.dateOfExpiry || !req?.body?.trungTamDangKiemName){
         logger.info("Not enough information!");
-        return res.status(400).json({"status":"Not enough information!"});
+        return res.status(400).json({"status":"Không đủ thông tin"});
     }
     if(typeof req.body.licensePlate != "string" || typeof req.body.trungTamDangKiemName != "string" ){
         logger.info("Some req info must be string, but aren't");
-        return res.status(400).json({"status":"Some req info must be string, but aren't"});
+        return res.status(400).json({"status":"Yêu cầu chưa đúng"});
     }
     //correctness
     req.body.licensePlate = req.body.licensePlate.toUpperCase();
@@ -207,7 +207,7 @@ const addRegistry = async(req,res)=>{
     if(!getCar){
         let err= "Can't find car with given license plate. Please note that the licensePlate must be correct";
         logger.info(err);
-        return res.status(400).json({"status":"Can't find car with given license plate. Please note that the licensePlate must be correct"});
+        return res.status(400).json({"status":"Không tìm thấy biển số xe. Vui lòng nhập lại"});
     }
     console.log(getCar);
     //do'
@@ -215,7 +215,7 @@ const addRegistry = async(req,res)=>{
     var regionOfTTDK = ttdk.regionName;
     if(!ttdk){
         logger.info("Can't find ttdk, check the spelling!");
-        return res.status(400).json({"status":"Can't find ttdk, check the spelling!"});
+        return res.status(400).json({"status":"Không thấy trung tâm đăng kiểm"});
     }
     try{
         var qua = Math.floor(dateOfIssue.getMonth()/3)+1;
