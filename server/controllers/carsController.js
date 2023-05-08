@@ -73,13 +73,13 @@ const getCarsList = async(req,res)=>{
     //valid
     if(typeof req.body.month != "string" || typeof req.body.province != "string" ||typeof req.body.quarter != "string" ||typeof req.body.ttdk != "string"||typeof req.body.type != "string"||typeof req.body.year != "string"||typeof req.body.carType != "string"){
         logger.info("Either one of the input infor is not a string");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"Either one of the input infor is not a string"});
     }
     if(typeof Number.parseInt(req.body.month)!="number"||
     typeof Number.parseInt(req.body.quarter)!="number"||
     typeof Number.parseInt(req.body.year)!="number"){
         logger.info("month or quarter or year is not a number");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"month or quarter or year is not a number"});
     }
     //correctness
     req.body.ttdk = vitalFunc.toTitleCase(req.body.ttdk.toLowerCase());
@@ -195,20 +195,20 @@ const searchCar = async(req,res)=>{
     //check search length
     if(!req?.body?.searchValue){
         logger.info("Not found searchValue");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"Not found searchValue"});
     }
     if(typeof req.body.searchValue !="string"){
         logger.info("searchValue not a string");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"searchValue not a string"});
     }
     if(req.body.searchValue.length<=3){
         logger.info("Too short to find!");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"Too short to find!"});
        
     }
     if(req.body.searchValue.length>10){
         logger.info("Too long to find!");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"Too long to find!"});
     }
     //correctness
     req.body.searchValue = req.body.searchValue.toUpperCase();
@@ -265,7 +265,7 @@ const searchCar = async(req,res)=>{
             fullInfoCar.historyRegistrationInformation = regisInfor;
         }catch(err){
             logger.info("err when get registration informations in the history:"+err);
-            return res.sendStatus(400);
+            return res.status(400).json({"status":"err when get registration informations in the history:"});
         }
         
     }
@@ -288,7 +288,7 @@ const searchCar = async(req,res)=>{
         + carType: xe tai hay xe con hay xe gi do 
         + engineNo: So may - string 
         + classisNo: So khung - string 
-    
+        + trungTamDangKiemName: string
     - registrationInformation (thong tin dang kiem) will be set to a dummy trung tam dang kiem. It will be expire after 1 day only
 
 
@@ -298,55 +298,56 @@ const searchCar = async(req,res)=>{
 
 const createCar = async(req,res)=>{
     //check if enough information
-    if(!"organization" in req?.body || !req?.body?.ownerName || !req?.body?.licensePlate || !req?.body?.dateOfIssue || !req?.body?.regionName || !req?.body?.carName || !req?.body?.carVersion || !req?.body?.carType ||!req?.body?.engineNo || !req?.body?.classisNo){
+    if(!"organization" in req?.body || !req?.body?.ownerName || !req?.body?.licensePlate || !req?.body?.dateOfIssue || !req?.body?.regionName || !req?.body?.carName || !req?.body?.carVersion || !req?.body?.carType ||!req?.body?.engineNo || !req?.body?.classisNo ||!req?.body?.trungTamDangKiemName){
         logger.info('Not enough information to create a car');
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"Not enough information to create a car"});
     }
     //check if information is valid 
     //1. organization
     if(req.body.organization!=true && req.body.organization!=false){
         logger.info('Must be a boolean regard to organization or not!');
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"Must be a boolean regard to organization or not!"});
     }
     //2. ownerName
     //correctness
     req.body.ownerName = vitalFunc.toTitleCase(req.body.ownerName.toLowerCase());
     if(typeof req.body.ownerName != "string" || req.body.ownerName.length <5 || !req.body.ownerName.match(/[A-Z][a-z]* [A-Z][a-z]*[ A-Za-z]*/)){
         logger.info('ownerName must be a string and have a proper length (full name) and space between first name and last name!');
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"ownerName must be a string and have a proper length (full name) and space between first name and last name!"});
     }
     //3. licensePlate
     //correctness
     if(typeof req.body.licensePlate !="string"){
         logger.info("licensePlate is not a string");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"licensePlate is not a string"});
     }
     req.body.licensePlate = req.body.licensePlate.toUpperCase();
-    if((!req.body.licensePlate.match(/\d{2}[A-Z]-\d{3}.\d{2}/)&&!req.body.licensePlate.match(/\d{2}[A-Z]-\d{4}/))){
+    if((!req.body.licensePlate.match(/\d{2}[A-Z]-\d{3}.\d{2}$/)&&!req.body.licensePlate.match(/\d{2}[A-Z]-\d{4}$/))){
         logger.info("the licensePlate is not a proper syntax. Please check again");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"the licensePlate is not a proper syntax. Please check again"});
     }
     //check licensePlate contained
     if(await Cars.findOne({licensePlate: req.body.licensePlate})){
         logger.info("the licensePlate was registered, choose other number");
-        return res.sendStatus(400);
-    }
+        return res.status(400).json({"status":"the licensePlate was registered, choose other number"});
+    };
+    
     //get 2 first number and check if it is valid
     let regionNumber = Number(req.body.licensePlate.substring(0,2));
     if(isNaN(regionNumber)){ //actually can't happen
         logger.info('the licensePlate is either not a string or not a proper syntax. Please check again');
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"the licensePlate is either not a string or not a proper syntax. Please check again"});
     }
     //4. dateOfIssue
     if(!req.body.dateOfIssue instanceof String){
         logger.info("dateOfIssue hien ko phai la string. Tk hung m check lai xem");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"dateOfIssue hien ko phai la string. Tk hung m check lai xem"});
 
     }else{
         let checkValidDateString = Date.parse(req.body.dateOfIssue);
         if(isNaN(checkValidDateString)){
             logger.info("dateOfIssue string is not valid to convert to Date object");
-            return res.sendStatus(400);
+            return res.status(400).json({"status":"dateOfIssue string is not valid to convert to Date object"});
         }
         
     }
@@ -354,7 +355,7 @@ const createCar = async(req,res)=>{
     //5. regionName
     if(typeof req.body.regionName != "string"){
         logger.info("region Name is not a string. Please check again");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"region Name is not a string. Please check again"});
     }
     //check region
     //correctness
@@ -362,55 +363,67 @@ const createCar = async(req,res)=>{
     const checkRegion = await Region.findOne({regionName: req.body.regionName, regionNumber: regionNumber}).exec();
     if(!checkRegion){
         logger.info("region number and name don't match. Please try again");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"region number and name don't match. Please try again"});
     }
    
     
     //6. carName
     if(typeof req.body.carName !="string"){
         logger.info("car name must be a string");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"car name must be a string"});
     }
     //7. carVersion
     if(typeof req.body.carVersion != "string"){
         logger.info("car version must also be a string");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"car version must also be a string"});
     }
     //8. carType
     //correctness
     if(typeof req.body.carType !="string"){
         logger.info("car type is nether a string nor included in car Type");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"car type is nether a string nor included in car Type"});
     }
     req.body.carType = req.body.carType.toLowerCase();
     if(!carTypes.includes(req.body.carType)){
         logger.info("car type is nether a string nor included in car Type");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"car type is nether a string nor included in car Type"});
     }
     //9. Engine No and classis No
     if(typeof req.body.engineNo !="string" ||typeof req.body.classisNo !="string"){
         logger.info("car engine or classis no is not a string");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"car engine or classis no is not a string"});
+    }
+    //10. TTDK name
+    if(typeof req.body.trungTamDangKiemName != "string"){
+        logger.info("Trung tam dang kiem name is not a string");
+        return res.status(400).json({"status":"Trung tam dang kiem name is not a string"});
+    }
+    // find ttdk
+    let ttdk_found = await trungTamDangKiem.findOne({name: req.body.trungTamDangKiemName}).exec();
+    if(!ttdk_found){
+        logger.info("Can't find ttdk in DB");
+        return res.status(400).json({"status":"Can't find ttdk in DB"});
     }
 
     //declare high scope variable
     let newPaper;
     let carSpecification;
-    let dummyTTDK;
+ 
     let carOwn;
+    // Not dummy anymore, but keep the variable name
     let newDummyDK;
     //check if it existed in carSpec
     let carSpecCheck = await carSpecs.findOne({name: req.body.carName, version: req.body.carVersion, type: req.body.carType}).exec();
     if(!carSpecCheck){
         logger.info("car specs isn't existed in db. Please re-check your information");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"car specs isn't existed in db. Please re-check your information"});
     }
     //check if subdocument is ready (create subdocument)
     var forceStop = false;
     //1. Paper of recognition
     if(await paperOfRecognition.findOne({name: req.body.ownerName, licensePlate: req.body.licensePlate}).exec()){
         logger.info("This car has already recognized");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"This car has already recognized"});
     }
     //2. Car owner
     carOwn = await carOwner.findOne({organization: req.body.organization, name: req.body.ownerName, regionName: req.body.regionName}).exec();
@@ -442,39 +455,17 @@ const createCar = async(req,res)=>{
             (err)=>{
                 logger.info("error when creating newOwner");
                 forceStop =true;
-                return res.sendStatus(400);
+                return res.status(400).json({"status":"error when creating newOwner"});
             });
     };
     if(forceStop)return;
-    //3. registrationn Information (link with dummy ttdk)
-    dummyTTDK = await trungTamDangKiem.findOne({name: "dummy"}).exec();
-    if(!dummyTTDK){
-        logger.info("Can't find dummy TTDK, but system will create one...");
-        let encodedPwd = await brcypt.hash("123456",10);
-        dummyTTDK = new trungTamDangKiem({
-            name: "dummy",
-            user: "dummyUser",
-            encodedPassword: encodedPwd,
-            regionName: "dummy province",
-            forgotPassword: false,
-            refreshToken: ''
-        });
-        await dummyTTDK.save().then((doc)=>{
-            logger.info("Create dummy ttdk successful");
-        }).catch((err)=>{
-            logger.info("something wrong when creating dummy model");
-            forceStop = true;
-                return res.sendStatus(400);
-        });
-       
-    };
-    if(forceStop)return;
+
     
     //4. car specification (must already have)
     carSpecification = await carSpecs.findOne({name: req.body.carName, version: req.body.carVersion, type: req.body.carType}).exec();
     if(!carSpecification){
         logger.info("this car info isn't existed. Re-check the information. Remember that carSpec must be CASE-SENSITIVE. CONVERT TO CORRECT CASE NOT SUPPORTED");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"this car info isn't existed. Re-check the information. Remember that carSpec must be CASE-SENSITIVE. CONVERT TO CORRECT CASE NOT SUPPORTED"});
     }
     //Everything is good, Now create paperOfRecognition! (good practice: Check everything before work with db)
     let aDate = new Date(req.body.dateOfIssue);
@@ -496,12 +487,12 @@ const createCar = async(req,res)=>{
     ).catch((err)=>{
         logger.info("There is an error when creating new document to save to the model: "+err);
         forceStop = true;
-        return res.sendstatus(400);
+        return res.status(400).json({"status":"There is an error when creating new document to save to the model: "});
     });
     if(forceStop)return;
     //create dummy TTDK registration
     let eDate = new Date();
-    eDate.setTime(aDate.getTime()+24*3600*1000); //1 day 
+    eDate.setTime(aDate.getTime()+365*24*3600*1000); //1 day 
     let dkQua = Math.floor(aDate.getMonth()/3)+1;
     //Fixed bug Date
     newDummyDK = new registrationInformation({
@@ -509,18 +500,18 @@ const createCar = async(req,res)=>{
         dateOfIssue: aDate,
         dateOfExpiry: eDate,
         quarter: dkQua,
-        trungTamDangKiem: dummyTTDK._id,
+        trungTamDangKiem: ttdk_found._id,
         ownerName: req.body.ownerName,
         carType: req.body.carType,
-        trungTamDangKiemName: "dummy",
-        regionName: req.body.regionName
+        trungTamDangKiemName: ttdk_found.name,
+        regionName: ttdk_found.regionName
     });
     await newDummyDK.save().then((doc)=>{
         logger.info("Add temp registry successfully");
     }).catch((err)=>{
         logger.info("There is an error when creating temp registry: "+err);
         forceStop = true;
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"There is an error when creating temp registry: "});
     });
     if(forceStop)return;
     //Explain: dummyTTDK is just a name of variable, since it equal ttdk existed in DB, or new dummyTTDK
@@ -546,12 +537,12 @@ const createCar = async(req,res)=>{
         })
         .catch((err)=>{
             logger.info("All information valid. Potential bug when creating car?: "+err);
-            return res.sendStatus(400);
+            return res.status(400).json({"status":"All information valid. Potential bug when creating car?: "});
         });
         
     }catch(err){
         logger.info("Err happens when make new car document: "+ err);
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"Err happens when make new car document: "});
     }
     
 };
@@ -574,18 +565,18 @@ const createCarSpecification = async(req,res)=>{
     //check enough information
     if(!req?.body?.name || !req?.body?.version || !req?.body?.type){
         logger.info("Not enough information to create new car spec");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"Not enough information to create new car spec"});
     }
     //check valid
     //correctness
     if(typeof req.body.type !="string"){
         logger.info("car type not a string");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"car type not a string"});
     }
     req.body.type = req.body.type.toLowerCase();
     if(!carTypes.includes(req.body.type)){
         logger.info("Car type not existed. Check your spelling");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"Car type not existed. Check your spelling"});
     }
     //create and notify
     const newCarSpec = new carSpecs({
@@ -604,7 +595,7 @@ const createCarSpecification = async(req,res)=>{
         res.json({"status":"success"});
     }).catch((err)=>{
             logger.info("Something wrong when creating newCarSpec: "+err);
-            return res.status(400).json({"status":"failed"});
+            return res.status(400).json({"status":"Something wrong when creating newCarSpec: "});
         }       
     );
 };
@@ -675,11 +666,11 @@ const uploadDB = async(req,res)=>{
     //check exist
     if(!req?.body?.status){
         logger.info("wrong syntax when sending request!");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"wrong syntax when sending request!"});
     }
     if(!Array.isArray(req.body.status)){
         logger.info("Inside is not an array!");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"Inside is not an array!"});
     }
     var carUploadedCount =0;
     var missRegistryRegistration = 0;
@@ -962,17 +953,29 @@ const deleteCar = async(req,res)=>{
     //check contain
     if(!req?.body?.licensePlate){
         logger.info("No license plate provided");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"No license plate provided"});
     }
     //check valid
     if(typeof req.body.licensePlate!="string"){
         logger.info("License plate is not a string");
+        return res.status(400).json({"status":"License plate is not a string"});
     }
     req.body.licensePlate = req.body.licensePlate.toUpperCase();
-    if(!req.body.licensePlate.match(/\d{2}[A-Z]-\d{3}.\d{2}/)&&!req.body.licensePlate.match(/\d{2}[A-Z]-\d{4}/)){
+    if(!req.body.licensePlate.match(/\d{2}[A-Z]-\d{3}.\d{2}$/)&&!req.body.licensePlate.match(/\d{2}[A-Z]-\d{4}$/)){
         logger.info("licensePlate when deleting must be exactly the same. The information inputted isn't match the regex");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"licensePlate when deleting must be exactly the same. The information inputted isn't match the regex"});
     }
+
+    //check car contain to delete
+    const alreadyExist = await Cars.findOne({
+        licensePlate: req.body.licensePlate
+    });
+    if(!alreadyExist){
+        logger.info("Car already not existed!");
+        return res.status(400).json({"status":"Car already not existed!"});
+    }
+    
+
 
     //no check if match pattern or not, not necessary at all
     //transaction
@@ -981,6 +984,8 @@ const deleteCar = async(req,res)=>{
     try{
         await paperOfRecognition.deleteOne({licensePlate: req.body.licensePlate}).then(()=>{logger.info("Delete successfully!")}).catch((err)=>{logger.info("An error when deleting paperOfRecognition:"+err)});
         await Cars.deleteOne({licensePlate: req.body.licensePlate}).then(()=>{logger.info("Delete successfully!")}).catch((err)=>{logger.info("An error when deleting paperOfRecognition:"+err)});
+        // delete all old registration information
+        await registrationInformation.deleteMany({licensePlate: req.body.licensePlate}).then(()=>{logger.info("Delete all registration information ok")}).catch((err)=>{logger.info("err: "+err);});
 
         await session.commitTransaction();
     }catch(err){

@@ -30,7 +30,7 @@ const createNewCenter = async(req,res)=>{
     //user can't be "god", since it is used to bypass
     if(body.user=="god"){
         logger.info("Sorry, but this user name is prohibited");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"Sorry, but this user name is prohibited"});
     }
 
     //check duplicate
@@ -42,14 +42,14 @@ const createNewCenter = async(req,res)=>{
       }).exec();
     if(duplicate) {
         logger.info("name already existed");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"name already existed"});
     }
     //check regionName exist
     
     const testExistRegion = await region.findOne({regionName: body.regionName}).exec();
     if(!testExistRegion){
         logger.info("regionName doesn't contain in the list, please check the spelling: " + body.regionName);
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"regionName doesn't contain in the list, please check the spelling: "});
     };
   
     
@@ -69,7 +69,7 @@ const createNewCenter = async(req,res)=>{
     "username": body['user']});
 
     }catch(err){
-        res.status(400).json({'message': err});
+        res.status(400).json({"message": err});
     }
 };
 
@@ -84,7 +84,7 @@ NOTE: It is use internal only.
 const uploadCenters = async(req,res)=>{ 
     if(!req?.body?.centers){
         logger.info("Can't find centers");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"Can't find centers"});
     }
     var uploaded = 0;
     const arr = req.body.centers;
@@ -122,11 +122,11 @@ NOTE: It is execute only after verify role in complete version.
 const changePasswordCenter = async(req,res)=>{
     if(typeof req.body.user != "string"){
         logger.info("user not a string of doesn't exist. Tk hung nhap sai roi");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"user not a string of doesn't exist. Tk hung nhap sai roi"});
     }
     if(typeof req.body.newPassword !="string" || typeof req.body.oldPassword !="string"){
         logger.info("newPassword or old password not a string or doesn't exist!");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"newPassword or old password not a string or doesn't exist!"});
     }
     var bypass= false;
     if(req?.body?.bypass){
@@ -137,14 +137,14 @@ const changePasswordCenter = async(req,res)=>{
     }).exec();
     if(!user){
         logger.info("no result match the user. Tk hung nhap sai roi");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"no result match the user. Tk hung nhap sai roi"});
     }
     //check if oldpassword match
     if(!bypass){
         let result = await bcrypt.compare(req.body.oldPassword,user.encodedPassword);
         if(!result){
             logger.info("Pass not match");
-            return res.sendStatus(400);
+            return res.status(400).json({"status":"Pass not match"});
         }
     }
 
@@ -156,7 +156,7 @@ const changePasswordCenter = async(req,res)=>{
         
     }).catch((err)=>{
         logger.info("There must be an error : "+err);
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"There must be an error : "});
 
     });
 }
@@ -169,22 +169,22 @@ Information needed:
     dateOfIssue: ISODate
     dateOfExpiry: ISODate
     trungTamDangKiemName: String
-    regionName: String
+
 
 */
 const addRegistry = async(req,res)=>{
     //check existed
-    if(!req?.body?.licensePlate || !req?.body?.dateOfIssue || !req?.body?.dateOfExpiry || !req?.body?.trungTamDangKiemName || !req?.body?.regionName){
+    if(!req?.body?.licensePlate || !req?.body?.dateOfIssue || !req?.body?.dateOfExpiry || !req?.body?.trungTamDangKiemName){
         logger.info("Not enough information!");
-        return res.sendStatus(200);
+        return res.status(400).json({"status":"Not enough information!"});
     }
-    if(typeof req.body.licensePlate != "string" || typeof req.body.trungTamDangKiemName != "string" ||typeof req.body.regionName != "string" ){
+    if(typeof req.body.licensePlate != "string" || typeof req.body.trungTamDangKiemName != "string" ){
         logger.info("Some req info must be string, but aren't");
-        return res.sendStatus(200);
+        return res.status(400).json({"status":"Some req info must be string, but aren't"});
     }
     //correctness
     req.body.licensePlate = req.body.licensePlate.toUpperCase();
-    req.body.regionName = vitalFunc.toTitleCase(req.body.regionName.toLowerCase());
+
     //ttdk name won't be corrected
 
     var dateOfIssue = Date.parse(req.body.dateOfIssue);
@@ -192,7 +192,7 @@ const addRegistry = async(req,res)=>{
     if(isNaN(dateOfExpiry)|| isNaN(dateOfIssue)||!
     dateOfExpiry instanceof Date ||! dateOfIssue instanceof Date){
         logger.info("Either dateOfIssue or dateOfExpiry is not a valid ISO date format");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"Either dateOfIssue or dateOfExpiry is not a valid ISO date format"});
     }
     dateOfIssue = new Date(req.body.dateOfIssue);
     dateOfExpiry = new Date(req.body.dateOfExpiry);
@@ -207,20 +207,21 @@ const addRegistry = async(req,res)=>{
     if(!getCar){
         let err= "Can't find car with given license plate. Please note that the licensePlate must be correct";
         logger.info(err);
-        return res.status(400).json({err});
+        return res.status(400).json({"status":"Can't find car with given license plate. Please note that the licensePlate must be correct"});
     }
-   
+    console.log(getCar);
     //do'
-    const ttdk = await TrungTamDangKiem.findOne({regionName: req.body.regionName, name: req.body.trungTamDangKiemName}).exec();
+    const ttdk = await TrungTamDangKiem.findOne({name: req.body.trungTamDangKiemName}).exec();
+    var regionOfTTDK = ttdk.regionName;
     if(!ttdk){
         logger.info("Can't find ttdk, check the spelling!");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"Can't find ttdk, check the spelling!"});
     }
     try{
         var qua = Math.floor(dateOfIssue.getMonth()/3)+1;
     }catch(err){
         logger.info("Some err when get the quarter");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"Some err when get the quarter"});
     }
     var forceStop = false;
     const newRegistryInfo = new RegistrationInformation({
@@ -232,7 +233,7 @@ const addRegistry = async(req,res)=>{
         ownerName: getCar.carOwner.name,
         carType: getCar.carSpecification.type,
         trungTamDangKiemName: req.body.trungTamDangKiemName,
-        regionName: req.body.regionName
+        regionName: regionOfTTDK
     });
     await newRegistryInfo.save().then((doc)=>{
         logger.info("Successfully create new registration information the license plate: " + req.body.licensePlate);
@@ -240,7 +241,7 @@ const addRegistry = async(req,res)=>{
     }).catch((err)=>{
         logger.info("Err: "+err);
         forceStop =true;
-        return res.sendStatus(400);
+        return res.status(400).json({"status":err});
     });
     if(forceStop)return;
     //add id to the current car
@@ -249,7 +250,7 @@ const addRegistry = async(req,res)=>{
         return res.sendStatus(200);
     }).catch((err)=>{
         logger.info("Err when update to car obj: "+err);
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"Err when update to car obj: "});
     });
 }
 /*
@@ -259,7 +260,7 @@ input: regionName, case-insensitive, grammatically corrected
 const getCenters = async(req,res)=>{
     if(!req.body.regionName){
         logger.info("No region specified");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"No region specified"});
     }
     //correctness
     req.body.regionName= vitalFunc.toTitleCase(req.body.regionName.toLowerCase());
@@ -276,11 +277,11 @@ Run by go to specified URL with params
 const initAdmin = async(req,res)=>{
     if(!req?.params?.key){
         logger.info("key not found");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"key not found"});
     }
     if(req.params.key!=SECRET_KEY_INIT){
         logger.info("key wrong");
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"key wrong"});
     }
     const found = await CucDangKiem.findOne({user: "admin"});
     if(found){
@@ -297,7 +298,7 @@ const initAdmin = async(req,res)=>{
     });
     await admin.save().then((doc)=>{logger.info("Admin initialized!")}).catch((err)=>{
         logger.info("Error when init admin: "+ err);
-        return res.sendStatus(400);
+        return res.status(400).json({"status":"Error when init admin: "});
     });
     return res.sendStatus(200);
 };
@@ -307,7 +308,7 @@ module.exports = {
     uploadCenters, //OK, corrected
     changePasswordCenter, //OK, corrected
     getCenters, //OK, corrected
-    addRegistry, //OK , corrected
+    addRegistry, //NOT TESTED
     initAdmin //OK, corrected
 
 };
