@@ -18,9 +18,12 @@ const RandExp = require('randexp');
 const RegistrationInformation = require('../models/RegistrationInformation');
 
 //This is used so if 'all', we can query regardless of the value of key(s)
-const correct = (i,keyword = "all")=>{
+const correct = (i,keyword = "all", log = true)=>{
     if(typeof i !="string"){
-        logger.info("parameter in correct function is not a string");
+        if(log){
+            logger.info("parameter in correct function is not a string");
+        }
+        
         return /./;
     }
     if(i.toLowerCase()!=keyword) return new RegExp(i.toString());
@@ -81,6 +84,8 @@ const getCarsList = async(req,res)=>{
         logger.info("month or quarter or year is not a number");
         return res.status(400).json({"status":"month or quarter or year is not a number"});
     }
+
+
     //correctness
     req.body.ttdk = vitalFunc.toTitleCase(req.body.ttdk.toLowerCase());
     req.body.carType = req.body.carType.toLowerCase();
@@ -309,7 +314,7 @@ const createCar = async(req,res)=>{
     //2. ownerName
     //correctness
     req.body.ownerName = vitalFunc.toTitleCase(req.body.ownerName.toLowerCase());
-    if(typeof req.body.ownerName != "string" || req.body.ownerName.length <5 || !req.body.ownerName.match(/[A-Z][a-z]* [A-Z][a-z]*[ A-Za-z]*/)){
+    if(typeof req.body.ownerName != "string" || req.body.ownerName.length <5 || !req.body.ownerName.match(/^[AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]+ [AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]+(?: [AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]*)*/)){
         logger.info('ownerName must be a string and have a proper length (full name) and space between first name and last name!');
         return res.status(400).json({"status":"ownerName must be a string and have a proper length (full name) and space between first name and last name!"});
     }
@@ -516,7 +521,8 @@ const createCar = async(req,res)=>{
         ownerName: req.body.ownerName,
         carType: req.body.carType,
         trungTamDangKiemName: ttdk_found.name,
-        regionName: ttdk_found.regionName
+        regionName: ttdk_found.regionName,
+        firstTime: true
     });
     await newDummyDK.save().then((doc)=>{
         logger.info("Add temp registry successfully");
@@ -1017,7 +1023,8 @@ module.exports = {
     createCarSpecification,//OK corrected
     deleteCar,//OK, corrected
     uploadDB, //NOT TESTED YET
-    exportCars //OK, corrected
+    exportCars, //OK, corrected
+    correct //Helper function
 };
 
 

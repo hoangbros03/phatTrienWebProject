@@ -40,7 +40,8 @@ const registrationInformation = new Schema({
     regionName:{
         type: String,
         required: true
-    }
+    },
+    firstTime: Boolean
 
 });
 module.exports = {"model": mongoose.model("RegistrationInformation", registrationInformation),

@@ -106,7 +106,7 @@ const uploadCenters = async(req,res)=>{
     }
     res.json({"total": arr.length,
                 "uploaded": uploaded});
-    return res.sendStatus(200);
+    return res.status(200);
 }
 
 //Must verify role before requesting
