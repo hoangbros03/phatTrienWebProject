@@ -87,7 +87,7 @@ const getCarsList = async(req,res)=>{
 
 
     //correctness
-    req.body.ttdk = vitalFunc.toTitleCase(req.body.ttdk.toLowerCase());
+ 
     req.body.carType = req.body.carType.toLowerCase();
     req.body.type = req.body.type.toLowerCase();
     req.body.province = vitalFunc.toTitleCase(req.body.province.toLowerCase());
