@@ -18,9 +18,12 @@ const RandExp = require('randexp');
 const RegistrationInformation = require('../models/RegistrationInformation');
 
 //This is used so if 'all', we can query regardless of the value of key(s)
-const correct = (i,keyword = "all")=>{
+const correct = (i,keyword = "all", log = true)=>{
     if(typeof i !="string"){
-        logger.info("parameter in correct function is not a string");
+        if(log){
+            logger.info("parameter in correct function is not a string");
+        }
+        
         return /./;
     }
     if(i.toLowerCase()!=keyword) return new RegExp(i.toString());
@@ -74,15 +77,19 @@ const getCarsList = async(req,res)=>{
     if(typeof req.body.month != "string" || typeof req.body.province != "string" ||typeof req.body.quarter != "string" ||typeof req.body.ttdk != "string"||typeof req.body.type != "string"||typeof req.body.year != "string"||typeof req.body.carType != "string"){
         logger.info("Either one of the input infor is not a string");
         return res.status(400).json({"status":"Either one of the input infor is not a string"});
+        return res.status(400).json({"status":"Either one of the input infor is not a string"});
     }
     if(typeof Number.parseInt(req.body.month)!="number"||
     typeof Number.parseInt(req.body.quarter)!="number"||
     typeof Number.parseInt(req.body.year)!="number"){
         logger.info("month or quarter or year is not a number");
         return res.status(400).json({"status":"month or quarter or year is not a number"});
+        return res.status(400).json({"status":"month or quarter or year is not a number"});
     }
+
+
     //correctness
-    req.body.ttdk = vitalFunc.toTitleCase(req.body.ttdk.toLowerCase());
+ 
     req.body.carType = req.body.carType.toLowerCase();
     req.body.type = req.body.type.toLowerCase();
     req.body.province = vitalFunc.toTitleCase(req.body.province.toLowerCase());
@@ -196,6 +203,7 @@ const searchCar = async(req,res)=>{
     if(!req?.body?.searchValue){
         logger.info("Not found searchValue");
         return res.status(400).json({"status":"Not found searchValue"});
+        return res.status(400).json({"status":"Not found searchValue"});
     }
     if(typeof req.body.searchValue !="string"){
         logger.info("searchValue not a string");
@@ -266,6 +274,7 @@ const searchCar = async(req,res)=>{
         }catch(err){
             logger.info("err when get registration informations in the history:"+err);
             return res.status(400).json({"status":"err when get registration informations in the history:"});
+            return res.status(400).json({"status":"err when get registration informations in the history:"});
         }
         
     }
@@ -274,7 +283,7 @@ const searchCar = async(req,res)=>{
     return res.status(200);
 }
 
-//create car
+//create car (first time dk)
 /*
     - WARNING: Car creation DOESN'T MEAN it registered
     - Required fields: 
@@ -288,17 +297,14 @@ const searchCar = async(req,res)=>{
         + carType: xe tai hay xe con hay xe gi do 
         + engineNo: So may - string 
         + classisNo: So khung - string 
-        + trungTamDangKiemName: string
+    
     - registrationInformation (thong tin dang kiem) will be set to a dummy trung tam dang kiem. It will be expire after 1 day only
 
 
-
 */
-
-
 const createCar = async(req,res)=>{
     //check if enough information
-    if(!"organization" in req?.body || !req?.body?.ownerName || !req?.body?.licensePlate || !req?.body?.dateOfIssue || !req?.body?.regionName || !req?.body?.carName || !req?.body?.carVersion || !req?.body?.carType ||!req?.body?.engineNo || !req?.body?.classisNo ||!req?.body?.trungTamDangKiemName){
+    if(!"organization" in req?.body || !req?.body?.ownerName || !req?.body?.licensePlate || !req?.body?.dateOfIssue || !req?.body?.regionName || !req?.body?.carName || !req?.body?.carVersion || !req?.body?.carType ||!req?.body?.engineNo || !req?.body?.classisNo ||!req?.body?.trungTamDangKiemName ||!req?.body?.trungTamDangKiemName){
         logger.info('Not enough information to create a car');
         return res.status(400).json({"status":"Không đủ thông tin để đăng kiểm lần đầu"});
     }
@@ -323,6 +329,7 @@ const createCar = async(req,res)=>{
         return res.status(400).json({"status":"Biển số xe không đúng quy định"});
     }
     req.body.licensePlate = req.body.licensePlate.toUpperCase();
+    if((!req.body.licensePlate.match(/\d{2}[A-Z]-\d{3}.\d{2}$/)&&!req.body.licensePlate.match(/\d{2}[A-Z]-\d{4}$/))){
     if((!req.body.licensePlate.match(/\d{2}[A-Z]-\d{3}.\d{2}$/)&&!req.body.licensePlate.match(/\d{2}[A-Z]-\d{4}$/))){
         logger.info("the licensePlate is not a proper syntax. Please check again");
         return res.status(400).json({"status":"Biển số xe không đúng quy định"});
@@ -404,13 +411,40 @@ const createCar = async(req,res)=>{
     if(!ttdk_found){
         logger.info("Can't find ttdk in DB");
         return res.status(400).json({"status":"Trung tâm đăng kiểm sai"});
+        return res.status(400).json({"status":"car engine or classis no is not a string"});
     }
-
+    //10. TTDK name
+    if(typeof req.body.trungTamDangKiemName != "string"){
+        logger.info("Trung tam dang kiem name is not a string");
+        return res.status(400).json({"status":"Trung tam dang kiem name is not a string"});
+    }
+    // find ttdk
+    let ttdk_found = await trungTamDangKiem.findOne({name: req.body.trungTamDangKiemName}).exec();
+    if(!ttdk_found){
+        logger.info("Can't find ttdk in DB");
+        return res.status(400).json({"status":"Can't find ttdk in DB"});
+    }
+    // expire time
+    var expireAfter = 365*3600*1000;
+    //11. expire
+    if(req?.body?.expire){
+        if(isNaN(Number(req.body.expire))){
+            logger.info("expire provided, but not a number");
+            return res.status(400).json({"status":"expire provided, but not a number"});
+        }
+        req.body.expire = Number(req.body.expire);
+        if(req.body.expire === 0){
+            logger.info("Expire can't be 0");
+            return res.status(400).json({"status":"Expire can't be 0"});
+        }
+        expireAfter = req.body.expire * 30 * 3600 * 1000;
+    }
     //declare high scope variable
     let newPaper;
     let carSpecification;
- 
+    
     let carOwn;
+    // Not dummy anymore, but keep the variable name
     // Not dummy anymore, but keep the variable name
     let newDummyDK;
     //check if it existed in carSpec
@@ -461,6 +495,7 @@ const createCar = async(req,res)=>{
     };
     if(forceStop)return;
 
+
     
     //4. car specification (must already have)
     carSpecification = await carSpecs.findOne({name: req.body.carName, version: req.body.carVersion, type: req.body.carType}).exec();
@@ -493,7 +528,7 @@ const createCar = async(req,res)=>{
     if(forceStop)return;
     //create dummy TTDK registration
     let eDate = new Date();
-    eDate.setTime(aDate.getTime()+365*24*3600*1000); //1 day 
+    eDate.setTime(aDate.getTime()+expireAfter); // Date of expire
     let dkQua = Math.floor(aDate.getMonth()/3)+1;
     //Fixed bug Date
     newDummyDK = new registrationInformation({
@@ -505,7 +540,8 @@ const createCar = async(req,res)=>{
         ownerName: req.body.ownerName,
         carType: req.body.carType,
         trungTamDangKiemName: ttdk_found.name,
-        regionName: ttdk_found.regionName
+        regionName: ttdk_found.regionName,
+        firstTime: true
     });
     await newDummyDK.save().then((doc)=>{
         logger.info("Add temp registry successfully");
@@ -955,6 +991,7 @@ const deleteCar = async(req,res)=>{
     if(!req?.body?.licensePlate){
         logger.info("No license plate provided");
         return res.status(400).json({"status":"No license plate provided"});
+        return res.status(400).json({"status":"No license plate provided"});
     }
     //check valid
     if(typeof req.body.licensePlate!="string"){
@@ -1011,7 +1048,8 @@ module.exports = {
     deleteCar,//OK, corrected
     uploadDB, //NOT TESTED YET
     exportCars, //OK, corrected
-    getSpecificCar
+    getSpecificCar,
+    correct //Helper function
 };
 
 

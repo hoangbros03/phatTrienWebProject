@@ -529,6 +529,7 @@
 {"component":"user-service","level":"info","message":"Delete all registration information ok","timestamp":"05-05-2023 18:02:22"}
 {"component":"user-service","level":"info","message":"Car already not existed!","timestamp":"05-05-2023 18:03:33"}
 {"component":"user-service","level":"info","message":"Admin initialized!","timestamp":"05-05-2023 18:03:38"}
+<<<<<<< HEAD
 >>>>>>> master
 {"component":"user-service","level":"info","message":"Can't find centers","timestamp":"05-05-2023 18:07:22"}
 {"component":"user-service","level":"info","message":"Can't find centers","timestamp":"05-05-2023 18:07:32"}
@@ -691,3 +692,126 @@
 {"component":"user-service","level":"info","message":"Successfully create new registration information the license plate: 99A-1234","timestamp":"08-05-2023 15:41:22"}
 {"component":"user-service","level":"info","message":"Update to car object successfully!","timestamp":"08-05-2023 15:41:22"}
 {"component":"user-service","level":"info","message":"Can't find car with given license plate. Please note that the licensePlate must be correct","timestamp":"08-05-2023 15:41:26"}
+=======
+{"component":"user-service","level":"info","message":"No car match the search","timestamp":"07-05-2023 11:08:44"}
+{"component":"user-service","level":"info","message":"Can't find ttdk in DB","timestamp":"07-05-2023 11:12:16"}
+{"component":"user-service","level":"info","message":"Can't find centers","timestamp":"07-05-2023 11:12:55"}
+{"component":"user-service","level":"info","message":"Can't find centers","timestamp":"07-05-2023 11:13:05"}
+{"component":"user-service","level":"info","message":"New center created: {\n  name: 'Trung tâm đăng kiểm xe cơ giới 2901V',\n  user: 'admin2901V',\n  password: '$2b$10$8/pK83DssNc.YjSwGltGHOLVgWcgdoywlrdyFp.D9Xsv96Lh/ui9.',\n  regionName: 'Hà Nội',\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"6457257dab3279f31056f52e\"),\n  __v: 0\n}","timestamp":"07-05-2023 11:13:49"}
+{"component":"user-service","level":"info","message":"Create successful car owner for: {\n  organization: true,\n  name: 'Hoang Trần',\n  regionName: 'Hà Nội',\n  address: '',\n  ID: '12345789',\n  _id: new ObjectId(\"645725d0e9a6022c5a2a3f40\"),\n  __v: 0\n}","timestamp":"07-05-2023 11:15:12"}
+{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"07-05-2023 11:15:12"}
+{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"07-05-2023 11:15:12"}
+{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"645725d0e9a6022c5a2a3f43\"),\n  licensePlate: '31A-123.12',\n  regionName: 'Hà Nội',\n  producer: 'Honda',\n  version: 'Sport',\n  carOwner: new ObjectId(\"645725d0e9a6022c5a2a3f40\"),\n  registrationInformation: new ObjectId(\"645725d0e9a6022c5a2a3f45\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a34\"),\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"645725d0e9a6022c5a2a3f47\"),\n  __v: 0\n}","timestamp":"07-05-2023 11:15:12"}
+{"component":"user-service","level":"info","message":"Err when get stat: ValidationError: propotion.0: Cast to [Number] failed for value \"[ { data: [ 0, 0, 0, 0, 0, 0 ] } ]\" (type string) at path \"propotion.0\" because of \"CastError\"","timestamp":"07-05-2023 18:19:45"}
+{"component":"user-service","level":"info","message":"Err when get stat: ValidationError: propotion.0: Cast to [Number] failed for value \"[ { data: [ 0, 0, 0, 0, 0, 0 ] } ]\" (type string) at path \"propotion.0\" because of \"CastError\"","timestamp":"07-05-2023 21:01:47"}
+{"component":"user-service","level":"info","message":"Err when get stat: ValidationError: propotion.0: Cast to [Number] failed for value \"[ { data: [ 0, 0, 0, 0, 0, 0 ] } ]\" (type string) at path \"propotion.0\" because of \"CastError\"","timestamp":"07-05-2023 21:03:49"}
+{"component":"user-service","level":"info","message":"Err when get stat: ValidationError: propotion.0: Cast to [Number] failed for value \"[ { data: [ 0, 0, 0, 0, 0, 0 ] } ]\" (type string) at path \"propotion.0\" because of \"CastError\"","timestamp":"07-05-2023 21:04:22"}
+{"component":"user-service","level":"info","message":"Err when get stat: ValidationError: propotion.0: Cast to [Number] failed for value \"[ { data: [ 0, 0, 0, 0, 0, 0 ] } ]\" (type string) at path \"propotion.0\" because of \"CastError\"","timestamp":"07-05-2023 21:11:14"}
+{"component":"user-service","level":"info","message":"Err when get stat: ValidationError: propotion.0: Cast to [Number] failed for value \"[ { data: [ 0, 0, 0, 0, 0, 0 ] } ]\" (type string) at path \"propotion.0\" because of \"CastError\"","timestamp":"07-05-2023 21:13:20"}
+{"component":"user-service","level":"info","message":"Err when get stat: ValidationError: propotion.0: Cast to [Number] failed for value \"[ { data: [ 0, 0, 0, 0, 0, 0 ] } ]\" (type string) at path \"propotion.0\" because of \"CastError\"","timestamp":"07-05-2023 21:14:38"}
+{"component":"user-service","level":"info","message":"Err when get stat: ValidationError: propotion.0: Cast to [Number] failed for value \"[ { data: [ 0, 0, 0, 0, 0, 0 ] } ]\" (type string) at path \"propotion.0\" because of \"CastError\"","timestamp":"07-05-2023 21:15:41"}
+{"component":"user-service","level":"info","message":"Err when get stat: ValidationError: propotion.0: Cast to [Number] failed for value \"[ { data: [ 0, 0, 0, 0, 0, 0 ] } ]\" (type string) at path \"propotion.0\" because of \"CastError\"","timestamp":"07-05-2023 21:18:17"}
+{"component":"user-service","level":"info","message":"Err when get stat: ValidationError: propotion.0: Cast to [Number] failed for value \"[ { data: [ 1, 0, 0, 0, 0, 0 ] } ]\" (type string) at path \"propotion.0\" because of \"CastError\"","timestamp":"07-05-2023 21:26:46"}
+{"component":"user-service","level":"info","message":"Err when get stat: ValidationError: propotion.0: Cast to [Number] failed for value \"[ { data: [ 1, 0, 0, 0, 0, 0 ] } ]\" (type string) at path \"propotion.0\" because of \"CastError\"","timestamp":"07-05-2023 21:30:02"}
+{"component":"user-service","level":"info","message":"Create new statistic sucessfull!","timestamp":"07-05-2023 21:32:27"}
+{"component":"user-service","level":"info","message":"Create new statistic sucessfull!","timestamp":"07-05-2023 21:34:11"}
+{"component":"user-service","level":"info","message":"Create new statistic sucessfull!","timestamp":"07-05-2023 21:36:53"}
+{"component":"user-service","level":"info","message":"Create new statistic sucessfull!","timestamp":"07-05-2023 21:38:30"}
+{"component":"user-service","level":"info","message":"Create new statistic sucessfull!","timestamp":"07-05-2023 21:39:55"}
+{"component":"user-service","level":"info","message":"Create new statistic sucessfull!","timestamp":"07-05-2023 21:43:41"}
+{"component":"user-service","level":"info","message":"Create new statistic sucessfull!","timestamp":"07-05-2023 21:44:01"}
+{"component":"user-service","level":"info","message":"Create new statistic sucessfull!","timestamp":"07-05-2023 21:45:19"}
+{"component":"user-service","level":"info","message":"Danng kiem moi or dang kiem lai only, don't pass any other string!","timestamp":"08-05-2023 10:48:24"}
+{"component":"user-service","level":"info","message":"Danng kiem moi or dang kiem lai only, don't pass any other string!","timestamp":"08-05-2023 10:48:54"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:49:47"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:30"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:30"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:30"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:30"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:30"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:30"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:30"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:30"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:30"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:30"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:30"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:30"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:30"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:30"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:30"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:53"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:53"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:53"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:53"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:53"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:53"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:53"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:53"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:53"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:53"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:53"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:53"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:53"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:53"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:51:53"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:52:06"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:52:06"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:52:06"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:52:06"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:52:06"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:52:06"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:52:06"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:52:06"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:52:06"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:52:06"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:52:06"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:52:06"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:52:06"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:52:06"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:52:06"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:53:48"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:53:48"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:53:48"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:54:00"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:54:00"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:54:00"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:54:00"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:54:00"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:54:00"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:54:00"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:54:00"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:54:00"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:54:00"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:54:00"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:54:00"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:54:00"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:54:00"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:54:00"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:55:28"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:55:28"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:55:28"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:55:28"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:55:28"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:55:28"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:55:28"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:55:28"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:55:28"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:55:28"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:55:28"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:55:28"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:55:28"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:55:28"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 10:55:28"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 11:00:21"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 11:00:21"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 11:00:21"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 11:00:21"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 11:00:21"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 11:00:24"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 11:00:24"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 11:00:24"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 11:00:24"}
+{"component":"user-service","level":"info","message":"parameter in correct function is not a string","timestamp":"08-05-2023 11:00:24"}
+{"component":"user-service","level":"info","message":"Region name is all, but ttdk is not all. WTf?","timestamp":"08-05-2023 11:02:48"}
+{"component":"user-service","level":"info","message":"min 1, max 6 for month Predict!","timestamp":"08-05-2023 11:04:57"}
+>>>>>>> master
