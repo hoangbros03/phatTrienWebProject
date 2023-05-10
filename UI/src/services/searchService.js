@@ -86,7 +86,7 @@ export const getList = async (searchPath, parameters = {}) => {
     const fullPath = Object.keys(parameters).reduce((path, key) => {
         return path.replace(`:${key}`, parameters[key]);
     }, searchPath);
-    const respone = await httpRequest.get(fullPath).catch((error) => console.error(error));
+    const respone = await httpRequest.get(fullPath,parameters).catch((error) => console.error(error));
     return respone.data;
 };
 export const Delete = async (searchPath, parameters = {}, object = {}) => {

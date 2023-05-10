@@ -8,12 +8,8 @@ import ButtonSearch from '~/components/ButtonSearch';
 const cx = classNames.bind(styles);
 function Indexttdk() {
     return (<div className={cx('wrapper')}>
-
-
-                            <ButtonSearch bar  >
-                                Kiểu Xe
-                            </ButtonSearch>
-                        
+        <p>Chào mừng Bạn đã đăng nhập thành công</p>
+    
     <Outlet/>
     </div>
     );

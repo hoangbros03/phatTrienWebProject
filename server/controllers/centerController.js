@@ -305,7 +305,21 @@ const initAdmin = async(req,res)=>{
 
 
 const getListCenter =async(req,res)=>{
-    const result = await TrungTamDangKiem.find();
+    // const plaintextValue = "123456"; // Set salt rounds to 10
+    // const encryptedValue = '$2b$10$8/pK83DssNc.YjSwGltGHOLVgWcgdoywlrdyFp.D9Xsv96Lh/ui9.';
+
+    // if (bcrypt.compareSync(plaintextValue, encryptedValue)) {
+    //     console.log('The value matches the encrypted value!');
+    //   } else {
+    //     console.log('The value does not match the encrypted value.');
+    //   }
+    const { user } = req.params;
+    const query={user:user}
+    const result = await TrungTamDangKiem.find(query).exec();
+    for (let i = 0; i < result.length; i++) {
+        const { name, user } = result[i];
+        result[i] = { name, user };
+      }
     return res.status(200).json(JSON.stringify(result));
 }
 
