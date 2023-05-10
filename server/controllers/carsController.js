@@ -77,14 +77,14 @@ const getCarsList = async(req,res)=>{
     if(typeof req.body.month != "string" || typeof req.body.province != "string" ||typeof req.body.quarter != "string" ||typeof req.body.ttdk != "string"||typeof req.body.type != "string"||typeof req.body.year != "string"||typeof req.body.carType != "string"){
         logger.info("Either one of the input infor is not a string");
         return res.status(400).json({"status":"Either one of the input infor is not a string"});
-        return res.status(400).json({"status":"Either one of the input infor is not a string"});
+        
     }
     if(typeof Number.parseInt(req.body.month)!="number"||
     typeof Number.parseInt(req.body.quarter)!="number"||
     typeof Number.parseInt(req.body.year)!="number"){
         logger.info("month or quarter or year is not a number");
         return res.status(400).json({"status":"month or quarter or year is not a number"});
-        return res.status(400).json({"status":"month or quarter or year is not a number"});
+        
     }
 
 
@@ -274,7 +274,7 @@ const searchCar = async(req,res)=>{
         }catch(err){
             logger.info("err when get registration informations in the history:"+err);
             return res.status(400).json({"status":"err when get registration informations in the history:"});
-            return res.status(400).json({"status":"err when get registration informations in the history:"});
+            
         }
         
     }
@@ -329,8 +329,7 @@ const createCar = async(req,res)=>{
         return res.status(400).json({"status":"Biển số xe không đúng quy định"});
     }
     req.body.licensePlate = req.body.licensePlate.toUpperCase();
-    if((!req.body.licensePlate.match(/\d{2}[A-Z]-\d{3}.\d{2}$/)&&!req.body.licensePlate.match(/\d{2}[A-Z]-\d{4}$/))){
-    if((!req.body.licensePlate.match(/\d{2}[A-Z]-\d{3}.\d{2}$/)&&!req.body.licensePlate.match(/\d{2}[A-Z]-\d{4}$/))){
+    if((!req.body.licensePlate.match(/\d{2}[A-Z]-\d{3}[.]\d{2}$/)&&!req.body.licensePlate.match(/\d{2}[A-Z]-\d{4}$/))){
         logger.info("the licensePlate is not a proper syntax. Please check again");
         return res.status(400).json({"status":"Biển số xe không đúng quy định"});
     }
@@ -411,18 +410,11 @@ const createCar = async(req,res)=>{
     if(!ttdk_found){
         logger.info("Can't find ttdk in DB");
         return res.status(400).json({"status":"Trung tâm đăng kiểm sai"});
-        return res.status(400).json({"status":"car engine or classis no is not a string"});
     }
     //10. TTDK name
     if(typeof req.body.trungTamDangKiemName != "string"){
         logger.info("Trung tam dang kiem name is not a string");
         return res.status(400).json({"status":"Trung tam dang kiem name is not a string"});
-    }
-    // find ttdk
-    let ttdk_found = await trungTamDangKiem.findOne({name: req.body.trungTamDangKiemName}).exec();
-    if(!ttdk_found){
-        logger.info("Can't find ttdk in DB");
-        return res.status(400).json({"status":"Can't find ttdk in DB"});
     }
     // expire time
     var expireAfter = 365*3600*1000;
@@ -1039,7 +1031,7 @@ const deleteCar = async(req,res)=>{
 const getSpecificCar =async(req,res)=>{
     const result = await carSpecs.find();
     return res.json(JSON.stringify(result)).status(200);
-}
+};
 module.exports = {
     getCarsList, //OK, corrected
     createCar,  //OK, corrected
@@ -1051,6 +1043,3 @@ module.exports = {
     getSpecificCar,
     correct //Helper function
 };
-
-
-

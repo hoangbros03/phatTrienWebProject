@@ -14,7 +14,6 @@ import Index from './pages/Index';
 import Login from './pages/login/login';
 import NewRegistry from './pages/Ttdk/newRegistry/newRegistry';
 import NewRegistryCar from './pages/Ttdk/newRegistryCar/newRegistryCar';
-import StatisticTTDK from './pages/Ttdk/statistic/statisticTTDK';
 import Ttdk from './pages/Ttdk/ttdk';
 import IndexCDK from './pages/Cucdangkiem/Index/indexCDK';
 import SearchCar from './layouts/searchCar/searchCar';
@@ -49,7 +48,7 @@ const router = createBrowserRouter(
                     <Route path="newRegistry" element={<NewRegistry />} />
                     <Route path="newRegistryCar" element={<NewRegistryCar />} />
                     <Route path="lookup" element={<SearchCar />} />
-                    <Route path="statistic" element={<StatisticTTDK />} />
+                    <Route path="carlist" element={<CarList/>} />
                 </Route>
             </Route>
             <Route path="*" element={<Error />} />

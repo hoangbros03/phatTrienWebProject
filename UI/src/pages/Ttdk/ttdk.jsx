@@ -26,7 +26,7 @@ function Ttdk() {
                 <MenuItem  icon={<HomeIcon />} to="lookup" title ="Tra cứu Thông Tin xe">
                  
                 </MenuItem>
-                <MenuItem icon={<HomeIcon />}  to="statistic" title="Xem Thống Kê Xe">
+                <MenuItem icon={<HomeIcon />}  to="carlist" title="Xem Thống Kê Xe">
                     
                 </MenuItem>
             </div>

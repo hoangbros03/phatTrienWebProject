@@ -37,6 +37,8 @@ const updateInformation = async(req, res)=>{
     }
     if(req.body.ID.length!=9 &&req.body.ID.length!=12){
         logger.info("ID must consist of either 9 or 12 numbers");
+        console.log(req.body.ID)
+        console.log(req.body.ID.length)
         return res.status(400).json({"status":"ID must consist of either 9 or 12 numbers"});
     }
     if(isNaN(Number.parseInt(req.body.ID))){

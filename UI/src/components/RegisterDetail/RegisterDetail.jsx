@@ -61,84 +61,102 @@ function RegisterDetail({carInfor,setDisplayDetail,setCarInfor}) {
                     <div className={cx('content')}>
                         <div className={cx('info')}>
                             Biển số xe
-                            <input
+                            <p
                                 disabled={!isEditable}
                                 className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
                                 onInput={handleChange}
                                 name="licensePlate"
                                 value={`${carInfor?.licensePlate}`}
-                            />
+                            >
+                                {`${carInfor?.licensePlate}`}
+                            </p>
                         </div>
                         <div className={cx('info')}>
                             Chủ sở hữu
-                            <input
+                            <p
                                 disabled={!isEditable}
                                 className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
                                 name="ownerName"
                                 onInput={handleChange}
                                 value={`${carInfor?.carOwner?.name}`}
-                            />
+                            >
+                                {`${carInfor?.carOwner?.name}`}
+                            </p>
                         </div>
                         <div className={cx('info')}>
                             Nơi đăng kiểm
-                            <input
+                            <p
                                 disabled={!isEditable}
                                 className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
                                 name="regionName"
                                 onInput={handleChange}
-                                value={`${carInfor?.historyRegistrationInformation[0].regionName}`}
-                            />
+                                value={`${carInfor?.historyRegistrationInformation[0]?.regionName}`}
+                            >
+                                {`${carInfor?.historyRegistrationInformation[0]?.regionName}`}
+                            </p>
                         </div>
                         <div className={cx('info')}>
                             Trung tâm đăng kiểm
-                            <input
+                            <p
                                 disabled={!isEditable}
                                 className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
                                 name="regionName"
                                 onInput={handleChange}
-                                value={`${carInfor?.historyRegistrationInformation[0].trungTamDangKiemName}`}
-                            />
+                                value={`${carInfor?.historyRegistrationInformation[0]?.trungTamDangKiemName}`}
+                            >
+                                {`${carInfor?.historyRegistrationInformation[0]?.trungTamDangKiemName}`}
+                            </p>
                         </div>
                         <div className={cx('info')}>
                             Hãng xe
-                            <input className={cx('input')} disabled={true} value={`${carInfor?.type ? "Mec":"Xe cỏ"}`} />
+                            <p className={cx('input')} disabled={true} value={`${carInfor?.type ? "Mec":"Xe cỏ"}`} >
+                            {`${carInfor?.type ? "Mec":"Xe cỏ"}`}
+                            </p>
                         </div>
                         <div className={cx('info')}>
                             Dòng xe
-                            <input
+                            <p
                                 className={cx('input')}
                                 disabled={true}
                                 value={`${carInfor?.carSpecification?.type}`}
-                            />
+                            >
+                                {`${carInfor?.carSpecification?.type}`}
+                            </p>
                         </div>
                         <div className={cx('info')}>
                             Phiên bản
-                            <input className={cx('input')} disabled={true} value={`${carInfor?.version}`} />
+                            <p className={cx('input')} disabled={true} value={`${carInfor?.version}`} >
+                            {`${carInfor?.version}`}
+                            </p>
                         </div>
                         <div className={cx('info')}>
                             Ngày đăng kí
-                            <input
+                            <p
                                 className={cx('input')}
                                 disabled={true}
-                                value={`${carInfor?.historyRegistrationInformation[0]?.dateOfIssue}`}
-                            />
+                                value={`${carInfor?.historyRegistrationInformation[0]?.dateOfIssue.slice(0,10)}`}
+                            >
+                                {`${carInfor?.historyRegistrationInformation[0]?.dateOfIssue.slice(0,10)}`}
+                            </p>
                         </div>
                         <div className={cx('info')}>
                             Ngày hết hạn
-                            <input
+                            <p
                                 className={cx('input')}
                                 disabled={true}
-                                value={`${carInfor?.historyRegistrationInformation[0]?.dateOfExpiry}`}
-                            />
+                                value={`${carInfor?.historyRegistrationInformation[0]?.dateOfExpiry.slice(0,10)}`}
+                            >
+                                {`${carInfor?.historyRegistrationInformation[0]?.dateOfExpiry.slice(0,10)}`}
+                            </p>
                         </div>
                         <div className={cx('info')}>
                             Xe công vụ
-                            <input  
+                            <p  
                                 disabled={isEditable}
                                 className={cx(`${isEditable === true ? 'edit' : ''}`,'input')}
                                 value={carInfor?.carOwner?.organization == true ? "Có" : "Không"}
-                                onInput={handleChange}
-                            />
+
+                            >{carInfor?.carOwner?.organization == true ? "Có" : "Không"}</p>
                         </div>
                        
                     </div>
