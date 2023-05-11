@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+
+.statisticContainer {
+    height: 1000px;
+    padding-top: 70px;
+    display: grid; 
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    grid-gap: 15px;
+    background-color: #eff3f9;
+}
+
+.PieContainer {
+    grid-row: 1 / span 4;
+    grid-column: 2 / span 4;
+}
+
+.BarContainer {
+    grid-row: 1 / span 4;
+    grid-column: 6 / span 6;
+}
+
+.LineContainer {
+    grid-row: 5 / span 3;
+    grid-column: 2 / span 4;
+}
+
+.Total {
+    grid-row: 5 / span 3;
+    grid-column: 6 / span 2;
+}
+
+
+.Predict {
+    grid-row: 5 / span 3;
+    grid-column: 8 / span 4;
+}
+
+.statisticContainer div {
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+    align-content: center;
+}
+
+
+.Total {
+    font-family: 'Quicksand', sans-serif;
+}
+select {
+    height: 30px;
+    border-radius: 15px;
+}

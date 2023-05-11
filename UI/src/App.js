@@ -9,6 +9,8 @@ import ChangeInformation from './pages/Cucdangkiem/changeInformation/changeInfor
 import Cucdangkiem from './pages/Cucdangkiem/cucdangkiem';
 import RegisterCenter from './pages/Cucdangkiem/registerCenter/registerCenter';
 import StatisticCDK from './pages/Cucdangkiem/Statistic/statisticCDK';
+import StatisticTest from './pages/Cucdangkiem/StatisticTest/statisticTest';
+import Predict from './pages/Cucdangkiem/StatisticTest/predict';
 import CarList from './pages/Cucdangkiem/Carlist/carlist';
 import Upload from './pages/Cucdangkiem/upload/upload';
 import Index from './pages/Index';
@@ -29,6 +31,8 @@ const router = createBrowserRouter(
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
             <Route path="login" element={<Login />} />
+            <Route path="statistictest" element={<StatisticTest />} />
+            <Route path="predict" element={<Predict />} />
             <Route path="cucdangkiem" element={<User />}>
                 {/* Use user like a navbar display logo and username  */}
                 <Route path=":user" element={<Cucdangkiem />}>

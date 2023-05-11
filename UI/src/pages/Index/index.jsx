@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 function Index() {
     return (
         <div>
-            <Header styles={{zIndex: '2'}}/>
+            <Header/>
             <div className={cx('wrapper')}>
                 <div className={cx('container')}>
                     <div className={cx('slider')}>
