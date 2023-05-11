@@ -150,7 +150,7 @@ const predict = async(req,res)=>{
     //add
     var resultArr = [];
     for(let i = 0; i< monthsPredict;i++){
-        resultArr.push([i,Number.parseInt(l(pastMonths.length+i))]);
+        resultArr.push(Number.parseInt(l(pastMonths.length+i)));
     };
     return res.status(200).json({"status":resultArr});
 };
