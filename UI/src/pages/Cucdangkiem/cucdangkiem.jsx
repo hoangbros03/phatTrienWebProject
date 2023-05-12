@@ -6,7 +6,7 @@ import { Outlet, useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import styles from './cucdangkiem.module.scss';
 import classNames from 'classnames/bind';
-import { SignUpCenter, StatisticIcon } from '../../components/Icons';
+import { SignUpCenter, StatisticIcon,UploadIcon  } from '../../components/Icons';
 const cx = classNames.bind(styles);
 function Cucdangkiem() {
     const navigate = useNavigate();
@@ -22,9 +22,9 @@ function Cucdangkiem() {
                 <MenuItem icon={<SignUpCenter />} to="registerCenter" title="Đăng kí Trung Tâm Đăng Kiểm"></MenuItem>
                 <MenuItem icon={<SignUpCenter />} to="changeInformation" title="Thay đổi Thông Tin"></MenuItem>
                 <MenuItem icon={<StatisticIcon />} to="statistic" title="Xem Thống Kê"></MenuItem>
-                <MenuItem icon={<SearchIcon />} to="searchcar" title=" Tra Cứu thông tin xe"></MenuItem>
-                <MenuItem icon={<SearchIcon />} to="carlist" title=" Danh sách xe"></MenuItem>
-                <MenuItem icon={<SearchIcon />} to="Upload" title=" Upload File"></MenuItem>
+                <MenuItem icon={<SearchIcon />} to="searchcar" title="Tra Cứu thông tin xe"></MenuItem>
+                <MenuItem icon={<SearchIcon />} to="carlist" title="Lịch sử đăng kiểm"></MenuItem>
+                <MenuItem icon={<UploadIcon  />} to="Upload" title="Upload File"></MenuItem>
             </div>
             <div className={cx('main')}>
                 <Outlet />

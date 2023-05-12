@@ -81,10 +81,6 @@ function Login() {
         <div className={cx('wrapper')}>
             <div className={cx('login')}>
                 <h2 className={cx('active', 'h2tag')}> sign in </h2>
-
-                <Link to="../register">
-                    <h2 className={cx('nonactive', 'h2tag')}> sign up </h2>
-                </Link>
                 <form className={cx('formtag')} onSubmit={handleSubmit}>
                     <p className={cx('message')}>{respone.message}</p>
                     <input type="text" className={cx('text', 'inputtag')} name="username" onChange={HandleUser} />

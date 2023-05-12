@@ -13,7 +13,6 @@ function Pagination({ totalPosts, postsPerPage, setCurrentPage, currentPage }) {
     let pages = [];
     const handleNextbtn = () => {
         setCurrentPage(currentPage + 1);
-
         if (currentPage + 1 > maxPageNumberLimit) {
             setmaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
             setminPageNumberLimit(minPageNumberLimit + pageNumberLimit);
@@ -22,7 +21,6 @@ function Pagination({ totalPosts, postsPerPage, setCurrentPage, currentPage }) {
 
     const handlePrevbtn = () => {
         setCurrentPage(currentPage - 1);
-
         if ((currentPage - 1) % pageNumberLimit == 0) {
             setmaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
             setminPageNumberLimit(minPageNumberLimit - pageNumberLimit);
@@ -34,7 +32,6 @@ function Pagination({ totalPosts, postsPerPage, setCurrentPage, currentPage }) {
     let pageIncrementBtn = null;
     
     if (pages.length > maxPageNumberLimit) {
-        
         pageIncrementBtn = <div onClick={handleNextbtn} > &hellip; </div>;
     }
 
@@ -66,9 +63,10 @@ function Pagination({ totalPosts, postsPerPage, setCurrentPage, currentPage }) {
                 }
             })}
             {pageIncrementBtn}
-            <button onClick={handleNextbtn} disabled={currentPage == pages[pages.length - 1] ? true : false}  className={cx('button')}>
+            {   
+                <button onClick={handleNextbtn} disabled={currentPage == pages[pages.length - 1] ? true : false}  className={cx('button')}>
                 Next
-            </button>
+            </button>}
         </div>
     );
 }

@@ -12,15 +12,15 @@ import StatisticCDK from './pages/Cucdangkiem/Statistic/statisticCDK';
 import StatisticTest from './pages/Cucdangkiem/StatisticTest/statisticTest';
 import Predict from './pages/Cucdangkiem/StatisticTest/predict';
 import CarList from './pages/Cucdangkiem/Carlist/carlist';
-import Upload from './pages/Cucdangkiem/upload/upload';
 import Index from './pages/Index';
 import Login from './pages/login/login';
 import NewRegistry from './pages/Ttdk/newRegistry/newRegistry';
-import StatisticTTDK from './pages/Ttdk/statistic/statisticTTDK';
+import NewRegistryCar from './pages/Ttdk/newRegistryCar/newRegistryCar';
 import Ttdk from './pages/Ttdk/ttdk';
 import IndexCDK from './pages/Cucdangkiem/Index/indexCDK';
 import SearchCar from './layouts/searchCar/searchCar';
 import Indexttdk from './pages/Ttdk/Index/indexttdk';
+import Upload_ from './pages/Cucdangkiem/upload/upload';
 
 
 
@@ -40,7 +40,7 @@ const router = createBrowserRouter(
                     <Route path="changeInformation" element={<ChangeInformation />} />
                     <Route path="registerCenter" element={<RegisterCenter />} />
                     <Route path="searchcar" element={<SearchCar />} />
-                    <Route path="upload" element={<Upload />} />
+                    <Route path="upload" element={<Upload_ />} />
                     <Route path="statistic" element={<StatisticCDK />} />
                     <Route path="carlist" element={<CarList />} />
                 </Route>
@@ -50,8 +50,9 @@ const router = createBrowserRouter(
                 <Route path=":user" element={<Ttdk />}>
                     <Route index element={<Indexttdk />} />
                     <Route path="newRegistry" element={<NewRegistry />} />
+                    <Route path="newRegistryCar" element={<NewRegistryCar />} />
                     <Route path="lookup" element={<SearchCar />} />
-                    <Route path="statistic" element={<StatisticTTDK />} />
+                    <Route path="carlist" element={<CarList/>} />
                 </Route>
             </Route>
             <Route path="*" element={<Error />} />

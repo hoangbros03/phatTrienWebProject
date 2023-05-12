@@ -29,16 +29,16 @@
    
 }
 .content{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid ;
+    grid-template-columns:1fr 1fr ;
+    justify-items: center;
     }
 .info{
     font-size: 2rem;
     padding-top: 2%;
     display: grid ;
     grid-template-columns: 1fr 1fr;
-    width: 40%;
+    width: 90%;
 }
 .edit
 {
@@ -47,15 +47,7 @@
 
 }
 
-.option{
-    position: absolute;
-    bottom:50px;
-    right: 200px;
-    display: flex;
-    min-width:300px;
-    justify-content: space-between;
-    
-}
+
 
 .button{
     background-color:  #eff3f9;
@@ -86,4 +78,5 @@
 .input{
     font-size: 2rem;
     width: 100%;
+    color: #000;
 }

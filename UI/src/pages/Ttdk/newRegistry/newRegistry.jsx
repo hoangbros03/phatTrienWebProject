@@ -1,57 +1,85 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet ,useParams} from 'react-router-dom';
 import styles from './newRegistry.module.scss';
 import classNames from 'classnames/bind';
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
+import * as API from '~/services/searchService';
+import { Button, message, Space } from 'antd';
 const cx = classNames.bind(styles);
 function NewRegistry() {
-  
-    const [status, setStatus] = useState({ status: 'success' });
-
-    const [formtext,setFromtext]=useState({title1:{title:"Biển số xe",sub:"99A 99999"},
-    title2:{title:"Người sở hữu",sub:"Trần Bá Hoàng"},
-    title3:{title:"Tỉnh",sub:"Quảng Ninh"},
-    title4:{title:"Hãng xe",sub:"Mec"},
-    title5:{title:"Loại xe ",sub:"Xe tải"},
-    title6:{title:"Số máy",sub:"19SS46"},
-    title7:{title:"Số khung",sub:"99911"},
-    title8:{title:"Ngày đăng kí",sub:"21/2/2023"}})
-    const [carResgiter,setCarRegister] =useState(
-        {
-            "licensePlate": "",
-            "ownerName": "",
-            "regionName": "",
-            "engineNo": "",
-            "classisNo": "",
-            "carType": "",
-            "carName": "",
-            "dateOfIssue": ""
-        }
-    )
-
+    const [status, setStatus] = useState({ status: 'unsent' });
+    const [messageFail,setMessageFail] = useState("");
+    const [formtext, setFromtext] = useState({
+        title1: { title: 'Biển số xe', sub: '99A 99999' },
+        title8: { title: 'Ngày đăng kí', sub: '21/2/2023' },
+        title9: { title: 'Ngày hết hạn', sub: '21/2/2024' },
+    });
+    const [messageApi, contextHolder] = message.useMessage();
+    const { user } = useParams();
+    const UserNameMapWithUser = new Map();
+    useEffect(() => {
+        const res = async () => {
+            try {
+                const response = await API.getList('http://localhost:3500/cucDangKiem/:user/center', {
+                    user: user,
+                });
+                const dataArray = JSON.parse(response);
+                dataArray.forEach(({ name, user }) => {
+                    UserNameMapWithUser.set(user, name);
+                });
+                setCarRegister({ ...carRegister, trungTamDangKiemName: UserNameMapWithUser.get(user) });
+               
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        res();
+    }, []);
+    const [carRegister, setCarRegister] = useState({
+        licensePlate: '',
+        dateOfIssue: '',
+        dateOfExpiry: '',
+    });
+    const warningcondition = () => {
+        messageApi.open({
+            type: 'warning',
+            content: 'Hãy nhập đúng biển số xe',
+        });
+    };
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setCarRegister({ ...carResgiter, [name]: value });
+        const { name, value, type } = e.target;
+        if (type == 'date') {
+            var date = new Date(value);
+            const iso = date.toISOString();
+            setCarRegister({ ...carRegister, [name]: iso });
+        } else setCarRegister({ ...carRegister, [name]: value });
     };
     const handleBack = () => {
-        setStatus({...status,status:'unsent'});
-       
+        setStatus({ ...status, status: 'unsent' });
     };
-
-    const handleSubmit = (e) => 
-        {   const inputs = document.querySelectorAll('input[required]');
-        let isValid = true;
-    
-        inputs.forEach((input) => {
-        if (!input.value.trim()) {
-            isValid = false;
+    const handleCheckConditionLicense = (e) => {
+        const { name, value } = e.target;
+        if (!value.match(/\d{2}[A-Z][-]*\d{3}[.]*\d{2}$/) && !value.match(/\d{2}[A-Z][-]*\d{4}$/)) {
+            console.log(!value.match(/\d{2}[A-Z]-\d{3}.\d{2}$/), !value.match(/\d{2}[A-Z]-\d{4}$/));
+            warningcondition();
+            return;
+        } else {
+            if (value.match(/\d{2}[A-Z][-]*\d{3}[.]*\d{2}$/)) {
+                e.target.value = value.replace(/^(\d{2}[A-Z])[-]*(\d{3})[.]*(\d{2})$/, '$1-$2.$3');
+            } else {
+                console.log(value.match(/\d{2}[A-Z][-]*\d{3}\d{2}$/));
+                e.target.value = value.replace(/^(\d{2}[A-Z])(\d{4})$/, '$1-$2');
+            }
+            setCarRegister({ ...carRegister, [name]: e.target.value });
         }
-        });
-    
-        if (!isValid) {
-        alert('Please fill in all required fields');
-      return;
-    }
-        console.log(carResgiter)
+    };
+    const handleSubmit = async (e) => {
+        console.log(carRegister);
+        const response= await API.post_user("trungTamDangKiem/:user/newRegistry",{user:user},carRegister);
+        console.log(response)
+        if(response=="OK"){
+            setStatus({...status,status:"success"})
+        }else {setStatus({...status,status:"failure"})
+        setMessageFail(response.status)}
     };
     const renderForm = () => {
         // console.log(status.status=="unsent")
@@ -63,48 +91,49 @@ function NewRegistry() {
                         <div className={cx('signup-form')}>
                             <div className={cx('signup-div')}>
                                 <p>{formtext.title1.title}</p>
-                                <input type="text" className={cx('input')}  placeholder={formtext.title1.sub} name='licensePlate' onChange={handleChange} required></input>
+                                <input
+                                    type="text"
+                                    className={cx('input')}
+                                    placeholder={formtext.title1.sub}
+                                    name="licensePlate"
+                                    value={carRegister.licensePlate}
+                                    onBlur={handleCheckConditionLicense}
+                                    onChange={handleChange}
+                                    required
+                                ></input>
                             </div>
-                            <div className={cx('signup-div')}>
-                                <p>{formtext.title2.title}</p>
-                                <input type="text" className={cx('input')} placeholder={formtext.title2.sub} name="ownerName" onChange={handleChange} required></input>
-                            </div>
-                          
-                           
                         </div>
                         <div className={cx('signup-form')}>
                             <div className={cx('signup-div')}>
                                 <p>{formtext.title8.title}</p>
-                                <input type="date" className={cx('input')}  placeholder={formtext.title8.sub} name="dateOfIssue" onChange={handleChange} required></input>
+                                <input
+                                    type="date"
+                                    className={cx('input')}
+                                    placeholder={formtext.title8.sub}
+                                    name="dateOfIssue"
+                                    value={carRegister.dateOfIssue.slice(0,10)}
+                                    onChange={handleChange}
+                                    required
+                                ></input>
                             </div>
                             <div className={cx('signup-div')}>
-                                <p>{formtext.title3.title}</p>
-                                <input type="text" className={cx('input')} placeholder={formtext.title3.sub} name="regionName" onChange={handleChange} required></input>
+                                <p>{formtext.title9.title}</p>
+                                <input
+                                    type="date"
+                                    className={cx('input')}
+                                    placeholder={formtext.title9.sub}
+                                    name="dateOfExpiry"
+                                    value={carRegister.dateOfExpiry.slice(0,10)}
+                                    onChange={handleChange}
+                                    required
+                                ></input>
                             </div>
                         </div>
-                        <div className={cx('signup-form')}>
-                            <div className={cx('signup-div')}>
-                                <p>{formtext.title4.title}</p>
-                                <input type="text" className={cx('input')} placeholder={formtext.title4.sub} name="carName" onChange={handleChange} required></input>
-                            </div>
-                            <div className={cx('signup-div')}>
-                                <p>{formtext.title5.title}</p>
-                                <input type="text" className={cx('input')} placeholder={formtext.title5.sub} name="carType" onChange={handleChange} required></input>
-                            </div>
-                            <div className={cx('signup-div')}>
-                                <p>{formtext.title6.title}</p>
-                                <input type="text" className={cx('input')} placeholder={formtext.title6.sub} name="engineNo" onChange={handleChange} required></input>
-                            </div>
-                            <div className={cx('signup-div')}>
-                                <p>{formtext.title7.title}</p>
-                                <input type="text" className={cx('input')}  placeholder={formtext.title7.sub} name="classisNo" onChange={handleChange} required></input>
-                            </div>
-                        </div>
+
                         <div className={cx('signup-form')}>
                             <div className={cx('submit')} onClick={handleSubmit}>
-                                Xác Nhận 
+                                Xác Nhận
                             </div>
-                            
                         </div>
                     </form>
                 </div>
@@ -117,7 +146,7 @@ function NewRegistry() {
             return (
                 <div className={cx('container', 'success', 'respone')}>
                     <div className={cx('title')}>Thành Công</div>
-                    <div className={cx('content')}>{`Đã Đăng kí thành công Xe ${carResgiter?.licensePlate}`}</div>
+                    <div className={cx('content')}>{`Đã đăng kiểm thành công Xe ${carRegister?.licensePlate}`}</div>
                     <div className={cx('button')} onClick={handleBack}>
                         Quay lại
                     </div>
@@ -132,7 +161,10 @@ function NewRegistry() {
                     <div className={cx('title')}>Có lỗi đã xảy ra</div>
                     <div
                         className={cx('content')}
-                    >{`Đã không thể Đăng kí thành công Trung tâm đăng kiểm${carResgiter?.licensePlate}`}</div>
+                    >{`Đã không thể đăng kiểm${carRegister?.licensePlate}`}</div>
+                    <div
+                        className={cx('content')}
+                    >{`Có lẽ vì ${messageFail}`}</div>
                     <div className={cx('button')} onClick={handleBack}>
                         Quay lại
                     </div>
@@ -142,6 +174,7 @@ function NewRegistry() {
     };
     return (
         <div className={cx('wrapper')}>
+            {contextHolder}
             {renderForm()}
             {renderSucess()}
             {renderFailure()}

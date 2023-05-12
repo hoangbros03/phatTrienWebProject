@@ -9,7 +9,7 @@ const trungTamDangKiem = new Schema({
         type:String,
         required:true
     },
-    encodedPassword: {
+    password: {
         type: String,
         required: true
     },

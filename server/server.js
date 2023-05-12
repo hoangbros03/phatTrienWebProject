@@ -36,11 +36,11 @@ app.use(cookieParser());
 
 //TODO: Create app.use that serve static files
 //app.use('/', express.static(path.join(__dirname, '/public')));
+app.use('/', require('./routes/api/auth'))
 
 //TODO: Create app.use that routes
 
 //TODO: Create verifyJWT
-
 //TODO: Create API 
 app.use('/cucDangKiem',require('./routes/api/cucDangKiem'));
 

@@ -9,7 +9,8 @@ import Pagination from '../../../components/Pagination/Pagination';
 import CarDetail from '../../../components/CarDetail/Cardetail';
 import RegisterDetail from '~/components/RegisterDetail/RegisterDetail';
 import * as API from '~/services/searchService';
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom';
+import { message } from 'antd';
 const cx = classNames.bind(styles);
 function CarList() {
     //object sent to backend
@@ -94,13 +95,13 @@ function CarList() {
         'Hậu Giang',
         'Sóc Trăng',
         'Bạc Liêu',
-        'Cà Mau'
-      ];
-    const ttdk = ['All', 'TTDK1', 'TTDK2', 'TTDK3', 'TTDK4'];
+        'Cà Mau',
+    ];
+    const [ttdk, setTtdk] = useState(['All']);
     for (let year = currentYear; year >= currentYear - 50; year--) {
         if (years.length < 50) years.push(year.toString());
     }
-   
+
     //pagination
     const [carData, setCarData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -109,21 +110,33 @@ function CarList() {
     const firstPostIndex = lastPostIndex - postsPerPage;
     const currentPosts = carData.slice(firstPostIndex, lastPostIndex);
 
-    const HandlerChange = (data, type_) => {
-        
-        setObject({ ...object, [type_]:data.target.innerText });
-        console.log(type_,data.target.innerText)
+    const HandlerChange = async (data, type_) => {
+        if (type_ == 'province') {
+            console.log('KK');
+            const response = await API.getCenter(
+                'trungTamDangKiem/:user/getCenters',
+                { user: user },
+                { regionName: data.target.innerText },
+            );
+            console.log(response);
+            const result = response.map((res) => res.name);
+            setTtdk(['All', ...result]);
+        }
+        setObject({ ...object, [type_]: data.target.innerText });
+
+        console.log(type_, data.target.innerText);
         //check conditon for type quarter
         if (type_ == 'quarter') {
-            if (data.target.innerText == 'All') setMonth(['All', "1", '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']);
+            if (data.target.innerText == 'All')
+                setMonth(['All', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']);
             if (data.target.innerText == '1') {
-                setMonth(['All', "1", '2', '3']);
+                setMonth(['All', '1', '2', '3']);
             }
             if (data.target.innerText == '2') {
                 setMonth(['All', '4', '5', '6']);
             }
             if (data.target.innerText == '3') {
-                setMonth(['All','7', '8', '9']);
+                setMonth(['All', '7', '8', '9']);
             }
             if (data.target.innerText == '4') {
                 setMonth(['All', '10', '11', '12']);
@@ -131,108 +144,147 @@ function CarList() {
         }
         //console.log(object);
     };
+
+    const [messageApi, contextHolder] = message.useMessage();
+    const infoChange = () => {
+        messageApi.info('Xe này đã bị thay đổi biển số');
+    };
+    const infoNocar = () => {
+        messageApi.info('Không có lịch sử đăng kiểm');
+    };
+
     //send request to backend
     const HandleSearch = async () => {
-        console.log(object)
+        console.log(object);
         console.log(carData);
-        const response = await API.post('/trungTamDangKiem/ratdd/carList', { 
-            ...object });
-        if (response.message === 'No car found.') {console.log(response)
-            setCarData([]);}
-        else {console.log(response);
-        setCarData([...response]);}
+        const response = await API.post('/trungTamDangKiem/ratdd/carList', {
+            ...object,
+        });
+        if (response.message === 'No car found.') {
+            console.log(response);
+            infoNocar();
+            setCarData([]);
+        } else {
+            console.log(response);
+
+            setCarData([...response]);
+        }
     };
     const [carInfor, setCarInfor] = useState(null);
     const [displayDetail, setDisplayDetail] = useState(false);
-    const handleDisplayDetail = async (licensePlate,_idregister) => {
-        let result = await API.searchCar('trungTamDangKiem/:user/searchCar',{user:user}, {searchValue:licensePlate})
-        console.log(result.status.historyRegistrationInformation)
-        //filter RegistrationInformation
-        let filterresult = result.status.historyRegistrationInformation.filter(RegistrationInformation => RegistrationInformation._id===_idregister) 
-        //delete historyRegistrationInformation in result
-        delete result.status.historyRegistrationInformation;
-        //add filter  historyRegistrationInformation in result
-        result.status.historyRegistrationInformation=filterresult
-        console.log(result)
-        console.log(filterresult)
-        
-        setCarInfor(result.status)
+    const handleDisplayDetail = async (licensePlate, _idregister) => {
+        let result = await API.searchCar(
+            'trungTamDangKiem/:user/searchCar',
+            { user: user },
+            { searchValue: licensePlate },
+        );
+        console.log(result);
+        if (result.status == 'No car match') {
+            infoChange();
+            return;
+        } else {
+            console.log(result.status.historyRegistrationInformation);
+            //filter RegistrationInformation
+            let filterresult = result.status.historyRegistrationInformation.filter(
+                (RegistrationInformation) => RegistrationInformation._id === _idregister,
+            );
+            //delete historyRegistrationInformation in result
+            delete result.status.historyRegistrationInformation;
+            //add filter  historyRegistrationInformation in result
+            result.status.historyRegistrationInformation = filterresult;
+            console.log(result);
+            console.log(filterresult);
 
-        setDisplayDetail(true);
+            setCarInfor(result.status);
+
+            setDisplayDetail(true);
+        }
         //gui requset lay detail
         // const response = await ApicAll.post
     };
-    
-    
 
     return (
-        <div className={cx('wrapper')}>
-            <div className={cx('container')}>
-                <div className={cx('navbar')}>
-                    <BarStatistic>
-                        <ButtonSearch bar data={carType} type_="carType" onClick={HandlerChange}>
-                            Kiểu Xe
-                        </ButtonSearch>
-                    </BarStatistic>
-                    <BarStatistic>
-                        <ButtonSearch bar data={type} type_="type" onClick={HandlerChange}>
-                            Tùy Chọn
-                        </ButtonSearch>
-                    </BarStatistic>
-                    <BarStatistic>
-                        <ButtonSearch bar data={years} type_="year" onClick={HandlerChange}>
-                            Năm
-                        </ButtonSearch>
+        <>
+            {contextHolder}
 
-                        <ButtonSearch bar data={quarter} type_="quarter" onClick={HandlerChange}>
-                            Quý
-                        </ButtonSearch>
-                        <ButtonSearch bar data={month} type_="month" onClick={HandlerChange}>
-                            Tháng
-                        </ButtonSearch>
-                    </BarStatistic>
-                    <BarStatistic>
-                        <ButtonSearch bar input data={province} type_="province" onClick={HandlerChange}>
-                            Tỉnh
-                        </ButtonSearch>
-                        <ButtonSearch bar data={ttdk} type_="ttdk" onClick={HandlerChange}>
-                            TTDK
-                        </ButtonSearch>
-                    </BarStatistic>
-                    <BarStatistic>
-                        <Button bar onClick={HandleSearch}>
-                            Tìm kiếm
-                        </Button>
-                    </BarStatistic>
-                </div>
-                <div className={cx('content')}>
-                    <aside className={cx('aside')}>
-                        <div className={cx('header')}>
-                            <p>Biển số</p>
-                            <p>Chủ sở Hữu</p>
+            <div className={cx('wrapper')}>
+                <div className={cx('container')}>
+                    <div className={cx('navbar')}>
+                        <BarStatistic>
+                            <ButtonSearch bar data={carType} type_="carType" onClick={HandlerChange}>
+                                Kiểu Xe
+                            </ButtonSearch>
+                        </BarStatistic>
+                        <BarStatistic>
+                            <ButtonSearch bar data={type} type_="type" onClick={HandlerChange}>
+                                Tùy Chọn
+                            </ButtonSearch>
+                        </BarStatistic>
+                        <BarStatistic>
+                            <ButtonSearch bar data={years} type_="year" onClick={HandlerChange}>
+                                Năm
+                            </ButtonSearch>
+
+                            <ButtonSearch bar data={quarter} type_="quarter" onClick={HandlerChange}>
+                                Quý
+                            </ButtonSearch>
+                            <ButtonSearch bar data={month} type_="month" onClick={HandlerChange}>
+                                Tháng
+                            </ButtonSearch>
+                        </BarStatistic>
+                        <BarStatistic>
+                            <ButtonSearch bar input data={province} type_="province" onClick={HandlerChange}>
+                                Tỉnh
+                            </ButtonSearch>
+                            <ButtonSearch bar data={ttdk} type_="ttdk" onClick={HandlerChange}>
+                                TTDK
+                            </ButtonSearch>
+                        </BarStatistic>
+                        <BarStatistic>
+                            <Button bar onClick={HandleSearch}>
+                                Tìm kiếm
+                            </Button>
+                        </BarStatistic>
+                    </div>
+                    <div className={cx('content')}>
+                        <aside className={cx('aside')}>
+                            <div className={cx('header')}>
+                                <p>Biển số</p>
+                                <p>Chủ sở Hữu</p>
+                            </div>
+                            {currentPosts.map((car, index) => {
+                                return (
+                                    <div
+                                        key={index}
+                                        className={cx('cardisplay')}
+                                        onClick={() => handleDisplayDetail(car.licensePlate, car._id)}
+                                    >
+                                        <p>{car.licensePlate}</p>
+                                        <p>{car.ownerName}</p>
+                                    </div>
+                                );
+                            })}
+                            <Pagination
+                                totalPosts={carData.length}
+                                postsPerPage={postsPerPage}
+                                setCurrentPage={setCurrentPage}
+                                currentPage={currentPage}
+                            />
+                        </aside>
+                        <div className={cx('detail')}>
+                            {displayDetail ? (
+                                <RegisterDetail
+                                    carInfor={carInfor}
+                                    setDisplayDetail={setDisplayDetail}
+                                    setCarInfor={setCarInfor}
+                                />
+                            ) : null}
                         </div>
-                        {currentPosts.map((car, index) => {
-                            return (
-                                <div key={index} className={cx('cardisplay')} onClick={() => handleDisplayDetail(car.licensePlate,car._id)}>
-                                    <p>{car.licensePlate}</p>
-                                    <p>{car.ownerName}</p>
-                                </div>
-                            );
-                        })}
-                        <Pagination
-                            totalPosts={carData.length}
-                            postsPerPage={postsPerPage}
-                            setCurrentPage={setCurrentPage}
-                            currentPage={currentPage}
-                        />
-                    </aside>
-                    <div className={cx('detail')}>
-                        {displayDetail ? <RegisterDetail carInfor={carInfor} setDisplayDetail={setDisplayDetail} setCarInfor={setCarInfor}/> : null}
                     </div>
                 </div>
+                <Outlet />
             </div>
-            <Outlet />
-        </div>
+        </>
     );
 }
 

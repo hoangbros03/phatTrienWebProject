@@ -22,9 +22,6 @@ function Index() {
                                 Đảm bảo dịch vụ nhanh chóng, chu đáo và đảm bảo quy chuẩn giao thông
                             </p>
                             <div className={cx('function')}>
-                                <Button primary rounded to="register">
-                                    Đăng Kí
-                                </Button>
                                 <Button primary rounded to="login">
                                     Đăng Nhập
                                 </Button>
