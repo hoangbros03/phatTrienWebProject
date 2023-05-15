@@ -14,18 +14,18 @@ function User() {
 
     //   //check login ??
     if (store.getState().auth.user == null) {
-        ;(async () => {
+        ;if((async () => {
             const response = await API.refresh('/refresh');
-            console.log(response)
             if (response?.accessToken == null) {
             } else {
                 await dispatch(setAccessToken(response));
             }
             if ( store.getState().auth.user == null) {
                 console.log(store.getState().auth);
-                return <Navigate to="../../../" />;
+                return 1;
             }
-          })();
+          })()==1)
+          return <Navigate to="../../../" />;
     }
     
     // return (<div>

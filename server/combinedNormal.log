@@ -1487,3 +1487,23 @@
 {"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 16:51:00"}
 {"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 17:05:04"}
 {"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 17:05:41"}
+{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 18:17:36"}
+{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 18:18:49"}
+{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 18:20:51"}
+{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 18:20:54"}
+{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 18:21:54"}
+{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 18:22:20"}
+{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 18:25:23"}
+{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 18:25:57"}
+{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 18:27:04"}
+{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"15-05-2023 18:27:05"}
+{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"15-05-2023 18:27:05"}
+{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"6462170973a541209ee521c5\"),\n  licensePlate: '14A-123.46',\n  regionName: 'Quảng Ninh',\n  producer: 'Honda',\n  version: 'Sport',\n  carOwner: new ObjectId(\"6461e2c433fdafe3df37d87f\"),\n  registrationInformation: new ObjectId(\"6462170973a541209ee521c7\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a34\"),\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"6462170973a541209ee521c9\"),\n  __v: 0\n}","timestamp":"15-05-2023 18:27:05"}
+{"component":"user-service","level":"info","message":"Successfully create new registration information the license plate: 14A-123.46","timestamp":"15-05-2023 18:27:06"}
+{"component":"user-service","level":"info","message":"Update to car object successfully!","timestamp":"15-05-2023 18:27:06"}
+{"component":"user-service","level":"info","message":"Create registry number 1successfully","timestamp":"15-05-2023 18:27:06"}
+{"component":"user-service","level":"info","message":"Can't find regisinfo after created...???","timestamp":"15-05-2023 18:27:06"}
+{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 18:27:44"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"15-05-2023 18:28:00"}
+{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"15-05-2023 18:28:00"}
+{"component":"user-service","level":"info","message":"Delete all registration information ok","timestamp":"15-05-2023 18:28:00"}
