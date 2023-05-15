@@ -197,7 +197,7 @@ function NewRegistryCar() {
         else warningprovince();
     };
     const handleChange=(e)=>{
-        const { name, value, type } = e?.nativeEvent?.target || {};
+        const { name, value, type,checked } = e?.nativeEvent?.target || {};
         if (type == 'date') {
             console.log(value)
             if(value.length==0) ;
@@ -205,8 +205,10 @@ function NewRegistryCar() {
             var date = new Date(value);
             const iso = date.toISOString();
             setCarRegister({ ...carRegister, [name]: iso });}
-        } else 
-         setCarRegister({ ...carRegister, [name]: value });
+        }
+        if(name=="organization") {
+            setCarRegister({ ...carRegister, [name]: checked })}
+        else setCarRegister({ ...carRegister, [name]:value });
     }
     const handleBlur = (e) => {
         const { name, value, type } = e?.nativeEvent?.target || {};

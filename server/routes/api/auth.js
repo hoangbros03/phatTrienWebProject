@@ -1,13 +1,10 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const carsController = require('../../controllers/carsController');
-const centerController= require('../../controllers/centerController');
-const authController=require('../../controllers/authController');
-const ROLES_LIST = require('../../config/roles_list');
-const verifyRoles = require('../../middleware/verifyRoles');
+const authController = require("../../controllers/authController");
+const loginLimiter = require("../../middleware/loginLimiter");
 
 //TODO: Add verify roles add other API, currently just for testing purpose.
-router.route('/login')
-    .post(authController.handleLogin);
-
-module.exports=router
+router.route("/login").post(loginLimiter, authController.handleLogin);
+router.route("/refresh").get(authController.refresh);
+router.route("/logout").post(authController.logout);
+module.exports = router;

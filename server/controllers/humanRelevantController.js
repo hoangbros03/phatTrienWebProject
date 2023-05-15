@@ -71,14 +71,14 @@ const updateInformation = async(req, res)=>{
         return res.status(400).json({"status":"Name is not valid!"});
     }
 
-    var carFound = await vitalFunc.result({"searchValue": req.body.licensePlate},"/trungTamDangKiem/god/searchCar", "POST");
+    var carFound = await vitalFunc.result({"searchValue": req.body.licensePlate},"/trungTamDangKiem/god/searchCar", "POST",req?.headers?.authorization);
     if(carFound.status =="No car match"){ //mean failure
         logger.info("licensePlate isn't existed!");
         return res.status(400).json({"status":"licensePlate isn't existed!"});
     }else{
         carFound = carFound.status;
     }
-    
+    try{
     var oldLicensePlate = carFound.licensePlate;
     var newLicensePlate = false;
 
@@ -241,6 +241,11 @@ const updateInformation = async(req, res)=>{
     //end the session
     await session.endSession();
     return res.status(200).json({"status":"ok"});
+    }
+    catch(error){
+        console.log(error)
+        return res.status(200).json({"status":"dang fix loi fecth in backend"});
+    }
     
 }
 

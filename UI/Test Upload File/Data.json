@@ -1,0 +1,53 @@
+{ "status": [
+    {
+      "paperOfRecognition": {
+        "dateOfIssue": "2023-03-16T08:17:02.177Z"
+      },
+      "licensePlate": "14A-123.46",
+      "regionName": "Quảng Ninh",
+      "producer": "Honda",
+      "version": "Sport",
+      "carOwner": {
+        "organization": true,
+        "name": "Hoang Trần",
+        "address": "Uong Bi",
+        "ID": "123456789134"
+      },
+      "registrationInformation": {
+        "dateOfIssue": "2023-04-22T07:30:09.216Z",
+        "dateOfExpiry": "2024-04-28T07:30:09.216Z",
+        "quarter": 2,
+        "trungTamDangKiem": {
+          "name": "Trung tâm đăng kiểm xe cơ giới 2901V",
+          "regionName": "Hà Nội"
+        }
+      },
+      "carSpecification": {
+        "name": "Civic",
+        "version": "Sport",
+        "type": "xe con",
+        "producer": "Honda",
+        "numberOfSeats": 5,
+        "width": 5,
+        "height": 4,
+        "power": 174
+      },
+      "engineNo": "123",
+      "classisNo": "456",
+      "__v": 0,
+      "historyRegistrationInformation": [
+        {
+          "licensePlate": "14A-123.46",
+          "dateOfIssue": "2021-03-16T08:17:02.177Z",
+          "dateOfExpiry": "2022-03-17T08:17:02.177Z",
+          "quarter": 1,
+          "ownerName": "Hoang Trần",
+          "carType": "xe con",
+          "__v": 0,
+          "regionName": "Quảng Ninh",
+          "trungTamDangKiemName": "Trung Tâm AB"
+        }
+      ]
+    }
+  ]
+}

@@ -105,7 +105,7 @@ const statistic = async(req,res)=>{
                 "month": "All",
                 "province": "All",
                 "ttdk": "All"
-            },"/trungTamDangKiem/god/carList","POST",false,true);
+            },"/trungTamDangKiem/god/carList","POST",req?.headers?.authorization,false,true);
             
             if(statusCode=="200" && jsonResult instanceof Array){
                 arrForEachQua.push(jsonResult.length);
