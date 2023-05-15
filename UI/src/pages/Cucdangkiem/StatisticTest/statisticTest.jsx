@@ -1,30 +1,11 @@
 import React from 'react';
 import { Pie, Bar, Line } from 'react-chartjs-2';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HeaderBar from '../../../components/HeaderBar/HeaderBar.jsx';
 import styles from './statisticTest.module.scss';
 import { provincialOptions, propotionOptions, quarterOptions, predictOptions } from './statisticData.js';
 import 'chart.js/auto';
 
-const statistic = {
-    propotion: {
-        data: [30000, 5000, 1000, 6000, 4000]
-    },
-    topProvinces: {
-        provinces: ["TP Hồ Chí Minh", "Hà Nội", "Hải Phòng", "Đà Nẵng", "Quảng Ninh", "Cần Thơ", "Bắc Ninh"],
-        data: [1000, 600, 350, 100, 100, 80, 10]
-    },
-    quarter: {
-        quarter: ["Q2 2021", "Q3 2021", "Q4 2021", "Q1 2022", "Q2 2022", "Q3 2022", "Q4 2022", "Q1 2023"],
-        data: [
-            [2350, 2495, 2507, 2417, 2619, 2845, 2711, 2940],
-            [1312, 1487, 1561, 1424, 1561, 1790, 1641, 1745],
-            [307, 426, 590, 414, 691, 736, 726, 810],
-            [342, 416, 569, 425, 641, 887, 671, 895],
-            [1368, 1485, 1571, 1420, 1541, 1893, 1619, 1817]
-        ]
-    }
-}
 
 const colors = ['#ffa600', '#094780', '#744ec2', '#ef5675', '#16a085'];
 const carTypes = [
@@ -32,11 +13,54 @@ const carTypes = [
     "xe tải",
     "xe khách",
     "xe chuyên dùng",
-    "xe bán tải"
+    "xe bán tải",
+    "xe gì đó"
 ];
 
+const fetchData = async () => {
+    try {
+        const response = await fetch('http://localhost:3500/trungTamDangKiem/:user/statistic');
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+
 function StatisticTest() {
-    const [propotionData, setPropotionData] = useState({
+    const [statistic, setStatistic]= useState({
+        propotion: {
+            data: []
+        },
+        topProvinces: {
+            provinces: [],
+            data: []
+        },
+        quarter: {
+            quarter: [],
+            data: [
+                [],
+                [],
+                [],
+                [],
+                []
+            ]
+        },
+    });
+
+    useEffect(() => {    
+        fetchData()
+        .then(data => {
+            // Assign the fetched data to the object
+            setStatistic(data);
+        })
+        .catch(error => console.error(error));
+    }, [])
+
+    console.log(statistic);
+
+    const propotionData= {
         labels: carTypes,
         datasets: [{
             label: 'Số lượng đăng kiểm',
@@ -45,18 +69,21 @@ function StatisticTest() {
             hoverOffset: 4
         }],
         total: statistic.propotion.data.reduce((a, b) => a + b, 0)
-    });
+    };
 
-    const [provincialData, setProvincialData] = useState({
-        labels: statistic.topProvinces.provinces,
+
+    const provincialData = {
+        labels: statistic.topProvinces.province,
         datasets: [{
             label: 'Số lượng xe đăng kiểm',
             backgroundColor: '#094780',
             data: statistic.topProvinces.data
         }]
-    })
+    }
 
-    const quarter = {
+    console.log(statistic.topProvinces.provinces)
+
+    const quarterData = {
         labels: statistic.quarter.quarter,
         datasets: []
     };
@@ -70,24 +97,9 @@ function StatisticTest() {
             tension: 0
         }
 
-        quarter.datasets.push(carTypeStatistic);
+        quarterData.datasets.push(carTypeStatistic);
     }
 
-    const [quarterData, setQuaterData] = useState(quarter);
-
-    function handleClick() {
-        setPropotionData({
-            labels: carTypes,
-            datasets: [{
-                label: 'Số lượng đăng kiểm',
-                data: [30000, 5000, 1000, 6000, 15000],
-                backgroundColor: colors,
-                hoverOffset: 4
-            }],
-            total: statistic.propotion.data.reduce((a, b) => a + b, 0)
-        }
-        )
-    }
 
     //Predict 
 
@@ -120,21 +132,21 @@ function StatisticTest() {
         setTotal(calculateTotal(type, event.target.value));
     }
 
-    const calculateTotal = function(type, time) {
-        if(time == 'all' && type == 'all') {
+    const calculateTotal = function (type, time) {
+        if (time == 'all' && type == 'all') {
             return statistic.propotion.data.reduce((a, b) => a + b, 0);
         }
 
-        if(type == 'all') {
+        if (type == 'all') {
             let sum = 0;
-            for(let i = 0; i < carTypes.length; i++) {
+            for (let i = 0; i < carTypes.length; i++) {
                 sum += statistic.quarter.data[i][statistic.quarter.quarter.indexOf(time)]
-            } 
+            }
             return sum;
         }
 
-        if(time == 'all') {
-            return statistic.quarter.data[carTypes.indexOf(type)].reduce((a,b) => a+b, 0);
+        if (time == 'all') {
+            return statistic.quarter.data[carTypes.indexOf(type)].reduce((a, b) => a + b, 0);
         }
 
         return statistic.quarter.data[carTypes.indexOf(type)][statistic.quarter.quarter.indexOf(time)]
@@ -142,7 +154,6 @@ function StatisticTest() {
 
     return (
         <div>
-            <HeaderBar />
             <div className={styles.statisticContainer}>
                 <div className={styles.PieContainer}>
                     <Pie data={propotionData} options={propotionOptions} />

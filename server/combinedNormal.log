@@ -1058,3 +1058,46 @@
 {"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"10-05-2023 20:40:22"}
 {"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"10-05-2023 20:40:22"}
 {"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"645b9ec64b69aed99b5b1ca8\"),\n  licensePlate: '99A-122.22',\n  regionName: 'Bắc Ninh',\n  producer: 'Chevrolet',\n  version: 'LT',\n  carOwner: new ObjectId(\"645b9ec64b69aed99b5b1ca5\"),\n  registrationInformation: new ObjectId(\"645b9ec64b69aed99b5b1caa\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a3d\"),\n  engineNo: '123',\n  classisNo: '444',\n  _id: new ObjectId(\"645b9ec64b69aed99b5b1cac\"),\n  __v: 0\n}","timestamp":"10-05-2023 20:40:22"}
+{"component":"user-service","level":"info","message":"Create new statistic sucessfull!","timestamp":"12-05-2023 14:55:32"}
+{"component":"user-service","level":"info","message":"Month Predict provided, but not a number","timestamp":"12-05-2023 15:01:39"}
+{"component":"user-service","level":"info","message":"Month Predict provided, but not a number","timestamp":"12-05-2023 15:02:02"}
+{"component":"user-service","level":"info","message":"Month Predict provided, but not a number","timestamp":"12-05-2023 15:02:14"}
+{"component":"user-service","level":"info","message":"Can't find ttdk within the specified region name, check the spelling might help.","timestamp":"12-05-2023 15:02:55"}
+{"component":"user-service","level":"info","message":"Month Predict provided, but not a number","timestamp":"12-05-2023 15:03:35"}
+{"component":"user-service","level":"info","message":"Month Predict provided, but not a number","timestamp":"12-05-2023 15:04:53"}
+{"component":"user-service","level":"info","message":"Month Predict provided, but not a number","timestamp":"12-05-2023 17:15:00"}
+{"component":"user-service","level":"info","message":"Month Predict provided, but not a number","timestamp":"12-05-2023 17:19:46"}
+{"component":"user-service","level":"info","message":"Month Predict provided, but not a number","timestamp":"12-05-2023 17:26:54"}
+{"component":"user-service","level":"info","message":"Month Predict provided, but not a number","timestamp":"12-05-2023 17:33:37"}
+{"component":"user-service","level":"error","message":"SyntaxError: Unexpected token o in JSON at position 1","timestamp":"12-05-2023 17:35:14"}
+{"component":"user-service","level":"error","message":"SyntaxError: Unexpected token o in JSON at position 1","timestamp":"12-05-2023 17:36:38"}
+{"component":"user-service","level":"error","message":"SyntaxError: Unexpected token o in JSON at position 1","timestamp":"12-05-2023 17:36:39"}
+{"component":"user-service","level":"info","message":"Month Predict provided, but not a number","timestamp":"12-05-2023 17:36:55"}
+{"component":"user-service","level":"info","message":"Month based provided, but not a number","timestamp":"12-05-2023 17:39:10"}
+{"component":"user-service","level":"info","message":"Month Predict provided, but not a number","timestamp":"12-05-2023 17:39:49"}
+{"component":"user-service","level":"info","message":"Month Predict provided, but not a number","timestamp":"12-05-2023 17:41:03"}
+{"component":"user-service","level":"info","message":"Month Predict provided, but not a number","timestamp":"12-05-2023 17:42:02"}
+{"component":"user-service","level":"info","message":"Month Predict provided, but not a number","timestamp":"12-05-2023 17:42:25"}
+{"component":"user-service","level":"info","message":"Can't find ttdk within the specified region name, check the spelling might help.","timestamp":"12-05-2023 17:45:51"}
+{"component":"user-service","level":"info","message":"Can't find ttdk within the specified region name, check the spelling might help.","timestamp":"13-05-2023 00:44:46"}
+{"component":"user-service","level":"info","message":"Can't find ttdk within the specified region name, check the spelling might help.","timestamp":"13-05-2023 00:44:47"}
+{"component":"user-service","level":"info","message":"Create new statistic sucessfull!","timestamp":"13-05-2023 07:30:48"}
+{"component":"user-service","level":"info","message":"Create new statistic sucessfull!","timestamp":"13-05-2023 07:30:54"}
+{"component":"user-service","level":"info","message":"Create new statistic sucessfull!","timestamp":"13-05-2023 07:30:55"}
+{"component":"user-service","level":"info","message":"Create new statistic sucessfull!","timestamp":"13-05-2023 07:30:55"}
+{"component":"user-service","level":"info","message":"Can't find ttdk within the specified region name, check the spelling might help.","timestamp":"13-05-2023 08:42:57"}
+{"component":"user-service","level":"info","message":"Region name is all, but ttdk is not all. WTf?","timestamp":"13-05-2023 08:43:00"}
+{"component":"user-service","level":"info","message":"Region name is all, but ttdk is not all. WTf?","timestamp":"13-05-2023 08:43:01"}
+{"component":"user-service","level":"info","message":"Region name is all, but ttdk is not all. WTf?","timestamp":"13-05-2023 08:43:01"}
+{"component":"user-service","level":"info","message":"Region name is all, but ttdk is not all. WTf?","timestamp":"13-05-2023 08:43:01"}
+{"component":"user-service","level":"info","message":"Region name is all, but ttdk is not all. WTf?","timestamp":"13-05-2023 08:43:03"}
+{"component":"user-service","level":"info","message":"Region name is all, but ttdk is not all. WTf?","timestamp":"13-05-2023 08:43:04"}
+{"component":"user-service","level":"info","message":"Region name is all, but ttdk is not all. WTf?","timestamp":"13-05-2023 08:43:05"}
+{"component":"user-service","level":"info","message":"Region name is all, but ttdk is not all. WTf?","timestamp":"13-05-2023 08:43:05"}
+{"component":"user-service","level":"info","message":"Region name is all, but ttdk is not all. WTf?","timestamp":"13-05-2023 08:43:05"}
+{"component":"user-service","level":"info","message":"Region name is all, but ttdk is not all. WTf?","timestamp":"13-05-2023 08:43:06"}
+{"component":"user-service","level":"info","message":"Region name is all, but ttdk is not all. WTf?","timestamp":"13-05-2023 08:43:06"}
+{"component":"user-service","level":"info","message":"Region name is all, but ttdk is not all. WTf?","timestamp":"13-05-2023 08:43:10"}
+{"component":"user-service","level":"info","message":"Region name is all, but ttdk is not all. WTf?","timestamp":"13-05-2023 08:43:11"}
+{"component":"user-service","level":"info","message":"Region name is all, but ttdk is not all. WTf?","timestamp":"13-05-2023 08:43:11"}
+{"component":"user-service","level":"info","message":"Create new statistic sucessfull!","timestamp":"15-05-2023 17:01:38"}

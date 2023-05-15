@@ -92,6 +92,7 @@ function Predict() {
         setMonthsPredict(event.target.value);
     }
 
+    let prediction = {};
     function handleClick() {
         if (monthsBased > 24 || monthsBased < 3) {
             alert('Số tháng trong quá khứ phải lớn hơn 3 và nhỏ hơn 24!');
@@ -103,16 +104,25 @@ function Predict() {
             return;
         }
 
-        alert(JSON.stringify({
-            type: type,
-            regionName: region,
-            ttdk: ttdk,
-            monthsBased: monthsBased,
-            monthsPredict: monthsPredict
-        }))
+
+        fetch('http://localhost:3500/trungtamdangkiem/:user/predict', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                type: type,
+                regionName: region,
+                ttdk: ttdk,
+                monthsBased: monthsBased,
+                monthsPredict: monthsPredict
+            })
+          }).then(response => response.json())
+          .then(data => handleDataChange(data.status))
+          .catch(error => console.error(error));
     }
 
-    const ouput = [65, 59, 80, 81, 56, 55, 40];
+
 
     function setLabel() {
         const today = new Date();
@@ -132,7 +142,7 @@ function Predict() {
         return output;
     }
 
-    const predictData = {
+    const [predictData, setPredictData] = useState( {
         labels: setLabel(),
         datasets: [
             {
@@ -144,11 +154,26 @@ function Predict() {
                 borderDash: [5, 5]
             },
         ],
-    };
+    });
+
+    function handleDataChange(input) {
+        setPredictData({
+            labels: setLabel(),
+            datasets: [
+                {
+                    label: "Số xe đăng ký dự tính",
+                    data: input,
+                    fill: false,
+                    borderColor: "rgb(75, 192, 192)",
+                    tension: 0.1,
+                    borderDash: [5, 5]
+                },
+            ],
+        });
+    }
 
     return (
         <div class={styles.wrapper}>
-            <HeaderBar />
             <div class={styles.PredictContainer}>
                 <select value={type} onChange={handleType}>
                     {allType.map((selectedType) => (

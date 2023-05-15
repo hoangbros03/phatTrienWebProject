@@ -31,8 +31,6 @@ const router = createBrowserRouter(
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
             <Route path="login" element={<Login />} />
-            <Route path="statistictest" element={<StatisticTest />} />
-            <Route path="predict" element={<Predict />} />
             <Route path="cucdangkiem" element={<User />}>
                 {/* Use user like a navbar display logo and username  */}
                 <Route path=":user" element={<Cucdangkiem />}>
@@ -43,6 +41,8 @@ const router = createBrowserRouter(
                     <Route path="upload" element={<Upload_ />} />
                     <Route path="statistic" element={<StatisticCDK />} />
                     <Route path="carlist" element={<CarList />} />
+                    <Route path="statistictest" element={<StatisticTest />} />
+                    <Route path="predict" element={<Predict />} />
                 </Route>
             </Route>
             <Route path="trungTamDangKiem" element={<User />}>
@@ -52,7 +52,9 @@ const router = createBrowserRouter(
                     <Route path="newRegistry" element={<NewRegistry />} />
                     <Route path="newRegistryCar" element={<NewRegistryCar />} />
                     <Route path="lookup" element={<SearchCar />} />
-                    <Route path="carlist" element={<CarList/>} />
+                    <Route path="carlist" element={<CarList />} />
+                    <Route path="statistic" element={<StatisticTest />} />
+                    <Route path="predict" element={<Predict />} />
                 </Route>
             </Route>
             <Route path="*" element={<Error />} />
@@ -62,7 +64,7 @@ const router = createBrowserRouter(
 
 function App() {
     return <GlobalStyles>
-    <RouterProvider router={router} />
+        <RouterProvider router={router} />
     </GlobalStyles>;
 }
 
