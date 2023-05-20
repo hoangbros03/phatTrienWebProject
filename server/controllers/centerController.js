@@ -435,13 +435,12 @@ const getListCenters = async (req, res) => {
 
 const changeCenter = async (req, res) => {
   console.log(req.body)
-  const result1 = await TrungTamDangKiem.findOneAndUpdate({user:req.body.user}).exec()
-  const update={active : !result1.active}
- 
+  const result1 = await TrungTamDangKiem.find({user:req.body.user}).exec()
+
+  const update={active : !result1[0].active}
   const result = await TrungTamDangKiem.findOneAndUpdate({user:req.body.user},update, {
     new: true
   }).exec();
-
   console.log(result)
   return res.sendStatus(200)
 };

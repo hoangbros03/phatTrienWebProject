@@ -15,7 +15,7 @@ function ChangeInformation() {
             console.log(result);
             setData([...result]);
         })();
-    }, []);
+    },[]);
     const handleSearch = (selectedKeys, confirm, dataIndex) => {
         confirm();
         setSearchText(selectedKeys[0]);
@@ -151,7 +151,7 @@ function ChangeInformation() {
     const save = async (record) => {
         try {
             console.log(record);
-            const response = API.post('cucdangkiem/admin/center/changemodecenters', { ...record });
+            const response = await API.post('cucdangkiem/admin/center/changemodecenters', { ...record });
             const fetchData = (async () => {
                 const response = await API.get('/cucDangKiem/admin/centers');
                 const result = JSON.parse(response);
