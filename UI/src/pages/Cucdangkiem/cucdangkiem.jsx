@@ -1,6 +1,5 @@
 import { MenuItem } from '~/layouts/SliderBar/Menu';
 import { HomeIcon, SearchIcon } from '~/components/Icons';
-
 ////
 import { Outlet, useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -20,7 +19,7 @@ function Cucdangkiem() {
             <div className={cx('sliderbar')} >
                 <MenuItem icon={<HomeIcon />} to={`../${user}`} title="Trở Về Trang Chủ"></MenuItem>
                 <MenuItem icon={<SignUpCenter />} to="registerCenter" title="Đăng kí Trung Tâm Đăng Kiểm"></MenuItem>
-                <MenuItem icon={<SignUpCenter />} to="changeInformation" title="Thay đổi Thông Tin"></MenuItem>
+                <MenuItem icon={<SignUpCenter />} to="changeInformation" title="Quản lý Trung Tâm"></MenuItem>
                 <MenuItem icon={<StatisticIcon />} to="statistic" title="Xem Thống Kê"></MenuItem>
                 <MenuItem icon={<SearchIcon />} to="searchcar" title="Tra Cứu thông tin xe"></MenuItem>
                 <MenuItem icon={<SearchIcon />} to="carlist" title="Lịch sử đăng kiểm"></MenuItem>

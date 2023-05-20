@@ -39,7 +39,7 @@ httpRequest.interceptors.response.use(
 export const get = async (path, options = {}) => {
     const respone = await httpRequest
         .get(path, options)
-        .then((res) => console.log(res))
+        .then((res) => (res))
         .catch((error) => console.error(error));
     return respone.data;
 };

@@ -46,7 +46,7 @@ const handleLogin = async (req, res) => {
 
   //exec to return a promise
   const foundUser = await role.findOne({ user: body.user }).exec();
-  if (!foundUser) {
+  if (!foundUser||(role_num===3000&&foundUser.active===false)) {
     logger.error("Username doesn't existed in the db");
     return res
       .status(200)

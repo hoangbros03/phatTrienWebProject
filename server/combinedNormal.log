@@ -1507,3 +1507,20 @@
 {"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"15-05-2023 18:28:00"}
 {"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"15-05-2023 18:28:00"}
 {"component":"user-service","level":"info","message":"Delete all registration information ok","timestamp":"15-05-2023 18:28:00"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"16-05-2023 16:40:30"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"16-05-2023 16:40:35"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"17-05-2023 15:15:22"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"17-05-2023 16:02:07"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"17-05-2023 16:02:38"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"17-05-2023 16:03:32"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"17-05-2023 16:12:40"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 14:10:22"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"20-05-2023 15:05:29"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"20-05-2023 15:05:50"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:10:58"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:15:30"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:23:58"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:41:33"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:46:33"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:49:43"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:53:25"}
