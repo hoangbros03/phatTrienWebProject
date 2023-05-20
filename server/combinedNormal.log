@@ -1532,3 +1532,7 @@
 {"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"20-05-2023 16:37:20"}
 {"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 16:37:22"}
 {"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"20-05-2023 17:08:50"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"20-05-2023 17:22:57"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"20-05-2023 17:23:14"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"20-05-2023 17:24:31"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 17:24:32"}

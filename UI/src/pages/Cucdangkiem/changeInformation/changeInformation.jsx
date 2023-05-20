@@ -1,12 +1,13 @@
 import { Form, InputNumber, Popconfirm, Input, Table, Button, Space, Typography } from 'antd';
 import { useRef, useState, useEffect } from 'react';
-import { SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined, EyeTwoTone, EyeInvisibleOutlined } from '@ant-design/icons';
 import * as API from '~/services/searchService';
 // import classNames from 'classnames/bind';
 // const cx = classNames.bind(styles);
 function ChangeInformation() {
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');
+    const [passwordVisible, setPasswordVisible] = useState([]);
     const searchInput = useRef(null);
     useEffect(() => {
         const fetchData = (async () => {
@@ -15,7 +16,7 @@ function ChangeInformation() {
             console.log(result);
             setData([...result]);
         })();
-    },[]);
+    }, []);
     const handleSearch = (selectedKeys, confirm, dataIndex) => {
         confirm();
         setSearchText(selectedKeys[0]);
@@ -106,28 +107,47 @@ function ChangeInformation() {
         },
         render: (text) => (searchedColumn === dataIndex ? text : text),
     });
-
-    const EditableCell = ({ editing, dataIndex, title, inputType, record, index, children, ...restProps }) => {
-        const inputNode = inputType === 'number' ? <InputNumber /> : <Input />;
+    const changeVisible1 = (record) => {
+       
+        setPasswordVisible([...passwordVisible,record.key]);
+    };
+    const changeVisible2 = (record) => {
+        console.log(passwordVisible)
+        
+        setPasswordVisible(passwordVisible.filter(function(number) {
+            return number!== record.key;
+          }));
+        
+    };
+    const EditableCell = ({ editing, visible, dataIndex, title, inputType, record, index, children, ...restProps }) => {
         return (
             <td {...restProps}>
-                {editing
-                    ? // <Form.Item
-                      //     name={dataIndex}
-                      //     style={{
-                      //         margin: 0,
-                      //     }}
-                      //     rules={[
-                      //         {
-                      //             required: true,
-                      //             message: `Please Input ${title}!`,
-                      //         },
-                      //     ]}
-                      // >
-                      //     {inputNode}
-                      // </Form.Item>
-                      children
-                    : children}
+                {dataIndex == 'user' && !passwordVisible.includes(record.key) ? (
+                    // <Form.Item
+                    //     name={dataIndex}
+                    //     style={{
+                    //         margin: 0,
+                    //     }}
+                    //     rules={[
+                    //         {
+                    //             required: true,
+                    //             message: `Please Input ${title}!`,
+                    //         },
+                    //     ]}
+                    // >
+                    //     {inputNode}
+                    // </Form.Item>
+
+                    <p style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        ****** <span onClick={()=>changeVisible1(record)}> { passwordVisible.includes(record.key) ? <EyeTwoTone /> : <EyeInvisibleOutlined />}</span>
+                    </p>
+                ) : dataIndex == 'user' ? (
+                    <p style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        {children} <span onClick={()=>changeVisible2(record)}> { passwordVisible.includes(record.key) ? <EyeTwoTone /> : <EyeInvisibleOutlined />}</span>
+                    </p>
+                ) : (
+                    children
+                )}
             </td>
         );
     };
@@ -169,14 +189,14 @@ function ChangeInformation() {
             title: 'Tên Trung Tâm',
             dataIndex: 'name',
             width: '30%',
-            editable: true,
+            visible: true,
             ...getColumnSearchProps('name'),
         },
         {
             title: 'Tỉnh',
             dataIndex: 'regionName',
             width: '15%',
-            editable: true,
+            visible: true,
             ...getColumnSearchProps('regionName'),
         },
         {
@@ -184,13 +204,14 @@ function ChangeInformation() {
             dataIndex: 'user',
             width: '15%',
             editable: true,
+            visible: false,
             ...getColumnSearchProps('user'),
         },
         {
             title: 'Trạng thái hoạt động',
             dataIndex: 'active',
             width: '10%',
-            editable: true,
+            visible: true,
             ...getColumnSearchProps('active'),
             render: (_, record) => {
                 return record.active ? <span>Hoạt Động</span> : <span>Ngừng</span>;
@@ -233,6 +254,7 @@ function ChangeInformation() {
                 inputType: col.dataIndex === 'age' ? 'number' : 'text',
                 dataIndex: col.dataIndex,
                 title: col.title,
+                visible: col.visible,
                 editing: isEditing(record),
             }),
         };
