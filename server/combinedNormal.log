@@ -1058,3 +1058,50 @@
 {"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"10-05-2023 20:40:22"}
 {"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"10-05-2023 20:40:22"}
 {"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"645b9ec64b69aed99b5b1ca8\"),\n  licensePlate: '99A-122.22',\n  regionName: 'Bắc Ninh',\n  producer: 'Chevrolet',\n  version: 'LT',\n  carOwner: new ObjectId(\"645b9ec64b69aed99b5b1ca5\"),\n  registrationInformation: new ObjectId(\"645b9ec64b69aed99b5b1caa\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a3d\"),\n  engineNo: '123',\n  classisNo: '444',\n  _id: new ObjectId(\"645b9ec64b69aed99b5b1cac\"),\n  __v: 0\n}","timestamp":"10-05-2023 20:40:22"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"16-05-2023 16:40:30"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"16-05-2023 16:40:35"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"17-05-2023 15:15:22"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"17-05-2023 16:02:07"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"17-05-2023 16:02:38"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"17-05-2023 16:03:32"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"17-05-2023 16:12:40"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 14:10:22"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"20-05-2023 15:05:29"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"20-05-2023 15:05:50"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:10:58"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:15:30"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:23:58"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:41:33"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:46:33"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:49:43"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:53:25"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"20-05-2023 16:23:14"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 16:26:25"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"20-05-2023 16:26:55"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 16:27:18"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 16:30:23"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"20-05-2023 16:37:20"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 16:37:22"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"20-05-2023 17:08:50"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"20-05-2023 17:22:57"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"20-05-2023 17:23:14"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"20-05-2023 17:24:31"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 17:24:32"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 21:43:10"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"23-05-2023 22:40:52"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"23-05-2023 22:40:59"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"23-05-2023 22:42:41"}
+{"component":"user-service","level":"info","message":"user not a string of doesn't exist. Tk hung nhap sai roi","timestamp":"23-05-2023 22:50:08"}
+{"component":"user-service","level":"info","message":"Update successfully","timestamp":"23-05-2023 22:57:57"}
+{"component":"user-service","level":"info","message":"Update successfully","timestamp":"23-05-2023 23:04:42"}
+{"component":"user-service","level":"info","message":"Update successfully","timestamp":"23-05-2023 23:27:28"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:32:11"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:32:38"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:33:06"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:33:14"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:34:54"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:38:06"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:38:27"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:38:41"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:38:57"}
+{"component":"user-service","level":"info","message":"Pass not match","timestamp":"23-05-2023 23:40:38"}

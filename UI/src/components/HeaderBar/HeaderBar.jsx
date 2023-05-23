@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import navLogo from '../../assets/images/navLogo.png';
 import { DownOutlined, SmileOutlined, UserOutlined } from '@ant-design/icons';
 //set local set
-import { setAccessToken,requestLogout } from '../../auth/Auth';
+import { setAccessToken, requestLogout } from '../../auth/Auth';
 import { useEffect, useState } from 'react';
 import { Dropdown, Avatar, Space } from 'antd';
 import * as API from '~/services/Auth';
@@ -23,19 +23,23 @@ function Header({ user }) {
             }
         })();
     }, []);
-    const handleLogout=async()=>{
-        console.log("KKK")
-        await dispatch(requestLogout())
-        }
+    const handleLogout = async () => {
+        console.log('KKK');
+        await dispatch(requestLogout());
+    };
     const items = [
         {
             key: '1',
-            label: <a href="../../../" onClick={handleLogout}>Đăng xuất</a>,
+            label: (
+                <a href="../../../" onClick={handleLogout}>
+                    Đăng xuất
+                </a>
+            ),
         },
     ];
     return (
         <nav>
-            <ul>
+            <ul className="navbar">
                 <li id="logo">
                     <img src={navLogo} alt="logo" />
                 </li>
@@ -64,6 +68,7 @@ function Header({ user }) {
                         menu={{
                             items,
                         }}
+                        trigger={['click']}
                     >
                         <a onClick={(e) => e.preventDefault()}>
                             <Space>
@@ -87,13 +92,12 @@ function Header({ user }) {
                         </a>
                     </li>
                 ) : null}
-                {!user&&!loggedIn.loggedIn ? (
-                    <li id="login" className="button" >
+                {!user && !loggedIn.loggedIn ? (
+                    <li id="login" className="button">
                         {' '}
                         <a href="/login">Đăng nhập</a>
                     </li>
                 ) : null}
-                
             </ul>
         </nav>
     );

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
 
-ul {
+ul.navbar{
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -13,8 +13,12 @@ ul {
     width: 100%;
 }
 
+
 li {
     float: left;
+}
+ul{
+    overflow: hidden;
 }
 
 #logo img {
@@ -22,9 +26,11 @@ li {
     object-fit: fit;
 }
 
-.button {
+.button{
     float: right;
     width: 120px;
+    cursor: pointer;
+
 }
 
 #login {
@@ -56,6 +62,7 @@ li a {
 li a:hover {
     background-color: #ebedff;
 }
+
 @media only screen and (max-width: 500px) {
     li a {
         display: none;

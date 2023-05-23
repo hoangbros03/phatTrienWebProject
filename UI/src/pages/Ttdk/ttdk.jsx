@@ -27,7 +27,8 @@ function Ttdk() {
                  
                 </MenuItem>
                 <MenuItem icon={<HomeIcon />}  to="carlist" title="Xem Thống Kê Xe">
-                    
+                </MenuItem>
+                <MenuItem icon={<HomeIcon />}  to="changepassword" title="Đổi mật khẩu">
                 </MenuItem>
             </div>
             <div className={cx("main")}><Outlet /></div>
