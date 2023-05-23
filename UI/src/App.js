@@ -13,6 +13,7 @@ import CarList from './pages/Cucdangkiem/Carlist/carlist';
 import Index from './pages/Index';
 import Login from './pages/login/login';
 import NewRegistry from './pages/Ttdk/newRegistry/newRegistry';
+import ChangePassword from './pages/Ttdk/ChangePassword/ChangePassword';
 import NewRegistryCar from './pages/Ttdk/newRegistryCar/newRegistryCar';
 import Ttdk from './pages/Ttdk/ttdk';
 import IndexCDK from './pages/Cucdangkiem/Index/indexCDK';
@@ -49,6 +50,7 @@ const router = createBrowserRouter(
                     <Route path="newRegistryCar" element={<NewRegistryCar />} />
                     <Route path="lookup" element={<SearchCar />} />
                     <Route path="carlist" element={<CarList/>} />
+                    <Route path="changepassword" element={<ChangePassword/>} />
                 </Route>
             </Route>
             <Route path="*" element={<Error />} />

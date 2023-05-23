@@ -132,7 +132,7 @@ function Login() {
 
                     <hr className={cx('hrtag')} />
 
-                    <a className={cx('atag')} href="#">
+                    <a className={cx('atag')} href="./ForgotPassword">
                         Forgot Password?
                     </a>
                 </form>

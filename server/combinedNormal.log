@@ -1536,3 +1536,20 @@
 {"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"20-05-2023 17:23:14"}
 {"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"20-05-2023 17:24:31"}
 {"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 17:24:32"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 21:43:10"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"23-05-2023 22:40:52"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"23-05-2023 22:40:59"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"23-05-2023 22:42:41"}
+{"component":"user-service","level":"info","message":"user not a string of doesn't exist. Tk hung nhap sai roi","timestamp":"23-05-2023 22:50:08"}
+{"component":"user-service","level":"info","message":"Update successfully","timestamp":"23-05-2023 22:57:57"}
+{"component":"user-service","level":"info","message":"Update successfully","timestamp":"23-05-2023 23:04:42"}
+{"component":"user-service","level":"info","message":"Update successfully","timestamp":"23-05-2023 23:27:28"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:32:11"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:32:38"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:33:06"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:33:14"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:34:54"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:38:06"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:38:27"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:38:41"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:38:57"}

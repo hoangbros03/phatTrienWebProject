@@ -99,8 +99,12 @@ export const post_user = async (searchPath, parameters = {}, object = {}) => {
 };
 
 export const post = async (path, object = {}) => {
-    const respone = await httpRequest.post(path, object).catch((error) => {return Promise.reject(error)});
-    return respone.data;
+    try {
+        const respone = await httpRequest.post(path, object).catch((error) => {return Promise.reject(error)});
+    return respone.data;}
+    catch(error){
+        return error.response.data;
+    }
 };
 
 export const getList = async (searchPath, parameters = {}) => {

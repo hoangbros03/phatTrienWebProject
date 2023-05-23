@@ -156,12 +156,14 @@ bypass: bool, default dont need, set to TRUE to change regradless of oldPassword
 NOTE: It is execute only after verify role in complete version.
 */
 const changePasswordCenter = async (req, res) => {
+  try{
+    console.log(req.body)
   if (typeof req.body.user != "string") {
     logger.info("user not a string of doesn't exist. Tk hung nhap sai roi");
     return res
       .status(400)
       .json({
-        status: "user not a string of doesn't exist. Tk hung nhap sai roi",
+        status: "Tên đăng nhập không tồn tại",
       });
   }
   if (
@@ -186,24 +188,25 @@ const changePasswordCenter = async (req, res) => {
     logger.info("no result match the user. Tk hung nhap sai roi");
     return res
       .status(400)
-      .json({ status: "no result match the user. Tk hung nhap sai roi" });
+      .json({ status: "Tên đăng nhập không tồn tại" });
   }
   //check if oldpassword match
   if (!bypass) {
     let result = await bcrypt.compare(
       req.body.oldPassword,
-      user.encodedPassword
+      user.password
+
     );
     if (!result) {
       logger.info("Pass not match");
-      return res.status(400).json({ status: "Pass not match" });
+      return res.status(400).json({ status: "Mật khẩu không đúng" });
     }
   }
 
   const newEncodePass = await bcrypt.hash(req.body.newPassword, 10);
   const reuslt = await TrungTamDangKiem.updateOne(
     { user: req.body.user },
-    { encodedPassword: newEncodePass }
+    { password     : newEncodePass }
   )
     .then((doc) => {
       logger.info("Update successfully");
@@ -213,7 +216,11 @@ const changePasswordCenter = async (req, res) => {
     .catch((err) => {
       logger.info("There must be an error : " + err);
       return res.status(400).json({ status: "There must be an error : " });
-    });
+    });}
+    catch(error){
+      console.log(error)
+      return res.sendStatus(200)
+    } 
 };
 
 //Add registration information
