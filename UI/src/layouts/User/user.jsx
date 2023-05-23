@@ -1,47 +1,51 @@
-
-import { Outlet, useNavigate, useParams,Navigate  } from 'react-router-dom';
+import { Outlet, useNavigate, Navigate } from 'react-router-dom';
 import styles from './user.module.scss';
 import classNames from 'classnames/bind';
-import Button from '~/components/Button';
 import { useDispatch, useSelector } from 'react-redux';
-
-import navLogo from "../../assets/images/navLogo.png";
 import Header from '../../components/HeaderBar/HeaderBar';
+import * as API from '~/services/Auth';
+import store from '../../redux/store';
+import { setAccessToken } from '../../auth/Auth';
 const cx = classNames.bind(styles);
 
 function User() {
-    const User_ = useSelector((state) => state.auth);
+    
+    const dispatch = useDispatch();
 
-    const navigate = useNavigate();
-    const { user } = useParams();
-    const test = () => {
-        console.log(User);
-    };
-
-        console.log(User_)
-        // if (User_.user == null)  {
-        //     console.log('kkk')
-        // return <Navigate to='../../login'  />;}
-        
-        
-        // return (<div>
-        //     <div className={cx('wrapper')}>
-        //         <div className={cx('inner')}>
-        //             <div className={cx('logo')}>Logo</div>
-        //             <Button text large primary onClick={test}>
-        //                 {user}
-        //             </Button>
-        //         </div>
-        //     </div>
-        //     <Outlet />
-        // </div>);
-        return (
-            <div className={cx('wrapper')}>
-            <Header user={true}/>
+    //   //check login ??
+    if (store.getState().auth.user == null) {
+        ;if((async () => {
+            const response = await API.refresh('/refresh');
+            if (response?.accessToken == null) {
+            } else {
+                await dispatch(setAccessToken(response));
+            }
+            if ( store.getState().auth.user == null) {
+                console.log(store.getState().auth);
+                return 1;
+            }
+          })()==1)
+          return <Navigate to="../../../" />;
+    }
+    
+    // return (<div>
+    //     <div className={cx('wrapper')}>
+    //         <div className={cx('inner')}>
+    //             <div className={cx('logo')}>Logo</div>
+    //             <Button text large primary onClick={test}>
+    //                 {user}
+    //             </Button>
+    //         </div>
+    //     </div>
+    //     <Outlet />
+    // </div>);
+    return (
+        <div className={cx('wrapper')}>
+            <Header user={true} />
             <Outlet />
-            </div>
-        );
-
+            
+        </div>
+    );
 }
 
 export default User;

@@ -4,15 +4,23 @@ import { Link } from 'react-router-dom';
 import styles from './login.module.scss';
 import classNames from 'classnames/bind';
 import { useNavigate } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { requestLogin } from '../../auth/Auth';
 import store from '../../redux/store';
+import { message } from 'antd';
 const cx = classNames.bind(styles);
+
 function Login() {
-    const user=useSelector((state)=>state.auth);
+    const user = useSelector((state) => state.auth);
     const dispatch = useDispatch();
-    const [login, setLogin] = useState({ user: '', password: '' });
+    const [messageApi, contextHolder] = message.useMessage();
+    const success = () => {
+        messageApi.open({
+            type: 'success',
+            content: 'Bạn đã đăng nhập thành công',
+        });
+    };
+    const [login, setLogin] = useState({ user: '', password: '', role: '3000' });
     const [respone, setReponse] = useState({ user: '', status: false, type: '', message: '' });
     const navigate = useNavigate();
     //lay du lieu user
@@ -54,31 +62,35 @@ function Login() {
             console.log(respone);
         } else {
             //login sucess and navigate
-            navigate(`../${filteruser[0].type}/${filteruser[0].username}`)
+            navigate(`../${filteruser[0].type}/${filteruser[0].username}`);
         }
     };
     //theo cuar ban hieu :))
-    const tmpLogin=async ()=>{
-        await dispatch(requestLogin({login}))
-        let user=store.getState().auth;
-        if(user.user!=null){
-            navigate(`../${user.role}/${user.user}`)
+    const tmpLogin = async () => {
+        console.log(login)
+        await dispatch(requestLogin({ ...login }));
+        let user = store.getState().auth;
+        if (user.accesstoken != null) {
+            success();
+            setTimeout(
+                () => navigate(`../${user.role == 3000 ? 'trungtamdangkiem' : 'cucdangkiem'}/${user.user}`),
+                700,
+            );
         }
-        // const res = await searchServices.post("/account",{...login,user:login.user}).then(res=>{
-        //     console.log(res)
-        //     return res})
-
-        // // if(res.status=="Fail") setReponse({ ...respone, message: res.detail})
-        // // else navigate(`../${res.type}/${res.user}`)
-    }
+    };
     const GetListUser = async () => {
         const res = await searchServices.get(`/account`);
 
         return res || [];
     };
+    const handleCheckRole = (e) => {
+        console.log("KKK")
+        setLogin({ ...login, role: '2000' });
+    };
 
     return (
         <div className={cx('wrapper')}>
+            {contextHolder}
             <div className={cx('login')}>
                 <h2 className={cx('active', 'h2tag')}> sign in </h2>
                 <form className={cx('formtag')} onSubmit={handleSubmit}>
@@ -99,9 +111,9 @@ function Login() {
                     <span className={cx('spantag')}>password</span>
                     <br />
 
-                    <input type="checkbox" id="checkbox-1-1" className={cx('custom-checkbox')} />
-                    <label className={cx('labeltag')} htmlFor="checkbox-1-1">
-                        Keep me Signed in
+                    <input type="checkbox" id="checkbox-1-1" className={cx('custom-checkbox')} onChange={handleCheckRole}/>
+                    <label className={cx('labeltag')} htmlFor="checkbox-1-1" >
+                        Cục đăng kiểm
                     </label>
 
                     {/* //  onClick={e=>{e.stopPropagation();}}   */}

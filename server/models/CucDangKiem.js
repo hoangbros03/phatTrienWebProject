@@ -6,7 +6,7 @@ const cucDangKiem = new Schema({
         required: true
     },
     name: String,
-    encodedPassword: {
+    password: {
         type:String,
         required: true
     },

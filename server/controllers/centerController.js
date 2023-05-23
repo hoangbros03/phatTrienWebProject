@@ -95,7 +95,7 @@ const uploadCenters = async(req,res)=>{
             continue;
         }
         try{
-            let [jsonReturn, statusCode] = await vitalFunc.result(arr[e],"/cucDangKiem/"+ "god"+"/center","POST",false,true);
+            let [jsonReturn, statusCode] = await vitalFunc.result(arr[e],"/cucDangKiem/"+ "god"+"/center","POST",req?.headers?.authorization,false,true);
             if(statusCode=="200"){
                 uploaded +=1;
             }

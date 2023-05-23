@@ -6,11 +6,11 @@ import { useEffect, useState } from 'react';
 import Button from '~/components/Button';
 import ButtonSearch from '~/components/ButtonSearch';
 import Pagination from '../../../components/Pagination/Pagination';
-import CarDetail from '../../../components/CarDetail/Cardetail';
 import RegisterDetail from '~/components/RegisterDetail/RegisterDetail';
 import * as API from '~/services/searchService';
 import { useParams } from 'react-router-dom';
 import { message } from 'antd';
+
 const cx = classNames.bind(styles);
 function CarList() {
     //object sent to backend
@@ -25,14 +25,14 @@ function CarList() {
     });
     let { user } = useParams();
     //for search
-    const years = ['all'];
+    const years = ['All'];
     const currentYear = new Date().getFullYear();
     const quarter = ['All', '1', '2', '3', '4'];
     const [month, setMonth] = useState(['All', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']);
     const type = ['Đã đăng kiểm', 'Sắp đến hạn', 'Dự đoán'];
     const carType = ['All', 'Xe tải', 'Xe con'];
     const province = [
-        'all',
+        'All',
         'Hà Nội',
         'Hà Giang',
         'Cao Bằng',
@@ -123,7 +123,6 @@ function CarList() {
             setTtdk(['All', ...result]);
         }
         setObject({ ...object, [type_]: data.target.innerText });
-
         console.log(type_, data.target.innerText);
         //check conditon for type quarter
         if (type_ == 'quarter') {
@@ -155,18 +154,13 @@ function CarList() {
 
     //send request to backend
     const HandleSearch = async () => {
-        console.log(object);
-        console.log(carData);
         const response = await API.post('/trungTamDangKiem/ratdd/carList', {
             ...object,
         });
         if (response.message === 'No car found.') {
-            console.log(response);
             infoNocar();
             setCarData([]);
         } else {
-            console.log(response);
-
             setCarData([...response]);
         }
     };
@@ -178,7 +172,6 @@ function CarList() {
             { user: user },
             { searchValue: licensePlate },
         );
-        console.log(result);
         if (result.status == 'No car match') {
             infoChange();
             return;
@@ -192,15 +185,16 @@ function CarList() {
             delete result.status.historyRegistrationInformation;
             //add filter  historyRegistrationInformation in result
             result.status.historyRegistrationInformation = filterresult;
-            console.log(result);
-            console.log(filterresult);
-
             setCarInfor(result.status);
-
             setDisplayDetail(true);
         }
         //gui requset lay detail
         // const response = await ApicAll.post
+    };
+    //handle export
+    const handleExport = async (e) => {
+        console.log(user);
+        let result = await API.handleFileDownload(`trungTamDangKiem/${user}/databaseManagement/export`, { ...object });
     };
 
     return (
@@ -228,7 +222,7 @@ function CarList() {
                             <ButtonSearch bar data={quarter} type_="quarter" onClick={HandlerChange}>
                                 Quý
                             </ButtonSearch>
-                            <ButtonSearch bar data={month} type_="month" onClick={HandlerChange}>
+                            <ButtonSearch  bar data={month} type_="month" onClick={HandlerChange}>
                                 Tháng
                             </ButtonSearch>
                         </BarStatistic>
@@ -240,9 +234,14 @@ function CarList() {
                                 TTDK
                             </ButtonSearch>
                         </BarStatistic>
+
                         <BarStatistic>
                             <Button bar onClick={HandleSearch}>
                                 Tìm kiếm
+                            </Button>
+                            <span style={{ borderRight: '1px solid white' }}></span>
+                            <Button bar onClick={handleExport}>
+                                Xuất File
                             </Button>
                         </BarStatistic>
                     </div>

@@ -1,4 +1,3 @@
-import GlobalStyles from './components/GlobalStyles';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import Layout from './layouts/Layout';
 import User from './layouts/User/user';
@@ -21,6 +20,8 @@ import IndexCDK from './pages/Cucdangkiem/Index/indexCDK';
 import SearchCar from './layouts/searchCar/searchCar';
 import Indexttdk from './pages/Ttdk/Index/indexttdk';
 import Upload_ from './pages/Cucdangkiem/upload/upload';
+import { ThemeProvider } from '@mui/material/styles';
+import { createTheme } from './theme/index';
 
 
 
@@ -63,9 +64,11 @@ const router = createBrowserRouter(
 );
 
 function App() {
-    return <GlobalStyles>
+    const theme = createTheme();
+    return ( <ThemeProvider theme = {theme}>
         <RouterProvider router={router} />
-    </GlobalStyles>;
+    </ThemeProvider>
+    )
 }
 
 export default App;

@@ -62,7 +62,6 @@ function CarDetail({ carInfor, setDisplayDetail, setCarInfor }) {
         }, 700);
     };
     const update_ = async() => {
-        
         console.log(carUpdate);
         const respone = await API.patch(
             `trungTamDangKiem/${user}/car/update`,

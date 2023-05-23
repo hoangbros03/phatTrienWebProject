@@ -8,8 +8,13 @@ const {'model': carSpecification, schema: carSpecSchema}= require('../../models/
 const humanRelevantController = require('../../controllers/humanRelevantController');
 const statisticController = require('../../controllers/statisticController');
 const predictController = require('../../controllers/predictController');
+const verifyJWT = require('../../middleware/verifyJWT')
 
 //TODO: Add verify roles add other API, currently just for testing purpose.
+
+router.use(verifyJWT)
+
+
 
 //BIG TODO: Change router also ON ALL CONTROLLERS
 router.route('/:user/createCar')

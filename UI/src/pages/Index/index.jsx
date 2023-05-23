@@ -1,11 +1,14 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, Navigate, useNavigate } from 'react-router-dom';
 import styles from './index.module.scss';
 import classNames from 'classnames/bind';
 import images from '~/assets/images';
-import Image from '../../components/Image';
 import Button from '../../components/Button';
 import Header from '../../components/HeaderBar/HeaderBar.jsx';
-
+import * as API from '~/services/Auth';
+import store from '../../redux/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { setAccessToken } from '../../auth/Auth';
+import { useEffect, useState } from 'react';
 const cx = classNames.bind(styles);
 function Index() {
     return (
@@ -28,14 +31,14 @@ function Index() {
                             </div>
                         </div>
                     </div>
-                    <div className={cx('main')}>
-                        <img className={cx('image')} src={images.indexImage} alt="anh loi"></img>
-                    </div>
                 </div>
-                <Outlet />
+                <div className={cx('main')}>
+                    <img className={cx('image')} src={images.indexImage} alt="anh loi"></img>
+                </div>
             </div>
+            <Outlet />
         </div>
-    );
+    )
 }
 
 export default Index;

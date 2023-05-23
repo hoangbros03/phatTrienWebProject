@@ -27,17 +27,17 @@ const credentials = require('./middleware/credentials');
 const errorHandler=require('./middleware/errorHandler');
 // const port = 3500;
 connectDB();
-
+app.enable('proxy')
 app.use(credentials);
 app.use(cors(corsOptions));
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
-app.use(cookieParser());
+
 
 //TODO: Create app.use that serve static files
 //app.use('/', express.static(path.join(__dirname, '/public')));
+app.use(cookieParser());
 app.use('/', require('./routes/api/auth'))
-
 //TODO: Create app.use that routes
 
 //TODO: Create verifyJWT
