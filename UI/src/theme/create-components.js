@@ -26,7 +26,7 @@ import {
       MuiButton: {
         styleOverrides: {
           root: {
-            borderRadius: '12px',
+            borderRadius: '5px',
             textTransform: 'none'
           },
           sizeSmall: {

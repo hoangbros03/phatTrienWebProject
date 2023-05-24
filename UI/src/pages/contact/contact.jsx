@@ -8,6 +8,7 @@ import time from "../../assets/images/time.png";
 import IconPanel from './IconPanel.jsx';
 import classNames from 'classnames/bind';
 import Header from '../../components/HeaderBar/HeaderBar.jsx';
+import { Typography } from "@mui/material";
 const cx = classNames.bind(styles);
 
 function Contact() {
@@ -20,7 +21,9 @@ function Contact() {
                 </div>
 
                 <div className={styles.content}>
-                    <h1>Liên hệ với chúng tôi</h1>
+                    <Typography color="secondary" variant="h4">
+                         Liên hệ với chúng tôi
+                    </Typography>
                     <br />
                     <p>Giải đáp mọi thông tin qua các địa chỉ sau: </p><br /><br />
                     <IconPanel src={phone} >0392 038 984</IconPanel><br />

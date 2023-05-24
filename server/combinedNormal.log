@@ -1105,3 +1105,4 @@
 {"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:38:41"}
 {"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:38:57"}
 {"component":"user-service","level":"info","message":"Pass not match","timestamp":"23-05-2023 23:40:38"}
+{"component":"user-service","level":"error","message":"Invalid password","timestamp":"24-05-2023 13:15:52"}

@@ -68,7 +68,7 @@ export const createTypography = () => {
       },
       h6: {
         fontFamily: '\'Plus Jakarta Sans\', sans-serif',
-        fontWeight: 700,
+        fontWeight: 500,
         fontSize: '1.125rem',
         lineHeight: 1.2
       }

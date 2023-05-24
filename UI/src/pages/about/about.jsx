@@ -2,6 +2,7 @@ import aboutGif from "../../assets/images/About.gif";
 import styles from "./about.module.scss";
 import Header from '../../components/HeaderBar/HeaderBar.jsx';
 import classNames from 'classnames/bind';
+import { Typography } from "@mui/material";
 
 
 const cx = classNames.bind(styles);
@@ -13,7 +14,9 @@ function About() {
             <Header />
             <div className={styles.container}>
                 <div className={styles.content}>
-                    <h1>Giới thiệu trang web đăng kiểm Careg</h1>
+                    <Typography variant="h4" color="primary" paddingTop={5}>
+                        Giới thiệu trang web đăng kiểm Careg
+                    </Typography>
                     <br />
                     <p>
                         <section>
