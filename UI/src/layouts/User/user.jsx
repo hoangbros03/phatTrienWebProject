@@ -9,25 +9,20 @@ import { setAccessToken } from '../../auth/Auth';
 const cx = classNames.bind(styles);
 
 function User() {
-    
     const dispatch = useDispatch();
-
+    const navigate = useNavigate();
     //   //check login ??
     if (store.getState().auth.user == null) {
-        ;if((async () => {
+        const result = (async () => {
             const response = await API.refresh('/refresh');
             if (response?.accessToken == null) {
+                navigate("/../../../");
             } else {
-                await dispatch(setAccessToken(response));
+                dispatch(setAccessToken(response));
             }
-            if ( store.getState().auth.user == null) {
-                console.log(store.getState().auth);
-                return 1;
-            }
-          })()==1)
-          return <Navigate to="../../../" />;
+        })();
     }
-    
+
     // return (<div>
     //     <div className={cx('wrapper')}>
     //         <div className={cx('inner')}>
@@ -39,13 +34,13 @@ function User() {
     //     </div>
     //     <Outlet />
     // </div>);
-    return (
-        <div className={cx('wrapper')}>
-            <Header user={true} />
-            <Outlet />
-            
-        </div>
-    );
+
+        return (
+            <div className={cx('wrapper')}>
+                <Header user={true} />
+                <Outlet />
+            </div>
+        );
 }
 
 export default User;

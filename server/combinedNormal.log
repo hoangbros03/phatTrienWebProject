@@ -1058,452 +1058,113 @@
 {"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"10-05-2023 20:40:22"}
 {"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"10-05-2023 20:40:22"}
 {"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"645b9ec64b69aed99b5b1ca8\"),\n  licensePlate: '99A-122.22',\n  regionName: 'Bắc Ninh',\n  producer: 'Chevrolet',\n  version: 'LT',\n  carOwner: new ObjectId(\"645b9ec64b69aed99b5b1ca5\"),\n  registrationInformation: new ObjectId(\"645b9ec64b69aed99b5b1caa\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a3d\"),\n  engineNo: '123',\n  classisNo: '444',\n  _id: new ObjectId(\"645b9ec64b69aed99b5b1cac\"),\n  __v: 0\n}","timestamp":"10-05-2023 20:40:22"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"10-05-2023 21:07:57"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"10-05-2023 21:08:28"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"10-05-2023 21:09:09"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"10-05-2023 21:09:35"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"10-05-2023 21:10:14"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"10-05-2023 21:11:13"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"10-05-2023 21:12:07"}
-{"component":"user-service","level":"error","message":"Role is not allowed (this is not a place for admin, tk hung dung nghich dai nua)","timestamp":"10-05-2023 21:44:49"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"10-05-2023 21:52:40"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"10-05-2023 21:56:33"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"10-05-2023 21:57:45"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"10-05-2023 21:59:39"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"10-05-2023 22:01:11"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"10-05-2023 22:02:00"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"10-05-2023 22:02:15"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"10-05-2023 22:02:47"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"10-05-2023 22:03:47"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"10-05-2023 22:06:44"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"10-05-2023 22:07:10"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"10-05-2023 22:12:09"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"10-05-2023 22:12:28"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"10-05-2023 22:13:21"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"10-05-2023 22:14:36"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"10-05-2023 22:14:50"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"10-05-2023 22:16:00"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"10-05-2023 22:17:12"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"10-05-2023 22:17:26"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"10-05-2023 23:33:42"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"10-05-2023 23:37:29"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"10-05-2023 23:38:15"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"10-05-2023 23:39:00"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"10-05-2023 23:39:16"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"10-05-2023 23:40:39"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"10-05-2023 23:43:50"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 00:36:39"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 00:37:05"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 00:37:48"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 01:04:31"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 01:04:50"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 01:05:48"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 01:05:59"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 01:06:13"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 01:06:24"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 11:36:31"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 11:37:39"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 11:39:59"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 11:40:12"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 11:40:58"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 11:42:28"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"11-05-2023 11:43:04"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"11-05-2023 11:44:07"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"11-05-2023 11:47:24"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"11-05-2023 11:47:42"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 11:50:17"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 11:50:31"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"11-05-2023 11:51:23"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"11-05-2023 11:52:13"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"11-05-2023 11:52:37"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 11:53:14"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 11:53:26"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 11:53:36"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 11:53:57"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"11-05-2023 11:54:32"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"11-05-2023 11:54:56"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 11:57:31"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"11-05-2023 11:57:40"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 11:58:05"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 11:58:11"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 11:58:33"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 11:58:59"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 11:59:17"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"11-05-2023 11:59:28"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"11-05-2023 12:21:06"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"11-05-2023 12:21:34"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 13:34:14"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"11-05-2023 13:34:39"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"11-05-2023 13:35:28"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"11-05-2023 13:35:59"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"11-05-2023 13:37:02"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"11-05-2023 13:37:16"}
-{"component":"user-service","level":"error","message":"Unknown error happened when auth-ing","timestamp":"11-05-2023 13:38:26"}
-{"component":"user-service","level":"error","message":"Invalid password","timestamp":"11-05-2023 13:40:39"}
-{"component":"user-service","level":"error","message":"Invalid password","timestamp":"11-05-2023 13:41:45"}
-{"component":"user-service","level":"error","message":"Invalid password","timestamp":"11-05-2023 13:42:08"}
-{"component":"user-service","level":"error","message":"Invalid password","timestamp":"11-05-2023 13:42:53"}
-{"component":"user-service","level":"error","message":"Invalid password","timestamp":"11-05-2023 13:42:56"}
-{"component":"user-service","level":"error","message":"Invalid password","timestamp":"11-05-2023 13:43:10"}
-{"component":"user-service","level":"error","message":"Invalid password","timestamp":"11-05-2023 13:48:30"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 13:49:12"}
-{"component":"user-service","level":"error","message":"Invalid password","timestamp":"11-05-2023 13:49:21"}
-{"component":"user-service","level":"error","message":"Invalid password","timestamp":"11-05-2023 13:49:50"}
-{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"11-05-2023 13:49:54"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 13:50:34"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 13:53:50"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 13:54:53"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 13:55:19"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:00:54"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:02:12"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:06:03"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:06:29"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:06:55"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:07:36"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:07:43"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 14:08:03"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:08:15"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:09:17"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:13:12"}
-{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"11-05-2023 14:14:07"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:14:18"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:14:34"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:15:49"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:16:43"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:23:05"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:34:12"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:34:43"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:38:49"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:38:53"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:39:12"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 14:40:28"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:40:39"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:40:52"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 14:45:25"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 15:23:27"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 15:29:27"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 15:30:31"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 15:30:59"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 15:31:21"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 15:31:24"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 15:31:25"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 15:36:38"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 15:36:42"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 15:36:49"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"11-05-2023 15:36:49"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:02:10"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:02:26"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:02:40"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:06:17"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:06:47"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:07:33"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:08:14"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:08:46"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:09:39"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:09:45"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:14:09"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:17:44"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:18:06"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:21:08"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:21:17"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:21:33"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:46:19"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:46:24"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:46:46"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:49:49"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:49:54"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:50:10"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 16:51:18"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 17:20:36"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 17:20:38"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 17:20:41"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 17:20:49"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 17:21:27"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 17:21:44"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 18:50:06"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 18:55:17"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 18:55:19"}
-{"component":"user-service","level":"error","message":"SyntaxError: Unexpected token } in JSON at position 58","timestamp":"11-05-2023 18:58:48"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 18:58:55"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 18:59:46"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 19:03:37"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 19:04:18"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 19:14:36"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"11-05-2023 20:56:21"}
-{"component":"user-service","level":"error","message":"Role is not allowed (this is not a place for admin, tk hung dung nghich dai nua)","timestamp":"11-05-2023 20:56:23"}
-{"component":"user-service","level":"error","message":"Role is not allowed (this is not a place for admin, tk hung dung nghich dai nua)","timestamp":"11-05-2023 20:56:28"}
-{"component":"user-service","level":"error","message":"Role is not allowed (this is not a place for admin, tk hung dung nghich dai nua)","timestamp":"11-05-2023 20:56:49"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"12-05-2023 16:35:27"}
-{"component":"user-service","level":"info","message":"This car has already recognized","timestamp":"12-05-2023 16:40:07"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"12-05-2023 16:51:08"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"12-05-2023 16:52:06"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"12-05-2023 16:56:55"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"12-05-2023 17:03:24"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"12-05-2023 17:04:38"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"12-05-2023 17:05:05"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"12-05-2023 17:06:44"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"12-05-2023 17:08:03"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"12-05-2023 17:09:39"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"12-05-2023 17:09:43"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"12-05-2023 17:10:10"}
-{"component":"user-service","level":"info","message":"No car match the search","timestamp":"12-05-2023 17:10:58"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"12-05-2023 17:11:12"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"12-05-2023 17:13:23"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"12-05-2023 17:22:13"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"12-05-2023 17:22:17"}
-{"component":"user-service","level":"info","message":"No car match the search","timestamp":"12-05-2023 17:22:24"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"12-05-2023 17:52:06"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"12-05-2023 17:52:48"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"12-05-2023 17:53:53"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"12-05-2023 18:27:58"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"12-05-2023 18:32:41"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 15:01:26"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 15:16:41"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 15:26:12"}
-{"component":"user-service","level":"info","message":"New registry created!","timestamp":"13-05-2023 15:26:26"}
-{"component":"user-service","level":"info","message":"New paper of reg created!","timestamp":"13-05-2023 15:26:26"}
-{"component":"user-service","level":"info","message":"Car document updated!","timestamp":"13-05-2023 15:26:26"}
-{"component":"user-service","level":"info","message":"update license plate regis info ok","timestamp":"13-05-2023 15:26:26"}
-{"component":"user-service","level":"info","message":"New registry created!","timestamp":"13-05-2023 15:27:08"}
-{"component":"user-service","level":"info","message":"New paper of reg created!","timestamp":"13-05-2023 15:27:08"}
-{"component":"user-service","level":"info","message":"Car document updated!","timestamp":"13-05-2023 15:27:08"}
-{"component":"user-service","level":"info","message":"update license plate regis info ok","timestamp":"13-05-2023 15:27:08"}
-{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"13-05-2023 15:27:22"}
-{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"13-05-2023 15:27:22"}
-{"component":"user-service","level":"info","message":"Delete all registration information ok","timestamp":"13-05-2023 15:27:23"}
-{"component":"user-service","level":"info","message":"ownerName must be a string and have a proper length (full name) and space between first name and last name!","timestamp":"13-05-2023 15:31:47"}
-{"component":"user-service","level":"info","message":"ownerName must be a string and have a proper length (full name) and space between first name and last name!","timestamp":"13-05-2023 15:34:17"}
-{"component":"user-service","level":"info","message":"ownerName must be a string and have a proper length (full name) and space between first name and last name!","timestamp":"13-05-2023 15:34:45"}
-{"component":"user-service","level":"info","message":"ownerName must be a string and have a proper length (full name) and space between first name and last name!","timestamp":"13-05-2023 15:34:52"}
-{"component":"user-service","level":"info","message":"Create successful car owner for: {\n  organization: true,\n  name: 'đAng Văn đôNg',\n  regionName: 'Hà Nội',\n  address: '',\n  ID: '123456789',\n  _id: new ObjectId(\"645f4c946a7e977020e7bcdf\"),\n  __v: 0\n}","timestamp":"13-05-2023 15:38:45"}
-{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"13-05-2023 15:38:45"}
-{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"13-05-2023 15:38:45"}
-{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"645f4c956a7e977020e7bce2\"),\n  licensePlate: '29A-123.45',\n  regionName: 'Hà Nội',\n  producer: 'Chevrolet',\n  version: 'LT',\n  carOwner: new ObjectId(\"645f4c946a7e977020e7bcdf\"),\n  registrationInformation: new ObjectId(\"645f4c956a7e977020e7bce4\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a3d\"),\n  engineNo: '1234',\n  classisNo: '99S123',\n  _id: new ObjectId(\"645f4c956a7e977020e7bce6\"),\n  __v: 0\n}","timestamp":"13-05-2023 15:38:45"}
-{"component":"user-service","level":"info","message":"the licensePlate was registered, choose other number","timestamp":"13-05-2023 15:38:58"}
-{"component":"user-service","level":"info","message":"Create successful car owner for: {\n  organization: true,\n  name: 'Nguyễn Văn Khing',\n  regionName: 'Hà Nội',\n  address: '',\n  ID: '123456789',\n  _id: new ObjectId(\"645f4ca66a7e977020e7bcef\"),\n  __v: 0\n}","timestamp":"13-05-2023 15:39:02"}
-{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"13-05-2023 15:39:03"}
-{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"13-05-2023 15:39:03"}
-{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"645f4ca76a7e977020e7bcf2\"),\n  licensePlate: '29A-123.46',\n  regionName: 'Hà Nội',\n  producer: 'Chevrolet',\n  version: 'LT',\n  carOwner: new ObjectId(\"645f4ca66a7e977020e7bcef\"),\n  registrationInformation: new ObjectId(\"645f4ca76a7e977020e7bcf4\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a3d\"),\n  engineNo: '1234',\n  classisNo: '99S123',\n  _id: new ObjectId(\"645f4ca76a7e977020e7bcf6\"),\n  __v: 0\n}","timestamp":"13-05-2023 15:39:03"}
-{"component":"user-service","level":"info","message":"the licensePlate was registered, choose other number","timestamp":"13-05-2023 15:52:35"}
-{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"13-05-2023 15:52:41"}
-{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"13-05-2023 15:52:42"}
-{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"645f4fd9477f30c40f9c8346\"),\n  licensePlate: '29A-123.49',\n  regionName: 'Hà Nội',\n  producer: 'Chevrolet',\n  version: 'LT',\n  carOwner: new ObjectId(\"645f4ca66a7e977020e7bcef\"),\n  registrationInformation: new ObjectId(\"645f4fd9477f30c40f9c8348\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a3d\"),\n  engineNo: '1234',\n  classisNo: '99S123',\n  _id: new ObjectId(\"645f4fda477f30c40f9c834a\"),\n  __v: 0\n}","timestamp":"13-05-2023 15:52:42"}
-{"component":"user-service","level":"info","message":"the licensePlate was registered, choose other number","timestamp":"13-05-2023 15:52:47"}
-{"component":"user-service","level":"info","message":"Create successful car owner for: {\n  organization: true,\n  name: 'Nguyễn Văn Kha',\n  regionName: 'Hà Nội',\n  address: '',\n  ID: '123456789',\n  _id: new ObjectId(\"645f4feb477f30c40f9c8353\"),\n  __v: 0\n}","timestamp":"13-05-2023 15:52:59"}
-{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"13-05-2023 15:52:59"}
-{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"13-05-2023 15:52:59"}
-{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"645f4feb477f30c40f9c8356\"),\n  licensePlate: '29A-123.50',\n  regionName: 'Hà Nội',\n  producer: 'Chevrolet',\n  version: 'LT',\n  carOwner: new ObjectId(\"645f4feb477f30c40f9c8353\"),\n  registrationInformation: new ObjectId(\"645f4feb477f30c40f9c8358\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a3d\"),\n  engineNo: '1234',\n  classisNo: '99S123',\n  _id: new ObjectId(\"645f4feb477f30c40f9c835a\"),\n  __v: 0\n}","timestamp":"13-05-2023 15:53:00"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 15:53:33"}
-{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"13-05-2023 15:54:06"}
-{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"13-05-2023 15:54:06"}
-{"component":"user-service","level":"info","message":"Delete all registration information ok","timestamp":"13-05-2023 15:54:06"}
-{"component":"user-service","level":"info","message":"No car match the search","timestamp":"13-05-2023 15:54:09"}
-{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"13-05-2023 15:54:16"}
-{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"13-05-2023 15:54:16"}
-{"component":"user-service","level":"info","message":"Delete all registration information ok","timestamp":"13-05-2023 15:54:16"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 16:21:14"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 16:36:23"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 16:42:32"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 16:43:36"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 17:41:18"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 17:59:15"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 18:00:30"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 18:04:22"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 18:05:25"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 18:06:43"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 18:07:08"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 18:08:43"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 18:10:39"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 18:12:49"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 18:14:30"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 18:16:07"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 18:16:33"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 18:16:51"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 18:23:44"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 18:23:51"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 18:24:36"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 18:25:03"}
-{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"13-05-2023 18:30:09"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 18:30:19"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 18:33:19"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 18:44:39"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 22:53:33"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 23:32:32"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"13-05-2023 23:35:51"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"14-05-2023 00:11:17"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"14-05-2023 00:20:50"}
-{"component":"user-service","level":"info","message":"No car match the search","timestamp":"14-05-2023 14:19:46"}
-{"component":"user-service","level":"info","message":"No car match the search","timestamp":"14-05-2023 14:19:56"}
-{"component":"user-service","level":"info","message":"No car match the search","timestamp":"14-05-2023 14:20:15"}
-{"component":"user-service","level":"info","message":"No car match the search","timestamp":"14-05-2023 14:20:28"}
-{"component":"user-service","level":"info","message":"No car match the search","timestamp":"14-05-2023 14:30:47"}
-{"component":"user-service","level":"info","message":"No car match the search","timestamp":"14-05-2023 14:32:08"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"14-05-2023 15:08:16"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"14-05-2023 16:12:32"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"14-05-2023 16:19:08"}
-{"component":"user-service","level":"info","message":"No car match the search","timestamp":"14-05-2023 16:19:15"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"14-05-2023 16:19:26"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"14-05-2023 16:20:41"}
-{"component":"user-service","level":"info","message":"No car match the search","timestamp":"14-05-2023 16:21:13"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"14-05-2023 16:21:59"}
-{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"14-05-2023 16:22:50"}
-{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"14-05-2023 16:22:51"}
-{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"14-05-2023 16:26:44"}
-{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"14-05-2023 16:26:45"}
-{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"14-05-2023 16:26:52"}
-{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"14-05-2023 16:28:12"}
-{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"14-05-2023 16:28:37"}
-{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"14-05-2023 16:29:14"}
-{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"14-05-2023 16:34:18"}
-{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"14-05-2023 16:35:10"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"14-05-2023 16:37:48"}
-{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"14-05-2023 21:11:51"}
-{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"14-05-2023 21:11:52"}
-{"component":"user-service","level":"info","message":"Delete all registration information ok","timestamp":"14-05-2023 21:11:52"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"14-05-2023 22:07:00"}
-{"component":"user-service","level":"info","message":"No car match the search","timestamp":"15-05-2023 10:40:03"}
-{"component":"user-service","level":"info","message":"Inside is not an array!","timestamp":"15-05-2023 10:44:25"}
-{"component":"user-service","level":"info","message":"Err: TypeError: CarSpecification.findOne is not a function","timestamp":"15-05-2023 10:44:39"}
-{"component":"user-service","level":"info","message":"Err: TypeError: CarSpecification.findOne is not a function","timestamp":"15-05-2023 10:46:45"}
-{"component":"user-service","level":"info","message":"Err: TypeError: CarSpecification.findOne is not a function","timestamp":"15-05-2023 10:48:47"}
-{"component":"user-service","level":"info","message":"Err: TypeError: CarSpecification.findOne is not a function","timestamp":"15-05-2023 10:49:25"}
-{"component":"user-service","level":"info","message":"Create newCarSpec successfully","timestamp":"15-05-2023 10:53:39"}
-{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"15-05-2023 10:53:39"}
-{"component":"user-service","level":"info","message":"car doesn't created for some reason. Continuting...","timestamp":"15-05-2023 10:53:39"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"15-05-2023 10:59:23"}
-{"component":"user-service","level":"info","message":"Create newCarSpec successfully","timestamp":"15-05-2023 11:01:08"}
-{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"15-05-2023 11:01:08"}
-{"component":"user-service","level":"info","message":"car doesn't created for some reason. Continuting...","timestamp":"15-05-2023 11:01:08"}
-{"component":"user-service","level":"info","message":"Create newCarSpec successfully","timestamp":"15-05-2023 11:03:51"}
-{"component":"user-service","level":"info","message":"Car spec  added success...","timestamp":"15-05-2023 11:03:51"}
-{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"15-05-2023 11:03:51"}
-{"component":"user-service","level":"info","message":"car doesn't created for some reason. Continuting...","timestamp":"15-05-2023 11:03:51"}
-{"component":"user-service","level":"info","message":"Create newCarSpec successfully","timestamp":"15-05-2023 11:08:49"}
-{"component":"user-service","level":"info","message":"Car spec  added success...","timestamp":"15-05-2023 11:08:49"}
-{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"15-05-2023 11:08:49"}
-{"component":"user-service","level":"info","message":"car doesn't created for some reason. Continuting...","timestamp":"15-05-2023 11:08:49"}
-{"component":"user-service","level":"info","message":"Create newCarSpec successfully","timestamp":"15-05-2023 11:09:28"}
-{"component":"user-service","level":"info","message":"Car spec  added success...","timestamp":"15-05-2023 11:09:28"}
-{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"15-05-2023 11:09:28"}
-{"component":"user-service","level":"info","message":"car doesn't created for some reason. Continuting...","timestamp":"15-05-2023 11:09:28"}
-{"component":"user-service","level":"info","message":"Create newCarSpec successfully","timestamp":"15-05-2023 13:54:50"}
-{"component":"user-service","level":"info","message":"Car spec  added success...","timestamp":"15-05-2023 13:54:50"}
-{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"15-05-2023 13:54:51"}
-{"component":"user-service","level":"info","message":"car doesn't created for some reason. Continuting...","timestamp":"15-05-2023 13:54:51"}
-{"component":"user-service","level":"info","message":"Create newCarSpec successfully","timestamp":"15-05-2023 13:55:31"}
-{"component":"user-service","level":"info","message":"Car spec  added success...","timestamp":"15-05-2023 13:55:31"}
-{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"15-05-2023 13:55:31"}
-{"component":"user-service","level":"info","message":"car doesn't created for some reason. Continuting...","timestamp":"15-05-2023 13:55:31"}
-{"component":"user-service","level":"info","message":"Create newCarSpec successfully","timestamp":"15-05-2023 13:56:51"}
-{"component":"user-service","level":"info","message":"Car spec  added success...","timestamp":"15-05-2023 13:56:51"}
-{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"15-05-2023 13:56:51"}
-{"component":"user-service","level":"info","message":"car doesn't created for some reason. Continuting...","timestamp":"15-05-2023 13:56:51"}
-{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"15-05-2023 13:58:17"}
-{"component":"user-service","level":"info","message":"car doesn't created for some reason. Continuting...","timestamp":"15-05-2023 13:58:17"}
-{"component":"user-service","level":"info","message":"Create newCarSpec successfully","timestamp":"15-05-2023 14:00:25"}
-{"component":"user-service","level":"info","message":"Car spec  added success...","timestamp":"15-05-2023 14:00:26"}
-{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"15-05-2023 14:00:26"}
-{"component":"user-service","level":"info","message":"car doesn't created for some reason. Continuting...","timestamp":"15-05-2023 14:00:26"}
-{"component":"user-service","level":"info","message":"Create newCarSpec successfully","timestamp":"15-05-2023 14:01:18"}
-{"component":"user-service","level":"info","message":"Car spec  added success...","timestamp":"15-05-2023 14:01:18"}
-{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"15-05-2023 14:01:18"}
-{"component":"user-service","level":"info","message":"car doesn't created for some reason. Continuting...","timestamp":"15-05-2023 14:01:18"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:02:07"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:02:13"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:03:02"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:06:51"}
-{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"15-05-2023 14:08:59"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:17:41"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:24:02"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:24:37"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:25:27"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:26:25"}
-{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"15-05-2023 14:26:25"}
-{"component":"user-service","level":"info","message":{"status":"Không đủ thông tin để đăng kiểm lần đầu"},"timestamp":"15-05-2023 14:26:25"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:33:09"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:34:23"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:35:01"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:35:51"}
-{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"15-05-2023 14:35:51"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:36:28"}
-{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"15-05-2023 14:36:28"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:38:48"}
-{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"15-05-2023 14:38:48"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:40:11"}
-{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"15-05-2023 14:40:11"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:43:16"}
-{"component":"user-service","level":"info","message":"Not enough information to create a car","timestamp":"15-05-2023 14:43:16"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:44:04"}
-{"component":"user-service","level":"info","message":"Create successful car owner for: {\n  organization: true,\n  name: 'Hoang Trần',\n  regionName: 'Quảng Ninh',\n  ID: '123456789134',\n  _id: new ObjectId(\"6461e2c433fdafe3df37d87f\"),\n  __v: 0\n}","timestamp":"15-05-2023 14:44:05"}
-{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"15-05-2023 14:44:05"}
-{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"15-05-2023 14:44:05"}
-{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"6461e2c533fdafe3df37d882\"),\n  licensePlate: '14A-123.46',\n  regionName: 'Quảng Ninh',\n  producer: 'Honda',\n  version: 'Sport',\n  carOwner: new ObjectId(\"6461e2c433fdafe3df37d87f\"),\n  registrationInformation: new ObjectId(\"6461e2c533fdafe3df37d884\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a34\"),\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"6461e2c533fdafe3df37d886\"),\n  __v: 0\n}","timestamp":"15-05-2023 14:44:05"}
-{"component":"user-service","level":"info","message":"Successfully create new registration information the license plate: 14A-123.46","timestamp":"15-05-2023 14:44:05"}
-{"component":"user-service","level":"info","message":"Update to car object successfully!","timestamp":"15-05-2023 14:44:05"}
-{"component":"user-service","level":"info","message":"Create registry number 1successfully","timestamp":"15-05-2023 14:44:05"}
-{"component":"user-service","level":"info","message":"Can't find regisinfo after created...???","timestamp":"15-05-2023 14:44:05"}
-{"component":"user-service","level":"info","message":"Info inside history reg info missing. Continuting...","timestamp":"15-05-2023 14:44:05"}
-{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"15-05-2023 14:45:03"}
-{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"15-05-2023 14:45:03"}
-{"component":"user-service","level":"info","message":"Delete all registration information ok","timestamp":"15-05-2023 14:45:03"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:54:19"}
-{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"15-05-2023 14:54:20"}
-{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"15-05-2023 14:54:20"}
-{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"6461e52c9aa08b88de7c425f\"),\n  licensePlate: '14A-123.46',\n  regionName: 'Quảng Ninh',\n  producer: 'Honda',\n  version: 'Sport',\n  carOwner: new ObjectId(\"6461e2c433fdafe3df37d87f\"),\n  registrationInformation: new ObjectId(\"6461e52c9aa08b88de7c4261\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a34\"),\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"6461e52c9aa08b88de7c4263\"),\n  __v: 0\n}","timestamp":"15-05-2023 14:54:20"}
-{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"15-05-2023 14:55:27"}
-{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"15-05-2023 14:55:28"}
-{"component":"user-service","level":"info","message":"Delete all registration information ok","timestamp":"15-05-2023 14:55:28"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 14:57:49"}
-{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"15-05-2023 14:57:49"}
-{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"15-05-2023 14:57:50"}
-{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"6461e5fd824561f53431c504\"),\n  licensePlate: '14A-123.46',\n  regionName: 'Quảng Ninh',\n  producer: 'Honda',\n  version: 'Sport',\n  carOwner: new ObjectId(\"6461e2c433fdafe3df37d87f\"),\n  registrationInformation: new ObjectId(\"6461e5fd824561f53431c506\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a34\"),\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"6461e5fe824561f53431c508\"),\n  __v: 0\n}","timestamp":"15-05-2023 14:57:50"}
-{"component":"user-service","level":"info","message":"Successfully create new registration information the license plate: 14A-123.46","timestamp":"15-05-2023 14:57:50"}
-{"component":"user-service","level":"info","message":"Update to car object successfully!","timestamp":"15-05-2023 14:57:50"}
-{"component":"user-service","level":"info","message":"Create registry number 1successfully","timestamp":"15-05-2023 14:57:50"}
-{"component":"user-service","level":"info","message":"Can't find regisinfo after created...???","timestamp":"15-05-2023 14:57:50"}
-{"component":"user-service","level":"info","message":"Info inside history reg info missing. Continuting...","timestamp":"15-05-2023 14:57:50"}
-{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"15-05-2023 14:58:44"}
-{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"15-05-2023 14:58:44"}
-{"component":"user-service","level":"info","message":"Delete all registration information ok","timestamp":"15-05-2023 14:58:44"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 15:28:40"}
-{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"15-05-2023 15:28:41"}
-{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"15-05-2023 15:28:41"}
-{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"6461ed395107e48cee49eea1\"),\n  licensePlate: '14A-123.46',\n  regionName: 'Quảng Ninh',\n  producer: 'Honda',\n  version: 'Sport',\n  carOwner: new ObjectId(\"6461e2c433fdafe3df37d87f\"),\n  registrationInformation: new ObjectId(\"6461ed395107e48cee49eea3\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a34\"),\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"6461ed395107e48cee49eea5\"),\n  __v: 0\n}","timestamp":"15-05-2023 15:28:41"}
-{"component":"user-service","level":"info","message":"Successfully create new registration information the license plate: 14A-123.46","timestamp":"15-05-2023 15:28:41"}
-{"component":"user-service","level":"info","message":"Update to car object successfully!","timestamp":"15-05-2023 15:28:41"}
-{"component":"user-service","level":"info","message":"Create registry number 1successfully","timestamp":"15-05-2023 15:28:41"}
-{"component":"user-service","level":"info","message":"Can't find regisinfo after created...???","timestamp":"15-05-2023 15:28:41"}
-{"component":"user-service","level":"info","message":"Info inside history reg info missing. Continuting...","timestamp":"15-05-2023 15:28:41"}
-{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"15-05-2023 15:30:44"}
-{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"15-05-2023 15:30:44"}
-{"component":"user-service","level":"info","message":"Delete all registration information ok","timestamp":"15-05-2023 15:30:44"}
-{"component":"user-service","level":"info","message":"No car match the search","timestamp":"15-05-2023 15:49:52"}
-{"component":"user-service","level":"info","message":"No car match the search","timestamp":"15-05-2023 15:49:59"}
-{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 15:52:57"}
-{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 15:53:28"}
-{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 15:54:03"}
-{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"15-05-2023 16:27:37"}
-{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 16:49:54"}
-{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 16:51:00"}
-{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 17:05:04"}
-{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 17:05:41"}
-{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 18:17:36"}
-{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 18:18:49"}
-{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 18:20:51"}
-{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 18:20:54"}
-{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 18:21:54"}
-{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 18:22:20"}
-{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 18:25:23"}
-{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 18:25:57"}
-{"component":"user-service","level":"info","message":"Car spec can't be added for some reason. Processing continuting...","timestamp":"15-05-2023 18:27:04"}
-{"component":"user-service","level":"info","message":"Add document successfully!","timestamp":"15-05-2023 18:27:05"}
-{"component":"user-service","level":"info","message":"Add temp registry successfully","timestamp":"15-05-2023 18:27:05"}
-{"component":"user-service","level":"info","message":"New car created: {\n  paperOfRecognition: new ObjectId(\"6462170973a541209ee521c5\"),\n  licensePlate: '14A-123.46',\n  regionName: 'Quảng Ninh',\n  producer: 'Honda',\n  version: 'Sport',\n  carOwner: new ObjectId(\"6461e2c433fdafe3df37d87f\"),\n  registrationInformation: new ObjectId(\"6462170973a541209ee521c7\"),\n  carSpecification: new ObjectId(\"6437d18beab69e16ca081a34\"),\n  engineNo: '123',\n  classisNo: '456',\n  _id: new ObjectId(\"6462170973a541209ee521c9\"),\n  __v: 0\n}","timestamp":"15-05-2023 18:27:05"}
-{"component":"user-service","level":"info","message":"Successfully create new registration information the license plate: 14A-123.46","timestamp":"15-05-2023 18:27:06"}
-{"component":"user-service","level":"info","message":"Update to car object successfully!","timestamp":"15-05-2023 18:27:06"}
-{"component":"user-service","level":"info","message":"Create registry number 1successfully","timestamp":"15-05-2023 18:27:06"}
-{"component":"user-service","level":"info","message":"Can't find regisinfo after created...???","timestamp":"15-05-2023 18:27:06"}
-{"component":"user-service","level":"info","message":"wrong syntax when sending request!","timestamp":"15-05-2023 18:27:44"}
-{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"15-05-2023 18:28:00"}
-{"component":"user-service","level":"info","message":"Delete successfully!","timestamp":"15-05-2023 18:28:00"}
-{"component":"user-service","level":"info","message":"Delete all registration information ok","timestamp":"15-05-2023 18:28:00"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"16-05-2023 16:40:30"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"16-05-2023 16:40:35"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"17-05-2023 15:15:22"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"17-05-2023 16:02:07"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"17-05-2023 16:02:38"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"17-05-2023 16:03:32"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"17-05-2023 16:12:40"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 14:10:22"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"20-05-2023 15:05:29"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"20-05-2023 15:05:50"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:10:58"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:15:30"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:23:58"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:41:33"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:46:33"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:49:43"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 15:53:25"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"20-05-2023 16:23:14"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 16:26:25"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"20-05-2023 16:26:55"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 16:27:18"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 16:30:23"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"20-05-2023 16:37:20"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 16:37:22"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"20-05-2023 17:08:50"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"20-05-2023 17:22:57"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"20-05-2023 17:23:14"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"20-05-2023 17:24:31"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 17:24:32"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"20-05-2023 21:43:10"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"23-05-2023 22:40:52"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"23-05-2023 22:40:59"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"23-05-2023 22:42:41"}
+{"component":"user-service","level":"info","message":"user not a string of doesn't exist. Tk hung nhap sai roi","timestamp":"23-05-2023 22:50:08"}
+{"component":"user-service","level":"info","message":"Update successfully","timestamp":"23-05-2023 22:57:57"}
+{"component":"user-service","level":"info","message":"Update successfully","timestamp":"23-05-2023 23:04:42"}
+{"component":"user-service","level":"info","message":"Update successfully","timestamp":"23-05-2023 23:27:28"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:32:11"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:32:38"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:33:06"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:33:14"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:34:54"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:38:06"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:38:27"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:38:41"}
+{"component":"user-service","level":"info","message":"no result match the user. Tk hung nhap sai roi","timestamp":"23-05-2023 23:38:57"}
+{"component":"user-service","level":"info","message":"Pass not match","timestamp":"23-05-2023 23:40:38"}
+{"component":"user-service","level":"error","message":"Invalid password","timestamp":"24-05-2023 13:15:52"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"25-05-2023 23:24:18"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"25-05-2023 23:24:20"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"25-05-2023 23:24:48"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"25-05-2023 23:25:08"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"26-05-2023 01:52:11"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"26-05-2023 01:52:11"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"26-05-2023 01:52:20"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"26-05-2023 01:52:22"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"26-05-2023 01:52:37"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"26-05-2023 01:53:07"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"26-05-2023 01:53:16"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"26-05-2023 01:54:35"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"26-05-2023 01:54:35"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"26-05-2023 01:54:40"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"26-05-2023 01:54:43"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"26-05-2023 01:54:45"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"26-05-2023 01:55:07"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"26-05-2023 01:55:11"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"26-05-2023 01:57:54"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"26-05-2023 01:57:54"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"26-05-2023 01:58:04"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"26-05-2023 01:58:09"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"27-05-2023 01:44:52"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"27-05-2023 01:44:52"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"27-05-2023 01:44:58"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"27-05-2023 01:45:01"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"27-05-2023 01:45:25"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"27-05-2023 01:45:25"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"27-05-2023 01:45:33"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"27-05-2023 01:45:33"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"27-05-2023 01:45:41"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"27-05-2023 01:49:21"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"27-05-2023 01:49:21"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"27-05-2023 01:49:27"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"27-05-2023 01:49:33"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"31-05-2023 23:30:15"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"31-05-2023 23:30:15"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"31-05-2023 23:30:21"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"31-05-2023 23:30:22"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"31-05-2023 23:32:36"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"31-05-2023 23:32:36"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"31-05-2023 23:32:51"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"31-05-2023 23:32:51"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"31-05-2023 23:32:58"}
+{"component":"user-service","level":"info","message":"auth successfully with user01","timestamp":"31-05-2023 23:32:59"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"31-05-2023 23:53:55"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"31-05-2023 23:53:55"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"31-05-2023 23:54:01"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"31-05-2023 23:54:04"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"02-06-2023 01:10:00"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"02-06-2023 01:10:00"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"02-06-2023 01:10:06"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"02-06-2023 01:10:08"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"02-06-2023 01:11:24"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"02-06-2023 01:11:24"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"02-06-2023 01:11:36"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"02-06-2023 01:11:41"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"02-06-2023 23:08:25"}
+{"component":"user-service","level":"error","message":"Necessary information must be inputted when log in","timestamp":"02-06-2023 23:08:25"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"02-06-2023 23:08:34"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"02-06-2023 23:08:35"}
+{"component":"user-service","level":"info","message":"Create new statistic sucessfull!","timestamp":"02-06-2023 23:08:47"}

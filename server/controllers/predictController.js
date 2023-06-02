@@ -19,6 +19,7 @@ const carsController = require('../controllers/carsController');
 //monthsBased : Number, not required, default =5 , 3<= x <= 24
 //monthsPredcit: Number, not required, default = 2, 1<=x<=6
 const predict = async(req,res)=>{
+    // req.body = JSON.parse(req.body);
     //check enough
     if(!req?.body?.type || !req?.body?.ttdk || !req?.body?.regionName){
         logger.info("Not enough info!");
@@ -54,8 +55,9 @@ const predict = async(req,res)=>{
     //correctness
     req.body.regionName= vitalFunc.toTitleCase(req.body.regionName);
     var monthsBased = 5;
-    var monthsPredict =2
+    var monthsPredict = 2;
     if(req.body.monthsBased){
+        req.body.monthsBased = Number.parseInt(req.body.monthsBased);
         if(typeof req.body.monthsBased != "number"){
             logger.info("Month based provided, but not a number");
             return res.status(400).json({"status": "Month based provided, but not a number"});
@@ -67,6 +69,7 @@ const predict = async(req,res)=>{
         monthsBased = req.body.monthsBased;
     }
     if(req.body.monthsPredict){
+        req.body.monthsPredict = Number.parseInt(req.body.monthsPredict);
         if(typeof req.body.monthsPredict != "number"){
             logger.info("Month Predict provided, but not a number");
             return res.status(400).json({"status": "Month Predict provided, but not a number"});

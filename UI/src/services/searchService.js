@@ -39,7 +39,7 @@ httpRequest.interceptors.response.use(
 export const get = async (path, options = {}) => {
     const respone = await httpRequest
         .get(path, options)
-        .then((res) => console.log(res))
+        .then((res) => (res))
         .catch((error) => console.error(error));
     return respone.data;
 };
@@ -99,8 +99,12 @@ export const post_user = async (searchPath, parameters = {}, object = {}) => {
 };
 
 export const post = async (path, object = {}) => {
-    const respone = await httpRequest.post(path, object).catch((error) => {return Promise.reject(error)});
-    return respone.data;
+    try {
+        const respone = await httpRequest.post(path, object).catch((error) => {return Promise.reject(error)});
+    return respone.data;}
+    catch(error){
+        return error.response.data;
+    }
 };
 
 export const getList = async (searchPath, parameters = {}) => {

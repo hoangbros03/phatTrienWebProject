@@ -20,4 +20,8 @@ router.route('/secret/init/:key')
 //hung code 
 router.route('/:user/center') 
     .get(centerController.getListCenter);
+router.route('/:user/centers') 
+    .get(centerController.getListCenters);
+router.route('/:user/center/changemodecenters') 
+    .post(centerController.changeCenter);
 module.exports = router;
