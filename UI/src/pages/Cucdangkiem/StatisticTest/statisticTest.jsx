@@ -5,7 +5,7 @@ import HeaderBar from '../../../components/HeaderBar/HeaderBar.jsx';
 import styles from './statisticTest.module.scss';
 import { provincialOptions, propotionOptions, quarterOptions, predictOptions } from './statisticData.js';
 import 'chart.js/auto';
-
+import { get } from '../../../services/searchService.js';
 
 const colors = ['#ffa600', '#094780', '#744ec2', '#ef5675', '#16a085'];
 const carTypes = [
@@ -14,22 +14,12 @@ const carTypes = [
     "xe khách",
     "xe chuyên dùng",
     "xe bán tải",
-    "xe gì đó"
 ];
 
-const fetchData = async () => {
-    try {
-        const response = await fetch('http://localhost:3500/trungTamDangKiem/:user/statistic');
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error(error);
-    }
-};
 
-
+//This object is a place holder for data fetched
 function StatisticTest() {
-    const [statistic, setStatistic]= useState({
+    const [statistic, setStatistic] = useState({
         propotion: {
             data: []
         },
@@ -49,18 +39,20 @@ function StatisticTest() {
         },
     });
 
-    useEffect(() => {    
-        fetchData()
-        .then(data => {
-            // Assign the fetched data to the object
-            setStatistic(data);
-        })
-        .catch(error => console.error(error));
+    //Fetch data from server
+    useEffect(() => {
+        get('/trungTamDangKiem/:user/statistic')
+            .then(data => {
+                // Assign the fetched data to the object
+                setStatistic(data);
+            })
+            .catch(error => console.error(error));
     }, [])
 
     console.log(statistic);
 
-    const propotionData= {
+    //Config data for Car's propotion chart
+    const propotionData = {
         labels: carTypes,
         datasets: [{
             label: 'Số lượng đăng kiểm',
@@ -71,7 +63,7 @@ function StatisticTest() {
         total: statistic.propotion.data.reduce((a, b) => a + b, 0)
     };
 
-
+    //Config data for provincial chart
     const provincialData = {
         labels: statistic.topProvinces.province,
         datasets: [{

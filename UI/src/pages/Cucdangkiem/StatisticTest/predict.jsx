@@ -5,6 +5,8 @@ import HeaderBar from '../../../components/HeaderBar/HeaderBar.jsx';
 import styles from './predict.module.scss';
 import { predictOptions } from './statisticData.js';
 import 'chart.js/auto';
+import { post } from '../../../services/searchService.js';
+
 
 const ttdkList = {
     'Hà Nội': [
@@ -104,22 +106,15 @@ function Predict() {
             return;
         }
 
-
-        fetch('http://localhost:3500/trungtamdangkiem/:user/predict', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                type: type,
-                regionName: region,
-                ttdk: ttdk,
-                monthsBased: monthsBased,
-                monthsPredict: monthsPredict
-            })
-          }).then(response => response.json())
-          .then(data => handleDataChange(data.status))
-          .catch(error => console.error(error));
+          post('/trungtamdangkiem/:user/predict', 
+          JSON.stringify({
+            type: type,
+            regionName: region,
+            ttdk: ttdk,
+            monthsBased: monthsBased,
+            monthsPredict: monthsPredict
+        })).then(data => handleDataChange(data.status))
+        .catch(error => console.error(error));
     }
 
 

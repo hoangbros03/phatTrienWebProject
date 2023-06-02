@@ -35,8 +35,8 @@ function About() {
                         </section>
                         <br />
                         <section>
-                            Xem mã nguồn của dự tại án:
-                            <a href={ghSource} target="_blank"><code style={{ color: 'indigo' }}> Mã nguồn trên Github</code></a>
+                            Xem mã nguồn của dự tại án: 
+                            <a href={ghSource} target="_blank"><code style={{ color: 'indigo' }}>Mã nguồn trên Github</code></a>
                         </section>
                     </p>
                 </div>
