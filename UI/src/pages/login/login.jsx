@@ -27,7 +27,7 @@ function Login() {
             content: 'Bạn đã đăng nhập thất bại, vui lòng thử lại',
         });
     };
-    const [login, setLogin] = useState({ user: '', password: '', role: '3000' });
+    const [login, setLogin] = useState({ user: 'placeholder', password: '12345', role: '3000' });
     const [respone, setReponse] = useState({ user: '', status: false, type: '', message: '' });
     const [name, setName] = useState('');
     const [pass, setPass] = useState('');
@@ -94,10 +94,12 @@ function Login() {
             error();
         }
     }, [login])
+    
 
     const dumb = () => {
-        setLogin({...login, user: name, password: pass, role: roleCheck})  
+        setLogin({...login, user: name, password: pass, role: roleCheck});
     }
+
     const [method, setMethod] = useState('email');
 
     return (
