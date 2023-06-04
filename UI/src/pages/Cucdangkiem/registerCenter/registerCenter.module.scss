@@ -28,10 +28,7 @@
     text-align: center;
 }
 //css cho trang thai thanh cong
-.success{
-    background-image: url("../../../assets/images/BgRegisterSc.png");
-   
-}
+
 .title{
     font-size: 4.8rem;
     margin-top: 3%;
@@ -42,9 +39,6 @@
 }
 
 //css cho trang thai that bai
-.failure{
-    background-image: url("../../../assets/images/BgRegisterF.png");
-}
 
 .form{
     width:60%;
@@ -59,6 +53,7 @@
     width: 100%;
     display: flex;
     justify-content:space-around;
+    margin-top: 10px;
 }
 .signup-div{
     flex: 1;

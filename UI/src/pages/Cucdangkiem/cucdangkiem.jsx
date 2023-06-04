@@ -47,7 +47,7 @@ function Cucdangkiem() {
 
                 <Stack direction="column" spacing={1} sx={{
                     marginTop: 10,
-                    marginLeft: 3,
+                    marginLeft: 2,
                     marginRight: 3
                 }}>
                     <MenuItem icon={<HomeIcon />} to={`../${user}`} >Trang chủ</MenuItem>

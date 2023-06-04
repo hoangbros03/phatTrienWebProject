@@ -2,9 +2,12 @@ import { Outlet, useParams } from 'react-router-dom';
 import styles from './registerCenter.module.scss';
 import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
-import { Button, message, Space } from 'antd';
+import { message, Space } from 'antd';
 import * as API from '~/services/searchService';
-import Item from 'antd/es/list/Item';
+import { Button, TextField, Typography } from '@mui/material';
+import successGif from '../../../assets/images/registered.gif';
+import failGif from '../../../assets/images/Fail.gif'
+
 const cx = classNames.bind(styles);
 function RegisterCenter() {
     let { user } = useParams();
@@ -83,79 +86,79 @@ function RegisterCenter() {
         "Bắc Giang",
         "Phú Thọ",
         "Điện Biên Phủ"
-      ];
-    const [listCenter,setListCenter]=useState([]);    
-    useEffect(()=>{
+    ];
+    const [listCenter, setListCenter] = useState([]);
+    useEffect(() => {
         const res = async () => {
             (async () => {
-              const response = await API.getList("http://localhost:3500/cucDangKiem/:user/center",{user:user})  
-              const dataArray = JSON.parse(response);
-              const result=dataArray.map(({ name, user }) => ({ name, user }))
-              setListCenter(result);
+                const response = await API.getList("http://localhost:3500/cucDangKiem/:user/center", { user: user })
+                const dataArray = JSON.parse(response);
+                const result = dataArray.map(({ name, user }) => ({ name, user }))
+                setListCenter(result);
             })();
-          };
+        };
         res()
-    },[])
+    }, [])
 
     const [registerCenter, setRegisterCenter] = useState({
         user: '',
         password: '',
         regionName: '',
         name: '',
-        forgotPassword:false,
-        refreshToken:"U2FsdGVkX1+jEJ1MjFdI6Uf2QoAvW"
+        forgotPassword: false,
+        refreshToken: "U2FsdGVkX1+jEJ1MjFdI6Uf2QoAvW"
     });
     const warningfill = () => {
         messageApi.open({
-          type: 'warning',
-          content: 'Hãy điền đầy đủ thông tin yêu cầu',
+            type: 'warning',
+            content: 'Hãy điền đầy đủ thông tin yêu cầu',
         });
-      };
+    };
     const warningcheck = () => {
         messageApi.open({
-          type: 'warning',
-          content: 'Hãy xem lại mật khẩu',
+            type: 'warning',
+            content: 'Hãy xem lại mật khẩu',
         });
-      };
-      const warningprovince= () => {
+    };
+    const warningprovince = () => {
         messageApi.open({
-          type: 'warning',
-          content: 'Hãy nhập đúng tên tỉnh',
+            type: 'warning',
+            content: 'Hãy nhập đúng tên tỉnh',
         });
-      };
-      const warningcondition = () => {
+    };
+    const warningcondition = () => {
         messageApi.open({
-          type: 'warning',
-          content: 'Mật khâủ ngắn nhất 6 kí tự',
+            type: 'warning',
+            content: 'Mật khâủ ngắn nhất 6 kí tự',
         });
-      };
-      const key = 'updatable';
-      const openMessage = () => {
+    };
+    const key = 'updatable';
+    const openMessage = () => {
         messageApi.open({
-          key,
-          type: 'loading',
-          content: 'Loading...',
+            key,
+            type: 'loading',
+            content: 'Loading...',
         });
         setTimeout(() => {
-          messageApi.open({
-            key,
-            type: 'success',
-            content: 'Loaded!',
-            duration: 2,
-          });
+            messageApi.open({
+                key,
+                type: 'success',
+                content: 'Loaded!',
+                duration: 2,
+            });
         }, 500);
-      };
+    };
 
-      
-      const duplicater = () => {
+
+    const duplicater = () => {
         messageApi.open({
-          type: 'error',
-          content: 'Tài khoản hoặc tên trung tâm đã được sử dụng',
+            type: 'error',
+            content: 'Tài khoản hoặc tên trung tâm đã được sử dụng',
         });
-      };
+    };
     const handleChange = (e) => {
         const { name, value } = e.target;
-        if(name=="") return;
+        if (name == "") return;
         setRegisterCenter({ ...registerCenter, [name]: value });
     };
 
@@ -165,33 +168,36 @@ function RegisterCenter() {
             .split(' ')
             .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
             .join(' ');
-        if(e.target.name=="name") checkName(e);
-        if(e.target.name=="regionName") checkProvince(e);
+        if (e.target.name == "name") checkName(e);
+        if (e.target.name == "regionName") checkProvince(e);
     };
-    const checkName=(e)=>{
-        const check=e.target.value.toLowerCase();
-        const res= listCenter.filter((center)=> {  
-            return center.name.toLowerCase()==check})
-        if(res.length>0) duplicater();
+    const checkName = (e) => {
+        const check = e.target.value.toLowerCase();
+        const res = listCenter.filter((center) => {
+            return center.name.toLowerCase() == check
+        })
+        if (res.length > 0) duplicater();
         else return;
     }
-    const checkProvince=(e)=>{
-        const check=e.target.value.toLowerCase();
-        const res= provinces.filter((province)=> {  
-            return province.toLowerCase()==check})
-        if(res.length>0) return;
+    const checkProvince = (e) => {
+        const check = e.target.value.toLowerCase();
+        const res = provinces.filter((province) => {
+            return province.toLowerCase() == check
+        })
+        if (res.length > 0) return;
         else warningprovince();
     }
-    const handleCheckDulplicate=(e)=>{
-        const check=e.target.value.toLowerCase();
-        const res= listCenter.filter((center)=> {  
-            return center.user.toLowerCase()==check})
-        if(res.length>0) duplicater();
+    const handleCheckDulplicate = (e) => {
+        const check = e.target.value.toLowerCase();
+        const res = listCenter.filter((center) => {
+            return center.user.toLowerCase() == check
+        })
+        if (res.length > 0) duplicater();
         else return;
     }
     const handleBack = () => {
-        setStatus({...status,status:'unsent'});
-       
+        setStatus({ ...status, status: 'unsent' });
+
     };
 
     const handleSubmit = async (e) => {
@@ -219,7 +225,7 @@ function RegisterCenter() {
         if (inputs[2].value != inputs[3].value) {
             warningcheck()
             return;
-        } 
+        }
         else {
             inputs.forEach((input) => {
                 input.value = '';
@@ -227,101 +233,103 @@ function RegisterCenter() {
             openMessage();
             console.log(registerCenter);
             const respone = await API.createCenter("cucDangKiem/:user/center",
-                {user:user },
-                {...registerCenter}
+                { user: user },
+                { ...registerCenter }
             );
             console.log(respone)
-            if(respone?.success!=undefined)
-            setStatus({status,status:"success"})
-            else setStatus({status,status:"failure"})
-            
+            if (respone?.success != undefined)
+                setStatus({ status, status: "success" })
+            else setStatus({ status, status: "failure" })
+
         }
 
     };
+
+    const textFieldStyle = {
+        width: '100%',
+        marginTop: 2,
+        marginBottom: 2
+    }
     const renderForm = () => {
         // console.log(status.status=="unsent")
         if (status.status == 'unsent')
             return (
                 <div className={cx('container')}>
                     <form className={cx('form')}>
-                        <div className={cx('title-signup')}>Đăng kí trung tâm</div>
+                        <Typography variant='h3' sx={{ marginBottom: 3 }}>
+                            Thêm trung tâm
+                        </Typography>
                         <div className={cx('signup-form')}>
                             <div className={cx('signup-div')}>
-                                <p>{formtext.title1.title}</p>
-                                <input
+                                <TextField
                                     type="text"
-                                    className={cx('input')}
-                                    placeholder={formtext.title1.sub}
+                                    label={formtext.title1.title}
                                     name="name"
                                     onChange={handleChange}
                                     onBlur={handleStandardized}
                                     required
-                                ></input>
+                                    sx={textFieldStyle}
+                                ></TextField>
                             </div>
                             <div className={cx('signup-div')}>
-                                <p>{formtext.title2.title}</p>
-                                <input
+                                <TextField
                                     type="text"
-                                    className={cx('input')}
-                                    placeholder={formtext.title2.sub}
+                                    label={formtext.title2.title}
                                     name="user"
                                     onBlur={handleCheckDulplicate}
                                     onChange={handleChange}
                                     required
-                                ></input>
+                                    sx={textFieldStyle}
+                                ></TextField>
                             </div>
                         </div>
                         <div className={cx('signup-form')}>
                             <div className={cx('signup-div')}>
-                                <p>{formtext.title3.title}</p>
-                                <input
+                                <TextField
                                     type="password"
-                                    className={cx('input')}
-                                    placeholder={formtext.title3.sub}
+                                    label={formtext.title3.title}
                                     name="password"
                                     onChange={handleChange}
                                     required
-                                ></input>
+                                    sx={textFieldStyle}
+                                ></TextField>
                             </div>
                             <div className={cx('signup-div')}>
-                                <p>{formtext.title4.title}</p>
-                                <input
+                                <TextField
                                     type="password"
-                                    className={cx('input')}
-                                    placeholder={formtext.title4.sub}
+                                    label={formtext.title4.title}
                                     onChange={handleChange}
                                     required
-                                ></input>
+                                    sx={textFieldStyle}
+                                ></TextField>
                             </div>
                         </div>
                         <div className={cx('signup-form')}>
                             <div className={cx('signup-div')}>
-                                <p>{formtext.title5.title}</p>
-                                <input
+                                <TextField
                                     type="text"
-                                    className={cx('input')}
                                     name="regionName"
-                                    placeholder={formtext.title5.sub}
+                                    label={formtext.title5.title}
                                     onChange={handleChange}
                                     onBlur={handleStandardized}
                                     required
-                                ></input>
+                                    sx={textFieldStyle}
+                                ></TextField>
                             </div>
                             <div className={cx('signup-div')}>
-                                <p>{formtext.title6.title}</p>
-                                <input
+                                <TextField
                                     type="text"
-                                    className={cx('input')}
-                                    placeholder={formtext.title6.sub}
+                                    label={formtext.title6.title}
                                     onChange={handleChange}
                                     required
-                                ></input>
+                                    sx={textFieldStyle}
+                                ></TextField>
                             </div>
                         </div>
                         <div className={cx('signup-form')}>
-                            <div className={cx('submit')} onClick={handleSubmit}>
-                                Xác Nhận
-                            </div>
+                            <Button color='primary' onClick={handleSubmit} variant='contained'
+                                sx={{ width: '150px', marginTop: 3 }}
+                            >Xác nhận</Button>
                         </div>
                     </form>
                 </div>
@@ -332,13 +340,24 @@ function RegisterCenter() {
     const renderSucess = () => {
         if (status.status == 'success')
             return (
-                <div className={cx('container', 'success', 'respone')}>
-                    <div className={cx('title')}>Thành Công</div>
-                    <div className={cx('content')}>{`Đã Đăng kí thành công Trung tâm  ${registerCenter?.name}`}</div>
-                    <div className={cx('button')} onClick={handleBack}>
-                        Quay lại
+                <div>
+                    <img src={successGif} alt="gif" style={{
+                        width: 500,
+                        display: 'block',
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                        marginTop: 50,
+                        marginBottom: 10
+                    }} />
+                    <Typography variant="h5" color="primary" sx={{
+                        textAlign: "center"
+                    }}>
+                        {`Đã Đăng kí thành công ${registerCenter?.name}`}
+                    </Typography>
+                    <Button onClick={handleBack} variant='contained' 
+                    sx={{width: '150px', textAlign: 'center', dislay: 'block', marign: '0 auto'}}
+                    >Quay lại</Button>
                     </div>
-                </div>
             );
         else return null;
     };
@@ -346,16 +365,27 @@ function RegisterCenter() {
         if (status.status == 'failure')
             return (
                 <div className={cx('container', 'failure', 'respone')}>
-                    <div className={cx('title')}>Có lỗi đã xảy ra</div>
-                    <div className={cx('content')}>{`Đã không thể Đăng kí thành công ${registerCenter?.name}`}</div>
-                    <div className={cx('button')} onClick={handleBack}>
-                        Quay lại
-                    </div>
+                    <img src={failGif} alt="gif" style={{
+                        width: 500,
+                        display: 'block',
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                        marginTop: 50,
+                    }} />
+                    <Typography variant="h5" color="primary" sx={{
+                        textAlign: "center"
+                    }}>
+                        {`Không thể đăng ký ${registerCenter?.name}`}
+                    </Typography>
+
+                    <Button onClick={handleBack} variant='contained' 
+                    sx={{width: '150px', textAlign: 'center', dislay: 'block', marign: '0 auto'}}
+                    >Quay lại</Button>
                 </div>
             );
         else return null;
     };
-    
+
     return (
         <div className={cx('wrapper')}>
             {contextHolder}
