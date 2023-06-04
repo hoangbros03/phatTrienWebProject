@@ -1258,3 +1258,11 @@
 {"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"05-06-2023 00:26:52"}
 {"component":"user-service","level":"info","message":"New center created: {\n  name: 'Trung tâm 99Test',\n  user: '99test',\n  password: '$2b$10$XJZJJ9zPO64LpUV5amF6IOPz1vosOJmRsLk3NHSrx2pBsrJjrUKZu',\n  regionName: 'Bắc Ninh',\n  active: true,\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"647cd14c2289b0a927e1de52\"),\n  __v: 0\n}","timestamp":"05-06-2023 01:00:44"}
 {"component":"user-service","level":"info","message":"New center created: {\n  name: 'Test 2',\n  user: 'Test TTĐK',\n  password: '$2b$10$EFzvZsSoSJWUGP2yHwSggOUBvmEM/xZjlVxV.I7a6zkTAoM4.b.im',\n  regionName: 'Bắc Ninh',\n  active: true,\n  forgotPassword: false,\n  refreshToken: '',\n  _id: new ObjectId(\"647cd5da2289b0a927e1de60\"),\n  __v: 0\n}","timestamp":"05-06-2023 01:20:10"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 01:28:19"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 01:28:19"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"05-06-2023 01:28:25"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"05-06-2023 01:28:26"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 01:32:03"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 01:32:03"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 01:36:54"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 01:36:54"}

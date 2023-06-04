@@ -1,5 +1,5 @@
 import './HeaderBar.scss';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import navLogo from '../../assets/images/Logo.png';
 import { DownOutlined, SmileOutlined, UserOutlined } from '@ant-design/icons';
 //set local set
@@ -179,22 +179,35 @@ function HeaderBar() {
                             marginRight: 40,
                             marginLeft: 100
                         }}></img>
-                        <Button variant="text" href="/">Trang chủ</Button>
-                        <Button variant="text" href="/about">Giới thiệu</Button>
-                        <Button variant="text" href="/contact">Liên hệ</Button>
+
+                        <Link to="/">
+                            <Button variant="text">Trang chủ</Button>
+                        </Link>
+
+                        <Link to="/about">
+                            <Button variant="text">Giới thiệu</Button>
+                        </Link>
+
+                        <Link to="/contact">
+                            <Button variant="text">Liên hệ</Button>
+                        </Link>
                     </Toolbar>
                 )}
 
                 {!loggedIn.user && !loggedIn.loggedIn ? (
-                    <Button variant="contained" href="/login" sx={{
-                        borderRadius: '5px',
-                        mx: 10
-                    }}>Đăng nhập</Button>
+                    <Link to="/login">
+                        <Button variant="contained" sx={{
+                            borderRadius: '5px',
+                            mx: 10
+                        }}>Đăng nhập</Button>
+                    </Link>
                 ) : (
-                    <Button variant="contained" onClick={handleLogout} href="/login" sx={{
-                        borderRadius: '5px',
-                        mx: 10
-                    }}>Đăng xuất</Button>
+                    <Link to="/login">
+                        <Button variant="text" onClick={handleLogout} href="/login" sx={{
+                            borderRadius: '5px',
+                            mx: 10
+                        }}>Đăng xuất</Button>
+                    </Link>
                 )}
             </Stack>
         </Box>
