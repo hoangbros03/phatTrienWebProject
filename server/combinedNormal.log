@@ -1266,3 +1266,21 @@
 {"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 01:32:03"}
 {"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 01:36:54"}
 {"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 01:36:54"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 01:37:51"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 01:37:51"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"05-06-2023 01:37:56"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"05-06-2023 01:37:57"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 12:35:38"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 12:35:38"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"05-06-2023 12:35:44"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"05-06-2023 12:35:45"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 13:39:15"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 13:39:15"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"05-06-2023 13:39:22"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"05-06-2023 13:39:22"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 15:02:07"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 15:02:07"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"05-06-2023 15:02:12"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"05-06-2023 15:02:13"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 15:34:18"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 15:34:18"}

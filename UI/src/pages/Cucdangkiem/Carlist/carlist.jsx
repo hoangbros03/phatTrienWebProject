@@ -3,13 +3,13 @@ import styles from './carlist.module.scss';
 import classNames from 'classnames/bind';
 import BarStatistic from '~/components/BarStatistic/BarStatistic';
 import { useEffect, useState } from 'react';
-import Button from '~/components/Button';
 import ButtonSearch from '~/components/ButtonSearch';
 import Pagination from '../../../components/Pagination/Pagination';
 import RegisterDetail from '~/components/RegisterDetail/RegisterDetail';
 import * as API from '~/services/searchService';
 import { useParams } from 'react-router-dom';
 import { message } from 'antd';
+import { Autocomplete, Stack, TextField, Button, Paper, Typography } from '@mui/material';
 
 const cx = classNames.bind(styles);
 function CarList() {
@@ -30,7 +30,7 @@ function CarList() {
     const quarter = ['All', '1', '2', '3', '4'];
     const [month, setMonth] = useState(['All', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']);
     const type = ['Đã đăng kiểm', 'Sắp đến hạn', 'Dự đoán'];
-    const carType = ['All', 'Xe tải', 'Xe con'];
+    const carType = ['All', 'Xe tải', 'Xe con', 'Xe khách', 'Xe bán tải', 'Xe dịch vụ'];
     const province = [
         'All',
         'Hà Nội',
@@ -197,18 +197,17 @@ function CarList() {
         let result = await API.handleFileDownload(`trungTamDangKiem/${user}/databaseManagement/export`, { ...object });
     };
 
+    const renderOption = (option) => (
+        <div style={{ width: '100%' }}>{option}</div>
+    );
     return (
         <>
             {contextHolder}
 
             <div className={cx('wrapper')}>
                 <div className={cx('container')}>
-                    <div className={cx('navbar')}>
-                        <BarStatistic>
-                            <ButtonSearch bar data={carType} type_="carType" onClick={HandlerChange}>
-                                Kiểu Xe
-                            </ButtonSearch>
-                        </BarStatistic>
+                    {/* <div>
+                            <Autocomplete options={carType} onChangeCapture={HandlerChange}/>
                         <BarStatistic>
                             <ButtonSearch bar data={type} type_="type" onClick={HandlerChange}>
                                 Tùy Chọn
@@ -244,12 +243,75 @@ function CarList() {
                                 Xuất File
                             </Button>
                         </BarStatistic>
+                    </div> */}
+
+                    <div>
+                        <Stack direction='row' spacing={2}>
+                            <Autocomplete
+                                disablePortal
+                                type_="type"
+                                options={carType}
+                                onChange={HandlerChange}
+                                sx={{ width: 150 }}
+                                renderInput={(params) => <TextField {...params} label="Loại xe" />}
+                            />
+
+                            <Autocomplete
+                                disablePortal
+                                type_="year"
+                                options={years}
+                                onChange={HandlerChange}
+                                sx={{ width: 130 }}
+                                renderInput={(params) => <TextField {...params} label="Năm" />} 
+                            />
+
+                            <Autocomplete
+                                disablePortal
+                                type_="month"
+                                options={month}
+                                onChange={HandlerChange}
+                                sx={{ width: 130 }}
+                                renderInput={(params) => <TextField {...params} label="Tháng" />}
+                            />
+
+                            <Autocomplete
+                                disablePortal
+                                type_="province"
+                                options={province}
+                                onChange={HandlerChange}
+                                sx={{ width: 150 }}
+                                renderInput={(params) => <TextField {...params} label="Tỉnh" />}
+                            />
+
+                            <Autocomplete
+                                disablePortal
+                                type_="ttdk"
+                                options={ttdk}
+                                onChange={HandlerChange}
+                                sx={{ width: 150 }}
+                                renderInput={(params) => <TextField {...params} label="Trung tâm" />}
+                            />
+
+                            <Button variant="contained" onClick={HandleSearch}>
+                                Tìm kiếm
+                            </Button>
+
+                            <Button variant="outlined" onClick={handleExport}>
+                                Xuất file
+                            </Button>
+                        </Stack>
                     </div>
+
                     <div className={cx('content')}>
                         <aside className={cx('aside')}>
                             <div className={cx('header')}>
-                                <p>Biển số</p>
-                                <p>Chủ sở Hữu</p>
+                                <Typography variant='subtitle1'>
+                                    Biển số
+                                </Typography>
+
+                                <Typography variant='subtitle1'>
+                                    Chủ sở hữu
+                                </Typography>
                             </div>
                             {currentPosts.map((car, index) => {
                                 return (
@@ -258,8 +320,13 @@ function CarList() {
                                         className={cx('cardisplay')}
                                         onClick={() => handleDisplayDetail(car.licensePlate, car._id)}
                                     >
-                                        <p>{car.licensePlate}</p>
-                                        <p>{car.ownerName}</p>
+                                        <Typography>
+                                        {car.licensePlate}
+                                        </Typography>
+
+                                        <Typography>
+                                        {car.ownerName}
+                                        </Typography>
                                     </div>
                                 );
                             })}
