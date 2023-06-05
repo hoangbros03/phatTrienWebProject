@@ -1,6 +1,6 @@
 const fs = require('fs-extra');
 const fetch = require("node-fetch");
-fs.readFile('../generate_data/ttdk_result.json', 'utf8', (err, data) => {
+fs.readFile('../generate_data/result.json', 'utf8', (err, data) => {
   if (err) {
     console.error('Error reading file:', err);
     return;
@@ -9,7 +9,7 @@ fs.readFile('../generate_data/ttdk_result.json', 'utf8', (err, data) => {
 
   // console.log(obj.centers[0]);
 //   const url = 'http://localhost:3500/trungTamDangKiem/admin/databaseManagement/import';
-    const url = 'http://localhost:3500/cucDangKiem/admin/center/upload';
+    const url = 'http://localhost:3500/trungTamDangKiem/admin/databaseManagement/import';
    
     
   fetch(url, {
