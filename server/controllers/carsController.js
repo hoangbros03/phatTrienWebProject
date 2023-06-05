@@ -860,6 +860,9 @@ const uploadDB = async (req, res) => {
     var carUploadedCount = 0;
     var missRegistryRegistration = 0;
     for (let i = 0; i < req.body.status.length; i++) {
+      if (i%1000 ==0){
+        console.log(`Imported ${i}/${req.body.status.length} cars`)
+      }
       var forceCountinue = false;
       //make variable shorter
       var currentCar = req.body.status[i];

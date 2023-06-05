@@ -25,6 +25,7 @@ const corsOptions = require('./config/corsOptions');
 const connectDB = require('./config/dbConn');
 const credentials = require('./middleware/credentials');
 const errorHandler=require('./middleware/errorHandler');
+
 // const port = 3500;
 connectDB();
 app.enable('proxy')
