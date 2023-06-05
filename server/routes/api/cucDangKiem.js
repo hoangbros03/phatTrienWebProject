@@ -6,7 +6,7 @@ const ROLES_LIST = require('../../config/roles_list');
 const verifyRoles = require('../../middleware/verifyRoles');
 const verifyJWT = require('../../middleware/verifyJWT')
 
-router.use(verifyJWT)
+// router.use(verifyJWT)
 //TODO: Add verify roles add other API, currently just for testing purpose.
 router.route('/:user/center')
     .post(centerController.createNewCenter);

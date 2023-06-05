@@ -860,6 +860,9 @@ const uploadDB = async (req, res) => {
     var carUploadedCount = 0;
     var missRegistryRegistration = 0;
     for (let i = 0; i < req.body.status.length; i++) {
+      if (i%1000 ==0){
+        console.log(`Imported ${i}/${req.body.status.length} cars`)
+      }
       var forceCountinue = false;
       //make variable shorter
       var currentCar = req.body.status[i];
@@ -968,6 +971,7 @@ const uploadDB = async (req, res) => {
           false,
           true
         );
+        
         //check status code
         if (statusCode == 200) console.log("create car succes");
         else {
@@ -977,12 +981,17 @@ const uploadDB = async (req, res) => {
           continue;
         }
       }
+
       //check if history Reg Infor is an array
       if (!Array.isArray(currentCar.historyRegistrationInformation)) {
         logger.info(
           "historyRegistrationInformation is not an array! continuting..."
         );
         continue;
+      }
+      if (currentCar.historyRegistrationInformation.length >0){
+        // remove the 2 week temparate reginfo
+        await registrationInformation.deleteOne({ownerName: currentCar.carOwner.name}).then(()=>{console.log("delete reg info ok")}).catch((err)=>{console.log("An error happened")});
       }
       var dateOfIssue_to_add = new Date("01/01/1970").toISOString();
       //loop through history information

@@ -3,3 +3,7 @@ server/package-lock.json
 server/.env
 server/combinedError.log
 server/combinedNormal.log
+__pycache__/
+node_modules/
+generate_data/ttdk_result.json
+generate_data/result.json

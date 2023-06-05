@@ -1,0 +1,322 @@
+[
+    {
+        "regionName": "Cao Bằng",
+        "regionNumber": 11
+    },
+    {
+        "regionName": "Lạng Sơn",
+        "regionNumber": 12
+    },
+    {
+        "regionName": "Quảng Ninh",
+        "regionNumber": 14
+    },
+    {
+        "regionName": "Hải Phòng",
+        "regionNumber": 15
+    },
+    {
+        "regionName": "Hải Phòng",
+        "regionNumber": 16
+    },
+    {
+        "regionName": "Thái Bình",
+        "regionNumber": 17
+    },
+    {
+        "regionName": "Nam Định",
+        "regionNumber": 18
+    },
+    {
+        "regionName": "Phú Thọ",
+        "regionNumber": 19
+    },
+    {
+        "regionName": "Thái Nguyên",
+        "regionNumber": 20
+    },
+    {
+        "regionName": "Yên Bái",
+        "regionNumber": 21
+    },
+    {
+        "regionName": "Tuyên Quang",
+        "regionNumber": 22
+    },
+    {
+        "regionName": "Hà Giang",
+        "regionNumber": 23
+    },
+    {
+        "regionName": "Lào Cai",
+        "regionNumber": 24
+    },
+    {
+        "regionName": "Lai Châu",
+        "regionNumber": 25
+    },
+    {
+        "regionName": "Sơn La",
+        "regionNumber": 26
+    },
+    {
+        "regionName": "Điện Biên",
+        "regionNumber": 27
+    },
+    {
+        "regionName": "Hòa Bình",
+        "regionNumber": 28
+    },
+    {
+        "regionName": "Hà Nội",
+        "regionNumber": 29
+    },
+    {
+        "regionName": "Hà Nội",
+        "regionNumber": 30
+    },
+    {
+        "regionName": "Hà Nội",
+        "regionNumber": 31
+    },
+    {
+        "regionName": "Hà Nội",
+        "regionNumber": 32
+    },
+    {
+        "regionName": "Hà Nội",
+        "regionNumber": 33
+    },
+    {
+        "regionName": "Hà Nội",
+        "regionNumber": 40
+    },
+    {
+        "regionName": "Hải Dương",
+        "regionNumber": 34
+    },
+    {
+        "regionName": "Ninh Bình",
+        "regionNumber": 35
+    },
+    {
+        "regionName": "Thanh Hóa",
+        "regionNumber": 36
+    },
+    {
+        "regionName": "Nghệ An",
+        "regionNumber": 37
+    },
+    {
+        "regionName": "Hà Tĩnh",
+        "regionNumber": 38
+    },
+    {
+        "regionName": "Đà Nẵng",
+        "regionNumber": 43
+    },
+    {
+        "regionName": "Đắk Lắk",
+        "regionNumber": 47
+    },
+    {
+        "regionName": "Đắk Nông",
+        "regionNumber": 48
+    },
+    {
+        "regionName": "Lâm Đồng",
+        "regionNumber": 49
+    },
+    {
+        "regionName": "Thành Phố Hồ Chí Minh",
+        "regionNumber": 41
+    },
+    {
+        "regionName": "Thành Phố Hồ Chí Minh",
+        "regionNumber": 50
+    },
+    {
+        "regionName": "Thành Phố Hồ Chí Minh",
+        "regionNumber": 51
+    },
+    {
+        "regionName": "Thành Phố Hồ Chí Minh",
+        "regionNumber": 52
+    },
+    {
+        "regionName": "Thành Phố Hồ Chí Minh",
+        "regionNumber": 53
+    },
+    {
+        "regionName": "Thành Phố Hồ Chí Minh",
+        "regionNumber": 54
+    },
+    {
+        "regionName": "Thành Phố Hồ Chí Minh",
+        "regionNumber": 55
+    },
+    {
+        "regionName": "Thành Phố Hồ Chí Minh",
+        "regionNumber": 56
+    },
+    {
+        "regionName": "Thành Phố Hồ Chí Minh",
+        "regionNumber": 57
+    },
+    {
+        "regionName": "Thành Phố Hồ Chí Minh",
+        "regionNumber": 58
+    },
+    {
+        "regionName": "Thành Phố Hồ Chí Minh",
+        "regionNumber": 59
+    },
+    {
+        "regionName": "Long An",
+        "regionNumber": 62
+    },
+    {
+        "regionName": "Tiền Giang",
+        "regionNumber": 63
+    },
+    {
+        "regionName": "Vĩnh Long",
+        "regionNumber": 64
+    },
+    {
+        "regionName": "Cần Thơ",
+        "regionNumber": 65
+    },
+    {
+        "regionName": "Đồng Tháp",
+        "regionNumber": 66
+    },
+    {
+        "regionName": "An Giang",
+        "regionNumber": 67
+    },
+    {
+        "regionName": "Kiên Giang",
+        "regionNumber": 68
+    },
+    {
+        "regionName": "Cà Mau",
+        "regionNumber": 69
+    },
+    {
+        "regionName": "Tây Ninh",
+        "regionNumber": 70
+    },
+    {
+        "regionName": "Bến Tre",
+        "regionNumber": 71
+    },
+    {
+        "regionName": "Bà Rịa - Vũng Tàu",
+        "regionNumber": 72
+    },
+    {
+        "regionName": "Quảng Bình",
+        "regionNumber": 73
+    },
+    {
+        "regionName": "Quảng Trị",
+        "regionNumber": 74
+    },
+    {
+        "regionName": "Thừa Thiên Huế",
+        "regionNumber": 75
+    },
+    {
+        "regionName": "Quảng Ngãi",
+        "regionNumber": 76
+    },
+    {
+        "regionName": "Bình Định",
+        "regionNumber": 77
+    },
+    {
+        "regionName": "Phú Yên",
+        "regionNumber": 78
+    },
+    {
+        "regionName": "Khánh Hòa",
+        "regionNumber": 79
+    },
+    {
+        "regionName": "Gia Lai",
+        "regionNumber": 81
+    },
+    {
+        "regionName": "Kon Tum",
+        "regionNumber": 82
+    },
+    {
+        "regionName": "Sóc Trăng",
+        "regionNumber": 83
+    },
+    {
+        "regionName": "Trà Vinh",
+        "regionNumber": 84
+    },
+    {
+        "regionName": "Ninh Thuận",
+        "regionNumber": 85
+    },
+    {
+        "regionName": "Bình Thuận",
+        "regionNumber": 86
+    },
+    {
+        "regionName": "Vĩnh Phúc",
+        "regionNumber": 88
+    },
+    {
+        "regionName": "Hưng Yên",
+        "regionNumber": 89
+    },
+    {
+        "regionName": "Hà Nam",
+        "regionNumber": 90
+    },
+    {
+        "regionName": "Quảng Nam",
+        "regionNumber": 92
+    },
+    {
+        "regionName": "Bình Phước",
+        "regionNumber": 93
+    },
+    {
+        "regionName": "Bạc Liêu",
+        "regionNumber": 94
+    },
+    {
+        "regionName": "Hậu Giang",
+        "regionNumber": 95
+    },
+    {
+        "regionName": "Bắc Kạn",
+        "regionNumber": 97
+    },
+    {
+        "regionName": "Bắc Giang",
+        "regionNumber": 98
+    },
+    {
+        "regionName": "Bắc Ninh",
+        "regionNumber": 99
+    },
+    {
+        "regionName": "Đồng Nai",
+        "regionNumber": 39
+    },
+    {
+        "regionName": "Đồng Nai",
+        "regionNumber": 60
+    },
+    {
+        "regionName": "Bình Dương",
+        "regionNumber": 61
+    }
+]
