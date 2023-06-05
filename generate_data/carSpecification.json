@@ -1,0 +1,532 @@
+[
+    {
+        "name": "Civic",
+        "version": "Sport",
+        "type": "Car",
+        "producer": "Honda",
+        "numberOfSeats": 5,
+        "width": 5,
+        "height": 4,
+        "power": 174
+    },
+    {
+        "name": "Accord",
+        "version": "Touring",
+        "type": "Car",
+        "producer": "Honda",
+        "numberOfSeats": 5,
+        "width": 6,
+        "height": 5,
+        "power": 252
+    },
+    {
+        "name": "F-150",
+        "version": "Lariat",
+        "type": "Truck",
+        "producer": "Ford",
+        "numberOfSeats": 6,
+        "width": 7,
+        "height": 6,
+        "power": 395
+    },
+    {
+        "name": "Camry",
+        "version": "XSE",
+        "type": "Car",
+        "producer": "Toyota",
+        "numberOfSeats": 5,
+        "width": 6,
+        "height": 5,
+        "power": 206
+    },
+    {
+        "name": "Tundra",
+        "version": "SR5",
+        "type": "Truck",
+        "producer": "Toyota",
+        "numberOfSeats": 6,
+        "width": 8,
+        "height": 6,
+        "power": 381
+    },
+    {
+        "name": "Challenger",
+        "version": "R/T",
+        "type": "Car",
+        "producer": "Dodge",
+        "numberOfSeats": 5,
+        "width": 6,
+        "height": 4,
+        "power": 372
+    },
+    {
+        "name": "Charger",
+        "version": "SRT Hellcat",
+        "type": "Car",
+        "producer": "Dodge",
+        "numberOfSeats": 5,
+        "width": 6,
+        "height": 4,
+        "power": 707
+    },
+    {
+        "name": "Fusion",
+        "version": "SE",
+        "type": "Car",
+        "producer": "Ford",
+        "numberOfSeats": 5,
+        "width": 6,
+        "height": 5,
+        "power": 181
+    },
+    {
+        "name": "Escape",
+        "version": "SEL",
+        "type": "Car",
+        "producer": "Ford",
+        "numberOfSeats": 5,
+        "width": 6,
+        "height": 5,
+        "power": 250
+    },
+    {
+        "name": "Silverado",
+        "version": "LT",
+        "type": "Truck",
+        "producer": "Chevrolet",
+        "numberOfSeats": 6,
+        "width": 7,
+        "height": 6,
+        "power": 285
+    },
+    {
+        "name": "Equinox",
+        "version": "LS",
+        "type": "Car",
+        "producer": "Chevrolet",
+        "numberOfSeats": 5,
+        "width": 6,
+        "height": 5,
+        "power": 170
+    },
+    {
+        "name": "Corolla",
+        "version": "SE",
+        "type": "Car",
+        "producer": "Toyota",
+        "numberOfSeats": 5,
+        "width": 6,
+        "height": 4,
+        "power": 169
+    },
+    {
+        "name": "RAV4",
+        "version": "XLE",
+        "type": "Car",
+        "producer": "Toyota",
+        "numberOfSeats": 5,
+        "width": 6,
+        "height": 5,
+        "power": 203
+    },
+    {
+        "name": "Tacoma",
+        "version": "TRD Off-Road",
+        "type": "Truck",
+        "producer": "Toyota",
+        "numberOfSeats": 5,
+        "width": 6,
+        "height": 6,
+        "power": 278
+    },
+    {
+        "name": "Wrangler",
+        "version": "Rubicon",
+        "type": "Car",
+        "producer": "Jeep",
+        "numberOfSeats": 4,
+        "width": 6,
+        "height": 6,
+        "power": 285
+    },
+    {
+        "name": "Grand Cherokee",
+        "version": "Overland",
+        "type": "Car",
+        "producer": "Jeep",
+        "numberOfSeats": 5,
+        "width": 6,
+        "height": 6,
+        "power": 293
+    },
+    {
+        "name": "Renegade",
+        "version": "Latitude",
+        "type": "Car",
+        "producer": "Jeep",
+        "numberOfSeats": 5,
+        "width": 6,
+        "height": 5,
+        "power": 177
+    },
+    {
+        "name": "Model S",
+        "version": "Long Range",
+        "type": "Car",
+        "producer": "Tesla",
+        "numberOfSeats": 5,
+        "width": 7,
+        "height": 4,
+        "power": 670
+    },
+    {
+        "name": "Model X",
+        "version": "Performance",
+        "type": "Car",
+        "producer": "Tesla",
+        "numberOfSeats": 7,
+        "width": 7,
+        "height": 6,
+        "power": 1020
+    },
+    {
+        "name": "Model Y",
+        "version": "LR",
+        "type": "Car",
+        "producer": "Tesla",
+        "numberOfSeats": 5,
+        "width": 7,
+        "height": 6,
+        "power": 384
+    },
+    {
+        "name": "Model 3",
+        "version": "Standard Range Plus",
+        "type": "Car",
+        "producer": "Tesla",
+        "numberOfSeats": 5,
+        "width": 7,
+        "height": 4,
+        "power": 263
+    },
+    {
+        "name": "Impala",
+        "version": "LT",
+        "type": "Car",
+        "producer": "Chevrolet",
+        "numberOfSeats": 5,
+        "width": 6,
+        "height": 5,
+        "power": 305
+    },
+    {
+        "name": "Silverado 1500",
+        "version": "LT Trail Boss",
+        "type": "Truck",
+        "producer": "Chevrolet",
+        "numberOfSeats": 5,
+        "width": 7,
+        "height": 6,
+        "power": 355
+    },
+    {
+        "name": "Colorado",
+        "version": "ZR2",
+        "type": "Truck",
+        "producer": "Chevrolet",
+        "numberOfSeats": 5,
+        "width": 6,
+        "height": 6,
+        "power": 308
+    },
+    {
+        "name": "Camaro",
+        "version": "SS",
+        "type": "Car",
+        "producer": "Chevrolet",
+        "numberOfSeats": 4,
+        "width": 6,
+        "height": 4,
+        "power": 455
+    },
+    {
+        "name": "F-150",
+        "version": "Platinum",
+        "type": "Truck",
+        "producer": "Ford",
+        "numberOfSeats": 5,
+        "width": 7,
+        "height": 6,
+        "power": 400
+    },
+    {
+        "name": "Mustang",
+        "version": "GT",
+        "type": "Car",
+        "producer": "Ford",
+        "numberOfSeats": 4,
+        "width": 6,
+        "height": 4,
+        "power": 460
+    },
+    {
+        "name": "Ranger",
+        "version": "Lariat",
+        "type": "Truck",
+        "producer": "Ford",
+        "numberOfSeats": 5,
+        "width": 6,
+        "height": 6,
+        "power": 270
+    },
+    {
+        "name": "Explorer",
+        "version": "ST",
+        "type": "Car",
+        "producer": "Ford",
+        "numberOfSeats": 7,
+        "width": 7,
+        "height": 6,
+        "power": 400
+    },
+    {
+        "name": "Escape",
+        "version": "Titanium",
+        "type": "Car",
+        "producer": "Ford",
+        "numberOfSeats": 5,
+        "width": 6,
+        "height": 5,
+        "power": 250
+    },
+    {
+        "name": "Civic",
+        "version": "Type R",
+        "type": "Car",
+        "producer": "Honda",
+        "numberOfSeats": 4,
+        "width": 6,
+        "height": 4,
+        "power": 306
+    },
+    {
+        "name": "Accord",
+        "version": "Sport",
+        "type": "Car",
+        "producer": "Honda",
+        "numberOfSeats": 5,
+        "width": 6,
+        "height": 5,
+        "power": 252
+    },
+    {
+        "name": "Pilot",
+        "version": "Touring",
+        "type": "Car",
+        "producer": "Honda",
+        "numberOfSeats": 7,
+        "width": 7,
+        "height": 6,
+        "power": 280
+    },
+{
+  "name": "F-150",
+  "version": "Lariat",
+  "type": "Pickup Truck",
+  "producer": "Ford",
+  "numberOfSeats": 5,
+  "width": 6,
+  "height": 6,
+  "power": 325
+},
+{
+  "name": "Tourliner",
+  "version": "Deluxe",
+  "type": "Coach",
+  "producer": "Mercedes-Benz",
+  "numberOfSeats": 40,
+  "width": 8,
+  "height": 12,
+  "power": 450
+},
+{
+  "name": "Prius",
+  "version": "Hybrid",
+  "type": "Other",
+  "producer": "Toyota",
+  "numberOfSeats": 5,
+  "width": 5,
+  "height": 4,
+  "power": 121
+},
+{
+  "name": "Bulldozer",
+  "version": "XL",
+  "type": "Specialized Vehicle",
+  "producer": "Caterpillar",
+  "numberOfSeats": 1,
+  "width": 10,
+  "height": 8,
+  "power": 350
+},
+{
+  "name": "Ram 1500",
+  "version": "Limited",
+  "type": "Pickup Truck",
+  "producer": "Ram",
+  "numberOfSeats": 5,
+  "width": 6,
+  "height": 6,
+  "power": 395
+},
+{
+  "name": "XC90",
+  "version": "Executive",
+  "type": "Coach",
+  "producer": "Volvo",
+  "numberOfSeats": 30,
+  "width": 7,
+  "height": 11,
+  "power": 316
+},
+{
+  "name": "Leaf",
+  "version": "Electric",
+  "type": "Other",
+  "producer": "Nissan",
+  "numberOfSeats": 5,
+  "width": 5,
+  "height": 4,
+  "power": 147
+},
+{
+  "name": "Fire Truck",
+  "version": "Rescue",
+  "type": "Specialized Vehicle",
+  "producer": "Pierce Manufacturing",
+  "numberOfSeats": 6,
+  "width": 8,
+  "height": 12,
+  "power": 600
+},
+{
+  "name": "Silverado 1500",
+  "version": "LTZ",
+  "type": "Pickup Truck",
+  "producer": "Chevrolet",
+  "numberOfSeats": 5,
+  "width": 6,
+  "height": 6,
+  "power": 355
+},
+{
+  "name": "Setra S 531 DT",
+  "version": "Luxury",
+  "type": "Coach",
+  "producer": "Setra",
+  "numberOfSeats": 45,
+  "width": 8,
+  "height": 13,
+  "power": 430
+},
+{
+  "name": "Crane Truck",
+  "version": "Heavy Lifter",
+  "type": "Specialized Vehicle",
+  "producer": "Liebherr",
+  "numberOfSeats": 2,
+  "width": 8,
+  "height": 12,
+  "power": 750
+},
+{
+  "name": "Kona Electric",
+  "version": "Ultimate",
+  "type": "Other",
+  "producer": "Hyundai",
+  "numberOfSeats": 5,
+  "width": 5,
+  "height": 4,
+  "power": 201
+},
+{
+  "name": "Traveller",
+  "version": "Premium",
+  "type": "Coach",
+  "producer": "Peugeot",
+  "numberOfSeats": 9,
+  "width": 7,
+  "height": 11,
+  "power": 177
+},
+{
+  "name": "Ranger",
+  "version": "XLT",
+  "type": "Pickup Truck",
+  "producer": "Ford",
+  "numberOfSeats": 5,
+  "width": 6,
+  "height": 6,
+  "power": 270
+},
+{
+  "name": "Dump Truck",
+  "version": "Heavy Duty",
+  "type": "Specialized Vehicle",
+  "producer": "Volvo",
+  "numberOfSeats": 2,
+  "width": 8,
+  "height": 12,
+  "power": 500
+},
+{
+  "name": "Prius Prime",
+  "version": "Plug-in Hybrid",
+  "type": "Other",
+  "producer": "Toyota",
+  "numberOfSeats": 5,
+  "width": 5,
+  "height": 4,
+  "power": 121
+},
+{
+  "name": "J4500",
+  "version": "Luxury Plus",
+  "type": "Coach",
+  "producer": "Motor Coach Industries",
+  "numberOfSeats": 56,
+  "width": 8,
+  "height": 12,
+  "power": 425
+},
+{
+  "name": "Tacoma",
+  "version": "TRD Pro",
+  "type": "Pickup Truck",
+  "producer": "Toyota",
+  "numberOfSeats": 5,
+  "width": 6,
+  "height": 6,
+  "power": 278
+},
+{
+  "name": "Ambulance",
+  "version": "Emergency",
+  "type": "Specialized Vehicle",
+  "producer": "Mercedes-Benz",
+  "numberOfSeats": 3,
+  "width": 6,
+  "height": 6,
+  "power": 190
+},
+{
+  "name": "i3",
+  "version": "Electric",
+  "type": "Other",
+  "producer": "BMW",
+  "numberOfSeats": 4,
+  "width": 5,
+  "height": 4,
+  "power": 170
+}
+]

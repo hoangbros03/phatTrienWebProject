@@ -25,13 +25,14 @@ const corsOptions = require('./config/corsOptions');
 const connectDB = require('./config/dbConn');
 const credentials = require('./middleware/credentials');
 const errorHandler=require('./middleware/errorHandler');
+
 // const port = 3500;
 connectDB();
 app.enable('proxy')
 app.use(credentials);
 app.use(cors(corsOptions));
-app.use(express.urlencoded({extended:false}));
-app.use(express.json());
+app.use(express.urlencoded({extended:false, limit: '500mb'}));
+app.use(express.json({limit: '500mb'}));
 
 
 //TODO: Create app.use that serve static files

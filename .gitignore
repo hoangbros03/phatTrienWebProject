@@ -5,3 +5,8 @@ server/combinedError.log
 server/combinedNormal.log
 UI/node_modules
 node_modules
+__pycache__/
+node_modules/
+generate_data/ttdk_result.json
+generate_data/result.json
+
