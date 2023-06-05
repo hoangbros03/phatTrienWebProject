@@ -1284,3 +1284,20 @@
 {"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"05-06-2023 15:02:13"}
 {"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 15:34:18"}
 {"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 15:34:18"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 15:47:26"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 15:47:26"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 15:47:30"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 15:47:32"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 15:47:41"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 15:47:41"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 15:47:41"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 15:49:19"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 15:49:19"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"05-06-2023 15:49:29"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"05-06-2023 15:49:31"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 16:49:59"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"05-06-2023 16:49:59"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"05-06-2023 16:50:08"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"05-06-2023 16:50:08"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"05-06-2023 16:50:08"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"05-06-2023 16:50:18"}

@@ -9,10 +9,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setAccessToken } from '../../auth/Auth';
 import { useEffect, useState } from 'react';
 import HeaderBar from '../../components/HeaderBar/HeaderBar.jsx';
+import { Link } from 'react-router-dom';
 
 import { Grid, Stack, Typography, Button, Container, Box } from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info';
-import CarGif from '../../assets/images/car.gif';
+import CarGif from '../../assets/images/Car.gif';
 
 const cx = classNames.bind(styles);
 function Index() {
@@ -40,12 +41,14 @@ function Index() {
                             }}
                             >Đăng nhập
                             </Button>
+                            <Link to="/about">
+                                <Button size="large" variant="outlined" startIcon={<InfoIcon />} href="/about" sx={{
+                                    width: 200
+                                }}
+                                >Xem thông tin
+                                </Button>
+                            </Link>
 
-                            <Button size="large" variant="outlined" startIcon={<InfoIcon />} href="/about" sx={{
-                                width: 200
-                            }}
-                            >Xem thông tin
-                            </Button>
                         </Stack>
                     </Stack>
                 </Grid>

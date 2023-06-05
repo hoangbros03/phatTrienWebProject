@@ -3,9 +3,14 @@ import styles from './upload.module.scss';
 import classNames from 'classnames/bind';
 import React, { useState } from 'react';
 import { UploadOutlined } from '@ant-design/icons';
-import { Button, message, Upload } from 'antd';
+import { message, Upload } from 'antd';
+import { Button } from '@mui/material';
 import * as API from '~/services/searchService';
+import url from '../../../assets/images/Upload.gif'
+
 const cx = classNames.bind(styles);
+
+
 
 function Upload_() {
     const [fileList, setFileList] = useState([]);
@@ -19,7 +24,7 @@ function Upload_() {
         {
             try {
                 setUploading(true);
-                console.log(JsonObject,'asd');
+                console.log(JsonObject, 'asd');
                 const response = await API.post('trungTamDangKiem/admin/databaseManagement/import', { ...JsonObject });
             } catch (error) {
                 console.log('Error');
@@ -62,17 +67,28 @@ function Upload_() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('content')}>
-                <Upload {...props} style={{ marginTop: 16 }}>
-                    <Button icon={<UploadOutlined />}>Select File</Button>
+                <img src={url} alt="gif" style={{
+                    width: 450,
+                    display: 'block',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                    marginTop: 50,
+                    marginBottom: 50
+                }} />
+                <Upload {...props} style={{ marginTop: 10 }}>
+                    <Button variant="contained" startIcon={<UploadOutlined />}
+                        sx={{width: '150px'}}
+                    >Chọn file</Button>
                 </Upload>
+
                 <Button
                     type="primary"
                     onClick={handleUpload}
                     disabled={fileList.length === 0}
                     loading={uploading}
-                    style={{ marginTop: 16 }}
+                    sx={{width: '150px'}}
                 >
-                    {uploading ? 'Uploading' : 'Start Upload'}
+                    {uploading ? 'Đang tải' : 'Tải lên'}
                 </Button>
             </div>
             <Outlet />

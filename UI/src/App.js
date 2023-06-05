@@ -8,8 +8,6 @@ import ChangeInformation from './pages/Cucdangkiem/changeInformation/changeInfor
 import Cucdangkiem from './pages/Cucdangkiem/cucdangkiem';
 import RegisterCenter from './pages/Cucdangkiem/registerCenter/registerCenter';
 import StatisticCDK from './pages/Cucdangkiem/Statistic/statisticCDK';
-import StatisticTest from './pages/Cucdangkiem/StatisticTest/statisticTest';
-import Predict from './pages/Cucdangkiem/StatisticTest/predict';
 import CarList from './pages/Cucdangkiem/Carlist/carlist';
 import Index from './pages/Index';
 import Login from './pages/login/login';
@@ -43,8 +41,6 @@ const router = createBrowserRouter(
                     <Route path="upload" element={<Upload_ />} />
                     <Route path="statistic" element={<StatisticCDK />} />
                     <Route path="carlist" element={<CarList />} />
-                    <Route path="statistictest" element={<StatisticTest />} />
-                    <Route path="predict" element={<Predict />} />
                 </Route>
             </Route>
             <Route path="trungTamDangKiem" element={<User />}>
@@ -55,8 +51,6 @@ const router = createBrowserRouter(
                     <Route path="newRegistryCar" element={<NewRegistryCar />} />
                     <Route path="lookup" element={<SearchCar />} />
                     <Route path="carlist" element={<CarList />} />
-                    <Route path="statistic" element={<StatisticTest />} />
-                    <Route path="predict" element={<Predict />} />
                     <Route path="carlist" element={<CarList/>} />
                     <Route path="changepassword" element={<ChangePassword/>} />
                 </Route>
