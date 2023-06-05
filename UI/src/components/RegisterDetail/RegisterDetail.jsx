@@ -64,9 +64,9 @@ function RegisterDetail({ carInfor, setDisplayDetail, setCarInfor }) {
                 </Typography>
                 <div className={cx('content')}>
                     <div className={cx('info')}>
-                    <Typography variant="h6">
-                    Hãng xe
-                    </Typography>
+                        <Typography variant="h6">
+                            Hãng xe
+                        </Typography>
                         <Typography
                             disabled={!isEditable}
                             className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
@@ -93,104 +93,109 @@ function RegisterDetail({ carInfor, setDisplayDetail, setCarInfor }) {
                         </Typography>
                     </div>
 
-                <div className={cx('info')}>
-                    <Typography variant="h6">
-                        Nơi đăng kiểm
-                    </Typography>
+                    <div className={cx('info')}>
+                        <Typography variant="h6">
+                            Nơi đăng kiểm
+                        </Typography>
 
-                    <Typography
-                        disabled={!isEditable}
-                        className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
-                        name="regionName"
-                        onInput={handleChange}
-                        value={`${carInfor?.historyRegistrationInformation[0]?.regionName}`}
-                    >
-                        {`${carInfor?.historyRegistrationInformation[0]?.regionName}`}
-                    </Typography>
-                </div>
-                <div className={cx('info')}>
-                    <Typography variant="h6">
-                    Trung tâm
-                    </Typography>
-                    <Typography
-                        disabled={!isEditable}
-                        className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
-                        name="regionName"
-                        onInput={handleChange}
-                        value={`${carInfor?.historyRegistrationInformation[0]?.trungTamDangKiemName}`}
-                    >
-                        {`${carInfor?.historyRegistrationInformation[0]?.trungTamDangKiemName}`}
-                    </Typography>
-                </div>
+                        <Typography
+                            disabled={!isEditable}
+                            className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
+                            name="regionName"
+                            onInput={handleChange}
+                            value={`${carInfor?.historyRegistrationInformation[0]?.regionName}`}
+                        >
+                            {`${carInfor?.historyRegistrationInformation[0]?.regionName}`}
+                        </Typography>
+                    </div>
+                    <div className={cx('info')}>
+                        <Typography variant="h6">
+                            Trung tâm
+                        </Typography>
 
-                <div className={cx('info')}>
-                    <Typography variant="h6">
-                    Hãng xe
-                    </Typography>
-                    
-                    <Typography className={cx('input')} disabled={true} value={`${carInfor?.type ? "Mec" : "Xe cỏ"}`} >
-                        {`${carInfor?.type ? "Mec" : "Xe cỏ"}`}
-                    </Typography>
-                </div>
-                <div className={cx('info')}>
-                <Typography variant="h6">
-                    Dòng xe
-                    </Typography>
-                    <Typography
-                        className={cx('input')}
-                        disabled={true}
-                        value={`${carInfor?.carSpecification?.type}`}
-                    >
-                        {`${carInfor?.carSpecification?.type}`}
-                    </Typography>
-                </div>
-                <div className={cx('info')}>
-                <Typography variant="h6">
-                    Phiên bản
-                    </Typography>
-                    <Typography className={cx('input')} disabled={true} value={`${carInfor?.version}`} >
-                        {`${carInfor?.version}`}
-                    </Typography>
-                </div>
-                <div className={cx('info')}>
-                <Typography variant="h6">
-                    Ngày đăng ký
-                    </Typography>
-                    <Typography
-                        className={cx('input')}
-                        disabled={true}
-                        value={`${carInfor?.historyRegistrationInformation[0]?.dateOfIssue.slice(0, 10)}`}
-                    >
-                        {`${carInfor?.historyRegistrationInformation[0]?.dateOfIssue.slice(0, 10)}`}
-                    </Typography>
-                </div>
-                <div className={cx('info')}>
-                <Typography variant="h6">
-                    Ngày hết hạn
-                    </Typography>
-                    <Typography
-                        className={cx('input')}
-                        disabled={true}
-                        value={`${carInfor?.historyRegistrationInformation[0]?.dateOfExpiry.slice(0, 10)}`}
-                    >
-                        {`${carInfor?.historyRegistrationInformation[0]?.dateOfExpiry.slice(0, 10)}`}
-                    </Typography>
-                </div>
-                <div className={cx('info')}>
-                <Typography variant="h6">
-                    Xe công vụ
-                    </Typography>
-                    <Typography
-                        disabled={isEditable}
-                        className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
-                        value={carInfor?.carOwner?.organization == true ? "Có" : "Không"}
+                        <Typography
+                            disabled={!isEditable}
+                            className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
+                            name="regionName"
+                            onInput={handleChange}
+                            value={`${carInfor?.historyRegistrationInformation[0]?.trungTamDangKiemName}`}
+                        >
+                            {`${carInfor?.historyRegistrationInformation[0]?.trungTamDangKiemName}`}
+                        </Typography>
+                    </div>
 
-                    >{carInfor?.carOwner?.organization == true ? "Có" : "Không"}</Typography>
-                </div>
+                    <div className={cx('info')}>
+                        <Typography variant="h6">
+                            Hãng xe
+                        </Typography>
 
+                        <Typography className={cx('input')} disabled={true} value={`${carInfor?.type ? "Mec" : "Xe cỏ"}`} >
+                            {`${carInfor?.type ? "Mec" : "Xe cỏ"}`}
+                        </Typography>
+                    </div>
+                    <div className={cx('info')}>
+                        <Typography variant="h6">
+                            Dòng xe
+                        </Typography>
+
+                        <Typography
+                            className={cx('input')}
+                            disabled={true}
+                            value={`${carInfor?.carSpecification?.type}`}
+                        >
+                            {`${carInfor?.carSpecification?.type}`}
+                        </Typography>
+                    </div>
+                    <div className={cx('info')}>
+                        <Typography variant="h6">
+                            Phiên bản
+                        </Typography>
+
+                        <Typography className={cx('input')} disabled={true} value={`${carInfor?.version}`} >
+                            {`${carInfor?.version}`}
+                        </Typography>
+                    </div>
+                    <div className={cx('info')}>
+                        <Typography variant="h6">
+                            Ngày đăng ký
+                        </Typography>
+
+                        <Typography
+                            className={cx('input')}
+                            disabled={true}
+                            value={`${carInfor?.historyRegistrationInformation[0]?.dateOfIssue.slice(0, 10)}`}
+                        >
+                            {`${carInfor?.historyRegistrationInformation[0]?.dateOfIssue.slice(0, 10)}`}
+                        </Typography>
+                    </div>
+                    <div className={cx('info')}>
+                        <Typography variant="h6">
+                            Ngày hết hạn
+                        </Typography>
+
+                        <Typography
+                            className={cx('input')}
+                            disabled={true}
+                            value={`${carInfor?.historyRegistrationInformation[0]?.dateOfExpiry.slice(0, 10)}`}
+                        >
+                            {`${carInfor?.historyRegistrationInformation[0]?.dateOfExpiry.slice(0, 10)}`}
+                        </Typography>
+                    </div>
+                    <div className={cx('info')}>
+                        <Typography variant="h6">
+                            Xe công vụ
+                        </Typography>
+
+                        <Typography
+                            disabled={isEditable}
+                            className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
+                            value={carInfor?.carOwner?.organization == true ? "Có" : "Không"}
+
+                        >{carInfor?.carOwner?.organization == true ? "Có" : "Không"}</Typography>
+                    </div>
+                </div>
             </div>
         </div>
-        </div >
 
     );
 }
