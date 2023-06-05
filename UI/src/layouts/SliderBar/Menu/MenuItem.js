@@ -2,15 +2,22 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import styles from './Menu.module.scss';
+import { Button } from '@mui/material';
 
 const cx = classNames.bind(styles);
+const buttonStyle = {
+    justifyContent: 'flex-start',
+    textTransform: 'none',
+    height: 50,
+    fontSize: 16,
+    width: '100%',
+}
 
 
-function MenuItem({ title, icon ,to }) {
+function MenuItem({ children, icon ,to }) {
     return (
-        <NavLink className={ cx('menu-item') } to={to} >
-            <span className={cx('icon')}>{icon}</span>
-            <span className={cx('title')}>{title}</span>
+        <NavLink to={to} >
+            <Button startIcon={icon} sx={buttonStyle}>{children}</Button>
         </NavLink>
     );
 }
