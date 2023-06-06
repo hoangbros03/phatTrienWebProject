@@ -9,4 +9,6 @@ __pycache__/
 node_modules/
 generate_data/ttdk_result.json
 generate_data/result.json
-
+generate_data/cars_df.json
+generate_data/cars_test1.json
+generate_data/cars_test2.json

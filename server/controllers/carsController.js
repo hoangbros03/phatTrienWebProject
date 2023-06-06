@@ -844,9 +844,10 @@ Input: a JSON like this (please read carefully cuz I won't explain):
 }
 */
 const uploadDB = async (req, res) => {
+  
   try {
     //check exist
-    console.log(req.body)
+    
     if (!req?.body?.status) {
       logger.info("wrong syntax when sending request!");
       return res
@@ -895,7 +896,9 @@ const uploadDB = async (req, res) => {
             true
           );
         }
+        
         if (statusCode != 200) {
+         
           logger.info(
             "Car spec can't be added for some reason. Processing continuting..."
           );
@@ -913,7 +916,7 @@ const uploadDB = async (req, res) => {
         !currentCar.paperOfRecognition?.dateOfIssue ||
         !currentCar.licensePlate ||
         !currentCar.regionName ||
-        !currentCar.carOwner?.organization ||
+        !(typeof(currentCar.carOwner?.organization)=="boolean") ||
         !currentCar.carOwner?.name ||
         !currentCar.engineNo ||
         !currentCar.classisNo ||
@@ -922,6 +925,7 @@ const uploadDB = async (req, res) => {
         !currentCar.carSpecification.type
       ) {
         logger.info("Car info not enough. Processing continuting...");
+       
         continue;
       }
 
@@ -942,6 +946,7 @@ const uploadDB = async (req, res) => {
       }).exec();
       if (carFound) {
         logger.info("This car has already existed");
+        continue;
       }
       //create car
       else {
@@ -973,7 +978,7 @@ const uploadDB = async (req, res) => {
         );
         
         //check status code
-        if (statusCode == 200) console.log("create car succes");
+        if (statusCode == 200){}
         else {
           console.log("create car not succes");
           console.log(jsonObj, statusCode);
@@ -991,7 +996,7 @@ const uploadDB = async (req, res) => {
       }
       if (currentCar.historyRegistrationInformation.length >0){
         // remove the 2 week temparate reginfo
-        await registrationInformation.deleteOne({ownerName: currentCar.carOwner.name}).then(()=>{console.log("delete reg info ok")}).catch((err)=>{console.log("An error happened")});
+        await registrationInformation.deleteOne({ownerName: currentCar.carOwner.name}).then(()=>{}).catch((err)=>{console.log("An error happened")});
       }
       var dateOfIssue_to_add = new Date("01/01/1970").toISOString();
       //loop through history information

@@ -1,6 +1,6 @@
 const fs = require('fs-extra');
 const fetch = require("node-fetch");
-fs.readFile('../generate_data/result.json', 'utf8', (err, data) => {
+fs.readFile('../generate_data/cars_test1.json', 'utf8', (err, data) => {
   if (err) {
     console.error('Error reading file:', err);
     return;
