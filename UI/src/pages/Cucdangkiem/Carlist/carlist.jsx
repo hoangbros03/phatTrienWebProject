@@ -164,9 +164,21 @@ function CarList() {
             setCarData([...response]);
         }
     };
+
+
+//This function reduce the size of carData by group all lượt đăng kiểm of a car into one object
+   
+    for(let i = 0; i < carData.length - 1; i++) {
+        while(carData[i]?.licensePlate == carData[i+1]?.licensePlate) {
+            carData.splice(i+1, 1);
+        }
+    } 
+
     const [carInfor, setCarInfor] = useState(null);
     const [displayDetail, setDisplayDetail] = useState(false);
-    const handleDisplayDetail = async (licensePlate, _idregister) => {
+    const [history, setHistory] = useState({});
+
+    const handleDisplayDetail = async (licensePlate, _idregister, index) => {
         let result = await API.searchCar(
             'trungTamDangKiem/:user/searchCar',
             { user: user },
@@ -177,16 +189,12 @@ function CarList() {
             return;
         } else {
             console.log(result.status.historyRegistrationInformation);
-            //filter RegistrationInformation
-            let filterresult = result.status.historyRegistrationInformation.filter(
-                (RegistrationInformation) => RegistrationInformation._id === _idregister,
-            );
-            //delete historyRegistrationInformation in result
-            delete result.status.historyRegistrationInformation;
-            //add filter  historyRegistrationInformation in result
-            result.status.historyRegistrationInformation = filterresult;
             setCarInfor(result.status);
             setDisplayDetail(true);
+            setHistory({
+                dois: carData[index].dois,
+                does: carData[index].does
+            })
         }
         //gui requset lay detail
         // const response = await ApicAll.post
@@ -197,9 +205,6 @@ function CarList() {
         let result = await API.handleFileDownload(`trungTamDangKiem/${user}/databaseManagement/export`, { ...object });
     };
 
-    const renderOption = (option) => (
-        <div style={{ width: '100%' }}>{option}</div>
-    );
     return (
         <>
             {contextHolder}
@@ -318,13 +323,13 @@ function CarList() {
                                     <div
                                         key={index}
                                         className={cx('cardisplay')}
-                                        onClick={() => handleDisplayDetail(car.licensePlate, car._id)}
+                                        onClick={() => handleDisplayDetail(car.licensePlate, car._id, index)}
                                     >
-                                        <Typography>
+                                        <Typography align="left" color="secondary">
                                         {car.licensePlate}
                                         </Typography>
 
-                                        <Typography>
+                                        <Typography align="left">
                                         {car.ownerName}
                                         </Typography>
                                     </div>

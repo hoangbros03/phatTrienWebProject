@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import styles from './Menu.module.scss';
-import { Button } from '@mui/material';
+import { Button, useMediaQuery  } from '@mui/material';
 
 const cx = classNames.bind(styles);
 const buttonStyle = {
@@ -15,10 +15,22 @@ const buttonStyle = {
 
 
 function MenuItem({ children, icon ,to }) {
-    return (
-        <NavLink to={to} >
-            <Button startIcon={icon} sx={buttonStyle}>{children}</Button>
+    const isSmDown = useMediaQuery((theme) => theme.breakpoints.down('md'));
+
+    if (isSmDown) {
+      return (
+        <NavLink to={to}>
+          <Button startIcon={icon} sx={buttonStyle} disableElevation />
         </NavLink>
+      );
+    }
+  
+    return (
+      <NavLink to={to}>
+        <Button startIcon={icon} sx={buttonStyle} disableElevation>
+          {children}
+        </Button>
+      </NavLink>
     );
 }
 
