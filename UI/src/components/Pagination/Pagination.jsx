@@ -21,7 +21,8 @@ function Pagination({ totalPosts, postsPerPage, setCurrentPage, currentPage }) {
 console.log('page: ', pages);
     return (
         <div className={cx('pagination')}>
-            <MUIpag count={pages.length} page={currentPage} onChange={handlePageChange} siblingCount={0}/>
+            <MUIpag color='primary' shape='rounded' count={pages.length} page={currentPage} 
+            onChange={handlePageChange} siblingCount={0}/>
         </div>
     );
 }

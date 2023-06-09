@@ -1,0 +1,4 @@
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"10-06-2023 03:46:35"}
+{"component":"user-service","level":"error","message":"Username doesn't existed in the db","timestamp":"10-06-2023 03:46:35"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"10-06-2023 03:46:39"}
+{"component":"user-service","level":"info","message":"auth successfully with admin","timestamp":"10-06-2023 03:46:40"}
