@@ -12,7 +12,7 @@ const verifyJWT = require('../../middleware/verifyJWT')
 
 //TODO: Add verify roles add other API, currently just for testing purpose.
 
-router.use(verifyJWT)
+// router.use(verifyJWT)
 
 
 

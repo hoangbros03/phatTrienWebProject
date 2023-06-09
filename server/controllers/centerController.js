@@ -119,6 +119,9 @@ const uploadCenters = async (req, res) => {
   var uploaded = 0;
   const arr = req.body.centers;
   for (let e = 0; e < arr.length; e++) {
+    if(e%50==0){
+      console.log(`Imported ${e}/${arr.length} ttdks`)
+    }
     const found = await TrungTamDangKiem.findOne({ name: arr[e].name });
     if (found) {
       logger.info("Already existed!");

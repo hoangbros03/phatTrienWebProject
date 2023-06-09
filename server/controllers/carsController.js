@@ -844,9 +844,10 @@ Input: a JSON like this (please read carefully cuz I won't explain):
 }
 */
 const uploadDB = async (req, res) => {
+  
   try {
     //check exist
-    console.log(req.body)
+    
     if (!req?.body?.status) {
       logger.info("wrong syntax when sending request!");
       return res
@@ -860,6 +861,9 @@ const uploadDB = async (req, res) => {
     var carUploadedCount = 0;
     var missRegistryRegistration = 0;
     for (let i = 0; i < req.body.status.length; i++) {
+      if (i%1000 ==0){
+        console.log(`Imported ${i}/${req.body.status.length} cars`)
+      }
       var forceCountinue = false;
       //make variable shorter
       var currentCar = req.body.status[i];
@@ -892,7 +896,9 @@ const uploadDB = async (req, res) => {
             true
           );
         }
+        
         if (statusCode != 200) {
+         
           logger.info(
             "Car spec can't be added for some reason. Processing continuting..."
           );
@@ -910,7 +916,7 @@ const uploadDB = async (req, res) => {
         !currentCar.paperOfRecognition?.dateOfIssue ||
         !currentCar.licensePlate ||
         !currentCar.regionName ||
-        !currentCar.carOwner?.organization ||
+        !(typeof(currentCar.carOwner?.organization)=="boolean") ||
         !currentCar.carOwner?.name ||
         !currentCar.engineNo ||
         !currentCar.classisNo ||
@@ -919,6 +925,7 @@ const uploadDB = async (req, res) => {
         !currentCar.carSpecification.type
       ) {
         logger.info("Car info not enough. Processing continuting...");
+       
         continue;
       }
 
@@ -939,6 +946,7 @@ const uploadDB = async (req, res) => {
       }).exec();
       if (carFound) {
         logger.info("This car has already existed");
+        continue;
       }
       //create car
       else {
@@ -968,8 +976,9 @@ const uploadDB = async (req, res) => {
           false,
           true
         );
+        
         //check status code
-        if (statusCode == 200) console.log("create car succes");
+        if (statusCode == 200){}
         else {
           console.log("create car not succes");
           console.log(jsonObj, statusCode);
@@ -977,12 +986,17 @@ const uploadDB = async (req, res) => {
           continue;
         }
       }
+
       //check if history Reg Infor is an array
       if (!Array.isArray(currentCar.historyRegistrationInformation)) {
         logger.info(
           "historyRegistrationInformation is not an array! continuting..."
         );
         continue;
+      }
+      if (currentCar.historyRegistrationInformation.length >0){
+        // remove the 2 week temparate reginfo
+        await registrationInformation.deleteOne({ownerName: currentCar.carOwner.name}).then(()=>{}).catch((err)=>{console.log("An error happened")});
       }
       var dateOfIssue_to_add = new Date("01/01/1970").toISOString();
       //loop through history information
