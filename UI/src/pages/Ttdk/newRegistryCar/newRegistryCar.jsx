@@ -4,11 +4,12 @@ import classNames from 'classnames/bind';
 import * as API from '~/services/searchService';
 import InputSuggest from '~/components/InputSuggest/InputSuggest';
 import React, { useState, useEffect, version } from 'react';
-import { Button, message, Space } from 'antd';
+import { message, Space } from 'antd';
+import { Autocomplete, TextField, Typography, FormControlLabel, Checkbox, Button, Alert } from '@mui/material';
 const cx = classNames.bind(styles);
 function NewRegistryCar() {
     const [status, setStatus] = useState({ status: 'unsent' });
-    const [messageFail,setMessageFail] = useState("")
+    const [messageFail, setMessageFail] = useState("")
     const [formtext, setFromtext] = useState({
         title1: { title: 'Biển số xe', sub: '99A-99999' },
         title2: { title: 'Người sở hữu', sub: 'Trần Bá Hoàng' },
@@ -30,7 +31,7 @@ function NewRegistryCar() {
         classisNo: '',
         carType: '',
         carName: '',
-        dateOfIssue: '',
+        dateOfIssue: '2023-6-11',
         ID: '',
         carVersion: '',
         trungTamDangKiemName: '',
@@ -112,7 +113,7 @@ function NewRegistryCar() {
     const [dataCarSpecificType, setDataCarSpecificType] = useState([]);
     const setCarParameter = (value) => {
         const carObject = dataCarSpecific.find((car) => car.name === value);
-        setCarRegister({...carRegister,carName:carObject.name,carVersion:carObject.version,carType:carObject.type})   
+        setCarRegister({ ...carRegister, carName: carObject.name, carVersion: carObject.version, carType: carObject.type })
     };
 
     const UserNameMapWithUser = new Map();
@@ -196,39 +197,41 @@ function NewRegistryCar() {
         if (res.length > 0) return;
         else warningprovince();
     };
-    const handleChange=(e)=>{
-        const { name, value, type,checked } = e?.nativeEvent?.target || {};
+    const handleChange = (e) => {
+        const { name, value, type, checked } = e?.nativeEvent?.target || {};
         if (type == 'date') {
             console.log(value)
-            if(value.length==0) ;
+            if (value.length == 0);
             else {
-            var date = new Date(value);
-            const iso = date.toISOString();
-            setCarRegister({ ...carRegister, [name]: iso });}
+                var date = new Date(value);
+                const iso = date.toISOString();
+                setCarRegister({ ...carRegister, [name]: iso });
+            }
         }
-        if(name=="organization") {
-            setCarRegister({ ...carRegister, [name]: checked })}
-        else setCarRegister({ ...carRegister, [name]:value });
+        if (name == "organization") {
+            setCarRegister({ ...carRegister, [name]: checked })
+        }
+        else setCarRegister({ ...carRegister, [name]: value });
     }
     const handleBlur = (e) => {
         const { name, value, type } = e?.nativeEvent?.target || {};
         if (type == 'date') {
             console.log(value)
-            if(value.length==0) ;
+            if (value.length == 0);
             else {
-            var date = new Date(value);
-            const iso = date.toISOString();
-            setCarRegister({ ...carRegister, [name]: iso });}
-        } else 
-        setCarRegister({ ...carRegister, [name]: value });
+                var date = new Date(value);
+                const iso = date.toISOString();
+                setCarRegister({ ...carRegister, [name]: iso });
+            }
+        } else
+            setCarRegister({ ...carRegister, [name]: value });
     };
     const handleBack = () => {
         setStatus({ ...status, status: 'unsent' });
     };
 
     const handleCheck = (e) => {
-        const { name, checked } = e.target;
-        setCarRegister({ ...carRegister, [name]: !!checked });
+        setCarRegister({ ...carRegister, organization: e.target.checked });
     };
     const handleCheckConditionLicense = (e) => {
         const { name, value } = e.target;
@@ -247,229 +250,272 @@ function NewRegistryCar() {
         }
     };
     const handleSubmit = async (e) => {
-        const response = await API.post_user("trungTamDangKiem/:user/createCar",{user:user},{...carRegister})
-        if(response.status=="success") setStatus({...status,status:"success"})
-        else {setStatus({...status,status:"failure"});
-        console.log(response)
-        console.log(response.status)
+        const response = await API.post_user("trungTamDangKiem/:user/createCar", { user: user }, { ...carRegister })
+        if (response.status == "success") setStatus({ ...status, status: "success" })
+        else {
+            setStatus({ ...status, status: "failure" });
+            console.log(response)
+            console.log(response.status)
             setMessageFail(response.status)
-                }
+        }
     };
     const renderForm = () => {
-        if (status.status == 'unsent')
             return (
                 <div className={cx('container')}>
                     <form className={cx('form')}>
-                        <div className={cx('title-signup')}>Thêm mẫu đăng kiểm mới</div>
+                        <Typography variant='h4' color="primary"  mb={3}>
+                            Đăng ký phương tiện mới
+                        </Typography>
+
+                        <Typography color="black" variant='h6' mb={1}>
+                            Điền thông tin đăng ký
+                        </Typography>
+
                         <div className={cx('signup-form')}>
                             <div className={cx('signup-div')}>
-                                <p>{formtext.title1.title}</p>
-                                <input
+                                <TextField
                                     type="text"
                                     autoComplete='off'
-                                    className={cx('input')}
-                                    placeholder={formtext.title1.sub}
+                                    label={formtext.title1.title}
                                     name="licensePlate"
                                     value={carRegister.licensePlate}
                                     onBlur={handleCheckConditionLicense}
-
                                     onChange={handleChange}
-                                    //required
-                                ></input>
+                                    sx={{
+                                        width: "100%",
+                                        marginBottom: 2,
+                                        marginTop: 2
+                                    }}
+                                //required
+                                ></TextField>
                             </div>
                             <div className={cx('signup-div')}>
-                                <p>{formtext.title2.title}</p>
-                                <input
+                                <TextField
+                                    label={formtext.title2.title}
                                     type="text"
                                     autoComplete='off'
-                                    className={cx('input')}
-                                    placeholder={formtext.title2.sub}
                                     value={carRegister.ownerName}
                                     name="ownerName"
                                     onBlur={handleStandardized}
-
                                     onChange={handleChange}
-                                    //required
-                                ></input>
+                                //required
+                                sx={{
+                                    width: "100%",
+                                    marginBottom: 2,
+                                    marginTop: 2
+                                }}
+                                ></TextField>
                             </div>
                         </div>
                         <div className={cx('signup-form')}>
                             <div className={cx('signup-div')}>
-                                <p>{formtext.title10.title}</p>
-                                <input
+                                <TextField
+                                    label={formtext.title10.title}
                                     type="text"
-                                    autoComplete='off'
-                                    className={cx('input')}
-                                    placeholder={formtext.title10.sub}
                                     value={carRegister.ID}
                                     name="ID"
                                     onBlur={handleBlur}
-                            
                                     onChange={handleChange}
-                                    //required
-                                ></input>
+                                    sx={{
+                                        width: "100%",
+                                        marginBottom: 2,
+                                        marginTop: 2
+                                    }}
+                                //required
+                                ></TextField>
                             </div>
                             <div className={cx('signup-div')}>
-                                <p>{formtext.title9.title}</p>
-
-                                <InputSuggest
-                                    input
-                                    autoComplete="off"
-                                    data={dataCarSpecificName}
-                                    onClick={setCarParameter}
+                                <Autocomplete
+                                    options={dataCarSpecificName}
+                                    onChange={(event, newValue) => {
+                                        setCarParameter(newValue)
+                                    }}
                                     name="carName"
                                     value={carRegister.carName}
-                                    ChangeData={handleBlur}
+                                    onBlur={handleBlur}
+                                    renderInput={(params) => <TextField {...params} label={formtext.title9.title} />}
+                                    sx={{
+                                        width: "100%",
+                                        marginBottom: 2,
+                                        marginTop: 2
+                                    }}
                                 >
-                                    {formtext.title9.sub}
-                                </InputSuggest>
+
+                                </Autocomplete>
                             </div>
                         </div>
                         <div className={cx('signup-form')}>
                             <div className={cx('signup-div')}>
-                                <p>{formtext.title8.title}</p>
-                                <input
+                                <TextField
+                                    label={formtext.title8.title}
                                     type="date"
-                                    className={cx('input')}
-                                    placeholder={formtext.title8.sub}
                                     name="dateOfIssue"
-                                    value={carRegister.dateOfIssue.slice(0,10)}
+                                    value={carRegister.dateOfIssue.slice(0, 10)}
                                     onBlur={handleBlur}
                                     onChange={handleChange}
-                                    //required
-                                ></input>
+                                    sx={{
+                                        width: "100%",
+                                        marginBottom: 2,
+                                        marginTop: 2
+                                    }}
+                                //required
+                                ></TextField>
                             </div>
                             <div className={cx('signup-div')}>
-                                <p>{formtext.title3.title}</p>
-                                <input
+                                <Autocomplete
                                     type="text"
-                                    autoComplete='off'
-                                    className={cx('input')}
-                                    placeholder={formtext.title3.sub}
+                                    options={provinces}
                                     value={carRegister.regionName}
                                     name="regionName"
                                     onBlur={handleStandardized}
-                                    onChange={handleChange}
-                                    //required
-                                ></input>
+                                    onChange={
+                                        (event, newValue) => {
+                                            setCarRegister({ ...carRegister, regionName: newValue })
+                                        }
+                                    }
+                                    renderInput={(params) => <TextField {...params} label="Khu vực" />}
+                                    sx={{
+                                        width: "100%",
+                                        marginBottom: 2,
+                                        marginTop: 2
+                                    }}
+                                //required
+                                ></Autocomplete>
                             </div>
                         </div>
                         <div className={cx('signup-form')}>
                             <div className={cx('signup-div')}>
-                                <p>{formtext.title4.title}</p>
-                                <InputSuggest
-                                    input
+                                <Autocomplete
+                                    label={formtext.title4.title}
                                     autoComplete="off"
-                                    data={dataCarSpecificVersion}
+                                    options={dataCarSpecificVersion}
                                     name="carVersion"
-                                    ChangeData={handleBlur}
+                                    onBlur={handleBlur}
                                     value={carRegister.carVersion}
+                                    onChange={
+                                        (event, newValue) => {
+                                            setCarRegister({ ...carRegister, carVersion: newValue })
+                                        }
+                                    }
+                                    renderInput={(params) => <TextField {...params} label="Phiên bản" />}
+                                    sx={{
+                                        width: "100%",
+                                        marginBottom: 2,
+                                        marginTop: 2
+                                    }}
                                 >
-                                    {formtext.title4.sub}
-                                </InputSuggest>
+                                </Autocomplete>
                             </div>
                             <div className={cx('signup-div')}>
-                                <p>{formtext.title5.title}</p>
-                                <InputSuggest
-                                    input
+                                <Autocomplete
                                     autoComplete="off"
-                                    data={dataCarSpecificType}
+                                    options={dataCarSpecificType}
                                     name="carType"
-                                    ChangeData={handleBlur}
+                                    onBlur={handleBlur}
                                     value={carRegister.carType}
+                                    onChange={
+                                        (event, newValue) => {
+                                            setCarRegister({ ...carRegister, carType: newValue })
+                                        }
+                                    }
+                                    renderInput={(params) => <TextField {...params} label="Loại xe" />}
+                                    sx={{
+                                        width: "100%",
+                                        marginBottom: 2,
+                                        marginTop: 2
+                                    }}
                                 >
                                     {formtext.title5.sub}
-                                </InputSuggest>
+                                </Autocomplete>
                             </div>
                             <div className={cx('signup-div')}>
-                                <p>{formtext.title6.title}</p>
-                                <input
+                                <TextField
                                     type="text"
+                                    label={formtext.title6.title}
                                     autoComplete='off'
-                                    className={cx('input')}
-                                    placeholder={formtext.title6.sub}
                                     value={carRegister.engineNo}
                                     name="engineNo"
                                     onBlur={handleBlur}
                                     onChange={handleChange}
-                                    //required
-                                ></input>
+                                    sx={{
+                                        width: "100%",
+                                        marginBottom: 2,
+                                        marginTop: 2
+                                    }}
+                                //required
+                                ></TextField>
                             </div>
                             <div className={cx('signup-div')}>
-                                <p>{formtext.title7.title}</p>
-                                <input
-                                    type="text"
-                                    autoComplete='off'
-                                    className={cx('input')}
-                                    placeholder={formtext.title7.sub}
+                                <TextField
+                                    label={formtext.title7.title}
                                     value={carRegister.classisNo}
                                     name="classisNo"
                                     onBlur={handleBlur}
                                     onChange={handleChange}
-                                    //required
-                                ></input>
+                                    sx={{
+                                        width: "100%",
+                                        marginBottom: 2,
+                                        marginTop: 2
+                                    }}
+                                //required
+                                ></TextField>
                             </div>
                             <div className={cx('signup-div')}>
-                                <p>{formtext.title11.title}</p>
-                                <input
-                                    type="Checkbox"
-                                    className={cx('input')}
-                                    checked={carRegister.organization}
-                                    name="organization"
-                                    onBlur={handleCheck}
-                                    onChange={handleChange}
-                                    //required
-                                ></input>
+                                <FormControlLabel
+                                    control={<Checkbox
+                                        onChange={handleCheck}
+                                        checked={carRegister.organization} />}
+                                    label={formtext.title11.title}
+                                    sx={{
+                                        width: "100%",
+                                        marginBottom: 2,
+                                        marginTop: 2
+                                    }}
+                                    />
                             </div>
                         </div>
+                        <div style={{ marginTop: "20px" }}> {status.status == "unsent" ? null : status.status == "failure" ? (
+                        <Alert severity="error" color="error">
+                            {`Lỗi! ${messageFail}`}
+                        </Alert>)
+                        : (
+                            <Alert severity="info" >
+                                {`Đã đăng kiểm thành công Xe ${carRegister?.licensePlate}`}
+                            </Alert>
+                        )
+                    }
+                    </div>
                         <div className={cx('signup-form')}>
-                            <div className={cx('submit')} onClick={handleSubmit}>
-                                Xác Nhận
-                            </div>
+                        {status.status != "success" ? (
+                            <Button onClick={handleSubmit}
+                                sx={{
+                                    marginTop: "30px"
+                                }}
+                                size="large"
+                            >
+                                Xác nhận
+                            </Button>
+                        ) : (
+                            <Button onClick={handleBack}
+                                sx={{
+                                    marginTop: "30px"
+                                }}
+                                size="large"
+                            >
+                                Đăng kiểm lại
+                            </Button>
+                        )}
                         </div>
                     </form>
                 </div>
             );
-        else return null;
-    };
+        };
 
-    const renderSucess = () => {
-        if (status.status == 'success')
-            return (
-                <div className={cx('container', 'success', 'respone')}>
-                    <div className={cx('title')}>Thành Công</div>
-                    <div className={cx('content')}>{`Đã Đăng kí thành công Xe ${carRegister?.licensePlate}`}</div>
-                    <div className={cx('button')} onClick={handleBack}>
-                        Quay lại
-                    </div>
-                </div>
-            );
-        else return null;
-    };
-    const renderFailure = () => {
-        if (status.status == 'failure')
-            return (
-                <div className={cx('container', 'failure', 'respone')}>
-                    <div className={cx('title')}>Có lỗi đã xảy ra</div>
-                    <div
-                        className={cx('content')}
-                    >{`Đã không thể Đăng kí thành công Trung tâm đăng kiểm${carRegister?.licensePlate}`}</div>
-                     <div
-                        className={cx('content')}
-                    >{`Có lẽ vì ${messageFail}`}</div>
-                    <div className={cx('button')} onClick={handleBack}>
-                        Quay lại
-                    </div>
-                </div>
-            );
-        else return null;
-    };
+
     return (
         <div className={cx('wrapper')}>
             {contextHolder}
             {renderForm()}
-            {renderSucess()}
-            {renderFailure()}
         </div>
     );
 }

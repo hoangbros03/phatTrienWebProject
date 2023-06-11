@@ -1,11 +1,16 @@
 import { Outlet, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import BtnBar from "../../components/BtnBar";
 import { MenuItem } from '~/layouts/SliderBar/Menu';
-import { HomeIcon, SearchIcon } from '~/components/Icons';
-import { SignUpCenter, StatisticIcon,UploadIcon  } from '../../components/Icons';
 import styles from "./ttdk.module.scss";
 import classNames from 'classnames/bind';
+import HomeIcon from '@mui/icons-material/Home';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+import CarCrashIcon from '@mui/icons-material/CarCrash';
+import GradingIcon from '@mui/icons-material/Grading';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import { Stack } from '@mui/material';
+
 const cx = classNames.bind(styles);
 function Ttdk() {
     const navigate = useNavigate();
@@ -16,20 +21,18 @@ function Ttdk() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('sliderbar')} >
-                <MenuItem icon={<HomeIcon />} to={`../${user}`} title="Trở Về Trang Chủ"></MenuItem>
-                <MenuItem icon={<SignUpCenter />}  to="newRegistry" title="Đăng kiểm">
-    
-                </MenuItem>
-                <MenuItem icon={<HomeIcon />}  to="newRegistrycar" title="Đăng Kí ">
-                   
-                </MenuItem>
-                <MenuItem  icon={<SearchIcon />} to="lookup" title ="Tra cứu Thông Tin xe">
-                 
-                </MenuItem>
-                <MenuItem icon={<HomeIcon />}  to="carlist" title="Xem Thống Kê Xe">
-                </MenuItem>
-                <MenuItem icon={<HomeIcon />}  to="changepassword" title="Đổi mật khẩu">
-                </MenuItem>
+            <Stack direction="column" spacing={1} sx={{
+                    marginTop: 10,
+                    marginLeft: 2,
+                    marginRight: 3
+                }}>
+                    <MenuItem icon={<HomeIcon />} to={`../${user}`} >Trang chủ</MenuItem>
+                    <MenuItem icon={<CarCrashIcon />} to="newRegistry">Đăng kiểm</MenuItem>
+                    <MenuItem icon={<DirectionsCarIcon />} to="newRegistrycar">Đăng ký phương tiện</MenuItem>
+                    <MenuItem icon={<AutoGraphIcon />} to="statistic">Xem thống kê</MenuItem>
+                    <MenuItem icon={<GradingIcon />} to="carlist">Lịch sử đăng kiểm</MenuItem>
+                    <MenuItem icon={<ManageAccountsIcon />} to="changepassword">Đổi mật khẩu</MenuItem>
+                </Stack>
             </div>
             <div className={cx("main")}><Outlet /></div>
             

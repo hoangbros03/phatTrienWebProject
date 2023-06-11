@@ -1,13 +1,15 @@
-import { Outlet ,useParams} from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import styles from './newRegistry.module.scss';
 import classNames from 'classnames/bind';
-import React, { useState , useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import * as API from '~/services/searchService';
-import { Button, message, Space } from 'antd';
+import { message, Space } from 'antd';
+import { TextField, Button, Typography, Alert, AlertTitle } from '@mui/material';
 const cx = classNames.bind(styles);
+
 function NewRegistry() {
     const [status, setStatus] = useState({ status: 'unsent' });
-    const [messageFail,setMessageFail] = useState("");
+    const [messageFail, setMessageFail] = useState("");
     const [formtext, setFromtext] = useState({
         title1: { title: 'Biển số xe', sub: '99A 99999' },
         title8: { title: 'Ngày đăng kí', sub: '21/2/2023' },
@@ -27,7 +29,7 @@ function NewRegistry() {
                     UserNameMapWithUser.set(user, name);
                 });
                 setCarRegister({ ...carRegister, trungTamDangKiemName: UserNameMapWithUser.get(user) });
-               
+
             } catch (error) {
                 console.error(error);
             }
@@ -36,8 +38,8 @@ function NewRegistry() {
     }, []);
     const [carRegister, setCarRegister] = useState({
         licensePlate: '',
-        dateOfIssue: '',
-        dateOfExpiry: '',
+        dateOfIssue: '2023-6-11',
+        dateOfExpiry: '2024-6-11',
     });
     const warningcondition = () => {
         messageApi.open({
@@ -74,110 +76,117 @@ function NewRegistry() {
     };
     const handleSubmit = async (e) => {
         console.log(carRegister);
-        const response= await API.post_user("trungTamDangKiem/:user/newRegistry",{user:user},carRegister);
+        const response = await API.post_user("trungTamDangKiem/:user/newRegistry", { user: user }, carRegister);
         console.log(response)
-        if(response=="OK"){
-            setStatus({...status,status:"success"})
-        }else {setStatus({...status,status:"failure"})
-        setMessageFail(response.status)}
+        if (response == "OK") {
+            setStatus({ ...status, status: "success" })
+        } else {
+            setStatus({ ...status, status: "failure" })
+            setMessageFail(response.status)
+        }
     };
     const renderForm = () => {
         // console.log(status.status=="unsent")
-        if (status.status == 'unsent')
-            return (
-                <div className={cx('container')}>
-                    <form className={cx('form')}>
-                        <div className={cx('title-signup')}>Thêm mẫu đăng kiểm mới</div>
-                        <div className={cx('signup-form')}>
-                            <div className={cx('signup-div')}>
-                                <p>{formtext.title1.title}</p>
-                                <input
-                                    type="text"
-                                    className={cx('input')}
-                                    placeholder={formtext.title1.sub}
-                                    name="licensePlate"
-                                    value={carRegister.licensePlate}
-                                    onBlur={handleCheckConditionLicense}
-                                    onChange={handleChange}
-                                    required
-                                ></input>
-                            </div>
+        return (
+            <div className={cx('container')}>
+                <form className={cx('form')}>
+                    <Typography color="primary"  variant="h4">
+                        Thêm mẫu đăng kiểm mới
+                    </Typography>
+                    <div className={cx('signup-form')}>
+                        <div className={cx('signup-div')}>
+                            <Typography color="black" variant="h6" mb={3}>
+                                Điền thông tin đăng kiểm
+                            </Typography>
+                            <TextField
+                                type="text"
+                                name="licensePlate"
+                                label={formtext.title1.title}
+                                value={carRegister.licensePlate}
+                                onBlur={handleCheckConditionLicense}
+                                onChange={handleChange}
+                                required
+                                sx={{
+                                    width: '100%'
+                                }}
+                            ></TextField>
                         </div>
-                        <div className={cx('signup-form')}>
-                            <div className={cx('signup-div')}>
-                                <p>{formtext.title8.title}</p>
-                                <input
-                                    type="date"
-                                    className={cx('input')}
-                                    placeholder={formtext.title8.sub}
-                                    name="dateOfIssue"
-                                    value={carRegister.dateOfIssue.slice(0,10)}
-                                    onChange={handleChange}
-                                    required
-                                ></input>
-                            </div>
-                            <div className={cx('signup-div')}>
-                                <p>{formtext.title9.title}</p>
-                                <input
-                                    type="date"
-                                    className={cx('input')}
-                                    placeholder={formtext.title9.sub}
-                                    name="dateOfExpiry"
-                                    value={carRegister.dateOfExpiry.slice(0,10)}
-                                    onChange={handleChange}
-                                    required
-                                ></input>
-                            </div>
-                        </div>
-
-                        <div className={cx('signup-form')}>
-                            <div className={cx('submit')} onClick={handleSubmit}>
-                                Xác Nhận
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            );
-        else return null;
-    };
-
-    const renderSucess = () => {
-        if (status.status == 'success')
-            return (
-                <div className={cx('container', 'success', 'respone')}>
-                    <div className={cx('title')}>Thành Công</div>
-                    <div className={cx('content')}>{`Đã đăng kiểm thành công Xe ${carRegister?.licensePlate}`}</div>
-                    <div className={cx('button')} onClick={handleBack}>
-                        Quay lại
                     </div>
-                </div>
-            );
-        else return null;
-    };
-    const renderFailure = () => {
-        if (status.status == 'failure')
-            return (
-                <div className={cx('container', 'failure', 'respone')}>
-                    <div className={cx('title')}>Có lỗi đã xảy ra</div>
-                    <div
-                        className={cx('content')}
-                    >{`Đã không thể đăng kiểm${carRegister?.licensePlate}`}</div>
-                    <div
-                        className={cx('content')}
-                    >{`Có lẽ vì ${messageFail}`}</div>
-                    <div className={cx('button')} onClick={handleBack}>
-                        Quay lại
+                    <div className={cx('signup-form')}>
+                        <div className={cx('signup-div')}>
+                            <TextField
+                                id="dateOfIssue"
+                                type="date"
+                                name="dateOfIssue"
+                                value={carRegister.dateOfIssue.slice(0, 10)}
+                                label={formtext.title8.title}
+                                onChange={handleChange}
+                                required
+                                sx={{
+                                    width: '90%'
+                                }}
+                            ></TextField>
+                        </div>
+                        <div className={cx('signup-div')}>
+                            <TextField
+                                type="date"
+                                label={formtext.title9.title}
+                                placeholder={formtext.title9.sub}
+                                name="dateOfExpiry"
+                                value={carRegister.dateOfExpiry.slice(0, 10)}
+                                onChange={handleChange}
+                                required
+                                sx={{
+                                    width: '90%',
+                                    marginLeft: '10%'
+                                }}
+                            ></TextField>
+                        </div>
                     </div>
-                </div>
-            );
-        else return null;
-    };
+
+                    <div style={{ marginTop: "20px" }}> {status.status == "unsent" ? null : status.status == "failure" ? (
+                        <Alert severity="error" color="error">
+                            {`Lỗi! ${messageFail}`}
+                        </Alert>)
+                        : (
+                            <Alert severity="info" >
+                                {`Đã đăng kiểm thành công Xe ${carRegister?.licensePlate}`}
+                            </Alert>
+                        )
+                    }
+                    </div>
+                    <div className={cx('signup-form')}>
+                        {status.status != "success" ? (
+                            <Button onClick={handleSubmit}
+                                sx={{
+                                    marginTop: "30px"
+                                }}
+                                size="large"
+                            >
+                                Xác nhận
+                            </Button>
+                        ) : (
+                            <Button onClick={handleBack}
+                                sx={{
+                                    marginTop: "30px"
+                                }}
+                                size="large"
+                            >
+                                Đăng kiểm lại
+                            </Button>
+                        )}
+
+                    </div>
+
+                </form>
+            </div>
+        )
+    }
+
     return (
         <div className={cx('wrapper')}>
             {contextHolder}
             {renderForm()}
-            {renderSucess()}
-            {renderFailure()}
         </div>
     );
 }

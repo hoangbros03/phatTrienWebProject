@@ -1,12 +1,10 @@
 import React from 'react';
 import { Pie, Bar, Line } from 'react-chartjs-2';
 import { useState, useEffect } from "react";
-import HeaderBar from '../../../components/HeaderBar/HeaderBar.jsx';
 import styles from './statisticTest.module.scss';
 import { provincialOptions, propotionOptions, quarterOptions, predictOptions } from './statisticData.js';
 import 'chart.js/auto';
-import { get } from '../../../services/searchService.js';
-import { Autocomplete, MenuItem, Select, TextField } from '@mui/material';
+import * as API from '../../../services/searchService.js';
 
 const colors = ['#ffa600', '#094780', '#744ec2', '#ef5675', '#16a085'];
 const carTypes = [
@@ -42,12 +40,23 @@ function StatisticCDK() {
 
     //Fetch data from server
     useEffect(() => {
-        get('/trungTamDangKiem/:user/statistic')
-            .then(data => {
-                // Assign the fetched data to the object
-                setStatistic(data);
-            })
-            .catch(error => console.error(error));
+        const fetchData = async () => {
+            const data = await API.get('/trungTamDangKiem/:user/statistic');
+            console.log(data);
+            //oong check data o day
+            setStatistic(data);
+          }
+        fetchData();
+          // call the function
+          
+            // make sure to catch any error
+            
+        
+            // .then(data => {
+            //     // Assign the fetched data to the object
+            //     setStatistic(data);
+            // })
+            // .catch(error => console.error(error));
     }, [])
 
     console.log(statistic);
