@@ -32,6 +32,7 @@ statistic = {
     
 */
 const statistic = async(req,res)=>{
+    console.log(req);
     //If day in record == current day => return entire info
     const contain = await Statistic.findOne({
         date: new Date().toISOString().substring(0,10)

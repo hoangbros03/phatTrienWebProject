@@ -3,7 +3,9 @@ import styles from './ChangePassword.module.scss';
 import classNames from 'classnames/bind';
 import React, { useState, useEffect } from 'react';
 import * as API from '~/services/searchService';
-import { Button, message, Space } from 'antd';
+import {message} from 'antd';
+import { TextField, Typography, Button } from '@mui/material';
+
 const cx = classNames.bind(styles);
 function ChangePassword() {
     const [messageFail, setMessageFail] = useState('');
@@ -45,7 +47,7 @@ function ChangePassword() {
     const warning = (text) => {
         messageApi.open({
             type: 'warning',
-            content: text ,
+            content: text,
         });
     };
     const handleSubmit = async (e) => {
@@ -59,7 +61,7 @@ function ChangePassword() {
             if (response == 'OK') {
                 success();
             } else {
-                
+
                 warning(response.status);
             }
         }
@@ -71,66 +73,85 @@ function ChangePassword() {
 
             <div className={cx('container')}>
                 <form className={cx('form')}>
-                    <div className={cx('title-signup')}>Đổi mật khẩu</div>
+                    <Typography color="primary" variant='h4' mb={3}>
+                        Đổi mật khẩu
+                    </Typography>
+
+                    <Typography variant='body1' color="black" mb={1}>
+                        Điền mật khẩu mới
+                    </Typography>
                     <div className={cx('signup-form')}>
                         <div className={cx('signup-div')}>
-                            <p>{formtext.title1.title}</p>
-                            <input
+                            <TextField
+                                label={formtext.title1.title}
                                 type="text"
-                                className={cx('input')}
-                                placeholder={formtext.title1.sub}
                                 name="user"
                                 value={centerInfor.user}
                                 onChange={handleChange}
                                 required
-                            ></input>
+                                sx={{
+                                    width: "100%",
+                                    marginTop: 3,
+                                    marginBottom: 3
+                                }}
+                            ></TextField>
                         </div>
 
                         <div className={cx('signup-div')}>
-                            <p>{formtext.title2.title}</p>
-                            <input
+                            <TextField
+                                label={formtext.title2.title}
                                 type="password"
-                                className={cx('input')}
                                 placeholder={formtext.title2.sub}
                                 name="oldPassword"
                                 value={centerInfor.oldPassword}
                                 onChange={handleChange}
                                 required
-                            ></input>
+                                sx={{
+                                    width: "100%",
+                                    marginTop: 3,
+                                    marginBottom: 3
+                                }}
+                            ></TextField>
                         </div>
                     </div>
                     <div className={cx('signup-form')}>
                         <div className={cx('signup-div')}>
-                            <p>{formtext.title3.title}</p>
-                            <input
+                            <TextField
+                                label={formtext.title3.title}
                                 type="password"
-                                className={cx('input')}
-                                placeholder={formtext.title3.sub}
                                 name="newPassword"
                                 value={centerInfor.newPassword}
                                 onChange={handleChange}
                                 required
-                            ></input>
+                                sx={{
+                                    width: "100%",
+                                    marginTop: 3,
+                                    marginBottom: 3
+                                }}
+                            ></TextField>
                         </div>
 
                         <div className={cx('signup-div')}>
-                            <p>{formtext.title4.title}</p>
-                            <input
+                            <TextField
+                                label={formtext.title4.title}
                                 type="password"
-                                className={cx('input')}
-                                placeholder={formtext.title4.sub}
                                 name="checkPassword"
                                 value={centerInfor.checkPassword}
                                 onChange={handleChange}
                                 required
-                            ></input>
+                                sx={{
+                                    width: "100%",
+                                    marginTop: 3,
+                                    marginBottom: 3
+                                }}
+                            ></TextField>
                         </div>
                     </div>
 
                     <div className={cx('signup-form')}>
-                        <div className={cx('submit')} onClick={handleSubmit}>
-                            Xác Nhận
-                        </div>
+                        <Button size="large" onClick={handleSubmit}>
+                            Xác nhận
+                        </Button>
                     </div>
                 </form>
             </div>

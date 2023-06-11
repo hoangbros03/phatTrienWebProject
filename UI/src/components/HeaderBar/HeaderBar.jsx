@@ -131,8 +131,10 @@ function HeaderBar() {
     }, []);
 
     const handleLogout = async () => {
-        console.log("KKK")
-        await dispatch(requestLogout())
+        dispatch(requestLogout());
+        setTimeout(function(){
+            window.location.reload();
+         }, 100);
     }
 
     const navHeight = 64;
@@ -202,12 +204,10 @@ function HeaderBar() {
                         }}>Đăng nhập</Button>
                     </Link>
                 ) : (
-                    <Link to="/login">
-                        <Button variant="text" onClick={handleLogout} href="/login" sx={{
+                        <Button variant="text" onClick={handleLogout}  sx={{
                             borderRadius: '5px',
                             mx: 10
                         }}>Đăng xuất</Button>
-                    </Link>
                 )}
             </Stack>
         </Box>

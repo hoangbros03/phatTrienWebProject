@@ -51,8 +51,8 @@ const router = createBrowserRouter(
                     <Route path="newRegistryCar" element={<NewRegistryCar />} />
                     <Route path="lookup" element={<SearchCar />} />
                     <Route path="carlist" element={<CarList />} />
-                    <Route path="carlist" element={<CarList/>} />
                     <Route path="changepassword" element={<ChangePassword/>} />
+                    <Route path="statistic" element={<StatisticCDK />} />
                 </Route>
             </Route>
             <Route path="*" element={<Error />} />

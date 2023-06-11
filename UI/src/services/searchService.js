@@ -25,8 +25,9 @@ httpRequest.interceptors.response.use(
     (response) => {
         return response;
     }, async function (error) {
+        // console.log(error)
         const originalRequest = error.config;
-        if (error.response.status === 401 && !originalRequest._retry) {
+        if (error?.response?.status === 401 && !originalRequest._retry) {
           originalRequest._retry = true;
           const response = await store.dispatch(requestRefresh());  
             console.log(response)
@@ -37,11 +38,14 @@ httpRequest.interceptors.response.use(
       });
       
 export const get = async (path, options = {}) => {
+    console.log("ÁDASD")
     const respone = await httpRequest
         .get(path, options)
-        .then((res) => (res))
-        .catch((error) => console.error(error));
-    return respone.data;
+        .then((res) => {
+            console.log(res)
+            return res;})
+        .catch((error) => console.log(error));
+    return respone?.data;
 };
 export const searchCar = async (searchPath, parameters = {}, object = {}) => {
     try {

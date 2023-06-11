@@ -15,19 +15,23 @@ function Login() {
     const user = useSelector((state) => state.auth);
     const dispatch = useDispatch();
     const [messageApi, contextHolder] = message.useMessage();
+    const [status, setStatus] = useState("unsent");
+
     const success = () => {
         messageApi.open({
             type: 'success',
             content: 'Bạn đã đăng nhập thành công',
         });
+        setStatus("success");
     };
     const error = () => {
         messageApi.open({
             type: 'warning',
             content: 'Bạn đã đăng nhập thất bại, vui lòng thử lại',
         });
+        setStatus("failure");
     };
-    const [login, setLogin] = useState({ user: 'placeholder', password: '12345', role: '3000' });
+    const [login, setLogin] = useState({ user: '', password: '', role: '3000' });
     const [respone, setReponse] = useState({ user: '', status: false, type: '', message: '' });
     const [name, setName] = useState('');
     const [pass, setPass] = useState('');
@@ -79,28 +83,23 @@ function Login() {
         }
     };
 
-    useEffect(() => {
-        console.log(login);
-        dispatch(requestLogin({ ...login }));
-        let user = store.getState().auth;
-        if (user.accesstoken != null) {
-            success();
-            setTimeout(
-                () => navigate(`../${user.role == 3000 ? 'trungtamdangkiem' : 'cucdangkiem'}/${user.user}`),
-                700,
-            );
-        }
-        else {
-            error();
-        }
-    }, [login])
-    
-
     const dumb = () => {
-        setLogin({...login, user: name, password: pass, role: roleCheck});
-    }
+        const loginData = { user: name, password: pass, role: roleCheck };
+        dispatch(requestLogin(loginData))
+          .then(() => {
+            const user = store.getState().auth;
+            if (user.accessToken !== null) {
+              success();
+              setTimeout(() => navigate(`../${user.role == 3000 ? 'trungtamdangkiem' : 'cucdangkiem'}/${user.user}`), 700);
+            } else {
+              error();
+            }
+          })
+          .catch(() => {
+            error();
+          });
+      };
 
-    const [method, setMethod] = useState('email');
 
     return (
         // <div className={cx('wrapper')}>
@@ -224,6 +223,7 @@ function Login() {
                                 >
                                     Trở lại trang chủ
                                 </Button>
+
                                 <Alert
                                     color="primary"
                                     severity="info"

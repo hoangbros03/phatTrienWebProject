@@ -1,12 +1,10 @@
 import React from 'react';
 import { Pie, Bar, Line } from 'react-chartjs-2';
 import { useState, useEffect } from "react";
-import HeaderBar from '../../../components/HeaderBar/HeaderBar.jsx';
 import styles from './statisticTest.module.scss';
 import { provincialOptions, propotionOptions, quarterOptions, predictOptions } from './statisticData.js';
 import 'chart.js/auto';
-import { get } from '../../../services/searchService.js';
-import { Autocomplete, MenuItem, Select, TextField } from '@mui/material';
+import * as API from '../../../services/searchService.js';
 
 const colors = ['#ffa600', '#094780', '#744ec2', '#ef5675', '#16a085'];
 const carTypes = [
@@ -22,35 +20,45 @@ const carTypes = [
 function StatisticCDK() {
     const [statistic, setStatistic] = useState({
         propotion: {
-            data: []
+            data: [30000, 5000, 1000, 6000, 4000]
         },
         topProvinces: {
-            provinces: [],
-            data: []
+            provinces: ["TP Hồ Chí Minh", "Hà Nội", "Hải Phòng", "Đà Nẵng", "Quảng Ninh", "Cần Thơ", "Bắc Ninh"],
+            data: [1000, 600, 350, 100, 100, 80, 10]
         },
         quarter: {
-            quarter: [],
+            quarter: ["Q2 2021", "Q3 2021", "Q4 2021", "Q1 2022", "Q2 2022", "Q3 2022", "Q4 2022", "Q1 2023"],
             data: [
-                [],
-                [],
-                [],
-                [],
-                []
+                [2350, 2495, 2507, 2417, 2619, 2845, 2711, 2940],
+                [1312, 1487, 1561, 1424, 1561, 1790, 1641, 1745],
+                [307, 426, 590, 414, 691, 736, 726, 810],
+                [342, 416, 569, 425, 641, 887, 671, 895],
+                [1368, 1485, 1571, 1420, 1541, 1893, 1619, 1817]
             ]
-        },
+        }
     });
 
-    //Fetch data from server
-    useEffect(() => {
-        get('/trungTamDangKiem/:user/statistic')
-            .then(data => {
-                // Assign the fetched data to the object
-                setStatistic(data);
-            })
-            .catch(error => console.error(error));
-    }, [])
+    // //Fetch data from server
+    // useEffect(() => {
+    //     const res = async () => {
+    //         (async () => {
+    //             const response = await API.get("/trungTamDangKiem/:user/statistic")
+    //             console.log("KKKK");
+    //         //oong check data o day
+    //         console.log(response);
+    //         setStatistic(response);
+    //         })();
+    //     };
+    //     res()
+    //     // const fetchData = async () => {
+    //     //     const data = await API.get('/trungTamDangKiem/:user/statistic');
+            
+    //     //   }
+    //     // fetchData();
+          
+    // }, [])
 
-    console.log(statistic);
+    
 
     //Config data for Car's propotion chart
     const propotionData = {
@@ -66,7 +74,7 @@ function StatisticCDK() {
 
     //Config data for provincial chart
     const provincialData = {
-        labels: statistic.topProvinces.province,
+        labels: statistic.topProvinces.provinces,
         datasets: [{
             label: 'Số lượng xe đăng kiểm',
             backgroundColor: '#094780',
@@ -74,7 +82,7 @@ function StatisticCDK() {
         }]
     }
 
-    console.log(statistic.topProvinces.provinces)
+    // console.log(statistic.topProvinces.provinces)
 
     const quarterData = {
         labels: statistic.quarter.quarter,

@@ -18,6 +18,7 @@
     background-size: contain auto;
     background-position: center bottom;
     position: relative;
+    margin-top: 150px;
 }
 .respone{
     background-size: 60% 60%;
@@ -62,10 +63,10 @@
 }
 .signup-div{
     flex: 1;
+    margin-top: 30px;
     p{
         font-size: 2rem;
-        font-weight: 100;
-        margin-top: 2rem;
+        font-weight: 100;    
     }
     .input{
         margin-top: 1rem;
