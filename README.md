@@ -78,6 +78,7 @@ REFRESH_TOKEN_SECRET //for auth purposes
 SERVER_URL
 SECRET_KEY_INIT
 DEFAULT_PASSWORD_TTDK_CREATION
+SECRET_SUPER_USER 
 ```
 
 Remember to place it inside 'server' folder
@@ -85,10 +86,8 @@ Remember to place it inside 'server' folder
 
 <<todo: add usage>>
 ## Citations
-There are resources that helpful:
+This is the link to the lecturer's project description:
  - [RegistryTotal](https://itest.com.vn/lects/webappdev/mockproj/registry-total.htm)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
-
 
 
 ## Demo
