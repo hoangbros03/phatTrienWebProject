@@ -10,7 +10,7 @@ const statisticController = require('../../controllers/statisticController');
 const predictController = require('../../controllers/predictController');
 const verifyJWT = require('../../middleware/verifyJWT')
 
-//TODO: Add verify roles add other API, currently just for testing purpose.
+
 
 // router.use(verifyJWT)
 
@@ -18,36 +18,50 @@ const verifyJWT = require('../../middleware/verifyJWT')
 
 //BIG TODO: Change router also ON ALL CONTROLLERS
 router.route('/:user/createCar')
+    .all(verifyJWT)
     .post(carsController.createCar);
 router.route('/:user/searchCar')
+    .all(verifyJWT)
     .post(carsController.searchCar)
 router.route('/:user/carList')
+    .all(verifyJWT)
     .post(carsController.getCarsList);
 router.route('/:user/deleteCar')
+    .all(verifyJWT)
     .delete(carsController.deleteCar);
 router.route('/:user/carSpec')
+    .all(verifyJWT)
     .post(carsController.createCarSpecification);
 router.route('/:user/databaseManagement/export')
+    .all(verifyJWT)
     .post(carsController.exportCars);
 router.route('/:user/databaseManagement/import')
+    .all(verifyJWT)
     .post(carsController.uploadDB);
 router.route('/:user/getCenters')
+    .all(verifyJWT)
     .post(centerController.getCenters);
 router.route('/:user/changeInformation')
+    .all(verifyJWT)
     .patch(centerController.changePasswordCenter);
 router.route('/:user/statistic(/:reCalc)?')
+    .all(verifyJWT)
     .get(statisticController.statistic);
 router.route('/:user/predict')
+    .all(verifyJWT)
     .post(predictController.predict);
 router.route('/:user/newRegistry')
+    .all(verifyJWT)
     .post(centerController.addRegistry);
 
 //TODO: Handle when :licensePlate have character "."
 router.route('/:user/car/update')
+    .all(verifyJWT)
     .patch(humanRelevantController.updateInformation);
 
 //Get:Car specific;
 router.route('/:user/getSpecificCar')
+    .all(verifyJWT)
     .get(carsController.getSpecificCar);
 
 

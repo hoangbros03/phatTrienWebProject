@@ -2,6 +2,7 @@ server/node_modules
 server/package-lock.json
 server/.env
 server/combinedError.log
+
 server/combinedNormal.log
 UI/node_modules
 node_modules
