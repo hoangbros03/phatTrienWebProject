@@ -1,9 +1,7 @@
-import { Outlet } from "react-router-dom";
 import * as React from 'react';
 import styles from "./RegisterDetail.module.scss";
 import classNames from 'classnames/bind';
 import { useState } from "react";
-import { Close } from '~/components/Icons';
 import { Typography } from "@mui/material";
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
