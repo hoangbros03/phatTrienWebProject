@@ -3,8 +3,10 @@ import styles from './Cardetail.module.scss';
 import classNames from 'classnames/bind';
 import React, { useState, useEffect } from 'react';
 import { SearchIcon, Close } from '~/components/Icons';
-import { message, Popover, Button } from 'antd';
+import { message, Popover } from 'antd';
 import * as API from '~/services/searchService';
+import { TextField, Typography, Button } from '@mui/material';
+
 const cx = classNames.bind(styles);
 function CarDetail({ carInfor, setDisplayDetail, setCarInfor }) {
     const [messageApi, contextHolder] = message.useMessage();
@@ -61,26 +63,27 @@ function CarDetail({ carInfor, setDisplayDetail, setCarInfor }) {
             setDisplayDetail(false);
         }, 700);
     };
-    const update_ = async() => {
+    const update_ = async () => {
         console.log(carUpdate);
         const respone = await API.patch(
             `trungTamDangKiem/${user}/car/update`,
-            { ...carUpdate},
+            { ...carUpdate },
         );
         console.log(respone);
-        if(respone.status==="ok")
-        {successUpdate();
-        setOpenUpdate(false);
-        setTimeout(() => {
-            setDisplayDetail(false);
-        }, 700);}
+        if (respone.status === "ok") {
+            successUpdate();
+            setOpenUpdate(false);
+            setTimeout(() => {
+                setDisplayDetail(false);
+            }, 700);
+        }
         else failUpdate()
     };
     const [carUpdate, setCarUpdate] = useState({
         organization: carInfor?.carOwner?.organization,
         ownerName: carInfor?.carOwner?.name,
         regionName: carInfor?.regionName,
-        address: carInfor?.carOwner?.address||"Việt Nam",
+        address: carInfor?.carOwner?.address || "Việt Nam",
         ID: carInfor?.carOwner?.ID,
         byPass: true,
         licensePlate: carInfor?.licensePlate,
@@ -101,28 +104,30 @@ function CarDetail({ carInfor, setDisplayDetail, setCarInfor }) {
     const handleChangeEdit = () => {
         setisEditable(!isEditable);
     };
-    
+
     //legacy in register detail
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setCarUpdate({...carUpdate,[name]:value})
+        setCarUpdate({ ...carUpdate, [name]: value })
     };
-    const handleCheck = (event) =>{
-        setCarUpdate({...carUpdate,organization:!carUpdate.organization })
+    const handleCheck = (event) => {
+        setCarUpdate({ ...carUpdate, organization: !carUpdate.organization })
     }
     return (
         <div className={cx('wrapper')}>
             {contextHolder}
             <div className={cx('container')}>
                 <div className={cx('icon_close')} onClick={handleClose}>
-                    <Close width={'2.4rem'} height={'2.4rem'} />
+                    <Button onClick={handleClose}>Đóng</Button>
                 </div>
-                <div className={cx('title_info')}>{`Thông tin phương tiện ${carInfor?.licensePlate}`}</div>
+                <Typography variant="h4" color="primary" mb={3}>{`Thông tin phương tiện ${carInfor?.licensePlate}`}</Typography>
                 <div className={cx('content')}>
                     <div className={cx('info')}>
-                        Biển số xe
-                        <input
-                            disabled={!isEditable}
+                        <Typography variant='body1'>Biển số xe</Typography>
+                        <TextField variant='outlined'
+                            InputProps={{
+                                readOnly: !isEditable,
+                            }}
                             className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
                             onInput={handleChange}
                             name="licensePlateNew"
@@ -130,9 +135,11 @@ function CarDetail({ carInfor, setDisplayDetail, setCarInfor }) {
                         />
                     </div>
                     <div className={cx('info')}>
-                        Chủ sở hữu
-                        <input
-                            disabled={!isEditable}
+                        <Typography>Chủ sở hữu</Typography>
+                        <TextField variant='outlined'
+                            InputProps={{
+                                readOnly: !isEditable,
+                            }}
                             className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
                             name="ownerName"
                             onInput={handleChange}
@@ -140,9 +147,11 @@ function CarDetail({ carInfor, setDisplayDetail, setCarInfor }) {
                         />
                     </div>
                     <div className={cx('info')}>
-                        Số CMND
-                        <input
-                            disabled={!isEditable}
+                        <Typography>Số CMND</Typography>
+                        <TextField variant='outlined'
+                            InputProps={{
+                                readOnly: !isEditable,
+                            }}
                             className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
                             name="ID"
                             onInput={handleChange}
@@ -150,9 +159,11 @@ function CarDetail({ carInfor, setDisplayDetail, setCarInfor }) {
                         />
                     </div>
                     <div className={cx('info')}>
-                        Tỉnh
-                        <input
-                            disabled={!isEditable}
+                        <Typography>Tỉnh</Typography>
+                        <TextField variant='outlined'
+                            InputProps={{
+                                readOnly: !isEditable,
+                            }}
                             className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
                             name="regionName"
                             onInput={handleChange}
@@ -160,51 +171,62 @@ function CarDetail({ carInfor, setDisplayDetail, setCarInfor }) {
                         />
                     </div>
                     <div className={cx('info')}>
-                        Hãng xe
-                        <input className={cx('input')} disabled={true} value={`${carInfor?.type ? 'Mec' : 'Xe cỏ'}`} />
+                        <Typography>Hãng xe</Typography>
+                        <TextField variant='outlined' className={cx('input')} InputProps={{
+                            readOnly: true,
+                        }} value={`${carInfor?.type ? 'Mec' : 'Xe cỏ'}`} />
                     </div>
                     <div className={cx('info')}>
-                        Dòng xe
-                        <input className={cx('input')} disabled={true} value={`${carInfor?.carSpecification?.type}`} />
+                        <Typography>Dòng xe</Typography>
+                        <TextField variant='outlined' className={cx('input')} InputProps={{
+                            readOnly: true,
+                        }} value={`${carInfor?.carSpecification?.type}`} />
                     </div>
                     <div className={cx('info')}>
-                        Phiên bản
-                        <input className={cx('input')} disabled={true} value={`${carInfor?.version}`} />
+                        <Typography>Phiên bản</Typography>
+                        <TextField variant='outlined' className={cx('input')} InputProps={{
+                            readOnly: true,
+                        }} value={`${carInfor?.version}`} />
                     </div>
                     <div className={cx('info')}>
-                        Ngày đăng kí
-                        <input
+                        <Typography>Ngày đăng kí</Typography>
+                        <TextField variant='outlined'
                             className={cx('input')}
-                            disabled={true}
-                            value={`${
-                                carInfor?.registrationInformation?.dateOfIssue
-                                    ? new Date(carInfor.registrationInformation.dateOfIssue).toISOString().slice(0, 10)
-                                    : 'Chưa rõ'
-                            }`}
+                            InputProps={{
+                                readOnly: true,
+                            }}
+                            value={`${carInfor?.registrationInformation?.dateOfIssue
+                                ? new Date(carInfor.registrationInformation.dateOfIssue).toISOString().slice(0, 10)
+                                : 'Chưa rõ'
+                                }`}
                         />
                     </div>
                     <div className={cx('info')}>
-                        Ngày hết hạn
-                        <input
+                        <Typography>Ngày hết hạn</Typography>
+                        <TextField variant='outlined'
                             className={cx('input')}
-                            disabled={true}
-                            value={`${
-                                carInfor?.registrationInformation?.dateOfExpiry
-                                    ? new Date(carInfor.registrationInformation.dateOfExpiry).toISOString().slice(0, 10)
-                                    : 'Chưa rõ'
-                            }`}
+                            InputProps={{
+                                readOnly: true,
+                            }}
+                            value={`${carInfor?.registrationInformation?.dateOfExpiry
+                                ? new Date(carInfor.registrationInformation.dateOfExpiry).toISOString().slice(0, 10)
+                                : 'Chưa rõ'
+                                }`}
                         />
                     </div>
                     <div className={cx('info')}>
-                        Xe công vụ
-                        <input
-                            disabled={!isEditable}
+                        <Typography>Xe công vụ</Typography>
+                        <TextField variant='outlined'
+                            InputProps={{
+                                readOnly: !isEditable,
+                            }}
                             className={cx(`${isEditable === true ? 'edit' : ''}`, 'input')}
                             value={carUpdate.organization == true ? 'Có' : 'Không'}
                             onClick={handleCheck}
                         />
                     </div>
-                    <div className={cx('option')}>
+                </div>
+                <div className={cx('option')}>
                         {isEditable === true ? (
                             <Popover
                                 content={<a onClick={update_}>Xác Nhận</a>}
@@ -213,12 +235,14 @@ function CarDetail({ carInfor, setDisplayDetail, setCarInfor }) {
                                 title="Bạn có chắc là muốn cập nhật"
                                 trigger="click"
                             >
-                                <div className={cx('button')}>Cập nhật</div>
+                                <Button variant="contained">
+                                    Cập nhật
+                                </Button>
                             </Popover>
                         ) : (
-                            <div className={cx('button', 'active')} onClick={handleChangeEdit}>
-                                Thay đổi thông Tin
-                            </div>
+                            <Button variant="contained" onClick={handleChangeEdit}>
+                                Thay đổi thông tin
+                            </Button>
                         )}
 
                         <Popover
@@ -228,10 +252,9 @@ function CarDetail({ carInfor, setDisplayDetail, setCarInfor }) {
                             title="Bạn có chắc là muốn xóa"
                             trigger="click"
                         >
-                            <div className={cx('button')}>Xóa</div>
+                            <Button>Xóa</Button>
                         </Popover>
                     </div>
-                </div>
             </div>
         </div>
     );

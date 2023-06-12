@@ -15,7 +15,6 @@
     width: 90%;
     background-color: #fff;
     border-radius: 16px;
-    color: #5964ae;
 }
 .icon_close {
     position: absolute;
@@ -33,43 +32,20 @@
     flex-wrap: wrap;
     justify-content: space-around;
     }
+
 .info{
-    font-size: 2rem;
     padding-top: 2%;
     display: grid ;
     grid-template-columns: 1fr 1fr;
     width: 40%;
-}
-.edit
-{
-    border: 1px solid #2f3453;
-    border-radius: 8px;
-
+    align-items: center;
 }
 
 .option{
-    position: absolute;
-    bottom:50px;
-    right: 200px;
-    display: flex;
-    min-width:300px;
-    justify-content: space-between;
-    
+    text-align: center;
+    margin-top: 50px;
 }
 
-.button{
-    background-color:  #eff3f9;
-    border-radius: 8px;
-    align-items: center;
-    line-height: 4rem;
-    padding: 0 10px 0 10px;
-    text-align: center;
-    &:hover{color: #fff;
-        background-color: #5964ae;
-        cursor: pointer;
-    }
-    
-}
 .option  {
     .button:first-child{
       min-width: 150px;

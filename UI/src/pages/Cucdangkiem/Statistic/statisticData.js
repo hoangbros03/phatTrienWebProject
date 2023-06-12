@@ -1,6 +1,6 @@
 const propotionOptions = {
     responsive: true,
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
     plugins: {
         title: {
             display: true,
@@ -11,9 +11,9 @@ const propotionOptions = {
 
 
 const provincialOptions = {
+    maintainAspectRatio: false,
     responsive: true,
     indexAxis: 'y', 
-    maintainAspectRatio: true,
     scales: {
         yAxes: [{
             ticks: {
@@ -32,7 +32,7 @@ const provincialOptions = {
 
 const quarterOptions = {
     responsive: true,
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
     plugins: {
         title: {
             display: true,
@@ -42,6 +42,7 @@ const quarterOptions = {
 }
 
 const predictOptions = {
+    maintainAspectRatio: false,
     scales: {
         y: {
           beginAtZero: true,
