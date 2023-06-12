@@ -20,11 +20,11 @@ const carTypes = [
 function StatisticCDK() {
     const [statistic, setStatistic] = useState({
         propotion: {
-            data: [30000, 5000, 1000, 6000, 4000]
+            data: [32510, 5127, 1233, 6561, 4152]
         },
         topProvinces: {
             provinces: ["TP Hồ Chí Minh", "Hà Nội", "Hải Phòng", "Đà Nẵng", "Quảng Ninh", "Cần Thơ", "Bắc Ninh"],
-            data: [1000, 600, 350, 100, 100, 80, 10]
+            data: [1624, 745, 451, 102, 101, 95, 12]
         },
         quarter: {
             quarter: ["Q2 2021", "Q3 2021", "Q4 2021", "Q1 2022", "Q2 2022", "Q3 2022", "Q4 2022", "Q1 2023"],
