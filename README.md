@@ -82,24 +82,14 @@ SECRET_SUPER_USER
 ```
 
 Remember to place it inside 'server' folder
-## Usage
-
-<<todo: add usage>>
-## Citations
-This is the link to the lecturer's project description:
- - [RegistryTotal](https://itest.com.vn/lects/webappdev/mockproj/registry-total.htm)
-
-
-## Demo
-
-<<Todo: add demo>>
 
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://i.ibb.co/YRhM0Vy/350100501-1370518287140973-5942105399019447346-n.png)
 
-<<todo: Add screenshot>>
+![App Screenshot](https://i.ibb.co/cQtBMxc/353819452-647969673446619-8428675071521529552-n.png)
+
 
 
 ## Authors
@@ -111,13 +101,18 @@ This is the link to the lecturer's project description:
 
 ## Contributing
 
-Trần Bá Hoàng: Create 90% of the APIs and ensure they are logic error-free, handle the back-end with ExpressJS and NodeJS, design and setting Database with documents (something like table in SQL), create the middlewares, generate big data for DB, deploy to URL that can access online.
+Trần Bá Hoàng: Create 90% of the APIs and ensure they are logic error-free, handle the back-end with ExpressJS and NodeJS, design and setting Database with documents (something like table in SQL), create the middlewares, generate big data for DB.
 
 Nguyễn Văn Hùng: Test the APIs, handle the front-end with ReactJS, routing the website; create car tracking features, car searching, and renewal registration. Make website reload optimally, handle the authentication and authorization.
 
 Lê Quý Dương: Test the APIs, design all the assets for website, handle the front-end with ReactJS, design and create statistic and prediction features. Fix the UI to look glance and responsive.
 
 Percentage (approximately): 33%/33%/33%
+
+## Citations
+This is the link to the lecturer's project description:
+ - [RegistryTotal](https://itest.com.vn/lects/webappdev/mockproj/registry-total.htm)
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
